@@ -137,6 +137,7 @@ void initializeInstructionCombiningPassPass(PassRegistry&);
 void initializeInstructionSelectPass(PassRegistry&);
 void initializeInterleavedAccessPass(PassRegistry&);
 void initializeInterleavedLoadCombinePass(PassRegistry &);
+void initializeIPRAPostRAAnalysisPass(PassRegistry &);
 void initializeJMCInstrumenterPass(PassRegistry&);
 void initializeKCFIPass(PassRegistry &);
 void initializeLCSSAVerificationPassPass(PassRegistry&);
