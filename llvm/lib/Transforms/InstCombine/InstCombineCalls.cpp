@@ -4054,6 +4054,15 @@ Instruction *InstCombinerImpl::visitCallBase(CallBase &Call) {
         // not actually end up matching the implementation's calling conv for a
         // variety of reasons (e.g. it may be written in assembly).
         !CalleeF->isDeclaration()) {
+      fprintf(stderr, "This is the error place!\n");
+      fprintf(stderr, "Callee is using PreserveNone: %d\n",
+              (CalleeF->getCallingConv() == llvm::CallingConv::PreserveNone));
+      fprintf(stderr, "Callee is declaration: %d\n", CalleeF->isDeclaration());
+      fprintf(stderr, "Call is using PreserveNone: %d\n",
+              (Call.getCallingConv() == llvm::CallingConv::PreserveNone));
+      fprintf(stderr, "Call: >>>\n");
+      Call.dump();
+      fprintf(stderr, "<<<\n");
       Instruction *OldCall = &Call;
       CreateNonTerminatorUnreachable(OldCall);
       // If OldCall does not return void then replaceInstUsesWith poison.

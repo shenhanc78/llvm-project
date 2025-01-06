@@ -63,6 +63,7 @@
 #include "llvm/Transforms/IPO/IROutliner.h"
 #include "llvm/Transforms/IPO/InferFunctionAttrs.h"
 #include "llvm/Transforms/IPO/Inliner.h"
+#include "llvm/Transforms/IPO/IPRAPreRAAnalysis.h"
 #include "llvm/Transforms/IPO/LowerTypeTests.h"
 #include "llvm/Transforms/IPO/MemProfContextDisambiguation.h"
 #include "llvm/Transforms/IPO/MergeFunctions.h"
@@ -238,6 +239,11 @@ static cl::opt<bool> EnableIROutliner("ir-outliner", cl::init(false),
 static cl::opt<bool>
     DisablePreInliner("disable-preinline", cl::init(false), cl::Hidden,
                       cl::desc("Disable pre-instrumentation inliner"));
+
+
+static cl::opt<bool>
+    EnableIPRAPreRAAnalysis("enable-ipra-prera-analysis", cl::init(false), cl::Hidden,
+                        cl::desc("Enable IPRA PreRA Analysis Pass"));
 
 static cl::opt<int> PreInlineThreshold(
     "preinline-threshold", cl::Hidden, cl::init(75),
@@ -1081,6 +1087,8 @@ PassBuilder::buildModuleSimplificationPipeline(OptimizationLevel Level,
   assert(Phase != ThinOrFullLTOPhase::FullLTOPostLink &&
          "FullLTOPostLink shouldn't call buildModuleSimplificationPipeline!");
 
+  // dbgs() << "In Build Module Simplification Pipeline\n";
+
   ModulePassManager MPM;
 
   // Place pseudo probe instrumentation as the first pass of the pipeline to
@@ -1288,6 +1296,13 @@ PassBuilder::buildModuleSimplificationPipeline(OptimizationLevel Level,
     MPM.addPass(buildModuleInlinerPipeline(Level, Phase));
   else
     MPM.addPass(buildInlinerPipeline(Level, Phase));
+
+  // Add "preserve_none" to hot entry block function declarations and
+  // definitions.
+  if (EnableIPRAPreRAAnalysis && Phase == ThinOrFullLTOPhase::ThinLTOPostLink) {
+    // dbgs() << "Adding IPRAPreRA Analysis at point 1\n";
+    MPM.addPass(IPRAPreRAAnalysisPass());
+  }
 
   // Remove any dead arguments exposed by cleanups, constant folding globals,
   // and argument promotion.
@@ -1846,6 +1861,8 @@ PassBuilder::buildLTODefaultPipeline(OptimizationLevel Level,
                                      ModuleSummaryIndex *ExportSummary) {
   ModulePassManager MPM;
 
+  // dbgs() << "In build LTO Default Pipeline\n";
+
   invokeFullLinkTimeOptimizationEarlyEPCallbacks(MPM, Level);
 
   // Create a function that performs CFI checks for cross-DSO calls with targets
@@ -2002,6 +2019,13 @@ PassBuilder::buildLTODefaultPipeline(OptimizationLevel Level,
         /* MandatoryFirst */ true,
         InlineContext{ThinOrFullLTOPhase::FullLTOPostLink,
                       InlinePass::CGSCCInliner}));
+  }
+
+  // Add "preserve_none" to hot entry block function declarations and
+  // definitions.
+  if (EnableIPRAPreRAAnalysis) {
+    // dbgs() << "Adding IPRAPreRA Analysis at point 2\n";
+    MPM.addPass(IPRAPreRAAnalysisPass());
   }
 
   // Perform context disambiguation after inlining, since that would reduce the
@@ -2242,7 +2266,7 @@ PassBuilder::buildO0DefaultPipeline(OptimizationLevel Level,
   // code generation.
   MPM.addPass(AlwaysInlinerPass(
       /*InsertLifetimeIntrinsics=*/false));
-
+  
   if (PTO.MergeFunctions)
     MPM.addPass(MergeFunctionsPass());
 

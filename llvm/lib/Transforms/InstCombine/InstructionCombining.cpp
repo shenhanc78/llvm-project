@@ -131,6 +131,8 @@ STATISTIC(NumReassoc  , "Number of reassociations");
 DEBUG_COUNTER(VisitCounter, "instcombine-visit",
               "Controls which instructions are visited");
 
+static int shenhan=0;
+
 static cl::opt<bool>
 EnableCodeSinking("instcombine-code-sinking", cl::desc("Enable code sinking"),
                                               cl::init(true));
@@ -5208,6 +5210,12 @@ bool InstCombinerImpl::run() {
     if (!DebugCounter::shouldExecute(VisitCounter))
       continue;
 
+    // if (shenhan) {
+    //   fprintf(stderr, "insn [%d]: >>>\n", shenhan);
+    //   I->dump();
+    //   fprintf(stderr, "insn [%d]: finished\n", shenhan++);
+    // }
+
     // See if we can trivially sink this instruction to its user if we can
     // prove that the successor is not executed more frequently than our block.
     // Return the UserBlock if successful.
@@ -5357,6 +5365,7 @@ bool InstCombinerImpl::run() {
   }
 
   Worklist.zap();
+  shenhan = 0;
   return MadeIRChange;
 }
 
@@ -5577,6 +5586,13 @@ static bool combineInstructionsOverFunction(
   auto &DL = F.getDataLayout();
   bool VerifyFixpoint = Opts.VerifyFixpoint &&
                         !F.hasFnAttribute("instcombine-no-verify-fixpoint");
+
+  if (F.getName() == "_ZN8bigtable11CPApplyPoolINS_9ApplyPool7ElementENS_15ApplyPoolResultEEC2ENSt3__u17basic_string_viewIcNS5_11char_traitsIcEEEES9_RKNS_7OptionsElPN6thread8ExecutorEdRKNS_20InternalCoprocParamsE") {
+    shenhan = 1;
+    // F.dump();
+  } else {
+    shenhan = 0;
+  }
 
   /// Builder - This is an IRBuilder that automatically inserts new
   /// instructions into the worklist when they are created.

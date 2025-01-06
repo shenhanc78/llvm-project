@@ -66,6 +66,7 @@ namespace llvm {
   MachineFunctionPass *createBasicBlockSectionsPass();
 
   MachineFunctionPass *createBasicBlockPathCloningPass();
+  MachineFunctionPass *createIPRAPostRAAnalysisPass();
 
   /// createMachineFunctionSplitterPass - This pass splits machine functions
   /// using profile information.

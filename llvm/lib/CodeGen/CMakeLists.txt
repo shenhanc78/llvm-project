@@ -34,6 +34,7 @@ add_llvm_component_library(LLVMCodeGen
   BreakFalseDeps.cpp
   BasicBlockSections.cpp
   BasicBlockPathCloning.cpp
+  IPRAPostRAAnalysis.cpp
   BasicBlockSectionsProfileReader.cpp
   CalcSpillWeights.cpp
   CallBrPrepare.cpp
