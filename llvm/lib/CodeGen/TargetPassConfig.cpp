@@ -60,6 +60,8 @@ static cl::opt<bool>
     EnableIPRA("enable-ipra", cl::init(false), cl::Hidden,
                cl::desc("Enable interprocedural register allocation "
                         "to reduce load/store at procedure calls."));
+static cl::opt<bool> EnableIPRAPostRAAnalysis("enable-ipra-postra-analysis",
+    cl::init(false), cl::Hidden, cl::desc("Post RA Analysis"));
 static cl::opt<bool> DisablePostRASched("disable-post-ra", cl::Hidden,
     cl::desc("Disable Post Regalloc Scheduler"));
 static cl::opt<bool> DisableBranchFold("disable-branch-fold", cl::Hidden,
@@ -1273,6 +1275,10 @@ void TargetPassConfig::addMachinePasses() {
   }
 
   addPostBBSections();
+
+  // Enable Pass to analyze Register Usage Info.
+  if (EnableIPRAPostRAAnalysis)
+    addPass(llvm::createIPRAPostRAAnalysisPass());
 
   if (!DisableCFIFixup && TM->Options.EnableCFIFixup)
     addPass(createCFIFixup());

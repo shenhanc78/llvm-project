@@ -162,6 +162,10 @@ bool ProfileSummaryInfo::hasLargeWorkingSetSize() const {
 }
 
 bool ProfileSummaryInfo::isHotCount(uint64_t C) const {
+  // if (HotCountThreshold && *HotCountThreshold != 885) {
+  //   fprintf(stderr, "IsHotCount::HotCountThreshold=%lu\n",
+  //   *HotCountThreshold);
+  // }
   return HotCountThreshold && C >= *HotCountThreshold;
 }
 

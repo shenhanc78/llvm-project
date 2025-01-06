@@ -26,7 +26,6 @@ include "X86InstrOperands.td"
 // X86 Predicate Definitions.
 //
 include "X86InstrPredicates.td"
-
 //===----------------------------------------------------------------------===//
 // X86 Instruction Format Definitions.
 //
