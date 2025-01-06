@@ -256,6 +256,15 @@ static bool markTails(Function &F, OptimizationRemarkEmitter *ORE) {
                           {LLVMContext::OB_clang_arc_attachedcall,
                            LLVMContext::OB_ptrauth, LLVMContext::OB_kcfi});
 
+      if (CI->getCalledFunction() != nullptr &&
+          CI->getCalledFunction()->getName() ==
+              "_ZN7spanner23MultiRowMutationEncoder12AppendDeleteENS_"
+              "28StringTypeWithOptionalCrc32CINSt3__u17basic_string_viewIcNS2_"
+              "11char_traitsIcEEEEEElS6_") {
+        fprintf(stderr, "IPRA(dbg): the function is no tail call: %d\n",
+                CI->isNoTailCall());
+      }
+
       if (!IsNoTail && CI->doesNotAccessMemory()) {
         // A call to a readnone function whose arguments are all things computed
         // outside this function can be marked tail. Even if you stored the
