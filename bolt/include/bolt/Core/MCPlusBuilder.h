@@ -32,6 +32,7 @@
 #include "llvm/Support/ErrorHandling.h"
 #include "llvm/Support/ErrorOr.h"
 #include "llvm/Support/RWMutex.h"
+#include "bolt/Core/BinaryBasicBlock.h"
 #include <cassert>
 #include <cstdint>
 #include <map>
