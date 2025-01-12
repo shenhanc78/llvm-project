@@ -345,9 +345,19 @@ BinaryFunction::eraseInvalidBBs(const MCCodeEmitter *Emitter) {
   for (BinaryBasicBlock *const BB : BasicBlocks) {
     if (!BB->isValid()) {
       assert(!isEntryPoint(*BB) && "all entry blocks must be valid");
-      InvalidBBs.insert(BB);
-      ++Count;
-      Bytes += BC.computeCodeSize(BB->begin(), BB->end(), Emitter);
+
+      std::string labelName = BB->getLabel()->getName().str();
+
+      if (labelName.find("ret_") == std::string::npos &&
+          labelName.find("outline_") == std::string::npos &&
+          labelName.find("BB_before_") == std::string::npos &&
+          labelName.find("SuccBB_") == std::string::npos) 
+      {
+          InvalidBBs.insert(BB);
+          ++Count;
+          Bytes += BC.computeCodeSize(BB->begin(), BB->end(), Emitter);
+      }
+      
     }
   }
 
@@ -3621,6 +3631,26 @@ MCSymbol *BinaryFunction::getSymbolForEntryID(uint64_t EntryID) {
   }
 
   return nullptr;
+}
+
+void BinaryFunction::globalizeJumpTableSymbolsForFunction(std::unordered_map<const MCSymbol *, MCSymbol *> RenamedLabels) {
+
+    // outs() << "Updating jump tables for function: " << getPrintName() << "\n";
+
+    for (const auto &JTEntry : jumpTables()) {
+        const JumpTable *JT = JTEntry.second;
+        uint64_t Address = JT->getAddress();
+        const MCSymbol *Symbol = JT->getSymbol();
+        size_t EntrySize = JT->EntrySize;
+        auto Type = JT->Type;
+        auto &Section = JT->getSection();
+
+        // outs() << "Processing JumpTable at Address: " << Twine::utohexstr(Address) << "\n";
+
+        const_cast<JumpTable *>(JT)->updateDestination(Address, RenamedLabels);
+    }
+
+    // outs() << "Jump table labels updated for function: " << getPrintName() << "\n";
 }
 
 uint64_t BinaryFunction::getEntryIDForSymbol(const MCSymbol *Symbol) const {

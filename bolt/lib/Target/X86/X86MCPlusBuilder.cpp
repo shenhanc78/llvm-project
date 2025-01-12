@@ -2436,6 +2436,190 @@ public:
     return Code;
   }
 
+  bool checkCFIEqual(BinaryBasicBlock *CurBB, BinaryBasicBlock *OutlineBB)
+  {
+      auto II1 = CurBB->rbegin();
+      auto II2 = OutlineBB->rbegin();
+
+      while (II1 != CurBB->rend() && II2 != OutlineBB->rend()) {
+          const MCInst &Inst1 = *II1;
+          const MCInst &Inst2 = *II2;
+
+          if (isCFI(Inst1) && isCFI(Inst2)) {
+
+              if (Inst1.getNumOperands() > 0 && Inst2.getNumOperands() > 0) {
+                  const auto &Operand1 = Inst1.getOperand(0);
+                  const auto &Operand2 = Inst2.getOperand(0);
+
+                  if (Operand1.isImm() && Operand2.isImm()) {
+                      
+                      if (Operand1.getImm() != Operand2.getImm())
+                          return false;
+                  } else {
+                      return false;
+                  }
+              } else {
+                  return false;
+              }
+          } else if (isCFI(Inst1) || isCFI(Inst2)) {
+              return false;
+          }
+
+          ++II1;
+          ++II2;
+      }
+
+      if (II1 != CurBB->rend() || II2 != OutlineBB->rend()) {
+          return false;
+      }
+
+      return true;
+  }
+
+  bool isEndingWithIndirectJump(BinaryBasicBlock *CurBB) {
+    if (CurBB->empty())
+        return false;
+
+    const MCInst &LastInst = CurBB->back();
+
+    if (LastInst.getOpcode() == X86::JMP64r || LastInst.getOpcode() == X86::JMP32r || LastInst.getOpcode() == X86::JMP64m || LastInst.getOpcode() == X86::JMP32m) {
+
+        for (unsigned i = 0, e = LastInst.getNumOperands(); i < e; ++i) {
+            const MCOperand &Operand = LastInst.getOperand(i);
+            if (Operand.isReg()) {
+
+              return true;
+            }
+        }
+    }
+
+    return false;
+  }
+
+  bool isReturnEndingWithCFI(BinaryBasicBlock *CurBB) {
+    if (CurBB->empty())
+        return false;
+
+    bool do_once = false;
+
+    int cficount = 0;
+
+    for (auto II = CurBB->rbegin(); II != CurBB->rend(); ++II) 
+    {
+        if (do_once)
+          return false;
+
+        MCInst &Inst = *II;
+        if(isCFI(Inst))
+        {
+            cficount += 1;
+            continue;
+        }
+          
+
+        do_once = true;
+
+        if (isReturn(Inst) && cficount > 0)
+        {
+            return true;
+        }
+        
+    }
+
+    return false;
+  }
+
+  bool isIndJmpEndingWithCFI(BinaryBasicBlock *CurBB) {
+    if (CurBB->empty())
+        return false;
+
+    bool do_once = false;
+
+    int cficount = 0;
+
+    for (auto II = CurBB->rbegin(); II != CurBB->rend(); ++II)      // <blah>...cfi, <jmp*>
+    {
+        if (do_once)
+          return false;
+
+        MCInst &Inst = *II;
+        if(isCFI(Inst))
+        {
+          cficount += 1;
+          continue;
+        }
+
+        do_once = true;
+
+        if (isIndirectBranch(Inst) && cficount > 0)
+        {
+            return true;
+        }
+        
+    }
+
+    return false;
+  }
+
+  bool hasStackFrameReg(BinaryBasicBlock *CurBB) 
+  {
+    if (CurBB->empty())
+        return false;
+
+    bool isPrologueEpilogue = false;
+
+    for (auto II = CurBB->begin(); II != CurBB->end(); ++II) 
+    {
+        MCInst &Inst = *II;
+
+        for (unsigned i = 0, e = Inst.getNumOperands(); i < e; ++i) {
+            const MCOperand &Operand = Inst.getOperand(i);
+            if (Operand.isReg()) {
+                unsigned Reg = Operand.getReg();
+                if (Reg == X86::RBP || Reg == X86::RSP)
+                { 
+                    return true;
+                }
+            }
+        }
+    }
+    
+    return false;
+  }
+
+  bool isCFITailCall(BinaryBasicBlock *CurBB)
+  {
+    bool do_once = false;
+
+    for (auto II = CurBB->rbegin(); II != CurBB->rend(); ++II) 
+    {
+        if (do_once)
+          return false;
+
+        MCInst &Inst = *II;
+        if(isCFI(Inst))
+          continue;
+
+        do_once = true;
+
+        if (isIndirectBranch(Inst) && isTailCall(Inst))
+        {
+            return true;
+        }
+    }
+
+    return false;
+  }
+
+  InstructionListType createRedirectToOutliner(const MCSymbol *Target, MCContext *Ctx) const override {
+    InstructionListType Code;             
+
+    Code.emplace_back(MCInstBuilder(X86::JMP_4)
+                            .addExpr(MCSymbolRefExpr::create(Target, MCSymbolRefExpr::VK_None, *Ctx)));
+
+    return Code;
+  }
+
   std::optional<Relocation>
   createRelocation(const MCFixup &Fixup,
                    const MCAsmBackend &MAB) const override {

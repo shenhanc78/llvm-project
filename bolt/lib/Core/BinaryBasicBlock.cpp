@@ -379,6 +379,26 @@ void BinaryBasicBlock::updateJumpTableSuccessors() {
     addSuccessor(BB);
 }
 
+void BinaryBasicBlock::globalizeJumpTableSymbols(std::unordered_map<const MCSymbol *, MCSymbol *> RenamedLabels) {
+  
+  BinaryContext &BC = Function->getBinaryContext();
+  const JumpTable *JT = getJumpTable();
+  if (!JT) {
+    // outs() << "No jump table found for block.\n";
+    return;
+  }
+
+  const MCSymbol *Symbol = JT->getSymbol(); 
+  uint64_t Address = JT->getAddress();      
+  size_t EntrySize = JT->EntrySize;         
+  auto Type = JT->Type;                     
+  auto &Section = JT->getSection();         
+
+  // outs() << "Updating JumpTable at Address: " << Twine::utohexstr(Address) << "\n";
+  const_cast<llvm::bolt::JumpTable *>(JT)->updateDestination(Address, RenamedLabels);
+
+}
+
 void BinaryBasicBlock::adjustExecutionCount(double Ratio) {
   auto adjustedCount = [&](uint64_t Count) -> uint64_t {
     double NewCount = Count * Ratio;
@@ -531,6 +551,84 @@ void BinaryBasicBlock::dump() const {
     BC.outs() << " " << (*itr)->getName();
   }
   BC.outs() << "\n";
+}
+
+std::string BinaryBasicBlock::getBlockHash() const {
+  BinaryContext &BC = Function->getBinaryContext();
+  /*BC.printInstructions(outs(), Instructions.begin(), Instructions.end(),
+                       getOffset(), Function);*/
+  std::string signature;
+  for (auto II = Instructions.begin(); II != Instructions.end(); ++II) {
+    const MCInst &Inst = *II;
+    const SmallString<256> &V = BC.getInstructionBytes(Inst);
+    for (auto c : V) {
+      std::string hexval;
+      llvm::raw_string_ostream Str(hexval);
+      Str.write_hex((unsigned char)(c));
+      Str.flush();
+      signature += hexval;
+      // outs() << hexval;
+      // outs() << " | ";
+    }
+
+    // signature += "|";
+
+    if (BC.MIB->isCall(Inst) && MCPlus::getNumPrimeOperands(Inst) == 1 && Inst.getOperand(0).isExpr()==true)
+    {
+        const MCSymbol *CalleeSymbol = BC.MIB->getTargetSymbol(Inst);
+
+        if (CalleeSymbol)
+          signature += std::string(CalleeSymbol->getName());
+        else 
+        {
+          const MCExpr *Expr = Inst.getOperand(0).getExpr();
+          if (const auto *ConstExpr = dyn_cast<MCConstantExpr>(Expr)) {
+            signature += std::to_string(ConstExpr->getValue());
+          }
+        }
+    }
+
+    std::string OpcodeName = std::string(BC.InstPrinter->getOpcodeName(Inst.getOpcode()));
+
+    if (OpcodeName == "LEA64r")
+    {
+      
+      for (unsigned int i = 0; i<Inst.getNumOperands(); i++)
+      {
+        const MCOperand &Operand = Inst.getOperand(i);
+
+        if (Operand.isExpr())
+        {
+          const MCExpr *Expr = Operand.getExpr();
+
+          if (const auto *SymbolExpr = dyn_cast<MCSymbolRefExpr>(Expr)) {
+            signature += std::string(SymbolExpr->getSymbol().getName());
+          }
+
+          else if (const auto *BinaryExpr = dyn_cast<MCBinaryExpr>(Expr)) 
+          {
+
+              if (const auto *LHS = dyn_cast<MCSymbolRefExpr>(BinaryExpr->getLHS())) {
+                  // outs() << "signature: " << signature << "\n";
+                  // outs() << "LHS: " << LHS->getSymbol().getName() << "\n";
+                  signature += std::string(LHS->getSymbol().getName());
+              }
+              if (const auto *RHS = dyn_cast<MCConstantExpr>(BinaryExpr->getRHS())) {
+                  signature += "+" + std::to_string(RHS->getValue());
+                  // outs() << "signature: " << signature << "\n";
+                  // outs() << "RHS: " << "+" + std::to_string(RHS->getValue()) << "\n";
+              }
+          }
+        }
+      }
+    }
+  } 
+
+
+  if (signature.empty())
+    signature += "empty";
+  // outs() << "\nsignature = " << signature << "\n";
+  return signature;
 }
 
 uint64_t BinaryBasicBlock::estimateSize(const MCCodeEmitter *Emitter) const {

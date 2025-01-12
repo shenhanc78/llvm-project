@@ -1446,6 +1446,14 @@ public:
     return Offset;
   }
 
+  SmallString<256> getInstructionBytes(const MCInst &Instruction) const {
+    const MCCodeEmitter *Emitter = this->MCE.get();
+    SmallString<256> Code;
+    SmallVector<MCFixup, 4> Fixups;
+    Emitter->encodeInstruction(Instruction, Code, Fixups, *STI);
+    return Code;
+  }
+
   /// Log BOLT errors to journaling streams and quit process with non-zero error
   /// code 1 if error is fatal.
   void logBOLTErrorsAndQuitOnFatal(Error E);

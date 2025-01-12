@@ -79,6 +79,31 @@ bool bolt::JumpTable::replaceDestination(uint64_t JTAddress,
   return Patched;
 }
 
+void bolt::JumpTable::updateDestination(uint64_t JTAddress, std::unordered_map<const MCSymbol *, MCSymbol *> RenamedLabels) {
+  const std::pair<size_t, size_t> Range = getEntriesForAddress(JTAddress);
+
+
+  for (auto I = Range.first; I != Range.second; ++I) 
+  {
+
+    if (RenamedLabels.find(Entries[I]) != RenamedLabels.end())
+    {
+        const MCSymbol *OldLabel = Entries[I];
+        // std::string OldLabelName = OldLabel->getName().str();
+        // if (OldLabelName.find("SuccBB_") == std::string::npos)
+        // {
+          Entries[I] = RenamedLabels[Entries[I]];
+          // outs() << "Jump table updated: " << OldLabel->getName() << " -> " << Entries[I]->getName() << "\n";
+        // }
+    }
+
+    else 
+    {
+      // outs() << "Warning: Jump table label not found: " << Entries[I]->getName() << "\n";
+    }
+  }
+}
+
 void bolt::JumpTable::updateOriginal() {
   BinaryContext &BC = getSection().getBinaryContext();
   const uint64_t BaseOffset = getAddress() - getSection().getAddress();

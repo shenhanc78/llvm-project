@@ -1696,6 +1696,41 @@ public:
     return {};
   }
 
+  virtual bool checkCFIEqual(BinaryBasicBlock *CurBB, BinaryBasicBlock *OutlineBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isEndingWithIndirectJump(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isReturnEndingWithCFI(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isIndJmpEndingWithCFI(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool hasStackFrameReg(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isCFITailCall(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual InstructionListType createRedirectToOutliner(const MCSymbol *Target, MCContext *Ctx) const {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
   /// Create a target-specific relocation out of the \p Fixup.
   /// Note that not every fixup could be converted into a relocation.
   virtual std::optional<Relocation>
