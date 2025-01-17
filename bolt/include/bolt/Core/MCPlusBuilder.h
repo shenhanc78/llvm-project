@@ -32,6 +32,7 @@
 #include "llvm/Support/ErrorHandling.h"
 #include "llvm/Support/ErrorOr.h"
 #include "llvm/Support/RWMutex.h"
+#include "bolt/Core/BinaryBasicBlock.h"
 #include <cassert>
 #include <cstdint>
 #include <map>
@@ -1204,11 +1205,6 @@ public:
   /// Get instruction size specified via annotation.
   std::optional<uint32_t> getSize(const MCInst &Inst) const;
 
-  /// Get target-specific instruction size.
-  virtual std::optional<uint32_t> getInstructionSize(const MCInst &Inst) const {
-    return std::nullopt;
-  }
-
   /// Set instruction size.
   void setSize(MCInst &Inst, uint32_t Size) const;
 
@@ -1696,6 +1692,61 @@ public:
   /// Creates inline memcpy instruction. If \p ReturnEnd is true, then return
   /// (dest + n) instead of dest.
   virtual InstructionListType createInlineMemcpy(bool ReturnEnd) const {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool checkCFIEqual(BinaryBasicBlock *CurBB, BinaryBasicBlock *OutlineBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isEndingWithIndirectJump(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isReturnEndingWithCFI(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isIndJmpEndingWithCFI(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool hasStackFrameReg(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isCFITailCall(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isEndingWithUnCondJump(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isEndingWithCondJump(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool isJumpThread(BinaryBasicBlock *CurBB) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual bool SplitJmpBB(MCInst &Inst) {
+    llvm_unreachable("not implemented");
+    return {};
+  }
+
+  virtual InstructionListType createRedirectToOutliner(const MCSymbol *Target, MCContext *Ctx) const {
     llvm_unreachable("not implemented");
     return {};
   }

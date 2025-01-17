@@ -802,6 +802,8 @@ public:
     return make_range(JumpTables.begin(), JumpTables.end());
   }
 
+  void globalizeJumpTableSymbolsForFunction(std::unordered_map<const MCSymbol *, MCSymbol *> RenamedLabels);
+
   /// Return relocation associated with a given \p Offset in the function,
   /// or nullptr if no such relocation exists.
   const Relocation *getRelocationAt(uint64_t Offset) const {

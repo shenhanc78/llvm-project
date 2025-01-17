@@ -483,6 +483,38 @@ public:
   Error runOnFunctions(BinaryContext &BC) override;
 };
 
+class FindSimBB : public BinaryFunctionPass {
+private:
+  std::vector<std::string> Spec;
+public:
+  explicit FindSimBB(const cl::opt<bool> &PrintPass,
+                     cl::list<std::string> &Spec)
+      : BinaryFunctionPass(PrintPass), Spec(Spec) {}
+  
+  bool checkJMPTables(BinaryContext &BC, BinaryFunction *Function, std::vector<BinaryBasicBlock *> Blocks) const;
+
+  const char *getName() const override { return "find-sim-bb"; }
+  Error runOnFunctions(BinaryContext &BC) override;
+};
+
+class OutlineSimBB : public BinaryFunctionPass {
+private:
+  std::vector<std::string> Spec;
+public:
+  explicit OutlineSimBB(const cl::opt<bool> &PrintPass,
+                     cl::list<std::string> &Spec)
+      : BinaryFunctionPass(PrintPass), Spec(Spec) {}
+  
+  bool Optimization() const;
+  bool globalizeSymbolsBeforeOutline(BinaryContext &BC, BinaryFunction *Function, std::vector<BinaryBasicBlock *> Blocks, int OutlineBlockCounter, std::string blockHash) const;
+  Error outlineRetIndJmp(std::vector<BinaryFunction *> Functions, std::string blockHash, int &RedundantBlockCount, int &TotalBlocksOutlined) const;
+  bool isOutlineAbleAfterSplitting(BinaryContext &BC, BinaryBasicBlock *CurBB, BinaryBasicBlock::iterator *SplitII, int SIZE_THRESHOLD, bool jumpThreading) const;
+  Error outlineAnyOtherBB(std::vector<BinaryFunction *> Functions, std::string blockHash, int &RedundantBlockCount, int &TotalBlocksOutlined, int SIZE_THRESHOLD) const;
+
+  const char *getName() const override { return "outline-sim-bb"; }
+  Error runOnFunctions(BinaryContext &BC) override;
+};
+
 /// Pass to remove nops in code
 class RemoveNops : public BinaryFunctionPass {
   void runOnFunction(BinaryFunction &Function);

@@ -29,8 +29,6 @@ add_llvm_library(LLVMBOLTUtils
   CommandLineOpts.cpp
   Utils.cpp
   ${version_inc}
-
-  NO_EXPORT
   DISABLE_LLVM_LINK_LLVM_DYLIB
 
   LINK_LIBS

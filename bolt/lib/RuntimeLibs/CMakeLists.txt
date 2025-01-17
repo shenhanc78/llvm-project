@@ -11,7 +11,6 @@ add_llvm_library(LLVMBOLTRuntimeLibs
   HugifyRuntimeLibrary.cpp
   InstrumentationRuntimeLibrary.cpp
 
-  NO_EXPORT
   DISABLE_LLVM_LINK_LLVM_DYLIB
   )
 

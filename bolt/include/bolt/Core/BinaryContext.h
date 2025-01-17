@@ -1363,12 +1363,6 @@ public:
     if (std::optional<uint32_t> Size = MIB->getSize(Inst))
       return *Size;
 
-    if (MIB->isPseudo(Inst))
-      return 0;
-
-    if (std::optional<uint32_t> Size = MIB->getInstructionSize(Inst))
-      return *Size;
-
     if (!Emitter)
       Emitter = this->MCE.get();
     SmallString<256> Code;
@@ -1450,6 +1444,14 @@ public:
       ++Begin;
     }
     return Offset;
+  }
+
+  SmallString<256> getInstructionBytes(const MCInst &Instruction) const {
+    const MCCodeEmitter *Emitter = this->MCE.get();
+    SmallString<256> Code;
+    SmallVector<MCFixup, 4> Fixups;
+    Emitter->encodeInstruction(Instruction, Code, Fixups, *STI);
+    return Code;
   }
 
   /// Log BOLT errors to journaling streams and quit process with non-zero error

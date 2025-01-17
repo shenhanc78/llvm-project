@@ -241,6 +241,8 @@ static cl::opt<double> ProfileDensityThreshold(
 namespace llvm {
 namespace bolt {
 
+std::vector<std::string> StackAdjustedFuncs;
+
 bool BinaryFunctionPass::shouldOptimize(const BinaryFunction &BF) const {
   return BF.isSimple() && BF.getState() == BinaryFunction::State::CFG &&
          !BF.isIgnored();
@@ -2024,6 +2026,590 @@ Error SpecializeMemcpy1::runOnFunctions(BinaryContext &BC) {
     BC.outs() << '\n';
   }
   return Error::success();
+}
+
+StringMap<BasicBlockSimilarityMetaData *> BBCommonMap;
+StringMap<const BinaryBasicBlock *> BBSignatureMap;
+
+static int master_count_25 = 0;
+static int master_count_6 = 0;
+static int master_count_5 = 0;
+
+static int redundancy_count_25 = 0;
+static int redundancy_count_6 = 0;
+static int redundancy_count_5 = 0;
+
+static int redundancy_size_25 = 0;
+static int redundancy_size_6 = 0;
+static int redundancy_size_5 = 0;
+
+bool FindSimBB::checkJMPTables(BinaryContext &BC, BinaryFunction *Function, std::vector<BinaryBasicBlock *> Blocks) const
+{
+  MCContext &Ctx = *BC.Ctx.get();
+
+  bool bb_has_JT = false;
+
+  for (auto *BB : Blocks) 
+  {
+      if (BB->hasJumpTable())
+      {
+        bb_has_JT = true;
+      }
+  }
+
+  if (bb_has_JT || Function->hasJumpTables())
+  {  
+    return false;
+  }
+
+  return true;
+}
+
+Error FindSimBB::runOnFunctions(BinaryContext &BC) {
+  if (!BC.isX86())
+    return Error::success();
+  outs() << "BOLT-INFO: Running BB Similarity Finder\n";  
+  bool do_once = false;
+
+
+  size_t TotalBlocks = 0;
+  uint64_t TotalBlockSize = 0;
+  for (auto &BFI : BC.getBinaryFunctions()) {
+    if (do_once) break;
+    BinaryFunction &Function = BFI.second;
+    std::vector<BinaryBasicBlock *> Blocks(Function.pbegin(), Function.pend());
+    for (BinaryBasicBlock *CurBB : Blocks) {
+      // outs() << "Dumping a basic block:\n";
+      // CurBB->dump();
+      std::string block_hash = CurBB->getBlockHash();
+      if (block_hash.compare("empty") == 0)
+        continue;
+      if (CurBB->getOriginalSize() >= 1000000)//UINT32_MAX)
+        continue;
+      TotalBlocks++;
+      TotalBlockSize += CurBB->getOriginalSize();
+      if (!BBSignatureMap.contains(block_hash)) 
+      {
+
+        if (!checkJMPTables(BC, &Function, Blocks))
+          continue;
+
+        if (BC.MIB->isIndirectBranch(CurBB->back()))
+        {
+          if (!BC.MIB->isTailCall(CurBB->back()))
+            continue;
+
+          if (CurBB->pred_begin() == CurBB->pred_end() && CurBB->succ_begin() == CurBB->succ_end())
+            continue;
+        }
+
+        else if (BC.MIB->isIndJmpEndingWithCFI(const_cast<BinaryBasicBlock *>(CurBB)))
+        {
+          if (!BC.MIB->isCFITailCall(const_cast<BinaryBasicBlock *>(CurBB)))
+            continue;
+
+          if (CurBB->pred_begin() == CurBB->pred_end() && CurBB->succ_begin() == CurBB->succ_end())
+            continue;
+        }
+
+        if (BC.MIB->isReturn(CurBB->back()) || BC.MIB->isReturnEndingWithCFI(const_cast<BinaryBasicBlock *>(CurBB)))
+        {
+          if (CurBB->pred_begin() == CurBB->pred_end() && CurBB->succ_begin() == CurBB->succ_end())
+            continue;
+        }
+
+        BasicBlockSimilarityMetaData *val = new BasicBlockSimilarityMetaData;
+        val->count = 0;
+        BBSignatureMap[block_hash] = CurBB;
+        BBCommonMap[block_hash] = val;
+      }
+
+      else {
+        // outs() << "Found a hit :\n";
+        // CurBB->dump();     
+
+        /*Add a check for CFI BasicBlocks*/
+
+        if (!BC.MIB->checkCFIEqual(const_cast<BinaryBasicBlock *>(CurBB), const_cast<BinaryBasicBlock *>(BBSignatureMap[block_hash]))) 
+          continue;  
+
+        if (!checkJMPTables(BC, &Function, Blocks))
+          continue;
+
+        if (BC.MIB->isReturn(CurBB->back()) || BC.MIB->isIndirectBranch(CurBB->back()) || BC.MIB->isReturnEndingWithCFI(const_cast<BinaryBasicBlock *>(CurBB)) || BC.MIB->isIndJmpEndingWithCFI(const_cast<BinaryBasicBlock *>(CurBB)))
+        {
+          if (CurBB->pred_begin() == CurBB->pred_end() && CurBB->succ_begin() == CurBB->succ_end())
+            continue;
+        }
+      }
+      
+
+      BBCommonMap[block_hash]->count++;
+      BBCommonMap[block_hash]->function_vec.push_back(&Function);
+      // outs() << "SimBB Function: " << Function.getPrintName() << ", Section: " << Function.getOriginSection()->getName() << "\n";
+      BBCommonMap[block_hash]->block_vec.push_back(CurBB);
+      BBCommonMap[block_hash]->block_hash = block_hash;      
+      BBCommonMap[block_hash]->original_size = CurBB->getOriginalSize();
+      BBCommonMap[block_hash]->RetOrIndJump = BC.MIB->isReturn(CurBB->back()) || BC.MIB->isIndirectBranch(CurBB->back()) || BC.MIB->isReturnEndingWithCFI(const_cast<BinaryBasicBlock *>(CurBB)) ||  BC.MIB->isIndJmpEndingWithCFI(const_cast<BinaryBasicBlock *>(CurBB));
+      
+      /* Add Threshold also here*/
+      if (BBCommonMap[block_hash]->RetOrIndJump)
+      {
+        BBCommonMap[block_hash]->Threshold = 5; // Threshold for jmp
+      }
+
+      else 
+      {
+        /*Check if it has an access to %rsp or %rbp*/
+        if (BC.MIB->hasStackFrameReg(const_cast<BinaryBasicBlock *>(CurBB)))
+        {
+          BBCommonMap[block_hash]->Threshold = 25; // Threshold for push %r11, .... jmp *0x10(%rbp)
+          StackAdjustedFuncs.push_back(Function.getPrintName()); 
+        }
+
+        else 
+        {
+          BBCommonMap[block_hash]->Threshold = 6; // Threshold for Call & Return
+          
+        }
+      }
+
+      std::string hexval;
+      llvm::raw_string_ostream Str(hexval);
+      Str.write_hex(CurBB->getInputOffset());
+      Str.flush();
+      BBCommonMap[block_hash]->offset_vec.push_back(hexval);
+    }
+  } 
+
+  std::vector<const BasicBlockSimilarityMetaData *> sorted_sim_vec;
+  for (auto II = BBCommonMap.begin(); II != BBCommonMap.end(); ++II) {
+    sorted_sim_vec.push_back(II->second);    
+  }
+  std::sort(sorted_sim_vec.begin(), sorted_sim_vec.end(), [](auto A, auto B) {
+    // return (A->count * A->original_size) > (B->count * B->original_size);
+    return A->original_size > B->original_size;
+  });
+  
+
+  // Dump the String Map when the vector is of size > 1:
+  size_t RedundantBlocks = 0;
+  uint64_t RedundantBlockSize = 0;
+  size_t RetOrIndirectJmpBlocks = 0;
+  uint64_t RetOrIndirectJmpBlocksSize = 0;
+  uint64_t ExpectedSavings = 0;
+  // for (auto II = BBCommonMap.begin(); II != BBCommonMap.end(); ++II) {
+  u_int64_t CSVLastSize = sorted_sim_vec[0]->original_size;
+  u_int64_t CSVSizeCount = 0;
+  for (const BasicBlockSimilarityMetaData *val : sorted_sim_vec) {
+    
+    if (val->original_size < val->Threshold)
+      continue;
+    if (val->count == 1)
+      continue;
+    if (val->RetOrIndJump) {
+      // outs() << "BOLT-INFO: Ret or Indirect Jump : " <<  val->count - 1 << " blocks \n";
+      // BBSignatureMap[val->block_hash]->dump();
+      RetOrIndirectJmpBlocks += val->count - 1;
+      RetOrIndirectJmpBlocksSize += ((val->count -1) * val->original_size);
+    }
+
+    ExpectedSavings += ((val->count-1) * val->original_size) - (val->count*val->Threshold);
+
+    if (val->Threshold == 25)
+    {
+       master_count_25 += 1;
+      redundancy_count_25 += val->count-1;
+      redundancy_size_25 += ((val->count-1) * val->original_size) - (val->count*val->Threshold);
+    }
+
+    else if(val->Threshold == 6)
+    {
+      master_count_6 += 1;
+      redundancy_count_6 += val->count-1;
+      redundancy_size_6 += ((val->count-1) * val->original_size) - (val->count*val->Threshold);
+    }
+
+    else if(val->Threshold == 5)
+    {
+      master_count_5 += 1;
+      redundancy_count_5 += val->count-1;
+      redundancy_size_5 += ((val->count-1) * val->original_size) - (val->count*val->Threshold);
+    }
+
+    RedundantBlocks += val->count - 1;
+    RedundantBlockSize += ((val->count -1) * val->original_size);
+
+    if (val->original_size == CSVLastSize) {
+      CSVSizeCount += val->count - 1;
+    } else {
+      // outs() << "BOLT-CSV: " << CSVLastSize << "," << CSVSizeCount << "\n";
+      CSVLastSize = val->original_size;
+      CSVSizeCount = val->count - 1;
+    }
+    // outs() << "BOLT-INFO: Found " << val->count - 1  << " redundant basic blocks for " << val->block_hash;
+    // outs() << " with size : " << val->original_size <<" bytes\n";
+    // outs() << "******************";
+    // BBSignatureMap[val->block_hash]->dump();
+    // outs() << "******************";
+    // outs() << "\nListing all functions where the block was found :\n";
+    // auto OffsetI = val->offset_vec.begin();
+    // for (auto BF : val->function_vec) {
+      // outs() << BF->getPrintName() << " at offset : " << *OffsetI << "\n";
+      // ++OffsetI;      
+    // }
+    // outs() << "\n\n";
+  }
+  // outs() << "BOLT-CSV: " << CSVLastSize << "," << CSVSizeCount << "\n";
+  outs() << "BOLT-INFO: Redundant Blocks = " << RedundantBlocks << " / " << TotalBlocks<< "\n";
+  outs() << "BOLT-INFO: Redundant Block Size = " << RedundantBlockSize << " / " << TotalBlockSize << "\n";
+  outs() << "BOLT-INFO: Ret/Indirect Jmp Blocks = " << 
+            RetOrIndirectJmpBlocks << " / " << TotalBlocks << "\n";
+  outs() << "BOLT-INFO: Ret/Indirect Jmp Blocks Size = " <<
+            RetOrIndirectJmpBlocksSize << " / " << TotalBlockSize << "\n";
+  
+  
+  outs() << "\nBOLT-INFO: Master Blocks to be kept: With Threshold 25  = " << master_count_25 << "\n";
+  outs() << "BOLT-INFO: Master Blocks to be kept: With Threshold 6 = " << master_count_6 << "\n";
+  outs() << "BOLT-INFO: Master Blocks to be kept: With Threshold 5 = " << master_count_5 << "\n";
+
+  outs() << "\nBOLT-INFO: Redundant Blocks to be outlined: With Threshold 25 = " << redundancy_count_25 << "\n";
+  outs() << "BOLT-INFO: Redundant Blocks to be outlined: With Threshold 6 = " << redundancy_count_6 << "\n";
+  outs() << "BOLT-INFO: Redundant Blocks to be outlined: With Threshold 5 = " << redundancy_count_5 << "\n";
+
+  double ExpectedSavingsPercentThres_25 = (static_cast<double>(redundancy_size_25)/static_cast<double>(TotalBlockSize))*100;
+  double ExpectedSavingsPercentThres_6 = (static_cast<double>(redundancy_size_6)/static_cast<double>(TotalBlockSize))*100;
+  double ExpectedSavingsPercentThres_5 = (static_cast<double>(redundancy_size_5)/static_cast<double>(TotalBlockSize))*100;
+
+  outs() << "\nBOLT-INFO: Expected Savings in Size: With Threshold 25 = " << redundancy_size_25 << " / " << TotalBlockSize << " (" << llvm::format("%.2f", ExpectedSavingsPercentThres_25) << "%)" << "\n";
+  outs() << "BOLT-INFO: Expected Savings in Size: With Threshold 6 = " << redundancy_size_6 << " / " << TotalBlockSize << " (" << llvm::format("%.2f", ExpectedSavingsPercentThres_6) << "%)" << "\n";
+  outs() << "BOLT-INFO: Expected Savings in Size: With Threshold 5 = " << redundancy_size_5 << " / " << TotalBlockSize << " (" << llvm::format("%.2f", ExpectedSavingsPercentThres_5) << "%)" << "\n";
+
+  double ExpectedSavingsPercent = (static_cast<double>(ExpectedSavings)/static_cast<double>(TotalBlockSize))*100;
+
+  outs() << "\nBOLT-INFO: Total Expected Savings in Size = " << ExpectedSavings << " / " << TotalBlockSize << " (" << llvm::format("%.2f", ExpectedSavingsPercent) << "%)" << "\n\n";
+
+  return Error::success();
+}
+
+bool OutlineSimBB::Optimization() const {
+  
+  for (const std::string &FunctionSpec : Spec) {
+    StringRef OptionName = StringRef(FunctionSpec).split(':').first;
+
+    if (OptionName.str() == "false")
+    {
+      return false;
+    }
+
+    else if (OptionName.str() == "true")
+    {
+      return true;
+    }
+  }
+
+  return false;
+}
+
+BinaryBasicBlock *JmpThreadretBB = nullptr;
+
+bool OutlineSimBB::globalizeSymbolsBeforeOutline(BinaryContext &BC, BinaryFunction *Function, std::vector<BinaryBasicBlock *> Blocks, int OutlineBlockCounter, std::string blockHash) const
+{
+  std::unordered_map<const MCSymbol *, MCSymbol *> RenamedLabels;
+
+  MCContext &Ctx = *BC.Ctx.get();
+
+  int temp = 0;
+
+  for (auto *BB : Blocks) 
+  {
+
+    for (auto *Succ : BB->successors()) 
+    {
+      std::string OldLabelName = Succ->getLabel()->getName().str();
+
+      if (OldLabelName.find("SuccBB_") == std::string::npos || OldLabelName.find("outline_") == std::string::npos || OldLabelName.find("ret_")) 
+      {
+
+        temp+=1;
+
+        std::string SuccBBName = "SuccBB_"+blockHash+"_"+std::to_string(temp)+"_"+std::to_string(OutlineBlockCounter);
+
+        std::replace(SuccBBName.begin(), SuccBBName.end(), '.', '_');
+        std::replace(SuccBBName.begin(), SuccBBName.end(), '/', '_');
+        std::replace(SuccBBName.begin(), SuccBBName.end(), '+', '_');
+
+        MCSymbol *SuccBBLabel = BC.getOrCreateUndefinedGlobalSymbol(SuccBBName);
+
+        RenamedLabels[Succ->getLabel()] = SuccBBLabel;
+
+        Succ->setLabel(SuccBBLabel);
+      }
+    }
+
+  }
+
+  for (auto *BB : Blocks) 
+  {
+    for (auto &Inst : BB->instructions()) 
+    {
+      for (size_t OpIdx = 0; OpIdx < Inst.getNumOperands(); ++OpIdx) {
+          if (Inst.getOperand(OpIdx).isExpr()) {
+              const MCExpr *Expr = Inst.getOperand(OpIdx).getExpr();
+              if (auto *SymbolRef = dyn_cast<MCSymbolRefExpr>(Expr)) {
+                  const MCSymbol *OldLabel = &SymbolRef->getSymbol();
+                  
+                  if (RenamedLabels.find(OldLabel) != RenamedLabels.end()) {
+                      MCSymbol *NewLabel = RenamedLabels[OldLabel];
+
+                      const MCExpr *NewExpr = MCSymbolRefExpr::create(NewLabel, SymbolRef->getKind(), Ctx);
+                      Inst.getOperand(OpIdx) = MCOperand::createExpr(NewExpr);
+                  }
+              }
+          }
+      }
+    }
+
+    // if (BB->hasJumpTable()) // Tried to update the jumpTable entries for BasicBlocks
+    // {
+    //   BB->globalizeJumpTableSymbols(RenamedLabels);
+    // }
+
+  }
+
+  // if (Function->hasJumpTables()) // Tried to update the jumpTable entries for Function
+  // {  
+  //   Function->globalizeJumpTableSymbolsForFunction(RenamedLabels);
+  // }
+
+  return true;
+}
+
+static int checking = 0;
+
+Error OutlineSimBB::outlineRetIndJmp(std::vector<BinaryFunction *> Functions, std::string blockHash, int &RedundantBlockCount, int &TotalBlocksOutlined) const
+{
+
+  bool first_block_to_be_outlined = true;
+
+  bool hasRetqIndJmp = true;
+
+  bool func_to_be_folded = false;
+
+  BinaryContext &BC1 = Functions[0]->getBinaryContext();
+
+  if (BBSignatureMap[blockHash]->pred_begin() == BBSignatureMap[blockHash]->pred_end() && BBSignatureMap[blockHash]->succ_begin() == BBSignatureMap[blockHash]->succ_end())
+  {
+      func_to_be_folded = true;
+      return Error::success();
+  }
+
+  static int OutlineBlockCounter = 0;
+
+  BinaryFunction *OutlinedFunc;
+
+  for (auto Function: Functions)
+  {
+      BinaryContext &BC = Function->getBinaryContext();
+
+      MCContext &Ctx = *BC.Ctx.get();
+
+      std::vector<BinaryBasicBlock *> Blocks(Function->pbegin(), Function->pend());
+
+      for (BinaryBasicBlock *CurBB : Blocks) 
+      {
+          if (CurBB->empty())
+            continue;
+
+          std::string block_hash = CurBB->getBlockHash();
+
+          if(block_hash.compare(blockHash) == 0)
+          {
+              if (first_block_to_be_outlined)
+              {
+                  RedundantBlockCount += 1;
+
+                  OutlineBlockCounter += 1;
+
+                  outs() << "Master Function: " << Function->getPrintName() << " blockHash: " << block_hash << " v/s " << blockHash << "\n";
+
+                  CurBB->dump();
+
+                  outs() << "\n****\n";
+
+                  // bool globalized = globalizeSymbolsBeforeOutline(BC, Function, Blocks, OutlineBlockCounter, blockHash);
+
+                  // if (!globalized)
+                  //   continue;
+
+                  OutlinedFunc = Function;
+
+                  MCSymbol *OldLabel = CurBB->getLabel();
+
+                  std::string OutlineBBName = "outline_"+blockHash;
+
+                  MCSymbol *OutlineBBLabel = BC.getOrCreateUndefinedGlobalSymbol(OutlineBBName);
+
+                  auto OutlineBB = Function->addBasicBlock(OutlineBBLabel);
+
+                  OutlineBB->setOffset(CurBB->getInputOffset());
+
+                  for (auto II = CurBB->begin(); II != CurBB->end(); ++II) {
+                      MCInst &Inst = *II;
+                      OutlineBB->addInstruction(Inst);
+                  }
+
+                  OutlineBB->setCFIState(CurBB->getCFIState());
+                  OutlineBB->setExecutionCount(CurBB->getExecutionCount());
+
+                  for (BinaryBasicBlock *BB : Blocks) {
+
+                    if (BB->succ_begin()!=BB->succ_end())
+                    {
+                      std::vector<BinaryBasicBlock *> Successors = {BB->succ_begin(), BB->succ_end()};
+
+                      for (BinaryBasicBlock *Succ : Successors) 
+                      {
+                          if (Succ->getLabel() == OldLabel)
+                          {
+                            BB->replaceSuccessor(Succ, OutlineBB, 0,0);
+                          }
+                      }
+                    }
+
+                    
+                  }
+
+                  CurBB->clear();
+
+                  first_block_to_be_outlined = false;
+
+              }
+
+              else 
+              {
+
+                  std::string OutlineBBName = "outline_"+blockHash;
+
+                  MCSymbol *OutlineBBLabel = BC.getOrCreateUndefinedGlobalSymbol(OutlineBBName);
+
+                  auto OutlineBB = OutlinedFunc->getBasicBlockForLabel(OutlineBBLabel);
+
+                  OutlineBlockCounter += 1;
+
+                  outs() << "Outlined Function: " << Function->getPrintName() << " blockHash: " << block_hash << " v/s " << blockHash << "\n";
+
+                  CurBB->dump();
+
+                  outs() << "\n****\n";
+
+                  // bool globalized = globalizeSymbolsBeforeOutline(BC, Function, Blocks, OutlineBlockCounter, blockHash);
+
+                  // if (!globalized)
+                  //   continue;
+
+                  TotalBlocksOutlined += 1;
+
+                  MCSymbol *OldLabel = CurBB->getLabel();
+
+                  std::string NewBBName = "BB_before_outline_"+blockHash+"_"+std::to_string(OutlineBlockCounter);
+
+                  MCSymbol *NewBBLabel = BC.getOrCreateUndefinedGlobalSymbol(NewBBName);
+
+                  auto NewBB = Function->addBasicBlock(NewBBLabel); 
+
+                  NewBB->setOffset(CurBB->getInputOffset());
+
+                  for (BinaryBasicBlock *BB : Blocks) 
+                  {
+                    if (BB->succ_begin()!=BB->succ_end())
+                    {
+                      std::vector<BinaryBasicBlock *> Successors = {BB->succ_begin(), BB->succ_end()};
+
+                      for (BinaryBasicBlock *Succ : Successors) {
+
+                          if (Succ->getLabel() == OldLabel)
+                          {
+                            BB->replaceSuccessor(Succ, NewBB, 0, 0);
+                          }
+                      }
+                    }
+                  }
+
+                  InstructionListType NewBBToOutlineBB = BC.MIB->createRedirectToOutliner(OutlineBBLabel, &Ctx);
+
+                  NewBB->addInstructions(NewBBToOutlineBB);
+
+                  NewBB->addSuccessor(OutlineBB);
+                  NewBB->setCFIState(OutlineBB->getCFIState());
+                  NewBB->setExecutionCount(0);
+
+                  if (CurBB->succ_begin() != CurBB->succ_end())
+                    CurBB->moveAllSuccessorsTo(OutlineBB);
+
+                  CurBB->clear();
+
+                  outs() << "NewBB->dump()\n";
+
+                  NewBB->dump();
+
+                  outs() << "\n*****\n";
+
+                  outs() << "OutlineBB->dump()\n";
+
+                  OutlineBB->dump();
+
+                  outs() << "\n*****\n";
+              }  
+            
+          }
+      }
+  }
+
+  return Error::success();
+}
+
+Error OutlineSimBB::runOnFunctions(BinaryContext &BC) {
+  if (!BC.isX86())
+    return Error::success();
+
+  outs() << "BOLT-INFO: Running BB Outlining Pass\n";
+
+  MCContext &Ctx = *BC.Ctx.get();
+
+  static int RedundantBlockCount = 0;
+
+  static int RedundantBlockCount1 = 0;
+
+  static int TotalBlocksOutlined = 0;
+
+  static int TotalBlocksOutlined1 = 0;
+
+  for (const auto &Entry : BBCommonMap) 
+  {
+
+    const auto *MetaData = Entry.second;
+
+    if ((MetaData->count <= 1 || MetaData->original_size < MetaData->Threshold))
+      continue;
+
+    if (MetaData->RetOrIndJump)
+    {
+        
+        // outs() << "BOLT-INFO: Outlining RetOrIndJmpBB - " << RedundantBlockCount + 1 << " with block hash: " << MetaData->block_hash << "\n";
+    
+        // BBSignatureMap[MetaData->block_hash]->dump();
+        // outs() << "*****************\n";
+
+        outlineRetIndJmp(MetaData->function_vec, MetaData->block_hash, RedundantBlockCount, TotalBlocksOutlined);
+    }
+  }
+
+  outs() << "BOLT-INFO: Outlined Redundant Blocks = " << RedundantBlockCount << "\n";
+  outs() << "BOLT-INFO: Removed Redundant Basic Blocks = " << TotalBlocksOutlined << "\n";
+  
+  return Error::success();
+
 }
 
 void RemoveNops::runOnFunction(BinaryFunction &BF) {

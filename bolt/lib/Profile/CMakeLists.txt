@@ -7,7 +7,6 @@ add_llvm_library(LLVMBOLTProfile
   YAMLProfileReader.cpp
   YAMLProfileWriter.cpp
 
-  NO_EXPORT
   DISABLE_LLVM_LINK_LLVM_DYLIB
 
   LINK_COMPONENTS

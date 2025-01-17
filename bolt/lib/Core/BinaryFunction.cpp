@@ -345,9 +345,19 @@ BinaryFunction::eraseInvalidBBs(const MCCodeEmitter *Emitter) {
   for (BinaryBasicBlock *const BB : BasicBlocks) {
     if (!BB->isValid()) {
       assert(!isEntryPoint(*BB) && "all entry blocks must be valid");
-      InvalidBBs.insert(BB);
-      ++Count;
-      Bytes += BC.computeCodeSize(BB->begin(), BB->end(), Emitter);
+
+      std::string labelName = BB->getLabel()->getName().str();
+
+      if (labelName.find("ret_") == std::string::npos &&
+          labelName.find("outline_") == std::string::npos &&
+          labelName.find("BB_before_") == std::string::npos &&
+          labelName.find("SuccBB_") == std::string::npos) 
+      {
+        InvalidBBs.insert(BB);
+        ++Count;
+        Bytes += BC.computeCodeSize(BB->begin(), BB->end(), Emitter);
+      }
+      
     }
   }
 
@@ -3370,12 +3380,14 @@ void BinaryFunction::fixBranches() {
   MCContext *Ctx = BC.Ctx.get();
 
   for (BinaryBasicBlock *BB : BasicBlocks) {
+
     const MCSymbol *TBB = nullptr;
     const MCSymbol *FBB = nullptr;
     MCInst *CondBranch = nullptr;
     MCInst *UncondBranch = nullptr;
     if (!BB->analyzeBranch(TBB, FBB, CondBranch, UncondBranch))
       continue;
+      
 
     // We will create unconditional branch with correct destination if needed.
     if (UncondBranch)
@@ -3394,7 +3406,90 @@ void BinaryFunction::fixBranches() {
         BB->eraseInstruction(BB->findInstruction(CondBranch));
       if (BB->getSuccessor() == NextBB)
         continue;
+      
       BB->addBranchInstruction(BB->getSuccessor());
+
+    } else if (BB->succ_size() == 2) {
+      assert(CondBranch && "conditional branch expected");
+      const BinaryBasicBlock *TSuccessor = BB->getConditionalSuccessor(true);
+      const BinaryBasicBlock *FSuccessor = BB->getConditionalSuccessor(false);
+
+      // Eliminate unnecessary conditional branch.
+      if (TSuccessor == FSuccessor) {
+        continue;
+      }
+
+      // Reverse branch condition and swap successors.
+      auto swapSuccessors = [&]() {
+        return false;
+      };
+
+      // Check whether the next block is a "taken" target and try to swap it
+      // with a "fall-through" target.
+      if (TSuccessor == NextBB && swapSuccessors())
+        continue;
+
+      // Update conditional branch destination if needed.
+      if (MIB->getTargetSymbol(*CondBranch) != TSuccessor->getLabel()) {
+        auto L = BC.scopeLock();
+        MIB->replaceBranchTarget(*CondBranch, TSuccessor->getLabel(), Ctx);
+      }
+
+      // No need for the unconditional branch.
+      if (FSuccessor == NextBB)
+        continue;
+
+      BB->addBranchInstruction(FSuccessor);
+    }
+    // Cases where the number of successors is 0 (block ends with a
+    // terminator) or more than 2 (switch table) don't require branch
+    // instruction adjustments.
+  }
+
+  assert((!isSimple() || validateCFG()) &&
+         "Invalid CFG detected after fixing branches");
+}
+
+// Original
+#if 0
+void BinaryFunction::fixBranches() {
+  auto &MIB = BC.MIB;
+  MCContext *Ctx = BC.Ctx.get();
+
+  for (BinaryBasicBlock *BB : BasicBlocks) {
+
+    const MCSymbol *TBB = nullptr;
+    const MCSymbol *FBB = nullptr;
+    MCInst *CondBranch = nullptr;
+    MCInst *UncondBranch = nullptr;
+    if (!BB->analyzeBranch(TBB, FBB, CondBranch, UncondBranch))
+    {
+      continue;
+    }
+      
+
+    // We will create unconditional branch with correct destination if needed.
+    if (UncondBranch)
+      BB->eraseInstruction(BB->findInstruction(UncondBranch));
+
+    // Basic block that follows the current one in the final layout.
+    const BinaryBasicBlock *const NextBB =
+        Layout.getBasicBlockAfter(BB, /*IgnoreSplits=*/false);
+
+    if (BB->succ_size() == 1) {
+      // __builtin_unreachable() could create a conditional branch that
+      // falls-through into the next function - hence the block will have only
+      // one valid successor. Since behaviour is undefined - we replace
+      // the conditional branch with an unconditional if required.
+      if (CondBranch)
+        BB->eraseInstruction(BB->findInstruction(CondBranch));
+      if (BB->getSuccessor() == NextBB)
+      {
+
+        continue;
+      }
+      BB->addBranchInstruction(BB->getSuccessor());
+
     } else if (BB->succ_size() == 2) {
       assert(CondBranch && "conditional branch expected");
       const BinaryBasicBlock *TSuccessor = BB->getConditionalSuccessor(true);
@@ -3467,9 +3562,11 @@ void BinaryFunction::fixBranches() {
     // terminator) or more than 2 (switch table) don't require branch
     // instruction adjustments.
   }
+
   assert((!isSimple() || validateCFG()) &&
          "Invalid CFG detected after fixing branches");
 }
+#endif
 
 void BinaryFunction::propagateGnuArgsSizeInfo(
     MCPlusBuilder::AllocatorIdTy AllocId) {
@@ -3621,6 +3718,26 @@ MCSymbol *BinaryFunction::getSymbolForEntryID(uint64_t EntryID) {
   }
 
   return nullptr;
+}
+
+void BinaryFunction::globalizeJumpTableSymbolsForFunction(std::unordered_map<const MCSymbol *, MCSymbol *> RenamedLabels) {
+
+    // outs() << "Updating jump tables for function: " << getPrintName() << "\n";
+
+    for (const auto &JTEntry : jumpTables()) {
+        const JumpTable *JT = JTEntry.second;
+        uint64_t Address = JT->getAddress();
+        const MCSymbol *Symbol = JT->getSymbol();
+        size_t EntrySize = JT->EntrySize;
+        auto Type = JT->Type;
+        auto &Section = JT->getSection();
+
+        // outs() << "Processing JumpTable at Address: " << Twine::utohexstr(Address) << "\n";
+
+        const_cast<JumpTable *>(JT)->updateDestination(Address, RenamedLabels);
+    }
+
+    // outs() << "Jump table labels updated for function: " << getPrintName() << "\n";
 }
 
 uint64_t BinaryFunction::getEntryIDForSymbol(const MCSymbol *Symbol) const {

@@ -119,6 +119,8 @@ public:
   bool replaceDestination(uint64_t JTAddress, const MCSymbol *OldDest,
                           MCSymbol *NewDest);
 
+  void updateDestination(uint64_t JTAddress, std::unordered_map<const MCSymbol *, MCSymbol *> RenamedLabels);
+
   /// Update jump table at its original location.
   void updateOriginal();
 

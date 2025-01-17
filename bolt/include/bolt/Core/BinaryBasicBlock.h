@@ -35,6 +35,19 @@ namespace bolt {
 class BinaryFunction;
 class JumpTable;
 
+class BinaryBasicBlock;
+
+struct BasicBlockSimilarityMetaData {
+  size_t count;
+  std::string block_hash;
+  size_t original_size;
+  std::vector<BinaryFunction *> function_vec;
+  std::vector<BinaryBasicBlock *> block_vec;
+  std::vector<std::string> offset_vec;
+  size_t Threshold;
+  bool RetOrIndJump;   
+};
+
 class BinaryBasicBlock {
 public:
   /// Profile execution information for a given edge in CFG.
@@ -156,9 +169,11 @@ private:
                         const BinaryBasicBlock &RHS);
 
   /// Assign new label to the basic block.
-  void setLabel(MCSymbol *Symbol) { Label = Symbol; }
+  
 
 public:
+  void setLabel(MCSymbol *Symbol) { Label = Symbol; }
+
   static constexpr uint64_t COUNT_INFERRED =
       std::numeric_limits<uint64_t>::max();
   static constexpr uint64_t COUNT_NO_PROFILE =
@@ -627,6 +642,8 @@ public:
   /// The block must end with a jump table instruction.
   void updateJumpTableSuccessors();
 
+  void globalizeJumpTableSymbols(std::unordered_map<const MCSymbol *, MCSymbol *> RenamedLabels);
+
   /// Test if BB is a predecessor of this block.
   bool isPredecessor(const BinaryBasicBlock *BB) const {
     return llvm::is_contained(Predecessors, BB);
@@ -856,6 +873,8 @@ public:
   /// A simple dump function for debugging.
   void dump() const;
 
+  std::string getBlockHash() const;
+
   /// Validate successor invariants for this BB.
   bool validateSuccessorInvariants();
 
@@ -916,6 +935,9 @@ public:
   /// Returns the last computed hash value of the block.
   uint64_t getHash() const { return Hash; }
 
+  /// Set end offset of this basic block.
+  void setEndOffset(uint32_t Offset) { InputRange.second = Offset; }
+
 private:
   void adjustNumPseudos(const MCInst &Inst, int Sign);
 
@@ -934,8 +956,7 @@ private:
   /// will be removed. This only matters in awkward, redundant CFGs.
   void removePredecessor(BinaryBasicBlock *Pred, bool Multiple = true);
 
-  /// Set end offset of this basic block.
-  void setEndOffset(uint32_t Offset) { InputRange.second = Offset; }
+  
 
   /// Set the index of this basic block.
   void setIndex(unsigned I) { Index = I; }

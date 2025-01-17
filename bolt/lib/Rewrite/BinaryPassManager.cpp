@@ -236,6 +236,18 @@ static cl::opt<bool> SimplifyRODataLoads(
     cl::cat(BoltOptCategory));
 
 static cl::list<std::string>
+FindSimBB("findsimbb",
+  cl::desc("list of functions with call sites for which to find bb similarities"),         
+  cl::value_desc("func1,func2:cs1:cs2,func3:cs1,..."),
+  cl::ZeroOrMore, cl::cat(BoltOptCategory));
+
+static cl::list<std::string>
+OutlineSimBB("outlinesimbb",
+  cl::desc("list of functions with call sites for which to find bb similarities"),         
+  cl::value_desc("func1,func2:cs1:cs2,func3:cs1,..."),
+  cl::ZeroOrMore, cl::cat(BoltOptCategory));
+
+static cl::list<std::string>
 SpecializeMemcpy1("memcpy1-spec",
   cl::desc("list of functions with call sites for which to specialize memcpy() "
            "for size 1"),
@@ -350,6 +362,34 @@ Error BinaryFunctionPassManager::runPasses() {
 Error BinaryFunctionPassManager::runAllPasses(BinaryContext &BC) {
   BinaryFunctionPassManager Manager(BC);
 
+  Manager.registerPass(std::make_unique<ValidateInternalCalls>(NeverPrint));
+
+  Manager.registerPass(std::make_unique<ValidateMemRefs>(NeverPrint));
+
+  Manager.registerPass(
+      std::make_unique<FindSimBB>(NeverPrint, opts::FindSimBB),
+      !opts::FindSimBB.empty());
+
+  Manager.registerPass(
+      std::make_unique<OutlineSimBB>(NeverPrint, opts::OutlineSimBB),
+      !opts::OutlineSimBB.empty());
+
+  Manager.registerPass(std::make_unique<FixupBranches>(PrintAfterBranchFixup));
+
+  Manager.registerPass(std::make_unique<FinalizeFunctions>(PrintFinalized));
+
+  Manager.registerPass(std::make_unique<AssignSections>());
+
+  Manager.registerPass(std::make_unique<CleanMCState>(NeverPrint));
+
+  return Manager.runPasses();
+}
+
+// Original
+#if 0
+Error BinaryFunctionPassManager::runAllPasses(BinaryContext &BC) {
+  BinaryFunctionPassManager Manager(BC);
+
   Manager.registerPass(
       std::make_unique<EstimateEdgeCounts>(PrintEstimateEdgeCounts));
 
@@ -408,6 +448,8 @@ Error BinaryFunctionPassManager::runAllPasses(BinaryContext &BC) {
   Manager.registerPass(
       std::make_unique<SpecializeMemcpy1>(NeverPrint, opts::SpecializeMemcpy1),
       !opts::SpecializeMemcpy1.empty());
+
+  
 
   Manager.registerPass(std::make_unique<InlineMemcpy>(NeverPrint),
                        opts::StringOps);
@@ -507,6 +549,14 @@ Error BinaryFunctionPassManager::runAllPasses(BinaryContext &BC) {
     Manager.registerPass(std::make_unique<LongJmpPass>(PrintLongJmp));
   }
 
+  Manager.registerPass(
+      std::make_unique<FindSimBB>(NeverPrint, opts::FindSimBB),
+      !opts::FindSimBB.empty());
+
+  Manager.registerPass(
+      std::make_unique<OutlineSimBB>(NeverPrint, opts::OutlineSimBB),
+      !opts::OutlineSimBB.empty());
+
   // This pass should always run last.*
   Manager.registerPass(std::make_unique<FinalizeFunctions>(PrintFinalized));
 
@@ -548,6 +598,7 @@ Error BinaryFunctionPassManager::runAllPasses(BinaryContext &BC) {
 
   return Manager.runPasses();
 }
+#endif
 
 } // namespace bolt
 } // namespace llvm

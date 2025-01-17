@@ -379,6 +379,160 @@ void BinaryBasicBlock::updateJumpTableSuccessors() {
     addSuccessor(BB);
 }
 
+void BinaryBasicBlock::globalizeJumpTableSymbols(std::unordered_map<const MCSymbol *, MCSymbol *> RenamedLabels) {
+  
+  BinaryContext &BC = Function->getBinaryContext();
+  const JumpTable *JT = getJumpTable();
+  if (!JT) {
+    // outs() << "No jump table found for block.\n";
+    return;
+  }
+
+  const MCSymbol *Symbol = JT->getSymbol(); 
+  uint64_t Address = JT->getAddress();      
+  size_t EntrySize = JT->EntrySize;         
+  auto Type = JT->Type;                     
+  auto &Section = JT->getSection();         
+
+  // outs() << "Updating JumpTable at Address: " << Twine::utohexstr(Address) << "\n";
+  const_cast<llvm::bolt::JumpTable *>(JT)->updateDestination(Address, RenamedLabels);
+
+}
+
+// void BinaryBasicBlock::BBfixBranches(BinaryBasicBlock *BB) {
+//   auto &MIB = BC.MIB;
+//   MCContext *Ctx = BC.Ctx.get();
+
+//   outs() << "FixBranches: \n";
+//     BB->dump();
+
+//     outs() << "\n****\n";
+
+//     const MCSymbol *TBB = nullptr;
+//     const MCSymbol *FBB = nullptr;
+//     MCInst *CondBranch = nullptr;
+//     MCInst *UncondBranch = nullptr;
+//     if (!BB->analyzeBranch(TBB, FBB, CondBranch, UncondBranch))
+//     {
+//       outs() << "After AnalyzeBranch\n";
+
+//       BB->dump();
+
+//       outs() << "\n****\n";
+//       continue;
+//     }
+      
+
+//     // We will create unconditional branch with correct destination if needed.
+//     if (UncondBranch)
+//       BB->eraseInstruction(BB->findInstruction(UncondBranch));
+
+//     // Basic block that follows the current one in the final layout.
+//     const BinaryBasicBlock *const NextBB =
+//         Layout.getBasicBlockAfter(BB, /*IgnoreSplits=*/false);
+
+//     if (BB->succ_size() == 1) {
+//       // __builtin_unreachable() could create a conditional branch that
+//       // falls-through into the next function - hence the block will have only
+//       // one valid successor. Since behaviour is undefined - we replace
+//       // the conditional branch with an unconditional if required.
+//       if (CondBranch)
+//         BB->eraseInstruction(BB->findInstruction(CondBranch));
+//       if (BB->getSuccessor() == NextBB)
+//       {
+//         outs() << "After BB->getSuccessor() == NextBB \n";
+
+//         BB->dump();
+
+//         outs() << "\n****\n";
+
+//         continue;
+//       }
+//       BB->addBranchInstruction(BB->getSuccessor());
+//       outs() << "After BB->addBranchInstruction(BB->getSuccessor()) \n";
+
+//       BB->dump();
+
+//       outs() << "\n****\n";
+//     } else if (BB->succ_size() == 2) {
+//       assert(CondBranch && "conditional branch expected");
+//       const BinaryBasicBlock *TSuccessor = BB->getConditionalSuccessor(true);
+//       const BinaryBasicBlock *FSuccessor = BB->getConditionalSuccessor(false);
+
+//       // Eliminate unnecessary conditional branch.
+//       if (TSuccessor == FSuccessor) {
+//         // FIXME: at the moment, we cannot safely remove static key branches.
+//         if (MIB->isDynamicBranch(*CondBranch)) {
+//           if (opts::Verbosity) {
+//             BC.outs()
+//                 << "BOLT-INFO: unable to remove redundant dynamic branch in "
+//                 << *this << '\n';
+//           }
+//           continue;
+//         }
+
+//         BB->removeDuplicateConditionalSuccessor(CondBranch);
+//         if (TSuccessor != NextBB)
+//           BB->addBranchInstruction(TSuccessor);
+//         continue;
+//       }
+
+//       // Reverse branch condition and swap successors.
+//       auto swapSuccessors = [&]() {
+//         if (!MIB->isReversibleBranch(*CondBranch)) {
+//           if (opts::Verbosity) {
+//             BC.outs() << "BOLT-INFO: unable to swap successors in " << *this
+//                       << '\n';
+//           }
+//           return false;
+//         }
+//         std::swap(TSuccessor, FSuccessor);
+//         BB->swapConditionalSuccessors();
+//         auto L = BC.scopeLock();
+//         MIB->reverseBranchCondition(*CondBranch, TSuccessor->getLabel(), Ctx);
+//         return true;
+//       };
+
+//       // Check whether the next block is a "taken" target and try to swap it
+//       // with a "fall-through" target.
+//       if (TSuccessor == NextBB && swapSuccessors())
+//         continue;
+
+//       // Update conditional branch destination if needed.
+//       if (MIB->getTargetSymbol(*CondBranch) != TSuccessor->getLabel()) {
+//         auto L = BC.scopeLock();
+//         MIB->replaceBranchTarget(*CondBranch, TSuccessor->getLabel(), Ctx);
+//       }
+
+//       // No need for the unconditional branch.
+//       if (FSuccessor == NextBB)
+//         continue;
+
+//       if (BC.isX86()) {
+//         // We are going to generate two branches. Check if their targets are in
+//         // the same fragment as this block. If only one target is in the same
+//         // fragment, make it the destination of the conditional branch. There
+//         // is a chance it will be a short branch which takes 4 bytes fewer than
+//         // a long conditional branch. For unconditional branch, the difference
+//         // is 3 bytes.
+//         if (BB->getFragmentNum() != TSuccessor->getFragmentNum() &&
+//             BB->getFragmentNum() == FSuccessor->getFragmentNum())
+//           swapSuccessors();
+//       }
+
+//       BB->addBranchInstruction(FSuccessor);
+//     }
+//     // Cases where the number of successors is 0 (block ends with a
+//     // terminator) or more than 2 (switch table) don't require branch
+//     // instruction adjustments.
+
+//   outs() << "After\n";
+
+//   BB->dump();
+
+//   outs() << "\n****\n";
+// }
+
 void BinaryBasicBlock::adjustExecutionCount(double Ratio) {
   auto adjustedCount = [&](uint64_t Count) -> uint64_t {
     double NewCount = Count * Ratio;
@@ -531,6 +685,84 @@ void BinaryBasicBlock::dump() const {
     BC.outs() << " " << (*itr)->getName();
   }
   BC.outs() << "\n";
+}
+
+std::string BinaryBasicBlock::getBlockHash() const {
+  BinaryContext &BC = Function->getBinaryContext();
+  /*BC.printInstructions(outs(), Instructions.begin(), Instructions.end(),
+                       getOffset(), Function);*/
+  std::string signature;
+  for (auto II = Instructions.begin(); II != Instructions.end(); ++II) {
+    const MCInst &Inst = *II;
+    const SmallString<256> &V = BC.getInstructionBytes(Inst);
+    for (auto c : V) {
+      std::string hexval;
+      llvm::raw_string_ostream Str(hexval);
+      Str.write_hex((unsigned char)(c));
+      Str.flush();
+      signature += hexval;
+      // outs() << hexval;
+      // outs() << " | ";
+    }
+
+    // signature += "|";
+
+    if (BC.MIB->isCall(Inst) && MCPlus::getNumPrimeOperands(Inst) == 1 && Inst.getOperand(0).isExpr()==true)
+    {
+        const MCSymbol *CalleeSymbol = BC.MIB->getTargetSymbol(Inst);
+
+        if (CalleeSymbol)
+          signature += std::string(CalleeSymbol->getName());
+        else 
+        {
+          const MCExpr *Expr = Inst.getOperand(0).getExpr();
+          if (const auto *ConstExpr = dyn_cast<MCConstantExpr>(Expr)) {
+            signature += std::to_string(ConstExpr->getValue());
+          }
+        }
+    }
+
+    std::string OpcodeName = std::string(BC.InstPrinter->getOpcodeName(Inst.getOpcode()));
+
+    if (OpcodeName == "LEA64r")
+    {
+      
+      for (unsigned int i = 0; i<Inst.getNumOperands(); i++)
+      {
+        const MCOperand &Operand = Inst.getOperand(i);
+
+        if (Operand.isExpr())
+        {
+          const MCExpr *Expr = Operand.getExpr();
+
+          if (const auto *SymbolExpr = dyn_cast<MCSymbolRefExpr>(Expr)) {
+            signature += std::string(SymbolExpr->getSymbol().getName());
+          }
+
+          else if (const auto *BinaryExpr = dyn_cast<MCBinaryExpr>(Expr)) 
+          {
+
+              if (const auto *LHS = dyn_cast<MCSymbolRefExpr>(BinaryExpr->getLHS())) {
+                  // outs() << "signature: " << signature << "\n";
+                  // outs() << "LHS: " << LHS->getSymbol().getName() << "\n";
+                  signature += std::string(LHS->getSymbol().getName());
+              }
+              if (const auto *RHS = dyn_cast<MCConstantExpr>(BinaryExpr->getRHS())) {
+                  signature += "+" + std::to_string(RHS->getValue());
+                  // outs() << "signature: " << signature << "\n";
+                  // outs() << "RHS: " << "+" + std::to_string(RHS->getValue()) << "\n";
+              }
+          }
+        }
+      }
+    }
+  } 
+
+
+  if (signature.empty())
+    signature += "empty";
+  // outs() << "\nsignature = " << signature << "\n";
+  return signature;
 }
 
 uint64_t BinaryBasicBlock::estimateSize(const MCCodeEmitter *Emitter) const {
