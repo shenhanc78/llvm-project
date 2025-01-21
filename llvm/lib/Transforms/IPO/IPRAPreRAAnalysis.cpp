@@ -97,7 +97,7 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
   if (IPRAPreRAFunctionSymsFile != "") {
     MapEleCount = parseSymbolsFile(FunctionSymsMap);
     // dbgs() << "MapEleCount : " << MapEleCount << "\n";
-    // fprintf(stderr, "IPRA: MapEleCount: %d\n", MapEleCount);
+    fprintf(stderr, "IPRA: MapEleCount: %d\n", MapEleCount);
   }
 
   if (MapEleCount == 0) return PreservedAnalyses::all();
