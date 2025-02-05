@@ -4060,9 +4060,9 @@ Instruction *InstCombinerImpl::visitCallBase(CallBase &Call) {
       fprintf(stderr, "Callee is declaration: %d\n", CalleeF->isDeclaration());
       fprintf(stderr, "Call is using PreserveNone: %d\n",
               (Call.getCallingConv() == llvm::CallingConv::PreserveNone));
-      fprintf(stderr, "Call: >>>\n");
-      Call.dump();
-      fprintf(stderr, "<<<\n");
+      // fprintf(stderr, "Call: >>>\n");
+      // Call.dump();
+      // fprintf(stderr, "<<<\n");
       Instruction *OldCall = &Call;
       CreateNonTerminatorUnreachable(OldCall);
       // If OldCall does not return void then replaceInstUsesWith poison.
