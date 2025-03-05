@@ -1,4 +1,6 @@
+#include <cstdint>
 #include <iostream>
+#include <optional>
 #include <vector>
 
 #include "llvm/ADT/iterator_range.h"
@@ -16,6 +18,7 @@
 #include "llvm/CodeGen/Passes.h"
 #include "llvm/CodeGen/TargetRegisterInfo.h"
 #include "llvm/IR/BasicBlock.h"
+#include "llvm/IR/DebugInfoMetadata.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/GlobalAlias.h"
 #include "llvm/IR/GlobalObject.h"
@@ -28,6 +31,7 @@
 #include "llvm/Support/Casting.h"
 #include "llvm/Support/CommandLine.h"
 #include "llvm/Support/Debug.h"
+#include "llvm/Support/Path.h"
 #include "llvm/Support/raw_os_ostream.h"
 #include "llvm/Target/TargetMachine.h"
 
@@ -54,7 +58,8 @@ using namespace ::llvm;
 
 bool isHotBasicBlock(const llvm::MachineBasicBlock &MBB,
                      const llvm::MachineBlockFrequencyInfo *MBFI,
-                     llvm::ProfileSummaryInfo *PSI, uint64_t &CountVal) {
+                     const llvm::ProfileSummaryInfo *PSI,
+                     uint64_t &CountVal) {
   std::optional<uint64_t> Count = MBFI->getBlockProfileCount(&MBB);
   CountVal = (Count.has_value() ? Count.value() : 0);
   return Count.has_value() && PSI->isHotCount(*Count);
@@ -120,7 +125,12 @@ bool X86CSRegLivenessAnalysis::calculateMachineFunctionCSRegUsage(
   const MachineFrameInfo &MFI = MF.getFrameInfo();
   llvm::raw_os_ostream OS(std::cerr);
   OS.SetUnbuffered();
-  OS << "IPRA: CSReg usage for function " << MF.getName() << ":";
+  llvm::StringRef cu_name = "";
+  if (DISubprogram *subprogram = MF.getFunction().getSubprogram())
+    if (llvm::DICompileUnit *comp_unit = subprogram->getUnit())
+      cu_name = sys::path::remove_leading_dotslash(comp_unit->getFilename());
+  OS << "IPRA: Function: " << MF.getName() << "[" << cu_name
+     << "] CSRegUsage: ";
   if (!MFI.isCalleeSavedInfoValid()) {
     OS << " unavailable\n";
     return false;
@@ -130,11 +140,18 @@ bool X86CSRegLivenessAnalysis::calculateMachineFunctionCSRegUsage(
     if (Info.isRestored())
       OS << " " << printReg(Info.getReg(), TRI);
   OS << "\n";
+
+  if (PSI->isFunctionEntryHot(&MF)) {
+    std::optional<llvm::Function::ProfileCount> oec =
+        MF.getFunction().getEntryCount(false /*AllowSynthetic=false*/);
+    OS << "IPRA: Function: " << MF.getName() << " IsFunctionEntryHot " <<
+        (oec.has_value() ? oec->getCount() : 0);
+  }
   return true;
 }
 
 // Main function to calculate callee-saved register liveness for the entire
-// function
+// function.
 void X86CSRegLivenessAnalysis::calculateCalleeSavedLiveness(
     MachineFunction &MF) {
   MF.RenumberBlocks();
@@ -160,6 +177,7 @@ bool X86CSRegLivenessAnalysis::analyzeBasicBlock(MachineBasicBlock &MBB) {
   OS.SetUnbuffered();
   // Now LiveRegs = MBB LiveOuts. Then we step backward through the block.
   int ii = 0;
+  bool MBBDataPrinted = false;
   for (MachineInstr &MI : make_range(MBB.rbegin(), MBB.rend())) {
     ++ii;
     LiveRegs.stepBackward(MI);
@@ -167,7 +185,8 @@ bool X86CSRegLivenessAnalysis::analyzeBasicBlock(MachineBasicBlock &MBB) {
     // Analyze callee-saved liveness around the call.
     // At this point, LiveRegs reflects the liveness *before* the call
     // instruction.
-    if (MI.isCall()) {
+    if (MI.isCall() &&
+        MI.getNumOperands() > 0 /* FEntry_Call has no operands */) {
       StringRef CalleeName = "";
       // Iterate over operands to find the call target
       const llvm::MachineOperand &MO = MI.getOperand(0);
@@ -189,6 +208,13 @@ bool X86CSRegLivenessAnalysis::analyzeBasicBlock(MachineBasicBlock &MBB) {
         CalleeName = MO.getSymbolName();
       }
       if (!CalleeName.empty()) {
+        if (!MBBDataPrinted) {
+          uint64_t CountValue;
+          OS << "IPRA: MBB: " << MBB.getNumber()
+             << " isHot: " << isHotBasicBlock(MBB, MBFI, PSI, CountValue) << " "
+             << CountValue << "\n";
+          MBBDataPrinted = true;
+        }
         OS << "IPRA: call-site " << MF->getName() << "[" << MBB.getNumber()
            << "." << ii << "] calls " << CalleeName;
         OS << " CS regs live before insn:";
@@ -198,16 +224,16 @@ bool X86CSRegLivenessAnalysis::analyzeBasicBlock(MachineBasicBlock &MBB) {
           }
         }
         OS << "\n";
-	// OS << "  " << MI;
+        // OS << "  " << MI;
       }
       // end of "if (MI.isCall())"
-    }  else {
+    } else {
       // OS << "IPRA: CS regs live before insn:";
       // for (MCPhysReg Reg : CalleeSavedRegs) {
-      // 	// if (LiveRegs.contains(Reg)) {
-      // 	if (!LiveRegs.available(*MRI, Reg)) {
-      // 	  OS << " " << printReg(Reg, TRI);
-      // 	}
+      //        // if (LiveRegs.contains(Reg)) {
+      //        if (!LiveRegs.available(*MRI, Reg)) {
+      //          OS << " " << printReg(Reg, TRI);
+      //        }
       // }
       // OS << "\n";
       // OS << "  " << MI;

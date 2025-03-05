@@ -23,6 +23,7 @@
 #include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/IR/Analysis.h"
 #include "llvm/IR/BasicBlock.h"
+#include "llvm/IR/DebugInfoMetadata.h"
 #include "llvm/IR/Function.h"
 #include "llvm/IR/Module.h"
 #include "llvm/Transforms/Utils/Local.h"
@@ -38,6 +39,7 @@
 #include "llvm/Support/Debug.h"
 #include "llvm/Support/MemoryBuffer.h"
 #include "llvm/Support/LineIterator.h"
+#include "llvm/Support/Path.h"
 
 using namespace ::llvm;
 
@@ -100,23 +102,32 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
     fprintf(stderr, "IPRA: MapEleCount: %d\n", MapEleCount);
   }
 
-  if (MapEleCount == 0) return PreservedAnalyses::all();
+  if (!IPRADryRun && MapEleCount == 0) return PreservedAnalyses::all();
 
   // The Dry Run must explicitly print out address taken functions so that
   // we can eliminate them.  Comdats might be address taken in one module and
   // not in the other module.
   if (IPRADryRun) {
     for (Function &F : M.functions()) {
-      if (!FunctionSymsMap.contains(F.getName())) continue;
+
+      llvm::StringRef cu_name = "";
+      if (DISubprogram *subprogram = F.getSubprogram())
+        if (llvm::DICompileUnit *comp_unit = subprogram->getUnit())
+          cu_name =
+              sys::path::remove_leading_dotslash(comp_unit->getFilename());
+      std::string CUNameStr = cu_name.str();
+
+      // if (!FunctionSymsMap.contains(F.getName())) continue;
 
       const std::string FName = F.getName().str();
       const char *FNameCStr = FName.c_str();
 
-      if (!F.isDeclaration() && !F.hasAddressTaken())
-        fprintf(stderr, "IPRA: %s\n", FNameCStr);
+      // if (!F.isDeclaration() && !F.hasAddressTaken())
+      //   fprintf(stderr, "IPRA: %s\n", FNameCStr);
 
       if (F.hasAddressTaken())
-        fprintf(stderr, "IPRA: AddressTaken: %s\n", FNameCStr);
+        fprintf(stderr, "IPRA: Function: %s[%s] HasAddressTaken\n", FNameCStr,
+                CUNameStr.c_str());
 
       bool must_tail_call = false;
       // Tailcall check 1.
@@ -155,14 +166,17 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
         }
       }
       if (!all_uses_are_call)
-        fprintf(stderr, "IPRA: AllUsesAreNotCall: %s\n", FNameCStr);
+        fprintf(stderr, "IPRA: Function: %s[%s] AllUsesAreNotCall\n", FNameCStr,
+                CUNameStr.c_str());
       if (must_tail_call)
-        fprintf(stderr, "IPRA: MustTailCall: %s\n", FNameCStr);
+        fprintf(stderr, "IPRA: Function: %s[%s] MustTailCall\n", FNameCStr,
+                CUNameStr.c_str());
       if (uses_are_indirect_call)
-        fprintf(stderr, "IPRA: UsesAreIndirectCall: %s\n", FNameCStr);
-      if (F.isInterposable()) {
-        fprintf(stderr, "IPRA: IsInterposable: %s\n", FNameCStr);
-      }
+        fprintf(stderr, "IPRA: Function: %s[%s] UsesAreIndirectCall\n",
+                FNameCStr, CUNameStr.c_str());
+      if (F.isInterposable())
+        fprintf(stderr, "IPRA: Function: %s[%s] IsInterposable\n", FNameCStr,
+                CUNameStr.c_str());
     }
     return PreservedAnalyses::all();
   }

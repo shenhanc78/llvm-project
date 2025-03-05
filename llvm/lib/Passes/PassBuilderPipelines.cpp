@@ -1299,8 +1299,8 @@ PassBuilder::buildModuleSimplificationPipeline(OptimizationLevel Level,
 
   // Add "preserve_none" to hot entry block function declarations and
   // definitions.
-  // if (EnableIPRAPreRAAnalysis && Phase == ThinOrFullLTOPhase::ThinLTOPostLink) {
-  if (EnableIPRAPreRAAnalysis) {
+  if (EnableIPRAPreRAAnalysis && Phase == ThinOrFullLTOPhase::ThinLTOPostLink) {
+  // if (EnableIPRAPreRAAnalysis) {
     // dbgs() << "Adding IPRAPreRA Analysis at point 1\n";
     MPM.addPass(IPRAPreRAAnalysisPass());
   }
@@ -2024,10 +2024,10 @@ PassBuilder::buildLTODefaultPipeline(OptimizationLevel Level,
 
   // Add "preserve_none" to hot entry block function declarations and
   // definitions.
-  if (EnableIPRAPreRAAnalysis) {
-    // dbgs() << "Adding IPRAPreRA Analysis at point 2\n";
-    MPM.addPass(IPRAPreRAAnalysisPass());
-  }
+  // if (EnableIPRAPreRAAnalysis) {
+  //   // dbgs() << "Adding IPRAPreRA Analysis at point 2\n";
+  //   MPM.addPass(IPRAPreRAAnalysisPass());
+  // }
 
   // Perform context disambiguation after inlining, since that would reduce the
   // amount of additional cloning required to distinguish the allocation
