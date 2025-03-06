@@ -37,6 +37,7 @@
 
 #include "MCTargetDesc/X86MCTargetDesc.h"
 #include "X86.h"
+#include "X86InstrInfo.h"
 #include "X86Subtarget.h"
 
 // For X86-64, include the X86.h header to get the register enums.
@@ -56,13 +57,21 @@ namespace {
 
 using namespace ::llvm;
 
-bool isHotBasicBlock(const llvm::MachineBasicBlock &MBB,
-                     const llvm::MachineBlockFrequencyInfo *MBFI,
-                     const llvm::ProfileSummaryInfo *PSI,
-                     uint64_t &CountVal) {
+static bool isHotBasicBlock(const llvm::MachineBasicBlock &MBB,
+                            const llvm::MachineBlockFrequencyInfo *MBFI,
+                            const llvm::ProfileSummaryInfo *PSI,
+                            uint64_t &CountVal) {
   std::optional<uint64_t> Count = MBFI->getBlockProfileCount(&MBB);
   CountVal = (Count.has_value() ? Count.value() : 0);
   return Count.has_value() && PSI->isHotCount(*Count);
+}
+
+static std::string getFunctionModuleName(const Function &F) {
+  llvm::StringRef cu_name = "";
+  if (DISubprogram *subprogram = F.getSubprogram())
+    if (llvm::DICompileUnit *comp_unit = subprogram->getUnit())
+      cu_name = sys::path::remove_leading_dotslash(comp_unit->getFilename());
+  return cu_name.str();
 }
 
 class X86CSRegLivenessAnalysis : public MachineFunctionPass {
@@ -75,7 +84,8 @@ class X86CSRegLivenessAnalysis : public MachineFunctionPass {
   void getAnalysisUsage(llvm::AnalysisUsage &AU) const override;
 
  private:
-  const TargetRegisterInfo *TRI;
+  const X86RegisterInfo *TRI;
+  const X86InstrInfo *TII;
   const MachineRegisterInfo *MRI;
   const ProfileSummaryInfo *PSI;
   const MachineBlockFrequencyInfo *MBFI;
@@ -86,6 +96,8 @@ class X86CSRegLivenessAnalysis : public MachineFunctionPass {
   bool calculateMachineFunctionCSRegUsage(const MachineFunction &MF);
   void calculateCalleeSavedLiveness(MachineFunction &MF);
   bool analyzeBasicBlock(MachineBasicBlock &MBB);
+
+  std::string FuncModuleName;
 };
 
 void X86CSRegLivenessAnalysis::getAnalysisUsage(AnalysisUsage &AU) const {
@@ -102,11 +114,14 @@ bool X86CSRegLivenessAnalysis::runOnMachineFunction(MachineFunction &MF) {
   if (!EnableCSRegLivenessAnalysis)
     return false;
 
-  TRI = MF.getSubtarget().getRegisterInfo();
+  TRI = MF.getSubtarget<X86Subtarget>().getRegisterInfo();
+  TII = MF.getSubtarget<X86Subtarget>().getInstrInfo();
   MRI = &MF.getRegInfo();
 
   PSI = &getAnalysis<ProfileSummaryInfoWrapperPass>().getPSI();
   MBFI = &getAnalysis<MachineBlockFrequencyInfoWrapperPass>().getMBFI();
+
+  FuncModuleName = getFunctionModuleName(MF.getFunction());
 
   calculateMachineFunctionCSRegUsage(MF);
 
@@ -125,12 +140,8 @@ bool X86CSRegLivenessAnalysis::calculateMachineFunctionCSRegUsage(
   const MachineFrameInfo &MFI = MF.getFrameInfo();
   llvm::raw_os_ostream OS(std::cerr);
   OS.SetUnbuffered();
-  llvm::StringRef cu_name = "";
-  if (DISubprogram *subprogram = MF.getFunction().getSubprogram())
-    if (llvm::DICompileUnit *comp_unit = subprogram->getUnit())
-      cu_name = sys::path::remove_leading_dotslash(comp_unit->getFilename());
-  OS << "IPRA: Function: " << MF.getName() << "[" << cu_name
-     << "] CSRegUsage: ";
+  OS << "IPRA: Function: " << MF.getName() << "[" << FuncModuleName
+     << "] CSRegUsage:";
   if (!MFI.isCalleeSavedInfoValid()) {
     OS << " unavailable\n";
     return false;
@@ -139,13 +150,14 @@ bool X86CSRegLivenessAnalysis::calculateMachineFunctionCSRegUsage(
   for (const CalleeSavedInfo &Info : MFI.getCalleeSavedInfo())
     if (Info.isRestored())
       OS << " " << printReg(Info.getReg(), TRI);
-  OS << "\n";
 
   if (PSI->isFunctionEntryHot(&MF)) {
     std::optional<llvm::Function::ProfileCount> oec =
         MF.getFunction().getEntryCount(false /*AllowSynthetic=false*/);
-    OS << "IPRA: Function: " << MF.getName() << " IsFunctionEntryHot " <<
-        (oec.has_value() ? oec->getCount() : 0);
+    OS << " IsFunctionEntryHot Count: "
+       << (oec.has_value() ? oec->getCount() : 0) << "\n";
+  } else {
+    OS << " IsFunctionEntryNotHot\n";
   }
   return true;
 }
@@ -177,17 +189,21 @@ bool X86CSRegLivenessAnalysis::analyzeBasicBlock(MachineBasicBlock &MBB) {
   OS.SetUnbuffered();
   // Now LiveRegs = MBB LiveOuts. Then we step backward through the block.
   int ii = 0;
+  uint64_t MBBCount;
+  bool MBBIsHot = isHotBasicBlock(MBB, MBFI, PSI, MBBCount);
   bool MBBDataPrinted = false;
   for (MachineInstr &MI : make_range(MBB.rbegin(), MBB.rend())) {
     ++ii;
     LiveRegs.stepBackward(MI);
 
+    bool IsTailCall = TII->isTailCall(MI);
     // Analyze callee-saved liveness around the call.
     // At this point, LiveRegs reflects the liveness *before* the call
     // instruction.
-    if (MI.isCall() &&
+    if ((MI.isCall() || IsTailCall) &&
         MI.getNumOperands() > 0 /* FEntry_Call has no operands */) {
       StringRef CalleeName = "";
+      std::string CalleeModuleName = "";
       // Iterate over operands to find the call target
       const llvm::MachineOperand &MO = MI.getOperand(0);
       if (MO.isGlobal()) {
@@ -195,29 +211,34 @@ bool X86CSRegLivenessAnalysis::analyzeBasicBlock(MachineBasicBlock &MBB) {
         if (const llvm::Function *F =
                 llvm::dyn_cast<const llvm::Function>(GV)) {
           CalleeName = F->getName();
+          CalleeModuleName = getFunctionModuleName(*F);
         } else if (const llvm::GlobalAlias *GA =
                        llvm::dyn_cast<llvm::GlobalAlias>(GV)) {
           // May be an alias to a function or to another alias
-          const llvm::GlobalObject *GO = GA->getAliaseeObject();
-          if (const llvm::Function *F =
-                  llvm::dyn_cast_or_null<llvm::Function>(GO))
-            CalleeName = F->getName();
+          if (const llvm::GlobalObject *GO = GA->getAliaseeObject()) {
+            if (const llvm::Function *F =
+                    llvm::dyn_cast_or_null<llvm::Function>(GO)) {
+              CalleeName = F->getName();
+              CalleeModuleName = getFunctionModuleName(*F);
+            }
+          }
         }
       } else if (MO.isSymbol()) {
-        // Direct call to a symbol (likely an external function)
+        // Direct call to a symbol (likely an external function).
         CalleeName = MO.getSymbolName();
       }
       if (!CalleeName.empty()) {
         if (!MBBDataPrinted) {
-          uint64_t CountValue;
-          OS << "IPRA: MBB: " << MBB.getNumber()
-             << " isHot: " << isHotBasicBlock(MBB, MBFI, PSI, CountValue) << " "
-             << CountValue << "\n";
+          OS << "IPRA: Function: " << MF->getName() << "[" << FuncModuleName
+             << "] MBB: " << MBB.getNumber() << " isHot: " << MBBIsHot
+             << " Count: " << MBBCount << "\n";
           MBBDataPrinted = true;
         }
-        OS << "IPRA: call-site " << MF->getName() << "[" << MBB.getNumber()
-           << "." << ii << "] calls " << CalleeName;
-        OS << " CS regs live before insn:";
+        OS << "IPRA: Function: " << MF->getName() << "[" << FuncModuleName
+           << "] " << (IsTailCall ? "tail-calls " : "calls ") << CalleeName
+           << "[" << CalleeModuleName << "] at MBB: " << MBB.getNumber()
+           << " Instr: " << ii << " Count: " << MBBCount
+           << " CS regs live before insn:";
         for (MCPhysReg Reg : CalleeSavedRegs) {
           if (!LiveRegs.available(*MRI, Reg)) {
             OS << " " << printReg(Reg, TRI);
