@@ -1,6 +1,7 @@
 #include <cstdint>
 #include <iostream>
 #include <optional>
+#include <string>
 #include <vector>
 
 #include "llvm/ADT/iterator_range.h"
@@ -24,7 +25,6 @@
 #include "llvm/IR/GlobalObject.h"
 #include "llvm/IR/GlobalValue.h"
 #include "llvm/IR/Instructions.h"
-#include "llvm/IR/Module.h"
 #include "llvm/IR/SymbolTableListTraits.h"
 #include "llvm/MC/MCRegister.h"
 #include "llvm/Pass.h"
@@ -38,6 +38,7 @@
 #include "MCTargetDesc/X86MCTargetDesc.h"
 #include "X86.h"
 #include "X86InstrInfo.h"
+#include "X86RegisterInfo.h"
 #include "X86Subtarget.h"
 
 // For X86-64, include the X86.h header to get the register enums.
@@ -55,22 +56,45 @@ static llvm::cl::opt<bool> EnableCSRegLivenessAnalysis(
 
 namespace {
 
-using namespace ::llvm;
+using ::llvm::AnalysisUsage;
+using ::llvm::ArrayRef;
+using ::llvm::CalleeSavedInfo;
+using ::llvm::DICompileUnit;
+using ::llvm::DISubprogram;
+using ::llvm::Function;
+using ::llvm::LivePhysRegs;
+using ::llvm::MachineBasicBlock;
+using ::llvm::MachineBlockFrequencyInfo;
+using ::llvm::MachineBlockFrequencyInfoWrapperPass;
+using ::llvm::MachineFrameInfo;
+using ::llvm::MachineFunction;
+using ::llvm::MachineFunctionPass;
+using ::llvm::MachineInstr;
+using ::llvm::MachineModuleInfoWrapperPass;
+using ::llvm::MachineRegisterInfo;
+using ::llvm::MCPhysReg;
+using ::llvm::ProfileSummaryInfo;
+using ::llvm::ProfileSummaryInfoWrapperPass;
+using ::llvm::StringRef;
+using ::llvm::sys::path::remove_leading_dotslash;
 
-static bool isHotBasicBlock(const llvm::MachineBasicBlock &MBB,
-                            const llvm::MachineBlockFrequencyInfo *MBFI,
-                            const llvm::ProfileSummaryInfo *PSI,
-                            uint64_t &CountVal) {
+using ::llvm::X86RegisterInfo;
+using ::llvm::X86InstrInfo;
+using ::llvm::X86Subtarget;
+
+static bool isHotBasicBlock(const MachineBasicBlock &MBB,
+                            const MachineBlockFrequencyInfo *MBFI,
+                            const ProfileSummaryInfo *PSI, uint64_t &CountVal) {
   std::optional<uint64_t> Count = MBFI->getBlockProfileCount(&MBB);
   CountVal = (Count.has_value() ? Count.value() : 0);
   return Count.has_value() && PSI->isHotCount(*Count);
 }
 
 static std::string getFunctionModuleName(const Function &F) {
-  llvm::StringRef cu_name = "";
+  StringRef cu_name = "";
   if (DISubprogram *subprogram = F.getSubprogram())
-    if (llvm::DICompileUnit *comp_unit = subprogram->getUnit())
-      cu_name = sys::path::remove_leading_dotslash(comp_unit->getFilename());
+    if (DICompileUnit *comp_unit = subprogram->getUnit())
+      cu_name = remove_leading_dotslash(comp_unit->getFilename());
   return cu_name.str();
 }
 
@@ -81,7 +105,7 @@ class X86CSRegLivenessAnalysis : public MachineFunctionPass {
 
   bool runOnMachineFunction(MachineFunction &MF) override;
 
-  void getAnalysisUsage(llvm::AnalysisUsage &AU) const override;
+  void getAnalysisUsage(AnalysisUsage &AU) const override;
 
  private:
   const X86RegisterInfo *TRI;
@@ -127,7 +151,8 @@ bool X86CSRegLivenessAnalysis::runOnMachineFunction(MachineFunction &MF) {
 
   // Initialize the set of callee-saved registers for x86-64.
   CalleeSavedRegs = {
-      X86::RBX, X86::RBP, X86::R12, X86::R13, X86::R14, X86::R15,
+      llvm::X86::RBX, llvm::X86::RBP, llvm::X86::R12,
+      llvm::X86::R13, llvm::X86::R14, llvm::X86::R15,
   };
 
   calculateCalleeSavedLiveness(MF);
@@ -140,25 +165,34 @@ bool X86CSRegLivenessAnalysis::calculateMachineFunctionCSRegUsage(
   const MachineFrameInfo &MFI = MF.getFrameInfo();
   llvm::raw_os_ostream OS(std::cerr);
   OS.SetUnbuffered();
-  OS << "IPRA: Function: " << MF.getName() << "[" << FuncModuleName
-     << "] CSRegUsage:";
+  OS << "IPRA: Function: " << MF.getName() << "[" << FuncModuleName << "]";
+  OS << " CallingConv: "
+     << static_cast<unsigned int>(MF.getFunction().getCallingConv());
+
+  OS << " CSRegUsage: ";
   if (!MFI.isCalleeSavedInfoValid()) {
-    OS << " unavailable\n";
+    OS << "unavailable\n";
     return false;
   }
-
-  for (const CalleeSavedInfo &Info : MFI.getCalleeSavedInfo())
-    if (Info.isRestored())
-      OS << " " << printReg(Info.getReg(), TRI);
+  int t = 0;
+  for (const CalleeSavedInfo &Info : MFI.getCalleeSavedInfo()) {
+    if (Info.isRestored()) {
+      if (t) OS << " ";
+      OS << printReg(Info.getReg(), TRI);
+      ++t;
+    }
+  }
 
   if (PSI->isFunctionEntryHot(&MF)) {
-    std::optional<llvm::Function::ProfileCount> oec =
-        MF.getFunction().getEntryCount(false /*AllowSynthetic=false*/);
-    OS << " IsFunctionEntryHot Count: "
-       << (oec.has_value() ? oec->getCount() : 0) << "\n";
+    std::optional<Function::ProfileCount> oec =
+        MF.getFunction().getEntryCount(/*AllowSynthetic=*/true);
+    OS << " IsFunctionEntryHot: 1 EntryCount: "
+       << (oec.has_value() ? oec->getCount() : 0);
   } else {
-    OS << " IsFunctionEntryNotHot\n";
+    OS << " IsFunctionEntryHot: 0";
   }
+  OS << "\n";
+
   return true;
 }
 
@@ -230,18 +264,22 @@ bool X86CSRegLivenessAnalysis::analyzeBasicBlock(MachineBasicBlock &MBB) {
       if (!CalleeName.empty()) {
         if (!MBBDataPrinted) {
           OS << "IPRA: Function: " << MF->getName() << "[" << FuncModuleName
-             << "] MBB: " << MBB.getNumber() << " isHot: " << MBBIsHot
-             << " Count: " << MBBCount << "\n";
+             << "] MBB: " << MBB.getNumber() << " IsMBBHot: " << MBBIsHot
+             << " MBBCount: " << MBBCount << "\n";
           MBBDataPrinted = true;
         }
         OS << "IPRA: Function: " << MF->getName() << "[" << FuncModuleName
-           << "] " << (IsTailCall ? "tail-calls " : "calls ") << CalleeName
-           << "[" << CalleeModuleName << "] at MBB: " << MBB.getNumber()
-           << " Instr: " << ii << " Count: " << MBBCount
-           << " CS regs live before insn:";
+           << "] " << "Calls: " << CalleeName << "[" << CalleeModuleName
+           << "] IsTailCall: " << (IsTailCall ? 1 : 0)
+           << " CallSiteLoc: " << MBB.getNumber() << "." << ii
+           << " LivingCSRegs: ";
+        int t = 0;
         for (MCPhysReg Reg : CalleeSavedRegs) {
           if (!LiveRegs.available(*MRI, Reg)) {
-            OS << " " << printReg(Reg, TRI);
+            if (t)
+              OS << " ";
+            OS << printReg(Reg, TRI);
+            ++t;
           }
         }
         OS << "\n";
@@ -258,7 +296,7 @@ bool X86CSRegLivenessAnalysis::analyzeBasicBlock(MachineBasicBlock &MBB) {
       // }
       // OS << "\n";
       // OS << "  " << MI;
-      ;
+      {}
     }
   }
   return true;
@@ -269,9 +307,12 @@ llvm::FunctionPass * llvm::createX86CSRegLivenessAnalysisPass() {
   return new X86CSRegLivenessAnalysis();
 }
 
+using namespace llvm;  // NOLINT
+
 INITIALIZE_PASS_BEGIN(X86CSRegLivenessAnalysis, DEBUG_TYPE,
                       "Callee Saved Register Liveness Analysis Configure",
                       false, false)
+
 INITIALIZE_PASS_END(X86CSRegLivenessAnalysis, DEBUG_TYPE,
                     "Callee Saved Register Liveness Analysis Configure", false,
                     false)

@@ -125,9 +125,9 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
       // if (!F.isDeclaration() && !F.hasAddressTaken())
       //   fprintf(stderr, "IPRA: %s\n", FNameCStr);
 
-      if (F.hasAddressTaken())
-        fprintf(stderr, "IPRA: Function: %s[%s] HasAddressTaken\n", FNameCStr,
-                CUNameStr.c_str());
+      // if (F.hasAddressTaken())
+      //   fprintf(stderr, "IPRA: Function: %s[%s] HasAddressTaken\n", FNameCStr,
+      //           CUNameStr.c_str());
 
       bool must_tail_call = false;
       // Tailcall check 1.
@@ -165,18 +165,21 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
           break;
         }
       }
-      if (!all_uses_are_call)
-        fprintf(stderr, "IPRA: Function: %s[%s] AllUsesAreNotCall\n", FNameCStr,
-                CUNameStr.c_str());
-      if (must_tail_call)
-        fprintf(stderr, "IPRA: Function: %s[%s] MustTailCall\n", FNameCStr,
-                CUNameStr.c_str());
-      if (uses_are_indirect_call)
-        fprintf(stderr, "IPRA: Function: %s[%s] UsesAreIndirectCall\n",
-                FNameCStr, CUNameStr.c_str());
-      if (F.isInterposable())
-        fprintf(stderr, "IPRA: Function: %s[%s] IsInterposable\n", FNameCStr,
-                CUNameStr.c_str());
+      if (!all_uses_are_call || must_tail_call || uses_are_indirect_call ||
+          F.isInterposable() || F.hasAddressTaken()) {
+        fprintf(stderr, "IPRA: Function: %s[%s]", FNameCStr, CUNameStr.c_str());
+        if (!all_uses_are_call)
+          fprintf(stderr, " AllUsesAreNotCall: 1");
+        if (must_tail_call)
+          fprintf(stderr, " MustTailCall: 1");
+        if (uses_are_indirect_call)
+          fprintf(stderr, " UsesAreIndirectCall: 1");
+        if (F.isInterposable())
+          fprintf(stderr, " IsInterposable: 1");
+        if (F.hasAddressTaken())
+          fprintf(stderr, " HasAddressTaken: 1");
+        fprintf(stderr, "\n");
+      }
     }
     return PreservedAnalyses::all();
   }
