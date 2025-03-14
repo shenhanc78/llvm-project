@@ -12,36 +12,57 @@
 /// The purpose of this pass is to analyze register usage information pre RA.
 //===----------------------------------------------------------------------===//
 
-#include <cstdint>
 #include <cstdio>
+#include <iomanip>
+#include <iostream>
+#include <random>
+#include <sstream>
 #include <string>
+#include <system_error>  // NOLINT
 #include <vector>
 
 #include "llvm/Transforms/IPO/IPRAPreRAAnalysis.h"
+#include "llvm/ADT/SmallString.h"
 #include "llvm/ADT/StringMap.h"
 #include "llvm/ADT/StringRef.h"
-#include "llvm/Analysis/TargetLibraryInfo.h"
 #include "llvm/IR/Analysis.h"
 #include "llvm/IR/BasicBlock.h"
+#include "llvm/IR/CallingConv.h"
 #include "llvm/IR/DebugInfoMetadata.h"
 #include "llvm/IR/Function.h"
-#include "llvm/IR/Module.h"
-#include "llvm/Transforms/Utils/Local.h"
-#include "llvm/Support/Casting.h"
-#include "llvm/IR/CallingConv.h"
-#include "llvm/IR/Constants.h"
 #include "llvm/IR/Instructions.h"
+#include "llvm/IR/Module.h"
 #include "llvm/IR/PassManager.h"
 #include "llvm/IR/Use.h"
 #include "llvm/IR/User.h"
 #include "llvm/IR/Value.h"
+#include "llvm/Support/Casting.h"
+#include "llvm/Support/ErrorHandling.h"
+#include "llvm/Support/FileSystem.h"
 #include "llvm/Support/CommandLine.h"
 #include "llvm/Support/Debug.h"
 #include "llvm/Support/MemoryBuffer.h"
 #include "llvm/Support/LineIterator.h"
 #include "llvm/Support/Path.h"
+#include "llvm/Support/raw_ostream.h"
 
-using namespace ::llvm;
+// #include "llvm/IR/BasicBlock.h"
+// #include "llvm/IR/DebugInfoMetadata.h"
+// #include "llvm/IR/Function.h"
+// #include "llvm/IR/GlobalAlias.h"
+// #include "llvm/IR/GlobalObject.h"
+// #include "llvm/IR/GlobalValue.h"
+// #include "llvm/IR/Instructions.h"
+// #include "llvm/IR/SymbolTableListTraits.h"
+// #include "llvm/Pass.h"
+
+// #include "llvm/Support/Casting.h"
+// #include "llvm/Support/CommandLine.h"
+// #include "llvm/Support/Debug.h"
+
+// #include "llvm/Target/TargetMachine.h"
+
+using namespace ::llvm;  // NOLINT
 
 #define DEBUG_TYPE "iprapreraanalysis"
 
@@ -50,13 +71,58 @@ static cl::opt<std::string>
                               cl::desc("File containing the symbo list"),
                               cl::init(""), cl::Hidden);
 
+static cl::opt<std::string> IPRAPreRAAnalysisOutputDir(
+    "ipra-prera-analysis-output-dir",
+    cl::desc("Directory to store the analysis output"),
+    cl::init("/tmp/ipra_prera_analysis"), cl::Hidden);
+
+namespace {
+  std::uniform_int_distribution<> unified_distribution(0, 255);
+
+std::string generateRandomFilename(const std::string &prefix = "temp_",
+                                   const std::string &extension = ".txt") {
+  std::random_device rd;
+  std::mt19937 gen(rd());
+
+  std::stringstream ss;
+  ss << prefix;
+  for (int i = 0; i < 16; ++i) {
+    ss << std::hex << std::setw(2) << std::setfill('0')
+       << unified_distribution(gen);
+  }
+  ss << extension;
+  return ss.str();
+}
+
+bool ensureDirectoryExists(const std::string &directoryPath) {
+  llvm::sys::fs::file_status status;
+
+  // Check if the directory exists
+  if (!llvm::sys::fs::status(directoryPath,
+                             status)) {  // Negate to check for success.
+    if (llvm::sys::fs::exists(status) && llvm::sys::fs::is_directory(status)) {
+      return true;  // Directory already exists
+    }
+  }
+
+  // Directory doesn't exist, create it
+  std::error_code ec = llvm::sys::fs::create_directories(directoryPath);
+  if (ec) {
+    llvm::errs() << "Error creating directory " << directoryPath << ": "
+                 << ec.message() << "\n";
+    return false;  // Failed to create directory
+  }
+  return true;  // Directory created successfully
+}
+}  // namespace
+
 // First dry run the symbol list to get all symbols that have a definition and
 // then use that pruned list.
 static cl::opt<bool>
     IPRADryRun("ipra-dry-run", cl::desc("Dry run to get valid function names"),
                cl::init(false), cl::Hidden);
 
-static const std::string embedded_syms[] = {
+static const std::string embedded_syms[] = {  // NOLINT
   #include "llvm/Transforms/IPO/embedded_syms.h"
 };
 
@@ -87,7 +153,6 @@ static unsigned int parseSymbolsFile(StringMap<unsigned> &FunctionSymsMap) {
     FunctionSymsMap[Line.str()] = 0;
     count++;
   }
-  // dbgs() << "IPRA: Returning count = " << count << " values\n";
   return count;
 }
 
@@ -101,15 +166,29 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
     // dbgs() << "MapEleCount : " << MapEleCount << "\n";
     fprintf(stderr, "IPRA: MapEleCount: %d\n", MapEleCount);
   }
-
   if (!IPRADryRun && MapEleCount == 0) return PreservedAnalyses::all();
 
   // The Dry Run must explicitly print out address taken functions so that
   // we can eliminate them.  Comdats might be address taken in one module and
   // not in the other module.
   if (IPRADryRun) {
-    for (Function &F : M.functions()) {
+    if (!ensureDirectoryExists(IPRAPreRAAnalysisOutputDir))
+      llvm::report_fatal_error(llvm::StringRef("ensureDirectoryExists failed"));
+    llvm::SmallString<128> OutputPrefix =
+        llvm::StringRef(IPRAPreRAAnalysisOutputDir);
+    llvm::sys::path::append(OutputPrefix, "ipra_prera_analysis_");
+    std::string OutputFilename =
+        generateRandomFilename(std::string(OutputPrefix));
+    std::error_code EC;
+    llvm::raw_ostream *OS = new llvm::raw_fd_ostream(
+        OutputFilename, EC, llvm::sys::fs::CreationDisposition::CD_CreateNew,
+        llvm::sys::fs::FileAccess::FA_Write, llvm::sys::fs::OpenFlags::OF_Text);
+    if (EC) {
+      llvm::report_fatal_error(llvm::StringRef("Could not open file: ") +
+                               EC.message());
+    }
 
+    for (Function &F : M.functions()) {
       llvm::StringRef cu_name = "";
       if (DISubprogram *subprogram = F.getSubprogram())
         if (llvm::DICompileUnit *comp_unit = subprogram->getUnit())
@@ -124,10 +203,6 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
 
       // if (!F.isDeclaration() && !F.hasAddressTaken())
       //   fprintf(stderr, "IPRA: %s\n", FNameCStr);
-
-      // if (F.hasAddressTaken())
-      //   fprintf(stderr, "IPRA: Function: %s[%s] HasAddressTaken\n", FNameCStr,
-      //           CUNameStr.c_str());
 
       bool must_tail_call = false;
       // Tailcall check 1.
@@ -167,29 +242,30 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
       }
       if (!all_uses_are_call || must_tail_call || uses_are_indirect_call ||
           F.isInterposable() || F.hasAddressTaken()) {
-        fprintf(stderr, "IPRA: Function: %s[%s]", FNameCStr, CUNameStr.c_str());
+        (*OS) << "IPRA: Function: " << FNameCStr << "[" << CUNameStr << "]";
         if (!all_uses_are_call)
-          fprintf(stderr, " AllUsesAreNotCall: 1");
+          (*OS) << " AllUsesAreNotCall: 1";
         if (must_tail_call)
-          fprintf(stderr, " MustTailCall: 1");
+          (*OS) << " MustTailCall: 1";
         if (uses_are_indirect_call)
-          fprintf(stderr, " UsesAreIndirectCall: 1");
+          (*OS) << " UsesAreIndirectCall: 1";
         if (F.isInterposable())
-          fprintf(stderr, " IsInterposable: 1");
+          (*OS) << " IsInterposable: 1";
         if (F.hasAddressTaken())
-          fprintf(stderr, " HasAddressTaken: 1");
-        fprintf(stderr, "\n");
+          (*OS) << " HasAddressTaken: 1";
+        (*OS) << "\n";
       }
+    }
+    if (OS) {
+      OS->flush();
+      delete OS;
+      OS = nullptr;
     }
     return PreservedAnalyses::all();
   }
 
   bool Changed = false;
   for (Function &F : M.functions()) {
-    // if (F.getName() == "_ZNSt3__u12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEE6resizeEmc") {
-    //   fprintf(stderr, "IPRA: looking at my prereserve none function.\n");
-    //   dbg = true;
-    // }
     if (FunctionSymsMap.contains(F.getName())) {
       if (F.hasAddressTaken()) {
         // dbgs() << "IPRA: Still Has Address Taken:" << F.getName() << "\n";
@@ -275,8 +351,7 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
               M.getName().str().c_str());
       for (User *U : F.users()) {
         if (!isa<CallInst>(U)) {
-          fprintf(stderr, "ERROR: use is not a call, aborted.\n");
-          exit(1);
+          llvm::report_fatal_error(llvm::StringRef("use is not a call"));
         }
         CallInst *CI = cast<CallInst>(U);
         // CallBase *CI = cast<CallBase>(U);

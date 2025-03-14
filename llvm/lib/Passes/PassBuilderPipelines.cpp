@@ -1299,8 +1299,10 @@ PassBuilder::buildModuleSimplificationPipeline(OptimizationLevel Level,
 
   // Add "preserve_none" to hot entry block function declarations and
   // definitions.
-  if (EnableIPRAPreRAAnalysis && Phase == ThinOrFullLTOPhase::ThinLTOPostLink) {
-  // if (EnableIPRAPreRAAnalysis) {
+  if (EnableIPRAPreRAAnalysis &&
+      (Phase == ThinOrFullLTOPhase::None ||
+       Phase == ThinOrFullLTOPhase::ThinLTOPostLink)) {
+    // if (EnableIPRAPreRAAnalysis) {
     // dbgs() << "Adding IPRAPreRA Analysis at point 1\n";
     MPM.addPass(IPRAPreRAAnalysisPass());
   }
