@@ -108,7 +108,7 @@ std::string generateRandomFilename(const std::string &prefix = "temp_",
 
   std::stringstream ss;
   ss << prefix;
-  for (int i = 0; i < 16; ++i) {
+  for (int i = 0; i < 32; ++i) {
     ss << std::hex << std::setw(2) << std::setfill('0')
        << unified_distribution(gen);
   }
