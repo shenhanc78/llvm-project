@@ -15,7 +15,9 @@
 #include <cstdio>
 #include <iomanip>
 #include <iostream>
+#include <list>
 #include <random>
+#include <set>
 #include <sstream>
 #include <string>
 #include <system_error>  // NOLINT
@@ -126,6 +128,10 @@ static const std::string embedded_syms[] = {  // NOLINT
   #include "llvm/Transforms/IPO/embedded_syms.h"
 };
 
+static const std::list<std::string> tailcall_chains[] = {
+  #include "llvm/Transforms/IPO/embedded_tcs.h"
+};
+
 static unsigned int parseSymbolsFile(StringMap<unsigned> &FunctionSymsMap) {
   if (IPRAPreRAFunctionSymsFile == "__embedded__") {
     for (const auto &sym : embedded_syms)
@@ -154,6 +160,95 @@ static unsigned int parseSymbolsFile(StringMap<unsigned> &FunctionSymsMap) {
     count++;
   }
   return count;
+}
+
+// Returns true if the function is part of the tail call chain.
+bool ProcessTailCallChain(const StringMap<unsigned> &FunctionSymsMap,
+                          Function &F,
+                          raw_ostream &OS) {
+  std::set<std::string> chain_func_set = {};
+  for (const std::list<std::string> &chain : tailcall_chains)
+    for (const std::string& func_name : chain)
+      chain_func_set.insert(func_name);
+
+  bool found = false;
+  size_t total_chains =
+      sizeof(tailcall_chains) / sizeof(std::list<std::string>);
+  OS << "IPRA: Total tailcall chains: " << total_chains << "\n";
+  for (size_t chain_iter = 0; !found && chain_iter < total_chains; ++chain_iter)
+    for (auto chain_func_iter = tailcall_chains[chain_iter].begin();
+         !found && (chain_func_iter != tailcall_chains[chain_iter].end());
+         ++chain_func_iter)
+      if (F.getName() == *chain_func_iter)
+        found = true;
+
+  if (!found)
+    return false;
+
+  for (User *U : F.users())
+    if (!isa<CallInst>(U))
+      llvm::report_fatal_error("Unexpected: not all of function users "
+                               "are call instructions: " +
+                               F.getName());
+
+  // 1. Set the calling conv of F to preserve none.
+  F.setCallingConv(CallingConv::PreserveNone);
+  OS << "IPRA: set " << F.getName() << " to preserve none (tailcall)\n";
+
+  // 2. Make sure all callers of F are not tail call except the caller is
+  // already a preserve none function or when the caller is in the tail call
+  // chain.
+  for (User *U : F.users()) {
+    CallInst *CI = cast<CallInst>(U);
+    // All instructions to call F are preserve none.
+    CI->setCallingConv(CallingConv::PreserveNone);
+
+    Function *Caller = CI->getCaller();
+    if (FunctionSymsMap.contains(Caller->getName()) ||
+        chain_func_set.find(std::string(Caller->getName())) !=
+            chain_func_set.end()) {
+      OS << "IPRA: both caller and callee are preserve none, do not change "
+            "tail call kind: "
+         << Caller->getName() << "->" << F.getName() << "\n";
+    } else {
+      CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+      OS << "IPRA: set call: " << Caller->getName() << "->" << F.getName()
+             << " to no tail call\n";
+    }
+  }
+
+  // 3. Make sure all callees of F are not tail call except when the callee is
+  // in the tail call chain or when the callee is a preserve none function.
+  if (F.isDeclaration())
+    return true;
+
+  for (BasicBlock &B : F) {
+    for (Instruction &I : B) {
+      if (!isa<CallInst>(I))
+        continue;
+
+      CallInst *CI = cast<CallInst>(&I);
+      if (!CI)
+        continue;
+      Function *Callee = CI->getCalledFunction();
+      if (!Callee) {
+        CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+        continue;
+      }
+      if (FunctionSymsMap.contains(Callee->getName()) ||
+          chain_func_set.find(std::string(Callee->getName())) !=
+              chain_func_set.end()) {
+        OS << "IPRA: both caller and callee are preserve none, do not change "
+              "tail call kind: "
+           << F.getName() << "->" << Callee->getName() << "\n";
+      } else {
+        CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+        OS << "IPRA: set call: " << F.getName() << "->" << Callee->getName()
+           << " to no tail call\n";
+      }
+    }
+  }
+  return true;
 }
 
 PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
@@ -270,155 +365,10 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
   // const std::string tc_tail = "mem_cgroup_charge_skmem";
 
   for (Function &F : M.functions()) {
-
-  //   if (F.getName() == tc_head) {
-  //     // This is tail call header, its caller must not use tailcall unless
-  //     // caller is preserve none.
-  //     bool do_not_apply_pn = false;
-  //     for (User *U : F.users()) {
-  //       if (!isa<CallInst>(U)) {
-  //         fprintf(
-  //             stderr,
-  //             "IPRA: skipped tail call because of none call instruction: %s\n",
-  //             F.getName().str().c_str());
-  //         do_not_apply_pn = true;
-  //         break;
-  //       }
-  //     }
-  //     if (do_not_apply_pn)
-  //       continue;
-
-  //     F.setCallingConv(CallingConv::PreserveNone);
-  //     fprintf(stderr, "IPRA: set %s to preserve none\n", tc_head.c_str());
-
-  //     for (User *U : F.users()) {
-  //       // We already know "U" must be a call instruction.
-  //       CallInst *CI = cast<CallInst>(U);
-  //       CI->setCallingConv(CallingConv::PreserveNone);
-
-  //       Function *Caller = CI->getCaller();
-  //       if (!FunctionSymsMap.contains(Caller->getName())) {
-  //         CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-  //         fprintf(stderr, "IPRA: set call: %s->%s to no tail call\n",
-  //                 std::string(CI->getCaller()->getName()).c_str(),
-  //                 tc_head.c_str());
-  //       } else {
-  //         // Caller is also preserve none, do not change tail call or not
-  //         fprintf(stderr,
-  //                 "IPRA: call: %s->%s is PN to PN, do not change tail call\n",
-  //                 std::string(CI->getCaller()->getName()).c_str(),
-  //                 tc_head.c_str());
-  //       }
-  //     }
-
-  //     if (!F.isDeclaration()) {
-  //       for (BasicBlock &B : F) {
-  //         for (Instruction &I : B) {
-  //           if (isa<CallInst>(I)) {
-  //             CallInst *CI = cast<CallInst>(&I);
-  //             if (CI) {
-  //               Function *Callee = CI->getCalledFunction();
-  //               if (!Callee) {
-  //                 CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-  //                 continue;
-  //               }
-  //               if (Callee->getName() == tc_tail) {
-  //                 continue;
-  //               }
-  //               if (!FunctionSymsMap.contains(Callee->getName())) {
-  //                 CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-  //                 fprintf(stderr, "PIRA: set call: %s->%s to no tail call\n",
-  //                         std::string(CI->getCaller()->getName()).c_str(),
-  //                         std::string(Callee->getName()).c_str());
-  //               } else {
-  //                 // this callee is also preserve-none, do not change
-  //                 // tail call or not.
-  //                 fprintf(stderr,
-  //                         "IPRA: call: %s->%s is PN to PN, do not change tail "
-  //                         "call\n",
-  //                         std::string(CI->getCaller()->getName()).c_str(),
-  //                         std::string(Callee->getName()).c_str());
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-  //     continue;
-  //   }
-
-  //   if (F.getName() == tc_tail) {
-  //     bool do_not_apply_pn = false;
-  //     for (User *U : F.users()) {
-  //       if (!isa<CallInst>(U)) {
-  //         fprintf(
-  //             stderr,
-  //             "IPRA: skipped tail call because of none call instruction: %s\n",
-  //             F.getName().str().c_str());
-  //         do_not_apply_pn = true;
-  //         break;
-  //       }
-  //     }
-  //     if (do_not_apply_pn)
-  //       continue;
-
-  //     // This is tail call end
-  //     F.setCallingConv(CallingConv::PreserveNone);
-  //     fprintf(stderr, "IPRA: set %s to preserve none\n", tc_tail.c_str());
-
-  //     for (User *U : F.users()) {
-  //       // We already know "U" must be a call instruction.
-  //       CallInst *CI = cast<CallInst>(U);
-  //       CI->setCallingConv(CallingConv::PreserveNone);
-
-  // 	llvm::StringRef CallerName = CI->getCaller()->getName();
-  //       if (CallerName == tc_head || FunctionSymsMap.contains(CallerName)) {
-  //         fprintf(stderr,
-  //                 "IPRA: call: %s->%s is PN to PN, do not change tail call\n",
-  //                 tc_head.c_str(), tc_tail.c_str());
-  //         // CI->setTailCallKind(CallInst::TailCallKind::TCK_MustTail);
-  //       } else {
-  //         CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-  //         fprintf(stderr,
-  //                 "IPRA: set call: "
-  //                 "%s->%s to no tail call\n",
-  //                 CallerName.str().c_str(), tc_tail.c_str());
-  //       }
-  //     }
-
-  //     // The function on the tail call chain, change all its
-  //     // none-preserve-none callee's call to no tail call.
-  //     if (!F.isDeclaration()) {
-  //       for (BasicBlock &B : F) {
-  //         for (Instruction &I : B) {
-  //           if (isa<CallInst>(I)) {
-  //             CallInst *CI = cast<CallInst>(&I);
-  //             if (CI) {
-  //               Function *Callee = CI->getCalledFunction();
-  //               if (!Callee) {
-  //                 CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-  //               } else if (!FunctionSymsMap.contains(Callee->getName())) {
-  //                 CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-  //                 fprintf(stderr, "IPRA: set call: %s->%s to no tail call\n",
-  //                         std::string(CI->getCaller()->getName()).c_str(),
-  //                         std::string(Callee->getName()).c_str());
-  //               } else {
-  //                 // this callee is also preserve-none, do not change
-  //                 // tail call or not.
-  //                 fprintf(stderr,
-  //                         "IPRA: call: %s->%s is PN to PN, do not change tail "
-  //                         "call\n",
-  //                         std::string(CI->getCaller()->getName()).c_str(),
-  //                         std::string(Callee->getName()).c_str());
-  //               }
-  //             }
-  //           }
-  //         }
-  //       }
-  //     }
-
-  //     continue;
-  //   } // end of processing tail call pair.
+    if (ProcessTailCallChain(FunctionSymsMap, F, llvm::errs())) {
+      Changed = true;
+      continue;
+    }
 
     ////
     if (FunctionSymsMap.contains(F.getName())) {
