@@ -2,29 +2,29 @@
   { "tcp_send_fin", "__tcp_push_pending_frames", },  // tailcall, dyn_insn_savings=39083347, size_savings=-12
   { "tcp_push", "__tcp_push_pending_frames", },  // tailcall, dyn_insn_savings=39082901, size_savings=-7
 //   { "check_preempt_curr", "core_tag_check_preempt_sibling", },  // tailcall, dyn_insn_savings=27913111, size_savings=-44
-//   { "tick_nohz_idle_stop_tick", "nohz_balance_enter_idle", },  // tailcall, dyn_insn_savings=16611901, size_savings=-16
-//   { "handle_lookup_down", "step_into", },  // tailcall, dyn_insn_savings=9548960, size_savings=-6
+  { "tick_nohz_idle_stop_tick", "nohz_balance_enter_idle", },  // tailcall, dyn_insn_savings=16611901, size_savings=-16
+  { "handle_lookup_down", "step_into", },  // tailcall, dyn_insn_savings=9548960, size_savings=-6
 //   { "getname", "getname_flags", },  // tailcall, dyn_insn_savings=4581014, size_savings=-170
-//   { "mem_cgroup_stale_uncharge", "stale_record_hist", },  // tailcall, dyn_insn_savings=4013926, size_savings=0
+  { "mem_cgroup_stale_uncharge", "stale_record_hist", },  // tailcall, dyn_insn_savings=4013926, size_savings=0
 //   { "__smp_call_single_queue", "send_call_function_single_ipi", },  // tailcall, dyn_insn_savings=2785174, size_savings=-14
 //   { "rmap_walk_locked", "rmap_walk_anon", },  // tailcall, dyn_insn_savings=2617935, size_savings=-28
 //   { "__get_unused_fd_flags", "alloc_fd.llvm.fs_file_c", },  // tailcall, dyn_insn_savings=2417910, size_savings=-32
 //   { "vfs_open", "do_dentry_open", },  // tailcall, dyn_insn_savings=1837140, size_savings=-22
 //   { "__get_locked_pte", "pte_offset_map_lock", },  // tailcall, dyn_insn_savings=1407153, size_savings=-70
 //   { "rw_verify_area", "security_file_permission", },  // tailcall, dyn_insn_savings=1140155, size_savings=-51
-//   { "walk_component", "handle_dots", },  // tailcall, dyn_insn_savings=1053078, size_savings=-6
+  { "walk_component", "handle_dots", },  // tailcall, dyn_insn_savings=1053078, size_savings=-6
 //   { "lru_cache_add_inactive_or_unevictable", "mlock_new_page", },  // tailcall, dyn_insn_savings=979533, size_savings=-11
 //   { "page_add_file_rmap", "mlock_page", },  // tailcall, dyn_insn_savings=510138, size_savings=-20
-//   { "udpv6_queue_rcv_skb", "udpv6_queue_rcv_one_skb", },  // tailcall, dyn_insn_savings=472105, size_savings=-3
+  { "udpv6_queue_rcv_skb", "udpv6_queue_rcv_one_skb", },  // tailcall, dyn_insn_savings=472105, size_savings=-3
 //   { "reg_set_min_max", "reg_bounds_sync", },  // tailcall, dyn_insn_savings=407524, size_savings=-29
 //   { "__mutex_lock_interruptible_slowpath", "__mutex_lock", },  // tailcall, dyn_insn_savings=291108, size_savings=-18
 //   { "__mutex_lock_killable_slowpath", "__mutex_lock", },  // tailcall, dyn_insn_savings=291108, size_savings=-18
 //   { "pid_update_inode", "security_task_to_inode", },  // tailcall, dyn_insn_savings=229528, size_savings=-25
 //   { "ksys_mmap_pgoff", "vm_mmap_pgoff", },  // tailcall, dyn_insn_savings=199093, size_savings=-38
-//   { "free_htab_elem", "__pcpu_freelist_push", },  // tailcall, dyn_insn_savings=190084, size_savings=-6
+  { "free_htab_elem", "__pcpu_freelist_push", },  // tailcall, dyn_insn_savings=190084, size_savings=-6
 //   { "security_vm_enough_memory_mm", "__vm_enough_memory", },  // tailcall, dyn_insn_savings=181374, size_savings=-44
 //   { "udp_queue_rcv_skb", "udp_queue_rcv_one_skb", },  // tailcall, dyn_insn_savings=157283, size_savings=-5
-//   { "quiet_vmstat", "refresh_cpu_vm_stats", },  // tailcall, dyn_insn_savings=146238, size_savings=-13
+  { "quiet_vmstat", "refresh_cpu_vm_stats", },  // tailcall, dyn_insn_savings=146238, size_savings=-13
 //   { "page_remove_rmap", "munlock_page", },  // tailcall, dyn_insn_savings=141727, size_savings=-21
 //   { "check_func_arg_reg_off", "__check_ptr_off_reg", },  // tailcall, dyn_insn_savings=130176, size_savings=-24
 //   { "__radix_tree_delete", "delete_node", },  // tailcall, dyn_insn_savings=89418, size_savings=-20
@@ -33,7 +33,7 @@
 //   { "radix_tree_iter_replace", "__radix_tree_replace", "delete_node", },  // tailcall, dyn_insn_savings=89418, size_savings=-29
 //   { "radix_tree_iter_replace", "__radix_tree_replace", "delete_node", },  // tailcall, dyn_insn_savings=89418, size_savings=-29
 //   { "ext4_ext_tree_init", "__ext4_mark_inode_dirty", },  // tailcall, dyn_insn_savings=88470, size_savings=-124
-//   { "phys_mem_access_encrypted", "arch_memremap_can_ram_remap", },  // tailcall, dyn_insn_savings=75482, size_savings=-7
+  { "phys_mem_access_encrypted", "arch_memremap_can_ram_remap", },  // tailcall, dyn_insn_savings=75482, size_savings=-7
 //   { "bfq_bfqq_charge_time", "bfq_bfqq_served", },  // tailcall, dyn_insn_savings=71412, size_savings=-8
 //   { "check_mem_size_reg", "__mark_chain_precision", },  // tailcall, dyn_insn_savings=70623, size_savings=-44
 //   { "exit_files", "put_files_struct", },  // tailcall, dyn_insn_savings=68013, size_savings=-15
@@ -45,7 +45,7 @@
 //   { "__blk_queue_split", "blk_throtl_charge_bio_split", },  // tailcall, dyn_insn_savings=49888, size_savings=-10
 //   { "bfq_weights_tree_remove", "bfq_put_queue", },  // tailcall, dyn_insn_savings=49768, size_savings=-65
 //   { "tty_buffer_flush_work", "__flush_work.llvm.kernel_workqueue_c", },  // tailcall, dyn_insn_savings=49234, size_savings=-89
-//   { "lru_note_cost_page", "lru_note_cost", },  // tailcall, dyn_insn_savings=48972, size_savings=-3
+  { "lru_note_cost_page", "lru_note_cost", },  // tailcall, dyn_insn_savings=48972, size_savings=-3
 //   { "bpf_map_new_fd", "__anon_inode_getfd.llvm.fs_anon_inodes_c", },  // tailcall, dyn_insn_savings=48499, size_savings=-54
 //   { "bpf_prog_new_fd", "__anon_inode_getfd.llvm.fs_anon_inodes_c", },  // tailcall, dyn_insn_savings=48371, size_savings=-55
 //   { "__blk_mq_free_request", "blk_queue_exit", },  // tailcall, dyn_insn_savings=48178, size_savings=-29
@@ -73,15 +73,15 @@
 //   { "asi_post_flush_tlb_global", "asi_set_context_tlb_gens", },  // tailcall, dyn_insn_savings=24442, size_savings=-17
 //   { "exit_swg", "do_gsys_swg_leave.llvm.kernel_sched_core_c", },  // tailcall, dyn_insn_savings=23642, size_savings=-12
 //   { "detach_pid", "free_pid", },  // tailcall, dyn_insn_savings=22164, size_savings=-30
-//   { "show_sb_opts", "security_sb_show_options", },  // tailcall, dyn_insn_savings=19194, size_savings=-8
+  { "show_sb_opts", "security_sb_show_options", },  // tailcall, dyn_insn_savings=19194, size_savings=-8
 //   { "split_vma", "__split_vma", },  // tailcall, dyn_insn_savings=16053, size_savings=-30
-//   { "ext4_wait_block_bitmap", "ext4_validate_block_bitmap", },  // tailcall, dyn_insn_savings=15880, size_savings=-6
-//   { "dequeue_rt_stack", "dequeue_top_rt_rq", },  // tailcall, dyn_insn_savings=15631, size_savings=-7
+  { "ext4_wait_block_bitmap", "ext4_validate_block_bitmap", },  // tailcall, dyn_insn_savings=15880, size_savings=-6
+  { "dequeue_rt_stack", "dequeue_top_rt_rq", },  // tailcall, dyn_insn_savings=15631, size_savings=-7
 //   { "verity_hash_init", "verity_hash_update", },  // tailcall, dyn_insn_savings=15101, size_savings=-10
 //   { "page_add_anon_rmap", "do_page_add_anon_rmap", },  // tailcall, dyn_insn_savings=13297, size_savings=-12
 //   { "tty_buffer_cancel_work", "__cancel_work_timer.llvm.kernel_workqueue_c", },  // tailcall, dyn_insn_savings=13098, size_savings=-29
 //   { "sysfs_delete_link", "kernfs_remove_by_name_ns", },  // tailcall, dyn_insn_savings=12729, size_savings=-194
-//   { "pcpu_block_update_hint_alloc", "pcpu_chunk_refresh_hint", },  // tailcall, dyn_insn_savings=12504, size_savings=1
+  { "pcpu_block_update_hint_alloc", "pcpu_chunk_refresh_hint", },  // tailcall, dyn_insn_savings=12504, size_savings=1
 //   { "__kfence_free", "kfence_guarded_free", },  // tailcall, dyn_insn_savings=12462, size_savings=-12
 //   { "access_remote_vm", "__access_remote_vm", },  // tailcall, dyn_insn_savings=12320, size_savings=-24
 //   { "inotify_ignored_and_remove_idr", "dec_ucount", },  // tailcall, dyn_insn_savings=8044, size_savings=-60
@@ -89,18 +89,18 @@
 //   { "attach_tasks", "raw_spin_rq_unlock", },  // tailcall, dyn_insn_savings=7526, size_savings=-156
 //   { "ext4_fc_track_unlink", "__ext4_fc_track_unlink", },  // tailcall, dyn_insn_savings=7260, size_savings=-12
 //   { "seccomp_filter_release", "__seccomp_filter_release", },  // tailcall, dyn_insn_savings=6864, size_savings=-13
-//   { "_install_special_mapping", "__install_special_mapping.llvm.mm_mmap_c", },  // tailcall, dyn_insn_savings=6372, size_savings=-6
+  { "_install_special_mapping", "__install_special_mapping.llvm.mm_mmap_c", },  // tailcall, dyn_insn_savings=6372, size_savings=-6
 //   { "ksys_dup3", "do_dup2", },  // tailcall, dyn_insn_savings=6312, size_savings=-15
 //   { "expand_stack", "expand_downwards", },  // tailcall, dyn_insn_savings=5923, size_savings=-7
 //   { "ext4_fc_track_create", "__ext4_fc_track_create", },  // tailcall, dyn_insn_savings=4512, size_savings=-15
 //   { "__group_send_sig_info", "send_signal.llvm.kernel_signal_c", "__send_signal", },  // tailcall, dyn_insn_savings=4506, size_savings=-30
 //   { "exec_mm_release", "mm_release.llvm.kernel_fork_c", },  // tailcall, dyn_insn_savings=4490, size_savings=-14
 //   { "exit_mm_release", "mm_release.llvm.kernel_fork_c", },  // tailcall, dyn_insn_savings=4490, size_savings=-14
-//   { "fscrypt_set_per_file_enc_key", "fscrypt_prepare_key", },  // tailcall, dyn_insn_savings=4147, size_savings=-3
+  { "fscrypt_set_per_file_enc_key", "fscrypt_prepare_key", },  // tailcall, dyn_insn_savings=4147, size_savings=-3
 //   { "kobject_add_varg", "kobject_add_internal", },  // tailcall, dyn_insn_savings=4088, size_savings=-11
-//   { "watchdog_buddy_check_hardlockup", "watchdog_hardlockup_check", },  // tailcall, dyn_insn_savings=3888, size_savings=-6
+  { "watchdog_buddy_check_hardlockup", "watchdog_hardlockup_check", },  // tailcall, dyn_insn_savings=3888, size_savings=-6
 //   { "ext4_read_bh_lock", "ext4_read_bh", },  // tailcall, dyn_insn_savings=3658, size_savings=-34
-//   { "split_huge_pmd_address", "__split_huge_pmd", },  // tailcall, dyn_insn_savings=3151, size_savings=-7
+  { "split_huge_pmd_address", "__split_huge_pmd", },  // tailcall, dyn_insn_savings=3151, size_savings=-7
 //   { "ext4_alloc_da_blocks", "__filemap_fdatawrite_range", },  // tailcall, dyn_insn_savings=2193, size_savings=-46
 //   { "mark_wake_futex", "wake_q_add_safe", },  // tailcall, dyn_insn_savings=2165, size_savings=-18
 //   { "asi_map", "__asi_map_gfp", },  // tailcall, dyn_insn_savings=2016, size_savings=-22
