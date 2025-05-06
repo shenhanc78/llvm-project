@@ -240,10 +240,10 @@ static cl::opt<bool>
     DisablePreInliner("disable-preinline", cl::init(false), cl::Hidden,
                       cl::desc("Disable pre-instrumentation inliner"));
 
-
 static cl::opt<bool>
-    EnableIPRAPreRAAnalysis("enable-ipra-prera-analysis", cl::init(false), cl::Hidden,
-                        cl::desc("Enable IPRA PreRA Analysis Pass"));
+    EnableIPRAPreRAAnalysis("enable-ipra-prera-analysis", cl::init(false),
+                            cl::Hidden,
+                            cl::desc("Enable IPRA PreRA Analysis Pass"));
 
 static cl::opt<int> PreInlineThreshold(
     "preinline-threshold", cl::Hidden, cl::init(75),
