@@ -58,16 +58,6 @@
 
 // This file contains a list of function symbols that we would like to
 // optimize, each symbol in a separate line
-static llvm::cl::opt<bool> EnableCSRegLivenessAnalysis(
-    "enable-cs-reg-liveness-analysis",
-    llvm::cl::desc("Enable callee-saved register liveness analysis"),
-    llvm::cl::init(false), llvm::cl::Hidden);
-
-static llvm::cl::opt<std::string> CSRegLivenessAnalysisOutputDir(
-    "cs-reg-liveness-analysis-output-dir",
-    llvm::cl::desc(
-        "Output directory for callee-saved register liveness analysis"),
-    llvm::cl::init(std::string("/tmp/ipra_analysis/")), llvm::cl::Hidden);
 
 namespace {
 

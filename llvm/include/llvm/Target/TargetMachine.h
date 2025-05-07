@@ -30,6 +30,8 @@
 #include <utility>
 
 extern llvm::cl::opt<bool> NoKernelInfoEndLTO;
+extern llvm::cl::opt<bool> EnableCSRegLivenessAnalysis;
+extern llvm::cl::opt<std::string> CSRegLivenessAnalysisOutputDir;
 
 namespace llvm {
 

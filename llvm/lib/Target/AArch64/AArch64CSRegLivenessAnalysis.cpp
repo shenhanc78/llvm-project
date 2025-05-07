@@ -52,17 +52,6 @@
 
 // This file contains a list of function symbols that we would like to
 // optimize, each symbol in a separate line
-static llvm::cl::opt<bool> EnableAArch64CSRegLivenessAnalysis(
-    "enable-aarch64-cs-reg-liveness-analysis",
-    llvm::cl::desc(
-        "Enable callee-saved register liveness analysis for AArch64"),
-    llvm::cl::init(false), llvm::cl::Hidden);
-
-static llvm::cl::opt<std::string> AArch64CSRegLivenessAnalysisOutputDir(
-    "aarch64-cs-reg-liveness-analysis-output-dir",
-    llvm::cl::desc("Output directory for callee-saved register liveness "
-                   "analysis for AArch64"),
-    llvm::cl::init(std::string("/tmp/ipra_analysis/")), llvm::cl::Hidden);
 
 namespace {
 
@@ -157,16 +146,16 @@ public:
   void getAnalysisUsage(AnalysisUsage &AU) const override;
 
   bool doInitialization(llvm::Module &) override {
-    if (!EnableAArch64CSRegLivenessAnalysis) {
+    if (!EnableCSRegLivenessAnalysis) {
       OS = nullptr;
       OutputFilename = "";
       return false;
     }
-    if (!ensureDirectoryExists(AArch64CSRegLivenessAnalysisOutputDir)) {
+    if (!ensureDirectoryExists(CSRegLivenessAnalysisOutputDir)) {
       llvm::report_fatal_error(llvm::StringRef("ensureDirectoryExists failed"));
     }
     llvm::SmallString<128> OutputPrefix =
-        llvm::StringRef(AArch64CSRegLivenessAnalysisOutputDir);
+        llvm::StringRef(CSRegLivenessAnalysisOutputDir);
     llvm::sys::path::append(OutputPrefix, "ipra_analysis_");
     OutputFilename = generateRandomFilename(std::string(OutputPrefix));
     std::cerr << "Output: " << OutputFilename << "\n";
@@ -222,7 +211,7 @@ void AArch64CSRegLivenessAnalysis::getAnalysisUsage(AnalysisUsage &AU) const {
 char AArch64CSRegLivenessAnalysis::ID = 0;
 
 bool AArch64CSRegLivenessAnalysis::runOnMachineFunction(MachineFunction &MF) {
-  if (!EnableAArch64CSRegLivenessAnalysis)
+  if (!EnableCSRegLivenessAnalysis)
     return false;
 
   TRI = MF.getSubtarget<AArch64Subtarget>().getRegisterInfo();
