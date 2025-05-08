@@ -365,10 +365,10 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
   // const std::string tc_tail = "mem_cgroup_charge_skmem";
 
   for (Function &F : M.functions()) {
-    if (ProcessTailCallChain(FunctionSymsMap, F, llvm::errs())) {
-      Changed = true;
-      continue;
-    }
+    // if (ProcessTailCallChain(FunctionSymsMap, F, llvm::errs())) {
+    //   Changed = true;
+    //   continue;
+    // }
 
     ////
     if (FunctionSymsMap.contains(F.getName())) {

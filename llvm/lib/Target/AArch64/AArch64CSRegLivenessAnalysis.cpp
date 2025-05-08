@@ -72,6 +72,7 @@ using ::llvm::MachineInstr;
 using ::llvm::MachineModuleInfoWrapperPass;
 using ::llvm::MachineRegisterInfo;
 using ::llvm::MCPhysReg;
+using ::llvm::MCRegister;
 using ::llvm::ProfileSummaryInfo;
 using ::llvm::ProfileSummaryInfoWrapperPass;
 using ::llvm::StringRef;
@@ -226,14 +227,10 @@ bool AArch64CSRegLivenessAnalysis::runOnMachineFunction(MachineFunction &MF) {
   calculateMachineFunctionCSRegUsage(MF);
 
   // Initialize the set of callee-saved registers for AArch64.
-  CalleeSavedRegs = {
-      llvm::AArch64::X19, llvm::AArch64::X20, llvm::AArch64::X21,
-      llvm::AArch64::X22, llvm::AArch64::X23, llvm::AArch64::X24,
-      llvm::AArch64::X25, llvm::AArch64::X26, llvm::AArch64::X27,
-      llvm::AArch64::X28, llvm::AArch64::D8,  llvm::AArch64::D9,
-      llvm::AArch64::D10, llvm::AArch64::D11, llvm::AArch64::D12,
-      llvm::AArch64::D13, llvm::AArch64::D14, llvm::AArch64::D15,
-  };
+  CalleeSavedRegs = {llvm::AArch64::X19, llvm::AArch64::X20, llvm::AArch64::X21,
+                     llvm::AArch64::X22, llvm::AArch64::X23, llvm::AArch64::X24,
+                     llvm::AArch64::X25, llvm::AArch64::X26, llvm::AArch64::X27,
+                     llvm::AArch64::X28};
 
   calculateCalleeSavedLiveness(MF);
 
@@ -255,9 +252,16 @@ bool AArch64CSRegLivenessAnalysis::calculateMachineFunctionCSRegUsage(
   int t = 0;
   for (const CalleeSavedInfo &Info : MFI.getCalleeSavedInfo()) {
     if (Info.isRestored()) {
-      if (t) (*OS) <<  " ";
-      (*OS) <<  printReg(Info.getReg(), TRI);
-      ++t;
+      MCRegister cs_reg = Info.getReg();
+      for (const MCPhysReg c : CalleeSavedRegs) {
+        // McPhysReg == MCRegister, "==" is an overloaded operator
+        if (cs_reg == c) {
+          if (t)
+            (*OS) << " ";
+          (*OS) << printReg(cs_reg, TRI);
+          ++t;
+        }
+      }
     }
   }
 
