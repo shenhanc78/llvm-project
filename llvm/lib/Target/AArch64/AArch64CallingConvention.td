@@ -539,7 +539,7 @@ def CC_AArch64_Preserve_None : CallingConv<[
                                  W6, W7, W10, W11,
                                  W12, W13, W14, W9]>>,
   CCIfType<[i64], CCAssignToReg<[X20, X21, X22, X23,
-                                 X24, X25, X26, X27, X28,
+                                 /* X24, X25, X26, X27, X28, */
                                  X0, X1, X2, X3, X4, X5,
                                  X6, X7, X10, X11,
                                  X12, X13, X14, X9]>>,
@@ -678,7 +678,7 @@ def CSR_AArch64_AllRegs
 
 def CSR_AArch64_NoRegs : CalleeSavedRegs<(add)>;
 
-def CSR_AArch64_NoneRegs : CalleeSavedRegs<(add LR, FP, D8, D9, D10, D11, D12, D13, D14, D15)>;
+def CSR_AArch64_NoneRegs : CalleeSavedRegs<(add LR, FP, X24, X25, X26, X27, X28, D8, D9, D10, D11, D12, D13, D14, D15)>;
 
 def CSR_AArch64_RT_MostRegs :  CalleeSavedRegs<(add CSR_AArch64_AAPCS,
                                                 (sequence "X%u", 9, 15))>;
