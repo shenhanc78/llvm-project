@@ -25,8 +25,7 @@ PROFILE_MERGED_FILE := $(INSTR_DIR)/clang.profdata
 # Metrics file
 METRICS_CSV := $(METRICS_DIR)/performance_metrics.csv
 IPRA_METRICS_CSV := $(METRICS_DIR)/ipra_performance_metrics.csv
-FDO_LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/liveness_output_fdo
-THINLTO_LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/liveness_output_thinlto
+LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/liveness_output
 
 # Number of parallel jobs to use for compilation
 JOBS := $(shell nproc)
@@ -137,8 +136,6 @@ $(THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 	  -D LLVM_ENABLE_LTO=Thin \
 	  -D LLVM_USE_LINKER=lld
-	# FIX: Chain the commands with '&&' to ensure the success steps
-	# only run if the ninja build succeeds.
 	@ninja -j "$(JOBS)" -C "$(THINLTO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5B: thinly_linked_fdo_clang built successfully.)
@@ -180,47 +177,28 @@ $(IPRA_THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 	touch $@ && \
 	$(call log,✅ STEP 5D: ipra_thinly_linked_fdo_clang built successfully.)
 
-# NEW Target: Collect liveness data by building LLD with fdo_clang.
-collect_liveness_fdo: fdo_clang
+liveness_analysis: fdo_clang
 	@$(call log,Collecting Liveness Data using fdo_clang)
-	@mkdir -p "$(FDO_LIVENESS_OUTPUT_DIR)"
-	@TEMP_LLD_BUILD_DIR="$(DEV_DIR)/temp_lld_for_liveness_fdo"
+	@mkdir -p "$(LIVENESS_OUTPUT_DIR)"
+	@TEMP_LLD_BUILD_DIR="$(DEV_DIR)/temp_lld_for_liveness_analysis"
 	@rm -rf "$$TEMP_LLD_BUILD_DIR"
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_LLD_BUILD_DIR" \
-		-D CMAKE_C_COMPILER="$(FDO_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(FDO_DIR)/bin/clang++" \
+		-D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
 		-D CMAKE_BUILD_TYPE=Release \
 		-D LLVM_ENABLE_PROJECTS=lld \
 		-D LLVM_TARGETS_TO_BUILD=X86 \
-		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR)"
+		-D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(LIVENESS_OUTPUT_DIR)"
 	@ninja -j "$(JOBS)" -C "$$TEMP_LLD_BUILD_DIR" lld
 	@rm -rf "$$TEMP_LLD_BUILD_DIR"
-	@$(call log,✅ FDO Liveness Data collected in $(FDO_LIVENESS_OUTPUT_DIR))
-
-# NEW Target: Collect liveness data by building LLD with thinly_linked_fdo_clang.
-collect_liveness_thinlto: thinly_linked_fdo_clang
-	@$(call log,Collecting Liveness Data using thinly_linked_fdo_clang)
-	@mkdir -p "$(THINLTO_LIVENESS_OUTPUT_DIR)"
-	@TEMP_LLD_BUILD_DIR="$(DEV_DIR)/temp_lld_for_liveness_thinlto"
-	@rm -rf "$$TEMP_LLD_BUILD_DIR"
-	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_LLD_BUILD_DIR" \
-		-D CMAKE_C_COMPILER="$(THINLTO_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(THINLTO_DIR)/bin/clang++" \
-		-D CMAKE_BUILD_TYPE=Release \
-		-D LLVM_ENABLE_PROJECTS=lld \
-		-D LLVM_TARGETS_TO_BUILD=X86 \
-		-D LLVM_ENABLE_LTO=Thin -D LLVM_USE_LINKER=lld \
-		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(THINLTO_LIVENESS_OUTPUT_DIR)" \
-		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLTO_LIVENESS_OUTPUT_DIR)"
-	@ninja -j "$(JOBS)" -C "$$TEMP_LLD_BUILD_DIR" lld
-	@rm -rf "$$TEMP_LLD_BUILD_DIR"
-	@$(call log,✅ ThinLTO Liveness Data collected in $(THINLTO_LIVENESS_OUTPUT_DIR))
+	@$(call log,✅ Liveness Data collected in $(LIVENESS_OUTPUT_DIR))
 
 # Target 5: Benchmark compilers by rebuilding the LLD linker
 data: $(FDO_SENTINEL)
 	@$(call log,STEP 6: Benchmarking compiler performance by rebuilding LLD)
 	@set -e; \
-	BENCHMARK_RUNS=5; \
+	BENCHMARK_RUNS=10; \
 	mkdir -p "$(METRICS_DIR)"; \
 	echo "Compiler,Run,RealTime_s,UserTime_s,SysTime_s" > "$(METRICS_CSV)"; \
 	\
@@ -328,7 +306,7 @@ data: $(FDO_SENTINEL)
 ipra_data: fdo_clang thinly_linked_fdo_clang
 	@$(call log,STEP 7: Benchmarking IPRA compiler performance by rebuilding LLD)
 	@set -e; \
-	BENCHMARK_RUNS=5; \
+	BENCHMARK_RUNS=10; \
 	mkdir -p "$(METRICS_DIR)"; \
 	echo "Compiler,Run,RealTime_s,UserTime_s,SysTime_s" > "$(IPRA_METRICS_CSV)"; \
 	\
