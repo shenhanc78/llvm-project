@@ -15,6 +15,8 @@ INSTR_DIR := $(DEV_DIR)/instr_clang
 FDO_DIR := $(DEV_DIR)/fdo_clang
 THINLTO_DIR := $(DEV_DIR)/thinly_linked_fdo_clang
 METRICS_DIR := $(DEV_DIR)/metrics
+IPRA_FDO_DIR := $(DEV_DIR)/ipra_fdo_clang
+IPRA_THINLTO_DIR := $(DEV_DIR)/ipra_thinly_linked_fdo_clang
 
 # Profile data directories and files
 PROFILE_RAW_DIR := $(INSTR_DIR)/profiles
@@ -34,6 +36,8 @@ BOOTSTRAP_SENTINEL := $(BOOTSTRAP_DIR)/.completed
 INSTR_SENTINEL := $(INSTR_DIR)/.completed
 FDO_SENTINEL := $(FDO_DIR)/.completed
 THINLTO_SENTINEL := $(THINLTO_DIR)/.completed
+IPRA_FDO_SENTINEL := $(IPRA_FDO_DIR)/.completed
+IPRA_THINLTO_SENTINEL := $(IPRA_THINLTO_DIR)/.completed
 
 # --- Helper Function (similar to log) ---
 # FIX #2: Removed the 'shell' keyword for bash compatibility
@@ -48,7 +52,7 @@ endef
 
 # Default target: build everything up to the FDO-optimized clang
 all: fdo_clang thinly_linked_fdo_clang data
-experiments: collect_liveness_fdo collect_liveness_thinlto ipra_data
+experiments: ipra_fdo_clang ipra_thinly_linked_fdo_clang ipra_data
 
 # Target 1: Build the initial, optimized 'bootstrapped_clang'
 bootstrapped_clang: $(BOOTSTRAP_SENTINEL)
@@ -138,8 +142,6 @@ $(THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 	@ninja -j "$(JOBS)" -C "$(THINLTO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5B: thinly_linked_fdo_clang built successfully.)
-
-# Add to .PHONY line: collect_liveness_fdo collect_liveness_thinlto ipra_data
 
 # NEW Target: Collect liveness data by building LLD with fdo_clang.
 collect_liveness_fdo: fdo_clang
@@ -293,31 +295,33 @@ ipra_data: fdo_clang thinly_linked_fdo_clang
 	mkdir -p "$(METRICS_DIR)"; \
 	echo "Compiler,Run,RealTime_s,UserTime_s,SysTime_s" > "$(IPRA_METRICS_CSV)"; \
 	\
-	TEMP_BUILD_DIR_FDO="$(DEV_DIR)/temp_benchmark_build_fdo_clang"; \
-	TEMP_BUILD_DIR_THINLTO="$(DEV_DIR)/temp_benchmark_build_thinly_linked_fdo_clang"; \
+	# --- Pre-Benchmark Setup: Configure LLD build environments once ---
+	TEMP_BUILD_DIR_IPRA_FDO="$(DEV_DIR)/temp_benchmark_build_fdo_clang"; \
+	TEMP_BUILD_DIR_IPRA_THINLTO="$(DEV_DIR)/temp_benchmark_build_thinly_linked_fdo_clang"; \
 	\
 	$(call log,Configuring LLD benchmark for fdo_clang with IPRA...); \
-	rm -rf "$$TEMP_BUILD_DIR_FDO"; \
-	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR_FDO" \
-		-D CMAKE_C_COMPILER="$(FDO_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(FDO_DIR)/bin/clang++" \
-		-D CMAKE_BUILD_TYPE=Release -D LLVM_ENABLE_PROJECTS=lld \
-		-D LLVM_TARGETS_TO_BUILD=X86 -D LLVM_ENABLE_RUNTIMES="" \
-		-D CMAKE_C_FLAGS="-mllvm -enable-ipra" \
-		-D CMAKE_CXX_FLAGS="-mllvm -enable-ipra" 1> /dev/null; \
+	rm -rf "$$TEMP_BUILD_DIR_IPRA_FDO"; \
+	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR_IPRA_FDO" \
+		-D CMAKE_C_COMPILER="$(IPRA_FDO_DIR)/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$(IPRA_FDO_DIR)/bin/clang++" \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D LLVM_ENABLE_PROJECTS=lld \
+		-D LLVM_TARGETS_TO_BUILD=X86 \
+		-D LLVM_ENABLE_RUNTIMES="" 1> /dev/null; \
 	\
 	$(call log,Configuring LLD benchmark for thinly_linked_fdo_clang with IPRA...); \
-	rm -rf "$$TEMP_BUILD_DIR_THINLTO"; \
-	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR_THINLTO" \
-		-D CMAKE_C_COMPILER="$(THINLTO_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(THINLTO_DIR)/bin/clang++" \
-		-D CMAKE_BUILD_TYPE=Release -D LLVM_ENABLE_PROJECTS=lld \
-		-D LLVM_TARGETS_TO_BUILD=X86 -D LLVM_ENABLE_RUNTIMES="" \
-		-D LLVM_ENABLE_LTO=Thin -D LLVM_USE_LINKER=lld \
-		-D CMAKE_C_FLAGS="-mllvm -enable-ipra" \
-		-D CMAKE_CXX_FLAGS="-mllvm -enable-ipra" \
-		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra" 1> /dev/null; \
+	rm -rf "$$TEMP_BUILD_DIR_IPRA_THINLTO"; \
+	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR_IPRA_THINLTO" \
+		-D CMAKE_C_COMPILER="$(IPRA_THINLTO_DIR)/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$(IPRA_THINLTO_DIR)/bin/clang++" \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D LLVM_ENABLE_PROJECTS=lld \
+		-D LLVM_TARGETS_TO_BUILD=X86 \
+		-D LLVM_ENABLE_RUNTIMES="" \
+		-D LLVM_ENABLE_LTO=Thin \
+		-D LLVM_USE_LINKER=lld 1> /dev/null; \
 	\
+	# This function now times a clean rebuild of the 'lld' target in a pre-configured directory.
 	run_benchmark() { \
 		local compiler_name=$$1; local temp_build_dir=$$2; local run_num=$$3; \
 		ninja -C "$$temp_build_dir" -t clean lld 1> /dev/null; \
@@ -329,6 +333,7 @@ ipra_data: fdo_clang thinly_linked_fdo_clang
 		echo "$$compiler_name,$$run_num,$$real_time,$$user_time,$$sys_time" >> "$(IPRA_METRICS_CSV)"; \
 	}; \
 	\
+	# This function calculates and appends summary statistics to the CSV.
 	calculate_stats() { \
 		local compiler_name=$$1; \
 		$(call log,Calculating statistics for $$compiler_name); \
@@ -336,25 +341,32 @@ ipra_data: fdo_clang thinly_linked_fdo_clang
 			$$1 == compiler && $$2 ~ /^[0-9]+$$/ { count++; real_sum += $$3; real_sum_sq += $$3*$$3; user_sum += $$4; user_sum_sq += $$4*$$4; sys_sum += $$5; sys_sum_sq += $$5*$$5; } \
 			END { \
 				if (count > 0) { \
-					real_avg = real_sum/count; user_avg = user_sum/count; sys_avg = sys_sum/count; \
+					real_avg = real_sum/count; \
+					user_avg = user_sum/count; \
+					sys_avg = sys_sum/count; \
+					\
 					real_stddev = (count > 1) ? sqrt(real_sum_sq/count - real_avg*real_avg) : 0; \
 					user_stddev = (count > 1) ? sqrt(user_sum_sq/count - user_avg*user_avg) : 0; \
 					sys_stddev = (count > 1) ? sqrt(sys_sum_sq/count - sys_avg*sys_avg) : 0; \
+					\
 					printf "%s,avg,%.3f,%.3f,%.3f\n", compiler, real_avg, user_avg, sys_avg; \
 					printf "%s,stddev,%.3f,%.3f,%.3f\n", compiler, real_stddev, user_stddev, sys_stddev; \
 				} \
 			}' "$(IPRA_METRICS_CSV)" >> "$(IPRA_METRICS_CSV)"; \
 	}; \
 	\
+	# --- Main Execution Loop ---
 	for i in $$(seq 1 $$BENCHMARK_RUNS); do \
 		$(call log,Benchmark Iteration $$i of $$BENCHMARK_RUNS); \
-		run_benchmark "fdo_clang" "$$TEMP_BUILD_DIR_FDO" $$i; \
-		run_benchmark "thinly_linked_fdo_clang" "$$TEMP_BUILD_DIR_THINLTO" $$i; \
+		run_benchmark "ipra_fdo_clang" "$$TEMP_BUILD_DIR_IPRA_FDO" $$i; \
+		run_benchmark "ipra_thinly_linked_fdo_clang" "$$TEMP_BUILD_DIR_IPRA_THINLTO" $$i; \
 	done; \
 	\
-	rm -rf "$$TEMP_BUILD_DIR_FDO" "$$TEMP_BUILD_DIR_THINLTO"; \
-	calculate_stats "fdo_clang"; \
-	calculate_stats "thinly_linked_fdo_clang"; \
+	# --- Post-Benchmark Cleanup & Analysis ---
+	rm -rf "$$TEMP_BUILD_DIR_IPRA_FDO" "$$TEMP_BUILD_DIR_IPRA_THINLTO"; \
+	# FIX: Calculate stats for the correct IPRA compilers.
+	calculate_stats "ipra_fdo_clang"; \
+	calculate_stats "ipra_thinly_linked_fdo_clang"; \
 	\
 	$(call log,✅ All tasks complete. IPRA benchmark results are in $(IPRA_METRICS_CSV))
 
