@@ -1,0 +1,14 @@
+IPRA: Function: _ZN4llvm5MachO26getArchitectureFromCpuTypeEjj[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5MachO23getArchitectureFromNameENS_9StringRefE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5MachO19getArchitectureNameENS0_12ArchitectureE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5MachO26getCPUTypeFromArchitectureENS0_12ArchitectureE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5MachO17mapToArchitectureERKNS_6TripleE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5MachO17mapToArchitectureERKNS_6TripleE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5MachO17mapToArchitectureERKNS_6TripleE[] Calls: _ZN4llvm5MachO23getArchitectureFromNameENS_9StringRefE[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm5MachO17mapToArchitectureERKNS_6TripleE[] Calls: _ZNK4llvm9StringRef4findES0_m[] IsTailCall: 0 CallSiteLoc: 0.11 LivingCSRegs: 
+IPRA: Function: _ZN4llvm5MachO7is64BitENS0_12ArchitectureE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 0 CallSiteLoc: 4.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5MachOlsERNS_11raw_ostreamENS0_12ArchitectureE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 5.2 LivingCSRegs: $rbx $r14

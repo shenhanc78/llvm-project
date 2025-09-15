@@ -1,0 +1,167 @@
+IPRA: Function: _ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 0.17 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb[] Calls: _ZN4llvm10SuffixTree6extendEjj[] IsTailCall: 0 CallSiteLoc: 2.4 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb[] Calls: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTreeC2ERKNS_8ArrayRefIjEEb[] Calls: _ZN4llvm10SuffixTree12setLeafNodesEv[] IsTailCall: 1 CallSiteLoc: 4.1 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree10insertRootEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm10SuffixTree10insertRootEv[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree10insertRootEv[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] IsTailCall: 0 CallSiteLoc: 9.4 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZNK4llvm22SuffixTreeInternalNode6isRootEv[] IsTailCall: 0 CallSiteLoc: 11.3 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZNK4llvm14SuffixTreeNode11getStartIdxEv[] IsTailCall: 0 CallSiteLoc: 12.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZNK4llvm14SuffixTreeNode11getStartIdxEv[] IsTailCall: 0 CallSiteLoc: 13.6 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZNK4llvm14SuffixTreeNode11getStartIdxEv[] IsTailCall: 0 CallSiteLoc: 14.9 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZNK4llvm14SuffixTreeNode11getStartIdxEv[] IsTailCall: 0 CallSiteLoc: 14.12 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] IsTailCall: 0 CallSiteLoc: 18.2 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] IsTailCall: 0 CallSiteLoc: 22.9 LivingCSRegs: $rbx $rbp $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZNK4llvm14SuffixTreeNode11getStartIdxEv[] IsTailCall: 0 CallSiteLoc: 22.14 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm14SuffixTreeNode17incrementStartIdxEj[] IsTailCall: 0 CallSiteLoc: 22.16 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] IsTailCall: 0 CallSiteLoc: 22.20 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 29 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] IsTailCall: 0 CallSiteLoc: 29.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm22SuffixTreeInternalNode7setLinkEPS0_[] IsTailCall: 0 CallSiteLoc: 32.2 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZNK4llvm22SuffixTreeInternalNode6isRootEv[] IsTailCall: 0 CallSiteLoc: 33.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 37 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZNK4llvm22SuffixTreeInternalNode7getLinkEv[] IsTailCall: 0 CallSiteLoc: 37.6 LivingCSRegs: $rbx $rbp $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 38 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 38.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 39 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 39.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 40 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 40.3 LivingCSRegs: $rbx $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 44 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZNK4llvm22SuffixTreeInternalNode6isRootEv[] IsTailCall: 0 CallSiteLoc: 44.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] MBB: 45 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree6extendEjj[] Calls: _ZN4llvm22SuffixTreeInternalNode7setLinkEPS0_[] IsTailCall: 0 CallSiteLoc: 45.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] Calls: _ZN4llvm14SuffixTreeNode12setConcatLenEj[] IsTailCall: 0 CallSiteLoc: 4.4 LivingCSRegs: $rbp $r12
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] Calls: _ZN4llvm18SuffixTreeLeafNode12setSuffixIdxEj[] IsTailCall: 0 CallSiteLoc: 10.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] Calls: _ZNK4llvm22SuffixTreeInternalNode6isRootEv[] IsTailCall: 0 CallSiteLoc: 15.4 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] Calls: _ZNK4llvm14SuffixTreeNode11getStartIdxEv[] IsTailCall: 0 CallSiteLoc: 16.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 21.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] MBB: 23 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree16setSuffixIndicesEv[] Calls: free[] IsTailCall: 0 CallSiteLoc: 23.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZN4llvm14SuffixTreeNode14setLeftLeafIdxEj[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $r12 $r14
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZNK4llvm14SuffixTreeNode14getLeftLeafIdxEv[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbp $r12 $r14
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZN4llvm14SuffixTreeNode15setRightLeafIdxEj[] IsTailCall: 0 CallSiteLoc: 1.6 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZNK4llvm14SuffixTreeNode15getRightLeafIdxEv[] IsTailCall: 0 CallSiteLoc: 1.9 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZN4llvm14SuffixTreeNode15setRightLeafIdxEj[] IsTailCall: 0 CallSiteLoc: 7.5 LivingCSRegs: $rbp $r12 $r14
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZN4llvm14SuffixTreeNode14setLeftLeafIdxEj[] IsTailCall: 0 CallSiteLoc: 7.8 LivingCSRegs: $rbp $r12 $r14
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 10.5 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 11.1 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 13.1 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 29 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_[] IsTailCall: 0 CallSiteLoc: 29.5 LivingCSRegs: $rbp $r13 $r14
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 37 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 37.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 39 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 39.4 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 40 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZN4llvm17deallocate_bufferEPvmm[] IsTailCall: 0 CallSiteLoc: 40.5 LivingCSRegs: 
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 41 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: free[] IsTailCall: 0 CallSiteLoc: 41.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] MBB: 43 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree12setLeafNodesEv[] Calls: _ZSt20__throw_length_errorPKc[] IsTailCall: 0 CallSiteLoc: 43.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] IsTailCall: 0 CallSiteLoc: 3.12 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree10insertLeafERNS_22SuffixTreeInternalNodeEjj[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 4.6 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_[] IsTailCall: 0 CallSiteLoc: 14.10 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] Calls: _ZN4llvm8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEE4growEj[] IsTailCall: 0 CallSiteLoc: 14.14 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm10SuffixTree18insertInternalNodeEPNS_22SuffixTreeInternalNodeEjjj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm10SuffixTree18insertInternalNodeEPNS_22SuffixTreeInternalNodeEjjj[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree18insertInternalNodeEPNS_22SuffixTreeInternalNodeEjjj[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_EixERKj[] IsTailCall: 0 CallSiteLoc: 4.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm10SuffixTree18insertInternalNodeEPNS_22SuffixTreeInternalNodeEjjj[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree18insertInternalNodeEPNS_22SuffixTreeInternalNodeEjjj[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 6.7 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_[] IsTailCall: 0 CallSiteLoc: 14.10 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_EixERKS3_[] Calls: _ZN4llvm8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES5_ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEE4growEj[] IsTailCall: 0 CallSiteLoc: 14.14 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: free[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZNK4llvm14SuffixTreeNode12getConcatLenEv[] IsTailCall: 0 CallSiteLoc: 6.4 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZNK4llvm22SuffixTreeInternalNode6isRootEv[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $rbp $r12
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZNK4llvm14SuffixTreeNode15getRightLeafIdxEv[] IsTailCall: 0 CallSiteLoc: 14.3 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZNK4llvm14SuffixTreeNode14getLeftLeafIdxEv[] IsTailCall: 0 CallSiteLoc: 14.6 LivingCSRegs: $rbx $rbp $r12
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZNK4llvm18SuffixTreeLeafNode12getSuffixIdxEv[] IsTailCall: 0 CallSiteLoc: 15.5 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZNK4llvm14SuffixTreeNode15getRightLeafIdxEv[] IsTailCall: 0 CallSiteLoc: 16.4 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 17.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 26.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 36 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZNK4llvm18SuffixTreeLeafNode12getSuffixIdxEv[] IsTailCall: 0 CallSiteLoc: 36.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 40 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 40.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 44 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 44.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] MBB: 46 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm10SuffixTree25RepeatedSubstringIterator7advanceEv[] Calls: free[] IsTailCall: 0 CallSiteLoc: 46.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] Calls: free[] IsTailCall: 0 CallSiteLoc: 3.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 7.6 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 10.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 13.5 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIjEaSEOS1_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 15.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 6.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 7.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS3_EEEEjS3_S5_S8_E15LookupBucketForIjEEbRKT_RPS8_[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEE4growEj[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEE4growEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEE4growEj[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEE4growEj[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8DenseMapIjPNS_14SuffixTreeNodeENS_12DenseMapInfoIjvEENS_6detail12DenseMapPairIjS2_EEE4growEj[] Calls: _ZN4llvm17deallocate_bufferEPvmm[] IsTailCall: 1 CallSiteLoc: 18.1 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES6_ENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S7_EEEES3_S7_S9_SC_E15LookupBucketForIS3_EEbRKT_RPSC_[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES5_ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEE4growEj[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES5_ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEE4growEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES5_ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEE4growEj[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES5_ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEE4growEj[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8DenseMapIPNS_22SuffixTreeInternalNodeESt4pairIPNS_14SuffixTreeNodeES5_ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S6_EEE4growEj[] Calls: _ZN4llvm17deallocate_bufferEPvmm[] IsTailCall: 1 CallSiteLoc: 18.1 LivingCSRegs: $rbx $r12 $r14 $r15

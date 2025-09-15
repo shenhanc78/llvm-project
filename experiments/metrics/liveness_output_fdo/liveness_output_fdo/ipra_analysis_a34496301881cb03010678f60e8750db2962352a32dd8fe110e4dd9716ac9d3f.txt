@@ -1,0 +1,188 @@
+IPRA: Function: _ZN4llvm15ListeningSocketC2EiNS_9StringRefEPi[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15ListeningSocketC2EiNS_9StringRefEPi[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocketC2EiNS_9StringRefEPi[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocketC2EiNS_9StringRefEPi[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocketC2EiNS_9StringRefEPi[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15ListeningSocketC2EiNS_9StringRefEPi[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocketC2EiNS_9StringRefEPi[] Calls: _ZSt19__throw_logic_errorPKc[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm15ListeningSocketC2EOS0_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15ListeningSocketC2EOS0_[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocketC2EOS0_[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocketC2EOS0_[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocketC2EOS0_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZN4llvm3sys2fs6accessERKNS_5TwineENS1_10AccessModeE[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: socket[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: bind[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZL13setSocketAddrN4llvm9StringRefE[] IsTailCall: 0 CallSiteLoc: 2.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: listen[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: pipe[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZN4llvm15ListeningSocketD2Ev[] IsTailCall: 0 CallSiteLoc: 5.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZN4llvm15ListeningSocketC2EOS0_[] IsTailCall: 0 CallSiteLoc: 5.4 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZN4llvm15ListeningSocketC2EiNS_9StringRefEPi[] IsTailCall: 0 CallSiteLoc: 5.8 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZL11getSocketFDN4llvm9StringRefE[] IsTailCall: 0 CallSiteLoc: 6.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_[] IsTailCall: 0 CallSiteLoc: 7.4 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZN4llvm11StringErrorC1ESt10error_codeRKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 9.6 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 9.15 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 9.18 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 11.7 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 11.10 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 11.12 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 12.9 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 12.12 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: close[] IsTailCall: 0 CallSiteLoc: 12.13 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZN4llvm11StringErrorC1ESt10error_codeRKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 13.4 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 13.13 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: close[] IsTailCall: 0 CallSiteLoc: 13.15 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 13.18 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 13.20 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 14.4 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 14.7 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 14.9 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 15.3 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 15.6 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 15.8 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket10createUnixENS_9StringRefEi[] Calls: _ZN4llvm11StringErrorC1ESt10error_codeRKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 18.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] CallingConv: 8 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: socket[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: connect[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: _ZL13setSocketAddrN4llvm9StringRefE[] IsTailCall: 0 CallSiteLoc: 1.7 LivingCSRegs: $rbx $rbp $r12
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 3.7 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 3.10 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 3.12 LivingCSRegs: $rbx
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 4.6 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 4.9 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 4.11 LivingCSRegs: $rbx
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11getSocketFDN4llvm9StringRefE[] Calls: _ZN4llvm11StringErrorC1ESt10error_codeRKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] CallingConv: 8 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] Calls: strncpy[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: 
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: $rbx
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] Calls: strncpy[] IsTailCall: 0 CallSiteLoc: 8.4 LivingCSRegs: $r14
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13setSocketAddrN4llvm9StringRefE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 9.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _ZN4llvm11StringErrorC1ESt10error_codeRKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 3.12 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: accept[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _ZN4llvm17raw_socket_streamC2Ei[] IsTailCall: 0 CallSiteLoc: 5.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 5.6 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _ZN4llvm11StringErrorC1ESt10error_codeRKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 8.4 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 8.13 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 8.16 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 8.18 LivingCSRegs: $rbx
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] Calls: _ZNSt6chrono3_V212steady_clock3nowEv[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $r12 $r15
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] Calls: poll[] IsTailCall: 0 CallSiteLoc: 5.4 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 6.13 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 6.15 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] Calls: _ZNSt6chrono3_V212steady_clock3nowEv[] IsTailCall: 0 CallSiteLoc: 8.11 LivingCSRegs: $r12 $r13 $r15
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] Calls: _ZSt25__throw_bad_function_callv[] IsTailCall: 0 CallSiteLoc: 19.1 LivingCSRegs: 
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 20.3 LivingCSRegs: 
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 22.2 LivingCSRegs: $rbx
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] MBB: 24 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 24.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket8shutdownEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15ListeningSocket8shutdownEv[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocket8shutdownEv[] Calls: write[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: 
+IPRA: Function: _ZN4llvm15ListeningSocket8shutdownEv[] Calls: unlink[] IsTailCall: 0 CallSiteLoc: 2.11 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocket8shutdownEv[] Calls: close[] IsTailCall: 0 CallSiteLoc: 2.13 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] Calls: write[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] Calls: unlink[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] Calls: close[] IsTailCall: 0 CallSiteLoc: 2.8 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] Calls: close[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] Calls: close[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15ListeningSocketD2Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 8.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm17raw_socket_streamC2Ei[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17raw_socket_streamC2Ei[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17raw_socket_streamC2Ei[] Calls: _ZN4llvm13raw_fd_streamC2Eib[] IsTailCall: 0 CallSiteLoc: 0.7 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm17raw_socket_streamD2Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17raw_socket_streamD2Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17raw_socket_streamD2Ev[] Calls: _ZN4llvm14raw_fd_ostreamD2Ev[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm17raw_socket_streamD0Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17raw_socket_streamD0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17raw_socket_streamD0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm17raw_socket_streamD0Ev[] Calls: _ZN4llvm17raw_socket_streamD2Ev[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm17raw_socket_stream19createConnectedUnixENS_9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17raw_socket_stream19createConnectedUnixENS_9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17raw_socket_stream19createConnectedUnixENS_9StringRefE[] Calls: _ZL11getSocketFDN4llvm9StringRefE[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm17raw_socket_stream19createConnectedUnixENS_9StringRefE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17raw_socket_stream19createConnectedUnixENS_9StringRefE[] Calls: _ZN4llvm17raw_socket_streamC2Ei[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm17raw_socket_stream19createConnectedUnixENS_9StringRefE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 2.7 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _ZL13manageTimeoutRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEERKSt8functionIFivEERKSt8optionalIiE[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEE[] Calls: _ZN4llvm13raw_fd_stream4readEPcm[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm11raw_ostream17reserveExtraSpaceEm[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11raw_ostream13enable_colorsEb[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm17raw_socket_stream11current_posEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_[] Calls: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] IsTailCall: 0 CallSiteLoc: 9.6 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 10.9 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 19.1 LivingCSRegs: $rbx $rbp $r12
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 33.9 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 33.19 LivingCSRegs: $rbp $r13 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 38 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 38.6 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 47 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 47.1 LivingCSRegs: $rbp $r12 $r14
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 53 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 53.6 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 66 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 66.1 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 71 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZSt20__throw_length_errorPKc[] IsTailCall: 0 CallSiteLoc: 71.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 72 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZSt20__throw_length_errorPKc[] IsTailCall: 0 CallSiteLoc: 72.1 LivingCSRegs: 
+IPRA: Function: _ZNSt17_Function_handlerIFivEZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E9_M_invokeERKSt9_Any_data[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt17_Function_handlerIFivEZN4llvm15ListeningSocket6acceptERKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E10_M_managerERSt9_Any_dataRKSC_St18_Manager_operation[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt17_Function_handlerIFivEZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E9_M_invokeERKSt9_Any_data[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt17_Function_handlerIFivEZN4llvm17raw_socket_stream4readEPcmRKNSt6chrono8durationIlSt5ratioILl1ELl1000EEEEE3$_0E10_M_managerERSt9_Any_dataRKSD_St18_Manager_operation[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0

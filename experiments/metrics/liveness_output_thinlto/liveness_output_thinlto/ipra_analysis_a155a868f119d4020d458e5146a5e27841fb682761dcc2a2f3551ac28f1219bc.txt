@@ -1,0 +1,28 @@
+IPRA: Function: _ZN4llvm12LiveRegUnits22removeRegsNotPreservedEPKj[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits13addRegsInMaskEPKj[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12stepBackwardERKNS_12MachineInstrE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits10accumulateERKNS_12MachineInstrE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 23 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] IsTailCall: 0 CallSiteLoc: 23.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 31 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: memset[] IsTailCall: 0 CallSiteLoc: 31.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] IsTailCall: 0 CallSiteLoc: 33.5 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 39 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: _ZN4llvm9BitVectoroRERKS0_[] IsTailCall: 0 CallSiteLoc: 39.4 LivingCSRegs: $rbp
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 40 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 40.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 42 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 42.6 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] Calls: _ZN4llvm19MachineRegisterInfo26disableCalleeSavedRegisterENS_10MCRegisterE[] IsTailCall: 0 CallSiteLoc: 32.2 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] Calls: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] Calls: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] IsTailCall: 1 CallSiteLoc: 20.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm12LiveRegUnits10addLiveInsERKNS_17MachineBasicBlockE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits10addLiveInsERKNS_17MachineBasicBlockE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits10addLiveInsERKNS_17MachineBasicBlockE[] Calls: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx $r14

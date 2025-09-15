@@ -1,0 +1,25 @@
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] Calls: _ZN4llvm5Timer9stopTimerEv[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] Calls: _ZN4llvm5Timer4initENS_9StringRefES1_RNS_10TimerGroupE[] IsTailCall: 0 CallSiteLoc: 5.5 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 5.30 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] Calls: _ZN4llvm10TimerGroup11removeTimerERNS_5TimerE[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 9.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 11.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 12.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] Calls: _ZN4llvm5Timer10startTimerEv[] IsTailCall: 1 CallSiteLoc: 13.1 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm7TGTimer9stopTimerEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7TGTimer9stopTimerEv[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer9stopTimerEv[] Calls: _ZN4llvm5Timer9stopTimerEv[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm7TGTimer17startBackendTimerENS_9StringRefE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7TGTimer17startBackendTimerENS_9StringRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer17startBackendTimerENS_9StringRefE[] Calls: _ZN4llvm7TGTimer10startTimerENS_9StringRefE[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm7TGTimer16stopBackendTimerEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7TGTimer16stopBackendTimerEv[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7TGTimer16stopBackendTimerEv[] Calls: _ZN4llvm5Timer9stopTimerEv[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: $rbx

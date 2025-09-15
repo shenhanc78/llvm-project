@@ -1,0 +1,42 @@
+IPRA: Function: _ZN4llvm12LiveRegUnits22removeRegsNotPreservedEPKj[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits13addRegsInMaskEPKj[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12stepBackwardERKNS_12MachineInstrE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits10accumulateERKNS_12MachineInstrE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] IsTailCall: 0 CallSiteLoc: 21.5 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE[] IsTailCall: 0 CallSiteLoc: 21.9 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 27 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: _ZN4llvm9BitVectoroRERKS0_[] IsTailCall: 0 CallSiteLoc: 27.4 LivingCSRegs: $r13
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 28 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 28.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] MBB: 29 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] Calls: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] IsTailCall: 0 CallSiteLoc: 29.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] Calls: _ZNK4llvm19MachineRegisterInfo18getCalleeSavedRegsEv[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] Calls: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] Calls: _ZNK4llvm17MachineBasicBlock12livein_beginEv[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $rbx $r12 $r13
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] Calls: _ZNK4llvm12MachineInstr19hasPropertyInBundleEmNS0_9QueryTypeE[] IsTailCall: 0 CallSiteLoc: 16.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits11addLiveOutsERKNS_17MachineBasicBlockE[] Calls: _ZL18addCalleeSavedRegsRN4llvm12LiveRegUnitsERKNS_15MachineFunctionE[] IsTailCall: 1 CallSiteLoc: 18.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm12LiveRegUnits10addLiveInsERKNS_17MachineBasicBlockE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits10addLiveInsERKNS_17MachineBasicBlockE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits10addLiveInsERKNS_17MachineBasicBlockE[] Calls: _ZNK4llvm17MachineBasicBlock12livein_beginEv[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm12LiveRegUnits10addLiveInsERKNS_17MachineBasicBlockE[] Calls: _ZN4llvm12LiveRegUnits12addPristinesERKNS_15MachineFunctionE[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE[] Calls: memset[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE[] Calls: memset[] IsTailCall: 0 CallSiteLoc: 7.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12LiveRegUnits4initERKNS_18TargetRegisterInfoE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 12.5 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm9BitVectoroRERKS0_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9BitVectoroRERKS0_[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9BitVectoroRERKS0_[] Calls: memset[] IsTailCall: 0 CallSiteLoc: 7.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9BitVectoroRERKS0_[] MBB: 24 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9BitVectoroRERKS0_[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 24.6 LivingCSRegs: $r12 $r13 $r14 $r15

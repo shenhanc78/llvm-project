@@ -1,0 +1,268 @@
+IPRA: Function: llvm_regcomp[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: llvm_regcomp[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbp $r13
+IPRA: Function: llvm_regcomp[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: malloc[] IsTailCall: 0 CallSiteLoc: 5.5 LivingCSRegs: $rbp $r12 $r13
+IPRA: Function: llvm_regcomp[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: calloc[] IsTailCall: 0 CallSiteLoc: 6.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_regcomp[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: free[] IsTailCall: 0 CallSiteLoc: 11.3 LivingCSRegs: 
+IPRA: Function: llvm_regcomp[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_regcomp[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: p_bre[] IsTailCall: 0 CallSiteLoc: 18.2 LivingCSRegs: $rbx $r13
+IPRA: Function: llvm_regcomp[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: p_ere[] IsTailCall: 0 CallSiteLoc: 19.2 LivingCSRegs: $rbx $r13
+IPRA: Function: llvm_regcomp[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: ordinary[] IsTailCall: 0 CallSiteLoc: 26.6 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: llvm_regcomp[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 33.3 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: llvm_regcomp[] MBB: 61 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 61.5 LivingCSRegs: $rbx
+IPRA: Function: llvm_regcomp[] MBB: 86 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: llvm_regfree[] IsTailCall: 0 CallSiteLoc: 86.2 LivingCSRegs: 
+IPRA: Function: llvm_regcomp[] MBB: 99 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_regcomp[] Calls: malloc[] IsTailCall: 0 CallSiteLoc: 99.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: p_ere[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: p_ere[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r13 $r15
+IPRA: Function: p_ere[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 15.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: p_ere[] MBB: 48 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: p_bracket[] IsTailCall: 0 CallSiteLoc: 48.2 LivingCSRegs: $rbx $rbp $r13
+IPRA: Function: p_ere[] MBB: 65 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: p_bracket[] IsTailCall: 0 CallSiteLoc: 65.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: p_ere[] MBB: 67 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: ordinary[] IsTailCall: 0 CallSiteLoc: 67.2 LivingCSRegs: $rbx $rbp $r13
+IPRA: Function: p_ere[] MBB: 75 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 75.3 LivingCSRegs: $rbx $rbp $r13 $r14
+IPRA: Function: p_ere[] MBB: 81 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: p_ere[] IsTailCall: 0 CallSiteLoc: 81.3 LivingCSRegs: $rbx $rbp $r13 $r14
+IPRA: Function: p_ere[] MBB: 88 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 88.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 102 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 102.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 110 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 110.3 LivingCSRegs: $rbx $r12 $r13
+IPRA: Function: p_ere[] MBB: 119 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 119.4 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 124 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 124.6 LivingCSRegs: $rbx $r12 $r13
+IPRA: Function: p_ere[] MBB: 130 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 130.3 LivingCSRegs: $rbx $r12 $r13
+IPRA: Function: p_ere[] MBB: 144 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 144.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 171 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: repeat[] IsTailCall: 0 CallSiteLoc: 171.7 LivingCSRegs: $rbx $r13
+IPRA: Function: p_ere[] MBB: 183 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 183.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 186 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 186.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 189 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 189.3 LivingCSRegs: $rbx $r12 $r13
+IPRA: Function: p_ere[] MBB: 195 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 195.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 197 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 197.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 201 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 201.3 LivingCSRegs: $rbx $rbp $r13 $r14
+IPRA: Function: p_ere[] MBB: 205 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 205.3 LivingCSRegs: $rbx $rbp $r13 $r14
+IPRA: Function: p_ere[] MBB: 209 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 209.3 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: p_ere[] MBB: 211 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 211.3 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: p_ere[] MBB: 213 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 213.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: p_ere[] MBB: 224 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 224.3 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: p_ere[] MBB: 229 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 229.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 234 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 234.5 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: p_ere[] MBB: 240 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 240.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: p_ere[] MBB: 258 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 258.6 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 276 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 276.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 284 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 284.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_ere[] MBB: 297 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_ere[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 297.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: p_bre[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: p_bre[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: p_bre[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 13.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: p_bre[] MBB: 39 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: p_bracket[] IsTailCall: 0 CallSiteLoc: 39.2 LivingCSRegs: $rbx $rbp $r12
+IPRA: Function: p_bre[] MBB: 58 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: ordinary[] IsTailCall: 0 CallSiteLoc: 58.2 LivingCSRegs: $rbx $rbp $r12
+IPRA: Function: p_bre[] MBB: 66 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: p_bracket[] IsTailCall: 0 CallSiteLoc: 66.4 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: p_bre[] MBB: 67 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 67.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: p_bre[] MBB: 73 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 73.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: p_bre[] MBB: 78 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 78.2 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: p_bre[] MBB: 85 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 85.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: p_bre[] MBB: 92 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 92.3 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: p_bre[] MBB: 98 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: p_bre[] IsTailCall: 0 CallSiteLoc: 98.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: p_bre[] MBB: 107 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 107.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: p_bre[] MBB: 119 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 119.6 LivingCSRegs: $rbx $rbp
+IPRA: Function: p_bre[] MBB: 128 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 128.4 LivingCSRegs: $rbx $rbp $r13 $r15
+IPRA: Function: p_bre[] MBB: 144 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 144.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: p_bre[] MBB: 159 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: repeat[] IsTailCall: 0 CallSiteLoc: 159.6 LivingCSRegs: $rbx
+IPRA: Function: p_bre[] MBB: 175 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 175.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: p_bre[] MBB: 178 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 178.3 LivingCSRegs: $rbx $rbp
+IPRA: Function: p_bre[] MBB: 185 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 185.3 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: p_bre[] MBB: 199 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bre[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 199.3 LivingCSRegs: $rbx $r14
+IPRA: Function: doinsert[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: doinsert[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: doinsert[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 7.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: doinsert[] MBB: 28 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: doinsert[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 28.24 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: p_bracket[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: p_bracket[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $r13 $r14
+IPRA: Function: p_bracket[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $r13 $r14
+IPRA: Function: p_bracket[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 15.4 LivingCSRegs: $r12 $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 16.4 LivingCSRegs: $r12 $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 37 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: memset[] IsTailCall: 0 CallSiteLoc: 37.4 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 38 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: free[] IsTailCall: 0 CallSiteLoc: 38.5 LivingCSRegs: $r13
+IPRA: Function: p_bracket[] Calls: free[] IsTailCall: 0 CallSiteLoc: 38.9 LivingCSRegs: $r13
+IPRA: Function: p_bracket[] MBB: 66 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 66.5 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 68 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 68.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 70 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 70.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 72 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 72.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 74 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 74.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 76 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 76.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 78 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 78.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 80 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 80.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 82 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 82.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 84 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 84.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 86 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 86.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 88 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 88.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 90 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 90.3 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 95 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: p_b_symbol[] IsTailCall: 0 CallSiteLoc: 95.8 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 102 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: p_b_symbol[] IsTailCall: 0 CallSiteLoc: 102.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 129 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 129.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 130 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 130.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 157 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 157.4 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: p_bracket[] MBB: 158 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 158.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: p_bracket[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 158.8 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 164 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: free[] IsTailCall: 0 CallSiteLoc: 164.1 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: p_bracket[] MBB: 186 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 186.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 190 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: __ctype_tolower_loc[] IsTailCall: 0 CallSiteLoc: 190.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: p_bracket[] MBB: 191 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: __ctype_toupper_loc[] IsTailCall: 0 CallSiteLoc: 191.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: p_bracket[] MBB: 208 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 208.3 LivingCSRegs: $rbx $r13
+IPRA: Function: p_bracket[] MBB: 234 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 234.3 LivingCSRegs: $rbx $r13
+IPRA: Function: p_bracket[] MBB: 265 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 265.6 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 268 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: __ctype_toupper_loc[] IsTailCall: 0 CallSiteLoc: 268.2 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 283 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: __ctype_tolower_loc[] IsTailCall: 0 CallSiteLoc: 283.1 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: p_bracket[] MBB: 291 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: bothcases[] IsTailCall: 0 CallSiteLoc: 291.2 LivingCSRegs: $rbx $r13
+IPRA: Function: p_bracket[] MBB: 292 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 292.3 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: p_bracket[] MBB: 295 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_bracket[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 295.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: ordinary[] CallingConv: 8 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: ordinary[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: ordinary[] Calls: __ctype_b_loc[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: ordinary[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: ordinary[] Calls: __ctype_toupper_loc[] IsTailCall: 0 CallSiteLoc: 5.2 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: ordinary[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: ordinary[] Calls: __ctype_tolower_loc[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: ordinary[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: ordinary[] Calls: p_bracket[] IsTailCall: 0 CallSiteLoc: 16.4 LivingCSRegs: $rbx
+IPRA: Function: ordinary[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: ordinary[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 17.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: repeat[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: repeat[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: repeat[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 6.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: repeat[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 16.4 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: repeat[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 32.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: repeat[] MBB: 45 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 45.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: repeat[] MBB: 47 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 47.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: repeat[] MBB: 50 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 50.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: repeat[] MBB: 52 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 52.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: repeat[] MBB: 70 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 70.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: repeat[] MBB: 72 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 72.9 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: repeat[] MBB: 77 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: repeat[] IsTailCall: 0 CallSiteLoc: 77.3 LivingCSRegs: $rbx $r13
+IPRA: Function: repeat[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 77.8 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: repeat[] MBB: 93 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 93.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: repeat[] MBB: 95 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 95.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: repeat[] MBB: 98 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: doinsert[] IsTailCall: 0 CallSiteLoc: 98.3 LivingCSRegs: $rbx $r14
+IPRA: Function: repeat[] MBB: 105 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 105.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: repeat[] MBB: 108 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: repeat[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 108.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: p_b_symbol[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: p_b_symbol[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_b_symbol[] Calls: strncmp[] IsTailCall: 0 CallSiteLoc: 17.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: p_b_symbol[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: p_b_symbol[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 18.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: bothcases[] CallingConv: 8 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: bothcases[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: bothcases[] Calls: p_bracket[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $rbx

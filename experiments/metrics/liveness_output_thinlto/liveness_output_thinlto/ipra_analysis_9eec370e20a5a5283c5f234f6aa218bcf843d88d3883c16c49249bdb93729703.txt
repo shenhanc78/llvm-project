@@ -1,0 +1,88 @@
+IPRA: Function: llvm_blake3_version[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: llvm_blake3_hasher_init[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: llvm_blake3_hasher_init_keyed[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: llvm_blake3_hasher_init_derive_key_raw[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: llvm_blake3_hasher_init_derive_key_raw[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_init_derive_key_raw[] Calls: llvm_blake3_hasher_finalize_seek[] IsTailCall: 0 CallSiteLoc: 0.40 LivingCSRegs: $rbx
+IPRA: Function: llvm_blake3_hasher_init_derive_key_raw[] Calls: llvm_blake3_hasher_update[] IsTailCall: 0 CallSiteLoc: 0.45 LivingCSRegs: $rbx $r14
+IPRA: Function: llvm_blake3_hasher_update[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 3.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 4.13 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 9.8 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 12.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 16.5 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 17.102 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 19.23 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 30 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 30.8 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: blake3_compress_subtree_wide[] IsTailCall: 0 CallSiteLoc: 32.5 LivingCSRegs: $rbx $rbp
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 34 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 34.5 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 42 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_hash_many[] IsTailCall: 0 CallSiteLoc: 42.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 45 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 45.23 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 48 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 48.24 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 50 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 50.108 LivingCSRegs: $rbx
+IPRA: Function: llvm_blake3_hasher_update[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 50.139 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 51 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 51.23 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 55 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 55.7 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 56 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 56.10 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 59 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 59.25 LivingCSRegs: $rbx $r14
+IPRA: Function: llvm_blake3_hasher_update[] MBB: 61 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_update[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 61.23 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_finalize[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: llvm_blake3_hasher_finalize[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_finalize[] Calls: llvm_blake3_hasher_finalize_seek[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: llvm_blake3_hasher_init_derive_key[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: llvm_blake3_hasher_init_derive_key[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_init_derive_key[] Calls: llvm_blake3_hasher_init_derive_key_raw[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx $r14
+IPRA: Function: llvm_blake3_hasher_init_derive_key[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 0.11 LivingCSRegs: $rbx $r14
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: llvm_blake3_compress_xof[] IsTailCall: 0 CallSiteLoc: 4.12 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 6.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: llvm_blake3_compress_xof[] IsTailCall: 0 CallSiteLoc: 6.15 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 9.80 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 11.81 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: llvm_blake3_compress_xof[] IsTailCall: 0 CallSiteLoc: 12.12 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 14.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: llvm_blake3_hasher_finalize_seek[] Calls: llvm_blake3_compress_xof[] IsTailCall: 0 CallSiteLoc: 14.14 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: llvm_blake3_hasher_reset[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: blake3_compress_subtree_wide[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: blake3_compress_subtree_wide[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: blake3_compress_subtree_wide[] Calls: llvm_blake3_simd_degree[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: blake3_compress_subtree_wide[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: blake3_compress_subtree_wide[] Calls: blake3_compress_subtree_wide[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbp $r13
+IPRA: Function: blake3_compress_subtree_wide[] Calls: blake3_compress_subtree_wide[] IsTailCall: 0 CallSiteLoc: 1.11 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: blake3_compress_subtree_wide[] Calls: llvm_blake3_simd_degree[] IsTailCall: 0 CallSiteLoc: 1.32 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: blake3_compress_subtree_wide[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: blake3_compress_subtree_wide[] Calls: llvm_blake3_hash_many[] IsTailCall: 0 CallSiteLoc: 19.5 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: blake3_compress_subtree_wide[] MBB: 24 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: blake3_compress_subtree_wide[] Calls: llvm_blake3_hash_many[] IsTailCall: 0 CallSiteLoc: 24.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: blake3_compress_subtree_wide[] MBB: 27 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: blake3_compress_subtree_wide[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 27.8 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: blake3_compress_subtree_wide[] MBB: 30 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: blake3_compress_subtree_wide[] Calls: llvm_blake3_compress_in_place[] IsTailCall: 0 CallSiteLoc: 30.18 LivingCSRegs: $rbx $r14
+IPRA: Function: blake3_compress_subtree_wide[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 30.51 LivingCSRegs: $rbx $r12 $r14 $r15

@@ -1,0 +1,30 @@
+IPRA: Function: _ZN4llvm19linkErlangGCPrinterEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8RegistryINS_17GCMetadataPrinterEE3AddIN12_GLOBAL__N_115ErlangGCPrinterEE6CtorFnEv[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8RegistryINS_17GCMetadataPrinterEE3AddIN12_GLOBAL__N_115ErlangGCPrinterEE6CtorFnEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8RegistryINS_17GCMetadataPrinterEE3AddIN12_GLOBAL__N_115ErlangGCPrinterEE6CtorFnEv[] Calls: _ZN4llvm17GCMetadataPrinterC2Ev[] IsTailCall: 0 CallSiteLoc: 0.12 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm8RegistryINS_17GCMetadataPrinterEE3AddIN12_GLOBAL__N_115ErlangGCPrinterEE6CtorFnEv[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.17 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinterD0Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinterD0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinterD0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinterD0Ev[] Calls: _ZN4llvm17GCMetadataPrinterD2Ev[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm17GCMetadataPrinter13beginAssemblyERNS_6ModuleERNS_12GCModuleInfoERNS_10AsmPrinterE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE[] IsTailCall: 0 CallSiteLoc: 0.13 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZNK4llvm10AsmPrinter18getObjFileLoweringEv[] IsTailCall: 0 CallSiteLoc: 0.32 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZNK4llvm10DataLayout14getPointerSizeEj[] IsTailCall: 0 CallSiteLoc: 0.35 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: bcmp[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZNK4llvm10AsmPrinter9emitInt16Ei[] IsTailCall: 0 CallSiteLoc: 6.7 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZNK4llvm10AsmPrinter13emitAlignmentENS_5AlignEPKNS_12GlobalObjectEj[] IsTailCall: 0 CallSiteLoc: 6.21 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZNK4llvm10AsmPrinter19emitLabelPlusOffsetEPKNS_8MCSymbolEmjb[] IsTailCall: 0 CallSiteLoc: 7.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZNK4llvm10AsmPrinter9emitInt16Ei[] IsTailCall: 0 CallSiteLoc: 11.8 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZNK4llvm10AsmPrinter9emitInt16Ei[] IsTailCall: 0 CallSiteLoc: 11.22 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZNK4llvm10AsmPrinter9emitInt16Ei[] IsTailCall: 0 CallSiteLoc: 11.41 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_115ErlangGCPrinter14finishAssemblyERN4llvm6ModuleERNS1_12GCModuleInfoERNS1_10AsmPrinterE[] Calls: _ZNK4llvm10AsmPrinter9emitInt16Ei[] IsTailCall: 0 CallSiteLoc: 12.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm17GCMetadataPrinter13emitStackMapsERNS_9StackMapsERNS_10AsmPrinterE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _GLOBAL__sub_I_ErlangGCPrinter.cpp[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0

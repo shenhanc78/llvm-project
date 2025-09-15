@@ -1,0 +1,658 @@
+IPRA: Function: _ZN4llvm36initializeGISelKnownBitsAnalysisPassERNS_12PassRegistryE[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm36initializeGISelKnownBitsAnalysisPassERNS_12PassRegistryE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm36initializeGISelKnownBitsAnalysisPassERNS_12PassRegistryE[] Calls: pthread_once[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm36initializeGISelKnownBitsAnalysisPassERNS_12PassRegistryE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm36initializeGISelKnownBitsAnalysisPassERNS_12PassRegistryE[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: 
+IPRA: Function: _ZL40initializeGISelKnownBitsAnalysisPassOnceRN4llvm12PassRegistryE[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZL40initializeGISelKnownBitsAnalysisPassOnceRN4llvm12PassRegistryE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL40initializeGISelKnownBitsAnalysisPassOnceRN4llvm12PassRegistryE[] Calls: _ZN4llvm12PassRegistry12registerPassERKNS_8PassInfoEb[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $r14
+IPRA: Function: _ZL40initializeGISelKnownBitsAnalysisPassOnceRN4llvm12PassRegistryE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.25 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBitsC2ERNS_15MachineFunctionEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsC2ERNS_15MachineFunctionEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsC2ERNS_15MachineFunctionEj[] Calls: _ZNK4llvm8Function13getDataLayoutEv[] IsTailCall: 0 CallSiteLoc: 0.27 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm14GISelKnownBits21computeKnownAlignmentENS_8RegisterEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits21computeKnownAlignmentENS_8RegisterEj[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits21computeKnownAlignmentENS_8RegisterEj[] Calls: _ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsERNS_12MachineInstrE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsERNS_12MachineInstrE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsERNS_12MachineInstrE[] Calls: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] Calls: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] IsTailCall: 0 CallSiteLoc: 7.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 9.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 11.3 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm5APInt10getAllOnesEj[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5APInt10getAllOnesEj[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5APInt10getAllOnesEj[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 3.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterERKNS_5APIntEj[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterERKNS_5APIntEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $r14
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] Calls: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] IsTailCall: 1 CallSiteLoc: 5.1 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 16.1 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 19.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm9KnownBitsD2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9KnownBitsD2Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9KnownBitsD2Ev[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm9KnownBitsD2Ev[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9KnownBitsD2Ev[] Calls: _ZdaPv[] IsTailCall: 1 CallSiteLoc: 4.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 6.6 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] Calls: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] IsTailCall: 0 CallSiteLoc: 10.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] Calls: _ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 12.4 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 14.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 17.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits13signBitIsZeroENS_8RegisterE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 20.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE[] Calls: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits14getKnownZeroesENS_8RegisterE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownOnesENS_8RegisterE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownOnesENS_8RegisterE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownOnesENS_8RegisterE[] Calls: _ZN4llvm14GISelKnownBits12getKnownBitsENS_8RegisterE[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownOnesENS_8RegisterE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12getKnownOnesENS_8RegisterE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits13intersectWithERKS0_[] IsTailCall: 0 CallSiteLoc: 6.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 11.8 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 13.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 17.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 20.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm9KnownBits9isUnknownEv[] CallingConv: 0 CSRegUsage: $rbx $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits9isUnknownEv[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits9isUnknownEv[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZNK4llvm9KnownBits9isUnknownEv[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits9isUnknownEv[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbp
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] Calls: _ZN4llvm5APInt17andAssignSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 6.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] Calls: _ZN4llvm5APInt17andAssignSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 9.3 LivingCSRegs: $rbx $rbp $r13
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits13intersectWithERKS0_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 12.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm9KnownBitsaSEOS0_[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9KnownBitsaSEOS0_[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9KnownBitsaSEOS0_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm9KnownBitsaSEOS0_[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9KnownBitsaSEOS0_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 11.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt14assignSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 22.1 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt14assignSlowCaseERKS0_[] IsTailCall: 1 CallSiteLoc: 26.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 29 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 29.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 29.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 32.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 35 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 35.9 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 37 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 37.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 42 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 42.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 48 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt11setBitsFromEj[] IsTailCall: 0 CallSiteLoc: 48.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 49 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt10getAllOnesEj[] IsTailCall: 0 CallSiteLoc: 49.3 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 51 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 51.1 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 52 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt10getAllOnesEj[] IsTailCall: 0 CallSiteLoc: 52.3 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 54 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 54.1 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 55 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 55.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 55.9 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_EixERKS2_[] IsTailCall: 0 CallSiteLoc: 55.12 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsC2Ej[] IsTailCall: 0 CallSiteLoc: 55.15 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 63 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits9sextInRegEj[] IsTailCall: 0 CallSiteLoc: 63.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 75 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm10DataLayout14getPointerSpecEj[] IsTailCall: 0 CallSiteLoc: 75.3 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 76 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 76.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 82 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits13anyextOrTruncEj[] IsTailCall: 0 CallSiteLoc: 82.3 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 84 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 84.1 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 87 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 87.9 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 89 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 89.2 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 91 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits13intersectWithERKS0_[] IsTailCall: 0 CallSiteLoc: 91.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 93 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 93.1 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 96 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 96.8 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 98 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 98.2 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 102 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 102.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 106 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 106.2 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm3LLT13getSizeInBitsEv[] IsTailCall: 0 CallSiteLoc: 106.6 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 107 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 107.3 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 107.5 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits11zextOrTruncEj[] IsTailCall: 0 CallSiteLoc: 107.8 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 107.22 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 107.24 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits11zextOrTruncEj[] IsTailCall: 0 CallSiteLoc: 107.27 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 108 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt11setBitsFromEj[] IsTailCall: 0 CallSiteLoc: 108.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 109 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsC2Ej[] IsTailCall: 0 CallSiteLoc: 109.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 110 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 110.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 111 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt11setBitsFromEj[] IsTailCall: 0 CallSiteLoc: 111.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 112 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 112.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 112.7 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] IsTailCall: 0 CallSiteLoc: 112.10 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 114 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits4sminERKS0_S2_[] IsTailCall: 0 CallSiteLoc: 114.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 115 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits4lshrERKS0_S2_bb[] IsTailCall: 0 CallSiteLoc: 115.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 116 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits4ashrERKS0_S2_bb[] IsTailCall: 0 CallSiteLoc: 116.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 117 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits6anyextEj[] IsTailCall: 0 CallSiteLoc: 117.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 118 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitseOERKS0_[] IsTailCall: 0 CallSiteLoc: 118.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 119 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits4smaxERKS0_S2_[] IsTailCall: 0 CallSiteLoc: 119.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 121 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits4uminERKS0_S2_[] IsTailCall: 0 CallSiteLoc: 121.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 125 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 125.3 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 125.5 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 125.7 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] IsTailCall: 0 CallSiteLoc: 125.10 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 132 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt12clearLowBitsEj[] IsTailCall: 0 CallSiteLoc: 132.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt10setLowBitsEj[] IsTailCall: 0 CallSiteLoc: 132.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 133 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsoRERKS0_[] IsTailCall: 0 CallSiteLoc: 133.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 134 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits3mulERKS0_S2_b[] IsTailCall: 0 CallSiteLoc: 134.2 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 135 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaNERKS0_[] IsTailCall: 0 CallSiteLoc: 135.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 136 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt10setAllBitsEv[] IsTailCall: 0 CallSiteLoc: 136.7 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt10setAllBitsEv[] IsTailCall: 0 CallSiteLoc: 136.9 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 141 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 141.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 142 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits9isUnknownEv[] IsTailCall: 0 CallSiteLoc: 142.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 142.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 142.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits13intersectWithERKS0_[] IsTailCall: 0 CallSiteLoc: 142.10 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 145 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits3shlERKS0_S2_bbb[] IsTailCall: 0 CallSiteLoc: 145.1 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 146 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 146.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 146.4 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 147 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits4sextEj[] IsTailCall: 0 CallSiteLoc: 147.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 149 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits11reverseBitsEv[] IsTailCall: 0 CallSiteLoc: 149.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 152 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm14GISelKnownBits19computeKnownBitsMinENS_8RegisterES1_RNS_9KnownBitsERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 152.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 153 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits4umaxERKS0_S2_[] IsTailCall: 0 CallSiteLoc: 153.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 154 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 154.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 156 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 156.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 157 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] IsTailCall: 0 CallSiteLoc: 157.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 162 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm10DataLayout14getPointerSpecEj[] IsTailCall: 0 CallSiteLoc: 162.3 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 164 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_[] IsTailCall: 0 CallSiteLoc: 164.1 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 165 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 165.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 166 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits8byteSwapEv[] IsTailCall: 0 CallSiteLoc: 166.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 167 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 167.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 172 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 172.4 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm3LLT13getSizeInBitsEv[] IsTailCall: 0 CallSiteLoc: 172.8 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 175 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt10insertBitsERKS0_j[] IsTailCall: 0 CallSiteLoc: 175.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt10insertBitsERKS0_j[] IsTailCall: 0 CallSiteLoc: 175.7 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 177 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 177.1 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 180 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 180.2 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 190 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 190.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 191 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] IsTailCall: 0 CallSiteLoc: 191.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 193 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 193.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 194 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 194.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 194.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 194.7 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 194.9 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 194.11 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 194.13 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits4ashrERKS0_S2_bb[] IsTailCall: 0 CallSiteLoc: 194.16 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits3shlERKS0_S2_bbb[] IsTailCall: 0 CallSiteLoc: 194.23 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBits16computeForAddSubEbbbRKS0_S2_[] IsTailCall: 0 CallSiteLoc: 194.31 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 195 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt23countPopulationSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 195.2 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 196 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt11setBitsFromEj[] IsTailCall: 0 CallSiteLoc: 196.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 197 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 197.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 201 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm24reportInvalidSizeRequestEPKc[] IsTailCall: 0 CallSiteLoc: 201.1 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 204 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm24reportInvalidSizeRequestEPKc[] IsTailCall: 0 CallSiteLoc: 204.1 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 205 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt3shlEj[] IsTailCall: 0 CallSiteLoc: 205.3 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt4zextEj[] IsTailCall: 0 CallSiteLoc: 205.8 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 207 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 207.1 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 210 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 210.1 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 213 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 213.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 214 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 214.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 214.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits11extractBitsEjj[] IsTailCall: 0 CallSiteLoc: 214.6 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 215 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 215.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 217 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 217.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 219 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsC2Ej[] IsTailCall: 0 CallSiteLoc: 219.4 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 220 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm33computeKnownBitsFromRangeMetadataERKNS_6MDNodeERNS_9KnownBitsE[] IsTailCall: 0 CallSiteLoc: 220.1 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 222 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits4sextEj[] IsTailCall: 0 CallSiteLoc: 222.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 223 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits4zextEj[] IsTailCall: 0 CallSiteLoc: 223.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 224 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 224.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 225 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 225.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 227 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 227.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 228 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_EixERKS2_[] IsTailCall: 0 CallSiteLoc: 228.4 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 231 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt14assignSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 231.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 235 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm5APInt14assignSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 235.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 238 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 238.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 241 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 241.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 243 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsC2Ej[] IsTailCall: 0 CallSiteLoc: 243.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 244 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm33computeKnownBitsFromRangeMetadataERKNS_6MDNodeERNS_9KnownBitsE[] IsTailCall: 0 CallSiteLoc: 244.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] MBB: 245 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsD2Ev[] IsTailCall: 0 CallSiteLoc: 245.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZN4llvm9KnownBitsaSEOS0_[] IsTailCall: 0 CallSiteLoc: 245.5 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits20computeKnownBitsImplENS_8RegisterERNS_9KnownBitsERKNS_5APIntEj[] Calls: _ZNK4llvm9KnownBits6anyextEj[] IsTailCall: 0 CallSiteLoc: 245.8 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm9KnownBitsC2Ej[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9KnownBitsC2Ej[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9KnownBitsC2Ej[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm9KnownBitsC2Ej[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 2.12 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm5APInt10setAllBitsEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5APInt10setAllBitsEv[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5APInt10setAllBitsEv[] Calls: memset[] IsTailCall: 0 CallSiteLoc: 2.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_EixERKS2_[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_EixERKS2_[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_EixERKS2_[] Calls: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E15LookupBucketForIS2_EEbRKT_RPS8_[] IsTailCall: 0 CallSiteLoc: 14.8 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_EixERKS2_[] Calls: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] IsTailCall: 0 CallSiteLoc: 14.12 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] Calls: _ZNK4llvm5APInt4zextEj[] IsTailCall: 0 CallSiteLoc: 1.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] Calls: _ZNK4llvm5APInt4zextEj[] IsTailCall: 0 CallSiteLoc: 1.7 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] Calls: _ZNK4llvm5APInt5truncEj[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] Calls: _ZNK4llvm5APInt5truncEj[] IsTailCall: 0 CallSiteLoc: 3.6 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 8.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits13anyextOrTruncEj[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] Calls: _ZN4llvm5APInt19flipAllBitsSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 7.10 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9KnownBits12makeConstantERKNS_5APIntE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 9.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm5APInt11setBitsFromEj[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5APInt11setBitsFromEj[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5APInt11setBitsFromEj[] Calls: _ZN4llvm5APInt15setBitsSlowCaseEjj[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm9KnownBits4sextEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits4sextEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits4sextEj[] Calls: _ZNK4llvm5APInt4sextEj[] IsTailCall: 0 CallSiteLoc: 0.19 LivingCSRegs: $r15
+IPRA: Function: _ZNK4llvm9KnownBits4sextEj[] Calls: _ZNK4llvm5APInt4sextEj[] IsTailCall: 0 CallSiteLoc: 0.24 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits6anyextEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits6anyextEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits6anyextEj[] Calls: _ZNK4llvm5APInt4zextEj[] IsTailCall: 0 CallSiteLoc: 0.19 LivingCSRegs: $r15
+IPRA: Function: _ZNK4llvm9KnownBits6anyextEj[] Calls: _ZNK4llvm5APInt4zextEj[] IsTailCall: 0 CallSiteLoc: 0.24 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] Calls: _ZNK4llvm5APInt4zextEj[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] Calls: _ZN4llvm5APInt15setBitsSlowCaseEjj[] IsTailCall: 0 CallSiteLoc: 3.2 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] Calls: _ZNK4llvm5APInt4zextEj[] IsTailCall: 0 CallSiteLoc: 7.13 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits4zextEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 9.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm3LLT13getSizeInBitsEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] Calls: _ZNK4llvm9KnownBits4zextEj[] IsTailCall: 0 CallSiteLoc: 1.2 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] Calls: _ZNK4llvm5APInt5truncEj[] IsTailCall: 0 CallSiteLoc: 3.10 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] Calls: _ZNK4llvm5APInt5truncEj[] IsTailCall: 0 CallSiteLoc: 3.15 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 6.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits11zextOrTruncEj[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 9.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm5APInt10setLowBitsEj[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5APInt10setLowBitsEj[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5APInt10setLowBitsEj[] Calls: _ZN4llvm5APInt15setBitsSlowCaseEjj[] IsTailCall: 1 CallSiteLoc: 4.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm5APInt12clearLowBitsEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5APInt12clearLowBitsEj[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5APInt12clearLowBitsEj[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 2.4 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm5APInt12clearLowBitsEj[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5APInt12clearLowBitsEj[] Calls: _ZN4llvm5APInt15setBitsSlowCaseEjj[] IsTailCall: 0 CallSiteLoc: 7.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm5APInt12clearLowBitsEj[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5APInt12clearLowBitsEj[] Calls: _ZN4llvm5APInt17andAssignSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm5APInt12clearLowBitsEj[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5APInt12clearLowBitsEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 10.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm5APInt3shlEj[] CallingConv: 0 CSRegUsage: $rbx $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm5APInt3shlEj[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm5APInt3shlEj[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZNK4llvm5APInt3shlEj[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm5APInt3shlEj[] Calls: _ZN4llvm5APInt11shlSlowCaseEj[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm9KnownBits11extractBitsEjj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits11extractBitsEjj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits11extractBitsEjj[] Calls: _ZNK4llvm5APInt11extractBitsEjj[] IsTailCall: 0 CallSiteLoc: 0.21 LivingCSRegs: $r15
+IPRA: Function: _ZNK4llvm9KnownBits11extractBitsEjj[] Calls: _ZNK4llvm5APInt11extractBitsEjj[] IsTailCall: 0 CallSiteLoc: 0.27 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm9KnownBits8byteSwapEv[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits8byteSwapEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits8byteSwapEv[] Calls: _ZNK4llvm5APInt8byteSwapEv[] IsTailCall: 0 CallSiteLoc: 0.17 LivingCSRegs: $r14
+IPRA: Function: _ZNK4llvm9KnownBits8byteSwapEv[] Calls: _ZNK4llvm5APInt8byteSwapEv[] IsTailCall: 0 CallSiteLoc: 0.21 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm9KnownBits11reverseBitsEv[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm9KnownBits11reverseBitsEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm9KnownBits11reverseBitsEv[] Calls: _ZNK4llvm5APInt11reverseBitsEv[] IsTailCall: 0 CallSiteLoc: 0.17 LivingCSRegs: $r14
+IPRA: Function: _ZNK4llvm9KnownBits11reverseBitsEv[] Calls: _ZNK4llvm5APInt11reverseBitsEv[] IsTailCall: 0 CallSiteLoc: 0.21 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: $rbx $rbp $r13
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: $rbx $rbp $r13 $r14
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 4.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm5APInt19flipAllBitsSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 10.7 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 11.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 13.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 18.2 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm5APInt15setBitsSlowCaseEjj[] IsTailCall: 0 CallSiteLoc: 19.3 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 22.1 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 25 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 25.4 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 26.4 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 31 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 31.3 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 35 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm5APInt15setBitsSlowCaseEjj[] IsTailCall: 0 CallSiteLoc: 35.1 LivingCSRegs: $rbx
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 38 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 38.1 LivingCSRegs: $rbx
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 41 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 41.1 LivingCSRegs: $rbx
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 42 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm9KnownBitsaNERKS0_[] IsTailCall: 0 CallSiteLoc: 42.13 LivingCSRegs: $rbx
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZN4llvm9KnownBits4lshrERKS0_S2_bb[] IsTailCall: 0 CallSiteLoc: 42.16 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 44 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 44.1 LivingCSRegs: 
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] MBB: 47 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11extractBitsjRKN4llvm9KnownBitsES2_S2_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 47.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits21computeNumSignBitsMinENS_8RegisterES1_RKNS_5APIntEj[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits21computeNumSignBitsMinENS_8RegisterES1_RKNS_5APIntEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits21computeNumSignBitsMinENS_8RegisterES1_RKNS_5APIntEj[] Calls: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits21computeNumSignBitsMinENS_8RegisterES1_RKNS_5APIntEj[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits21computeNumSignBitsMinENS_8RegisterES1_RKNS_5APIntEj[] Calls: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm19MachineRegisterInfo10getVRegDefENS_8RegisterE[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $r12 $r13
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 25 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZN4llvm14GISelKnownBits21computeNumSignBitsMinENS_8RegisterES1_RKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 25.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 26.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 32.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 35 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 35.6 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 37 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] IsTailCall: 0 CallSiteLoc: 37.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 43 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm5APIntneEm[] IsTailCall: 0 CallSiteLoc: 43.4 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 45 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] IsTailCall: 0 CallSiteLoc: 45.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 50 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] IsTailCall: 0 CallSiteLoc: 50.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 59 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 59.8 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 60 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt24countLeadingOnesSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 60.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 62 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 62.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 64 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E5clearEv[] IsTailCall: 0 CallSiteLoc: 64.14 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 66 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZN4llvm5APIntaSERKS0_[] IsTailCall: 0 CallSiteLoc: 66.6 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 69 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZN4llvm5APInt11shlSlowCaseEj[] IsTailCall: 0 CallSiteLoc: 69.4 LivingCSRegs: $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 75 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 75.1 LivingCSRegs: $rbp
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 78 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 78.1 LivingCSRegs: $rbp
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 80 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm5APInt24countLeadingOnesSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 80.7 LivingCSRegs: $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 81 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 81.2 LivingCSRegs: $rbp
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 84 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 84.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm17MachineMemOperand13getSizeInBitsEv[] IsTailCall: 0 CallSiteLoc: 84.13 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] MBB: 86 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 86.4 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] Calls: _ZNK4llvm17MachineMemOperand13getSizeInBitsEv[] IsTailCall: 0 CallSiteLoc: 86.12 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm5APIntneEm[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm5APIntneEm[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm5APIntneEm[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 1.6 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] CallingConv: 8 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZN4llvm28getConstantRangeFromMetadataERKNS_6MDNodeE[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZNK4llvm13ConstantRange10signExtendEj[] IsTailCall: 0 CallSiteLoc: 5.4 LivingCSRegs: 
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZNK4llvm13ConstantRange10zeroExtendEj[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: 
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 10.1 LivingCSRegs: 
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 13.8 LivingCSRegs: 
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 15.2 LivingCSRegs: 
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZNK4llvm13ConstantRange12getSignedMinEv[] IsTailCall: 0 CallSiteLoc: 17.12 LivingCSRegs: $rbx
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 23 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZNK4llvm5APInt24countLeadingOnesSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 23.2 LivingCSRegs: 
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 24 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 24.1 LivingCSRegs: 
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZNK4llvm13ConstantRange12getSignedMaxEv[] IsTailCall: 0 CallSiteLoc: 26.12 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZNK4llvm5APInt24countLeadingOnesSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 33.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 34 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 34.1 LivingCSRegs: $rbx
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 37 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 37.1 LivingCSRegs: $rbx
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 40 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 40.1 LivingCSRegs: $rbx
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 43 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 43.1 LivingCSRegs: $rbx
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] MBB: 45 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL35computeNumSignBitsFromRangeMetadataPKN4llvm8GAnyLoadEj[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 45.6 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm17MachineMemOperand13getSizeInBitsEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5APIntaSERKS0_[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5APIntaSERKS0_[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm5APIntaSERKS0_[] Calls: _ZN4llvm5APInt14assignSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 3.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] Calls: _ZN4llvm24reportInvalidSizeRequestEPKc[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] Calls: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 7.4 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] Calls: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 10.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] Calls: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterERKNS_5APIntEj[] IsTailCall: 0 CallSiteLoc: 12.4 LivingCSRegs: 
+IPRA: Function: _ZN4llvm14GISelKnownBits18computeNumSignBitsENS_8RegisterEj[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 12.9 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK4llvm22GISelKnownBitsAnalysis16getAnalysisUsageERNS_13AnalysisUsageE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm22GISelKnownBitsAnalysis16getAnalysisUsageERNS_13AnalysisUsageE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm22GISelKnownBitsAnalysis16getAnalysisUsageERNS_13AnalysisUsageE[] Calls: _ZNK4llvm19MachineFunctionPass16getAnalysisUsageERNS_13AnalysisUsageE[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysis20runOnMachineFunctionERNS_15MachineFunctionE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysis3getERNS_15MachineFunctionE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysis3getERNS_15MachineFunctionE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysis3getERNS_15MachineFunctionE[] Calls: _ZN4llvm14GISelKnownBitsC2ERNS_15MachineFunctionEj[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysis3getERNS_15MachineFunctionE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 2.10 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysisD2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysisD2Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysisD2Ev[] Calls: _ZN4llvm4PassD2Ev[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysisD0Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysisD0Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysisD0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysisD0Ev[] Calls: _ZN4llvm4PassD2Ev[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm19MachineFunctionPass16doInitializationERNS_6ModuleE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm4Pass14doFinalizationERNS_6ModuleE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm22GISelKnownBitsAnalysis13releaseMemoryEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm19MachineFunctionPass21getRequiredPropertiesEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm19MachineFunctionPass16getSetPropertiesEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm19MachineFunctionPass20getClearedPropertiesEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsD2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsD2Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsD2Ev[] Calls: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBitsD2Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsD2Ev[] Calls: free[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBitsD0Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsD0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsD0Ev[] Calls: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBitsD0Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsD0Ev[] Calls: free[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBitsD0Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14GISelKnownBitsD0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm14GISelKnownBits12erasingInstrERNS_12MachineInstrE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12createdInstrERNS_12MachineInstrE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits13changingInstrERNS_12MachineInstrE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14GISelKnownBits12changedInstrERNS_12MachineInstrE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAnalysisETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAnalysisETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAnalysisETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv[] Calls: pthread_once[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAnalysisETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv[] Calls: _ZN4llvm12PassRegistry15getPassRegistryEv[] IsTailCall: 0 CallSiteLoc: 0.19 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAnalysisETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.31 LivingCSRegs: 
+IPRA: Function: _ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAnalysisETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15callDefaultCtorINS_22GISelKnownBitsAnalysisETnNSt9enable_ifIXtlSt24is_default_constructibleIT_EEEbE4typeELb1EEEPNS_4PassEv[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm19GISelChangeObserverD2Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm19GISelChangeObserverD2Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm19GISelChangeObserverD2Ev[] Calls: free[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm19GISelChangeObserverD0Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 11.1 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 14.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEED2Ev[] Calls: _ZN4llvm17deallocate_bufferEPvmm[] IsTailCall: 1 CallSiteLoc: 17.1 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZZNSt9once_flag18_Prepare_executionC1IZSt9call_onceIRFPvRN4llvm12PassRegistryEEJSt17reference_wrapperIS5_EEEvRS_OT_DpOT0_EUlvE_EERSC_ENUlvE_8__invokeEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 11.1 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 14.2 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] MBB: 25 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] Calls: _ZN4llvm17deallocate_bufferEPvmm[] IsTailCall: 0 CallSiteLoc: 25.1 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] MBB: 27 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE16shrink_and_clearEv[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 27.6 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E15LookupBucketForIS2_EEbRKT_RPS8_[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 10.2 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] Calls: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E18moveFromOldBucketsEPS8_SB_[] IsTailCall: 0 CallSiteLoc: 13.12 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 14.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] Calls: _ZN4llvm17deallocate_bufferEPvmm[] IsTailCall: 1 CallSiteLoc: 15.1 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_S2_EEE4growEj[] Calls: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E18moveFromOldBucketsEPS8_SB_[] IsTailCall: 0 CallSiteLoc: 15.15 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E18moveFromOldBucketsEPS8_SB_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E18moveFromOldBucketsEPS8_SB_[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E18moveFromOldBucketsEPS8_SB_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 10.1 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E18moveFromOldBucketsEPS8_SB_[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_8RegisterENS_9KnownBitsELj16ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S3_EEEES2_S3_S5_S8_E18moveFromOldBucketsEPS8_SB_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 13.2 LivingCSRegs: $rbx $rbp $r12 $r14 $r15

@@ -1,0 +1,94 @@
+IPRA: Function: LLVMParseBitcode[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMParseBitcode[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcode[] Calls: LLVMParseBitcodeInContext[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMParseBitcode[] Calls: LLVMGetGlobalContext[] IsTailCall: 0 CallSiteLoc: 0.12 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMParseBitcodeInContext[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: LLVMParseBitcodeInContext[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcodeInContext[] Calls: _ZN4llvm16parseBitcodeFileENS_15MemoryBufferRefERNS_11LLVMContextENS_15ParserCallbacksE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $r12 $r14
+IPRA: Function: LLVMParseBitcodeInContext[] Calls: _ZNK4llvm12MemoryBuffer15getMemBufferRefEv[] IsTailCall: 0 CallSiteLoc: 0.22 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: LLVMParseBitcodeInContext[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcodeInContext[] Calls: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] IsTailCall: 0 CallSiteLoc: 15.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: LLVMParseBitcodeInContext[] Calls: _ZN4llvm15handleErrorImplIZ25LLVMParseBitcodeInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] IsTailCall: 0 CallSiteLoc: 15.10 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: LLVMParseBitcodeInContext[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcodeInContext[] Calls: _ZN4llvm15handleErrorImplIZ25LLVMParseBitcodeInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] IsTailCall: 0 CallSiteLoc: 26.4 LivingCSRegs: $r12 $r13 $r14
+IPRA: Function: LLVMParseBitcodeInContext[] MBB: 28 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcodeInContext[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 28.2 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: LLVMParseBitcodeInContext[] MBB: 30 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcodeInContext[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 30.1 LivingCSRegs: 
+IPRA: Function: LLVMParseBitcodeInContext[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcodeInContext[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 33.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMParseBitcodeInContext[] Calls: _ZN4llvm6ModuleD1Ev[] IsTailCall: 0 CallSiteLoc: 33.4 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMParseBitcode2[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: LLVMParseBitcode2[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcode2[] Calls: LLVMParseBitcodeInContext2[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMParseBitcode2[] Calls: LLVMGetGlobalContext[] IsTailCall: 0 CallSiteLoc: 0.11 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMParseBitcodeInContext2[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: LLVMParseBitcodeInContext2[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcodeInContext2[] Calls: _ZN4llvm16parseBitcodeFileENS_15MemoryBufferRefERNS_11LLVMContextENS_15ParserCallbacksE[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMParseBitcodeInContext2[] Calls: _ZNK4llvm12MemoryBuffer15getMemBufferRefEv[] IsTailCall: 0 CallSiteLoc: 0.21 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMParseBitcodeInContext2[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcodeInContext2[] Calls: _ZN4llvm29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorE[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $rbx $rbp
+IPRA: Function: LLVMParseBitcodeInContext2[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMParseBitcodeInContext2[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 5.2 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: LLVMParseBitcodeInContext2[] Calls: _ZN4llvm6ModuleD1Ev[] IsTailCall: 0 CallSiteLoc: 5.5 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: LLVMGetBitcodeModuleInContext[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext[] Calls: _ZN4llvm26getOwningLazyBitcodeModuleEOSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS1_EERNS_11LLVMContextEbbNS_15ParserCallbacksE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $r12 $r14
+IPRA: Function: LLVMGetBitcodeModuleInContext[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext[] Calls: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] IsTailCall: 0 CallSiteLoc: 15.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: LLVMGetBitcodeModuleInContext[] Calls: _ZN4llvm15handleErrorImplIZ29LLVMGetBitcodeModuleInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] IsTailCall: 0 CallSiteLoc: 15.10 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: LLVMGetBitcodeModuleInContext[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext[] Calls: _ZN4llvm15handleErrorImplIZ29LLVMGetBitcodeModuleInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] IsTailCall: 0 CallSiteLoc: 26.4 LivingCSRegs: $r12 $r13 $r14
+IPRA: Function: LLVMGetBitcodeModuleInContext[] MBB: 28 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 28.2 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: LLVMGetBitcodeModuleInContext[] MBB: 30 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 30.1 LivingCSRegs: 
+IPRA: Function: LLVMGetBitcodeModuleInContext[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 33.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetBitcodeModuleInContext[] Calls: _ZN4llvm6ModuleD1Ev[] IsTailCall: 0 CallSiteLoc: 33.4 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMGetBitcodeModuleInContext2[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext2[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext2[] Calls: _ZN4llvm26getOwningLazyBitcodeModuleEOSt10unique_ptrINS_12MemoryBufferESt14default_deleteIS1_EERNS_11LLVMContextEbbNS_15ParserCallbacksE[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMGetBitcodeModuleInContext2[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext2[] Calls: _ZN4llvm29errorToErrorCodeAndEmitErrorsERNS_11LLVMContextENS_5ErrorE[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $rbx $rbp
+IPRA: Function: LLVMGetBitcodeModuleInContext2[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModuleInContext2[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 5.2 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: LLVMGetBitcodeModuleInContext2[] Calls: _ZN4llvm6ModuleD1Ev[] IsTailCall: 0 CallSiteLoc: 5.5 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: LLVMGetBitcodeModule[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetBitcodeModule[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModule[] Calls: LLVMGetBitcodeModuleInContext[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMGetBitcodeModule[] Calls: LLVMGetGlobalContext[] IsTailCall: 0 CallSiteLoc: 0.12 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMGetBitcodeModule2[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetBitcodeModule2[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetBitcodeModule2[] Calls: LLVMGetBitcodeModuleInContext2[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMGetBitcodeModule2[] Calls: LLVMGetGlobalContext[] IsTailCall: 0 CallSiteLoc: 0.11 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 10.9 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 19.1 LivingCSRegs: $rbx $rbp $r12
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 33.9 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 33.19 LivingCSRegs: $rbp $r13 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 38 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 38.6 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 47 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 47.1 LivingCSRegs: $rbp $r12 $r14
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 53 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 53.6 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 66 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 66.1 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 71 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZSt20__throw_length_errorPKc[] IsTailCall: 0 CallSiteLoc: 71.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] MBB: 72 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9ErrorList4joinENS_5ErrorES1_[] Calls: _ZSt20__throw_length_errorPKc[] IsTailCall: 0 CallSiteLoc: 72.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm15handleErrorImplIZ25LLVMParseBitcodeInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] CallingConv: 8 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15handleErrorImplIZ25LLVMParseBitcodeInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15handleErrorImplIZ25LLVMParseBitcodeInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 13.1 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN4llvm15handleErrorImplIZ25LLVMParseBitcodeInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15handleErrorImplIZ25LLVMParseBitcodeInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 16.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15handleErrorImplIZ29LLVMGetBitcodeModuleInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] CallingConv: 8 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15handleErrorImplIZ29LLVMGetBitcodeModuleInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15handleErrorImplIZ29LLVMGetBitcodeModuleInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 13.1 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN4llvm15handleErrorImplIZ29LLVMGetBitcodeModuleInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15handleErrorImplIZ29LLVMGetBitcodeModuleInContextE3$_0JEEENS_5ErrorESt10unique_ptrINS_13ErrorInfoBaseESt14default_deleteIS4_EEOT_DpOT0_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 16.1 LivingCSRegs: $rbx $r14
