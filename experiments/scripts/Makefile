@@ -4,10 +4,10 @@ SHELL := /bin/bash
 .PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang data clean
 
 # Base directory for LLVM source code
-LLVM_SRC_DIR := $(HOME)/Desktop/llvm-project
+LLVM_SRC_DIR := $(shell cd ../../ ; pwd)
 
 # Development directory where all builds are stored
-DEV_DIR := $(HOME)/Desktop/ipra-dev
+DEV_DIR := $(shell cd ../../../ ; pwd)
 
 # Build directories
 BOOTSTRAP_DIR := $(DEV_DIR)/bootstrapped_clang
