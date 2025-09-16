@@ -7,7 +7,7 @@ SHELL := /bin/bash
 LLVM_SRC_DIR := $(shell cd ../../ ; pwd)
 
 # Development directory where all builds are stored
-DEV_DIR := $(shell cd ../../../ ; pwd)
+DEV_DIR := $(shell cd ../../../ipra-run ; pwd)
 
 # Build directories
 BOOTSTRAP_DIR := $(DEV_DIR)/bootstrapped_clang
@@ -31,7 +31,7 @@ LINKED_METRICS_CSV := $(METRICS_DIR)/linked_performance_metrics.csv
 LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/liveness_output
 
 # Number of parallel jobs to use for compilation
-JOBS := $(shell nproc)
+JOBS := $(shell A=`nproc` ; echo $$((A-4)))
 
 # Sentinel files to mark completion of a stage
 BOOTSTRAP_SENTINEL := $(BOOTSTRAP_DIR)/.completed
