@@ -7,7 +7,7 @@ SHELL := /bin/bash
 LLVM_SRC_DIR := $(shell cd ../../ ; pwd)
 
 # Development directory where all builds are stored
-DEV_DIR := $(shell cd ../../../ipra-run ; pwd)
+DEV_DIR := $(shell mkdir -p ../../../ipra-run ; cd ../../../ipra-run ; pwd)
 
 # Build directories
 BOOTSTRAP_DIR := $(DEV_DIR)/bootstrapped_clang
