@@ -14,9 +14,11 @@ BOOTSTRAP_DIR := $(DEV_DIR)/bootstrapped_clang
 INSTR_DIR := $(DEV_DIR)/instr_clang
 FDO_DIR := $(DEV_DIR)/fdo_clang
 THINLTO_DIR := $(DEV_DIR)/thinly_linked_fdo_clang
+FULLLTO_DIR := $(DEV_DIR)/fully_linked_fdo_clang
 METRICS_DIR := $(DEV_DIR)/metrics
 IPRA_FDO_DIR := $(DEV_DIR)/ipra_fdo_clang
 IPRA_THINLTO_DIR := $(DEV_DIR)/ipra_thinly_linked_fdo_clang
+IPRA_FULLLTO_DIR := $(DEV_DIR)/ipra_fully_linked_fdo_clang
 
 # Profile data directories and files
 PROFILE_RAW_DIR := $(INSTR_DIR)/profiles
@@ -25,6 +27,7 @@ PROFILE_MERGED_FILE := $(INSTR_DIR)/clang.profdata
 # Metrics file
 METRICS_CSV := $(METRICS_DIR)/performance_metrics.csv
 IPRA_METRICS_CSV := $(METRICS_DIR)/ipra_performance_metrics.csv
+LINKED_METRICS_CSV := $(METRICS_DIR)/linked_performance_metrics.csv
 LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/liveness_output
 
 # Number of parallel jobs to use for compilation
@@ -35,11 +38,12 @@ BOOTSTRAP_SENTINEL := $(BOOTSTRAP_DIR)/.completed
 INSTR_SENTINEL := $(INSTR_DIR)/.completed
 FDO_SENTINEL := $(FDO_DIR)/.completed
 THINLTO_SENTINEL := $(THINLTO_DIR)/.completed
+FULLLTO_SENTINEL := $(FULLLTO_DIR)/.completed
 IPRA_FDO_SENTINEL := $(IPRA_FDO_DIR)/.completed
 IPRA_THINLTO_SENTINEL := $(IPRA_THINLTO_DIR)/.completed
+IPRA_FULLLTO_SENTINEL := $(IPRA_FULLLTO_DIR)/.completed
 
 # --- Helper Function (similar to log) ---
-# FIX #2: Removed the 'shell' keyword for bash compatibility
 define log
 	echo
 	echo "--- $$(date '+%Y-%m-%d %H:%M:%S') ---"
@@ -52,6 +56,7 @@ endef
 # Default target: build everything up to the FDO-optimized clang
 all: fdo_clang thinly_linked_fdo_clang ipra_fdo_clang ipra_thinly_linked_fdo_clang data ipra_data
 experiments: ipra_fdo_clang ipra_thinly_linked_fdo_clang ipra_data
+linked: thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang fully_linked_fdo_clang ipra_fully_linked_fdo_clang
 
 # Target 1: Build the initial, optimized 'bootstrapped_clang'
 bootstrapped_clang: $(BOOTSTRAP_SENTINEL)
@@ -79,7 +84,6 @@ $(INSTR_SENTINEL): $(BOOTSTRAP_SENTINEL)
 	  -D LLVM_BUILD_INSTRUMENTED=ON \
 	  -D CMAKE_C_FLAGS="-fprofile-instr-generate" \
 	  -D CMAKE_CXX_FLAGS="-fprofile-instr-generate" \
-	  # FIX: Added linker flags to ensure the profiling runtime is linked correctly.
 	  -D CMAKE_EXE_LINKER_FLAGS="-fprofile-instr-generate" \
 	  -D CMAKE_SHARED_LINKER_FLAGS="-fprofile-instr-generate"
 	ninja -j "$(JOBS)" -C "$(INSTR_DIR)"
@@ -131,7 +135,7 @@ $(THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
 	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
-	  -D LLVM_ENABLE_PROJECTS="clang;lld" \
+	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 	  -D LLVM_ENABLE_LTO=Thin \
@@ -139,6 +143,45 @@ $(THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 	@ninja -j "$(JOBS)" -C "$(THINLTO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5B: thinly_linked_fdo_clang built successfully.)
+
+# NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
+fully_linked_fdo_clang: $(FULLLTO_SENTINEL)
+$(FULLLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
+	@$(call log,STEP 5E: Building fully_linked_fdo_clang (PGO + FULLLTO build))
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(FULLLTO_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=Release \
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+	  -D LLVM_ENABLE_LTO=Full \
+	  -D LLVM_USE_LINKER=lld
+	@ninja -j "$(JOBS)" -C "$(FULLLTO_DIR)" && \
+	touch $@ && \
+	$(call log,✅ STEP 5E: fully_linked_fdo_clang built successfully.)
+
+# NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
+ipra_fully_linked_fdo_clang: $(IPRA_FULLLTO_SENTINEL)
+$(IPRA_FULLLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
+	@$(call log,STEP 5F: Building ipra_fully_linked_fdo_clang (PGO + FULLLTO build))
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(FULLLTO_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=Release \
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+	  -D LLVM_ENABLE_LTO=Full \
+	  -D LLVM_USE_LINKER=lld \
+	  -D CMAKE_C_FLAGS="-mllvm -enable-ipra" \
+	  -D CMAKE_CXX_FLAGS="-mllvm -enable-ipra" \
+	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra"
+	@ninja -j "$(JOBS)" -C "$(IPRA_FULLLTO_DIR)" && \
+	touch $@ && \
+	$(call log,✅ STEP 5F: ipra_fully_linked_fdo_clang built successfully.)
 
 # NEW Target: Build 'ipra_fdo_clang' with PGO and the IPRA optimization.
 ipra_fdo_clang: $(IPRA_FDO_SENTINEL)
@@ -165,14 +208,16 @@ $(IPRA_THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
 	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
-	  -D LLVM_ENABLE_PROJECTS="clang;lld" \
+	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 	  -D LLVM_ENABLE_LTO=Thin \
 	  -D LLVM_USE_LINKER=lld \
 	  -D CMAKE_C_FLAGS="-mllvm -enable-ipra" \
 	  -D CMAKE_CXX_FLAGS="-mllvm -enable-ipra" \
-	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra"
+	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra"
 	@ninja -j "$(JOBS)" -C "$(IPRA_THINLTO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5D: ipra_thinly_linked_fdo_clang built successfully.)
@@ -235,8 +280,7 @@ data: $(FDO_SENTINEL)
 		-D CMAKE_BUILD_TYPE=Release \
 		-D LLVM_ENABLE_PROJECTS=lld \
 		-D LLVM_TARGETS_TO_BUILD=X86 \
-		-D LLVM_ENABLE_RUNTIMES="" \
-		-D LLVM_ENABLE_LTO=Thin -D LLVM_USE_LINKER=lld 1> /dev/null; \
+		-D LLVM_ENABLE_RUNTIMES="" 1> /dev/null; \
 	\
 	# This function now times a clean rebuild of the 'lld' target in a pre-configured directory.
 	run_benchmark() { \
@@ -332,9 +376,7 @@ ipra_data: fdo_clang thinly_linked_fdo_clang
 		-D CMAKE_BUILD_TYPE=Release \
 		-D LLVM_ENABLE_PROJECTS=lld \
 		-D LLVM_TARGETS_TO_BUILD=X86 \
-		-D LLVM_ENABLE_RUNTIMES="" \
-		-D LLVM_ENABLE_LTO=Thin \
-		-D LLVM_USE_LINKER=lld 1> /dev/null; \
+		-D LLVM_ENABLE_RUNTIMES="" 1> /dev/null; \
 	\
 	# This function now times a clean rebuild of the 'lld' target in a pre-configured directory.
 	run_benchmark() { \
@@ -384,6 +426,7 @@ ipra_data: fdo_clang thinly_linked_fdo_clang
 	calculate_stats "ipra_thinly_linked_fdo_clang"; \
 	\
 	$(call log,✅ All tasks complete. IPRA benchmark results are in $(IPRA_METRICS_CSV))
+
 
 # Target to clean up all build artifacts and metrics
 clean:
