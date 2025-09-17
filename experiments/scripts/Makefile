@@ -9,39 +9,34 @@ LLVM_SRC_DIR := $(shell cd ../../ ; pwd)
 # Development directory where all builds are stored
 DEV_DIR := $(shell mkdir -p ../../../ipra-run ; cd ../../../ipra-run ; pwd)
 
-# Build directories
-BOOTSTRAP_DIR := $(DEV_DIR)/bootstrapped_clang
-INSTR_DIR := $(DEV_DIR)/instr_clang
-FDO_DIR := $(DEV_DIR)/fdo_clang
-THINLTO_DIR := $(DEV_DIR)/thinly_linked_fdo_clang
-FULLLTO_DIR := $(DEV_DIR)/fully_linked_fdo_clang
-METRICS_DIR := $(DEV_DIR)/metrics
-IPRA_FDO_DIR := $(DEV_DIR)/ipra_fdo_clang
-IPRA_THINLTO_DIR := $(DEV_DIR)/ipra_thinly_linked_fdo_clang
-IPRA_FULLLTO_DIR := $(DEV_DIR)/ipra_fully_linked_fdo_clang
+# Master list of all compiler build names. To add a new compiler, just add it here.
+COMPILER_LIST := \
+	bootstrapped_clang \
+	instr_clang \
+	fdo_clang \
+	thinly_linked_fdo_clang \
+	fully_linked_fdo_clang \
+	ipra_fdo_clang \
+	ipra_thinly_linked_fdo_clang \
+	ipra_fully_linked_fdo_clang
+
+# Loop through the list and automatically define the _DIR and _SENTINEL variables.
+$(foreach compiler, $(COMPILER_LIST), \
+	$(eval $(shell echo $(compiler) | tr '[:lower:]' '[:upper:]' | sed 's/_CLANG$$//')_DIR := $(DEV_DIR)/$(compiler)) \
+	$(eval $(shell echo $(compiler) | tr '[:lower:]' '[:upper:]' | sed 's/_CLANG$$//')_SENTINEL := $($(shell echo $(compiler) | tr '[:lower:]' '[:upper:]' | sed 's/_CLANG$$//')_DIR)/.completed) \
+)
 
 # Profile data directories and files
 PROFILE_RAW_DIR := $(INSTR_DIR)/profiles
 PROFILE_MERGED_FILE := $(INSTR_DIR)/clang.profdata
 
 # Metrics file
-METRICS_CSV := $(METRICS_DIR)/performance_metrics.csv
-IPRA_METRICS_CSV := $(METRICS_DIR)/ipra_performance_metrics.csv
-LINKED_METRICS_CSV := $(METRICS_DIR)/linked_performance_metrics.csv
-LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/liveness_output
+METRICS_DIR := $(DEV_DIR)/metrics
+FDO_LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/fdo_liveness_output
 
 # Number of parallel jobs to use for compilation
-JOBS := $(shell A=`nproc` ; echo $$((A-4)))
-
-# Sentinel files to mark completion of a stage
-BOOTSTRAP_SENTINEL := $(BOOTSTRAP_DIR)/.completed
-INSTR_SENTINEL := $(INSTR_DIR)/.completed
-FDO_SENTINEL := $(FDO_DIR)/.completed
-THINLTO_SENTINEL := $(THINLTO_DIR)/.completed
-FULLLTO_SENTINEL := $(FULLLTO_DIR)/.completed
-IPRA_FDO_SENTINEL := $(IPRA_FDO_DIR)/.completed
-IPRA_THINLTO_SENTINEL := $(IPRA_THINLTO_DIR)/.completed
-IPRA_FULLLTO_SENTINEL := $(IPRA_FULLLTO_DIR)/.completed
+# Can reduce to nproc - 4 if system is under heavy load
+JOBS := $(shell nproc)
 
 # --- Helper Function (similar to log) ---
 define log
@@ -50,6 +45,9 @@ define log
 	echo "--- $(1)"
 	echo "-----------------------------------------------------"
 endef
+
+print-var:
+	@echo $($(VARNAME))
 
 # --- Main Targets ---
 
@@ -222,214 +220,122 @@ $(IPRA_THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 	touch $@ && \
 	$(call log,✅ STEP 5D: ipra_thinly_linked_fdo_clang built successfully.)
 
-liveness_analysis: fdo_clang
+fdo_liveness_analysis: fdo_clang
 	@$(call log,Collecting Liveness Data using fdo_clang)
-	@mkdir -p "$(LIVENESS_OUTPUT_DIR)"
+	@mkdir -p "$(FDO_LIVENESS_OUTPUT_DIR)"
 	@TEMP_LLD_BUILD_DIR="$(DEV_DIR)/temp_lld_for_liveness_analysis"
 	@rm -rf "$$TEMP_LLD_BUILD_DIR"
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_LLD_BUILD_DIR" \
-		-D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+		-D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 		-D CMAKE_BUILD_TYPE=Release \
 		-D LLVM_ENABLE_PROJECTS=lld \
 		-D LLVM_TARGETS_TO_BUILD=X86 \
 		-D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
-		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(LIVENESS_OUTPUT_DIR)"
+		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR)"
 	@ninja -j "$(JOBS)" -C "$$TEMP_LLD_BUILD_DIR" lld
 	@rm -rf "$$TEMP_LLD_BUILD_DIR"
-	@$(call log,✅ Liveness Data collected in $(LIVENESS_OUTPUT_DIR))
+	@$(call log,✅ Liveness Data collected in $(FDO_LIVENESS_OUTPUT_DIR))
 
-# Target 5: Benchmark compilers by rebuilding the LLD linker
-data: $(FDO_SENTINEL)
-	@$(call log,STEP 6: Benchmarking compiler performance by rebuilding LLD)
+# Usage: make benchmark COMPILER=<compiler_name> [BENCHMARK_RUNS=N]
+benchmark:
+	@if [ -z "$(COMPILER)" ]; then \
+		echo "Error: You must specify which compiler to benchmark."; \
+		echo "Usage: make benchmark COMPILER=<name>"; \
+		exit 1; \
+	fi
+
 	@set -e; \
-	BENCHMARK_RUNS=10; \
+	\
+	# Dynamically construct the variable names based on the COMPILER input.
+	VAR_BASE_NAME=$$(echo $(COMPILER) | tr '[:lower:]' '[:upper:]' | sed 's/_CLANG$$//'); \
+	SENTINEL_VAR_NAME="$${VAR_BASE_NAME}_SENTINEL"; \
+	DIR_VAR_NAME="$${VAR_BASE_NAME}_DIR"; \
+	\
+	# Dynamically get the VALUE of the make variables by recursively calling make.
+	SENTINEL_FILE=$$( $(MAKE) -s --no-print-directory -f $(lastword $(MAKEFILE_LIST)) print-var VARNAME=$$SENTINEL_VAR_NAME ); \
+	COMPILER_DIR=$$( $(MAKE) -s --no-print-directory -f $(lastword $(MAKEFILE_LIST)) print-var VARNAME=$$DIR_VAR_NAME ); \
+	\
+	# Ensure the compiler is built before benchmarking.
+	if [ ! -f "$$SENTINEL_FILE" ]; then \
+		$(call log,Compiler '$(COMPILER)' is not built yet. Building it first.); \
+		$(MAKE) $(COMPILER); \
+	fi; \
+	\
+	$(call log,Starting benchmark for '$(COMPILER)'); \
+	\
+	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-2}; \
+	TEMP_BUILD_DIR="$(DEV_DIR)/temp_benchmark_build_$(COMPILER)"; \
+	METRICS_CSV="$(METRICS_DIR)/$(COMPILER)_metrics.csv"; \
+	\
+	echo "  -> Compiler Name: $(COMPILER)"; \
+	echo "  -> Compiler Path: $$COMPILER_DIR"; \
+	\
 	mkdir -p "$(METRICS_DIR)"; \
-	echo "Compiler,Run,RealTime_s,UserTime_s,SysTime_s" > "$(METRICS_CSV)"; \
+	echo "Compiler,Run,RealTime_s,UserTime_s,SysTime_s" > "$$METRICS_CSV"; \
 	\
-	# --- Pre-Benchmark Setup: Configure LLD build environments once ---
-	TEMP_BUILD_DIR_BOOTSTRAP="$(DEV_DIR)/temp_benchmark_build_bootstrapped_clang"; \
-	TEMP_BUILD_DIR_FDO="$(DEV_DIR)/temp_benchmark_build_fdo_clang"; \
-	TEMP_BUILD_DIR_THINLTO="$(DEV_DIR)/temp_benchmark_build_thinly_linked_fdo_clang"; \
-	\
-	$(call log,Configuring LLD benchmark for bootstrapped_clang...); \
-	rm -rf "$$TEMP_BUILD_DIR_BOOTSTRAP"; \
-	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR_BOOTSTRAP" \
-		-D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	$(call log,Configuring LLD benchmark project for $(COMPILER)...); \
+	rm -rf "$$TEMP_BUILD_DIR"; \
+	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR" \
+		-D CMAKE_C_COMPILER="$${COMPILER_DIR}/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$${COMPILER_DIR}/bin/clang++" \
 		-D CMAKE_BUILD_TYPE=Release \
 		-D LLVM_ENABLE_PROJECTS=lld \
 		-D LLVM_TARGETS_TO_BUILD=X86 \
 		-D LLVM_ENABLE_RUNTIMES="" 1> /dev/null; \
 	\
-	$(call log,Configuring LLD benchmark for fdo_clang...); \
-	rm -rf "$$TEMP_BUILD_DIR_FDO"; \
-	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR_FDO" \
-		-D CMAKE_C_COMPILER="$(FDO_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(FDO_DIR)/bin/clang++" \
-		-D CMAKE_BUILD_TYPE=Release \
-		-D LLVM_ENABLE_PROJECTS=lld \
-		-D LLVM_TARGETS_TO_BUILD=X86 \
-		-D LLVM_ENABLE_RUNTIMES="" 1> /dev/null; \
-	\
-	$(call log,Configuring LLD benchmark for thinly_linked_fdo_clang...); \
-	rm -rf "$$TEMP_BUILD_DIR_THINLTO"; \
-	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR_THINLTO" \
-		-D CMAKE_C_COMPILER="$(THINLTO_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(THINLTO_DIR)/bin/clang++" \
-		-D CMAKE_BUILD_TYPE=Release \
-		-D LLVM_ENABLE_PROJECTS=lld \
-		-D LLVM_TARGETS_TO_BUILD=X86 \
-		-D LLVM_ENABLE_RUNTIMES="" 1> /dev/null; \
-	\
-	# This function now times a clean rebuild of the 'lld' target in a pre-configured directory.
-	run_benchmark() { \
-		local compiler_name=$$1; \
-		local temp_build_dir=$$2; \
-		local run_num=$$3; \
-		\
-		# CRITICAL: Clean the 'lld' target specifically to force a rebuild for timing.
-		ninja -C "$$temp_build_dir" -t clean lld 1> /dev/null; \
-		\
-		# Time the ninja rebuild process for just the 'lld' target.
-		timing_output=$$( \
-			(time -p ninja -j $(JOBS) -C "$$temp_build_dir" lld) 2>&1 \
-		); \
-		\
+	for i in $$(seq 1 $$BENCHMARK_RUNS); do \
+		$(call log,Benchmark Iteration $$i of $$BENCHMARK_RUNS for $(COMPILER)); \
+		ninja -C "$$TEMP_BUILD_DIR" -t clean lld > /dev/null; \
+		timing_output=$$((time -p ninja -j "$(JOBS)" -C "$$TEMP_BUILD_DIR" lld) 2>&1); \
 		real_time=$$(echo "$$timing_output" | grep '^real' | awk '{print $$2}'); \
 		user_time=$$(echo "$$timing_output" | grep '^user' | awk '{print $$2}'); \
 		sys_time=$$(echo "$$timing_output" | grep '^sys' | awk '{print $$2}'); \
-		echo "  Run $$run_num: Real=$$real_time\s, User=$$user_time\s, Sys=$$sys_time\s"; \
-		echo "$$compiler_name,$$run_num,$$real_time,$$user_time,$$sys_time" >> "$(METRICS_CSV)"; \
-	}; \
+		echo "  Run $$i: Real=$$real_time s, User=$$user_time s, Sys=$$sys_time s"; \
+		echo "$(COMPILER),$$i,$$real_time,$$user_time,$$sys_time" >> "$$METRICS_CSV"; \
+	done; \
 	\
-	# This function calculates and appends summary statistics to the CSV.
-	calculate_stats() { \
-		local compiler_name=$$1; \
-		$(call log,Calculating statistics for $$compiler_name); \
-		awk -F, -v compiler="$$compiler_name" ' \
-			$$1 == compiler && $$2 ~ /^[0-9]+$$/ { \
-				count++; \
-				real_sum += $$3; real_sum_sq += $$3*$$3; \
-				user_sum += $$4; user_sum_sq += $$4*$$4; \
-				sys_sum += $$5; sys_sum_sq += $$5*$$5; \
+	$(call log,Calculating statistics for $(COMPILER)); \
+	awk -F, -v compiler="$(COMPILER)" ' \
+		$$1 == compiler && $$2 ~ /^[0-9]+$$/ { \
+			count++; real_sum += $$3; real_sum_sq += $$3*$$3; \
+			user_sum += $$4; user_sum_sq += $$4*$$4; \
+			sys_sum += $$5; sys_sum_sq += $$5*$$5; \
+		} \
+		END { \
+			if (count > 0) { \
+				real_avg = real_sum/count; user_avg = user_sum/count; sys_avg = sys_sum/count; \
+				real_stddev = (count > 1) ? sqrt(real_sum_sq/count - real_avg*real_avg) : 0; \
+				user_stddev = (count > 1) ? sqrt(user_sum_sq/count - user_avg*user_avg) : 0; \
+				sys_stddev = (count > 1) ? sqrt(sys_sum_sq/count - sys_avg*sys_avg) : 0; \
+				printf "%s,avg,%.3f,%.3f,%.3f\n", compiler, real_avg, user_avg, sys_avg; \
+				printf "%s,stddev,%.3f,%.3f,%.3f\n", compiler, real_stddev, user_stddev, sys_stddev; \
 			} \
-			END { \
-				if (count > 0) { \
-					real_avg = real_sum/count; \
-					user_avg = user_sum/count; \
-					sys_avg = sys_sum/count; \
-					\
-					real_stddev = (count > 1) ? sqrt(real_sum_sq/count - real_avg*real_avg) : 0; \
-					user_stddev = (count > 1) ? sqrt(user_sum_sq/count - user_avg*user_avg) : 0; \
-					sys_stddev = (count > 1) ? sqrt(sys_sum_sq/count - sys_avg*sys_avg) : 0; \
-					\
-					printf "%s,avg,%.3f,%.3f,%.3f\n", compiler, real_avg, user_avg, sys_avg; \
-					printf "%s,stddev,%.3f,%.3f,%.3f\n", compiler, real_stddev, user_stddev, sys_stddev; \
-				} \
-			}' "$(METRICS_CSV)" >> "$(METRICS_CSV)"; \
-	}; \
+		}' "$$METRICS_CSV" >> "$$METRICS_CSV"; \
 	\
-	# --- Main Execution Loop ---
-	for i in $$(seq 1 $$BENCHMARK_RUNS); do \
-		$(call log,Benchmark Iteration $$i of $$BENCHMARK_RUNS); \
-		run_benchmark "bootstrapped_clang" "$$TEMP_BUILD_DIR_BOOTSTRAP" $$i; \
-		run_benchmark "fdo_clang" "$$TEMP_BUILD_DIR_FDO" $$i; \
-		run_benchmark "thinly_linked_fdo_clang" "$$TEMP_BUILD_DIR_THINLTO" $$i; \
-	done; \
-	\
-	# --- Post-Benchmark Cleanup & Analysis ---
-	rm -rf "$$TEMP_BUILD_DIR_BOOTSTRAP" "$$TEMP_BUILD_DIR_FDO" "$$TEMP_BUILD_DIR_THINLTO"; \
-	calculate_stats "bootstrapped_clang"; \
-	calculate_stats "fdo_clang"; \
-	calculate_stats "thinly_linked_fdo_clang"; \
-	\
-	$(call log,✅ All tasks complete. Benchmark results are in $(METRICS_CSV))
+	rm -rf "$$TEMP_BUILD_DIR"; \
+	$(call log,✅ Benchmark for '$(COMPILER)' complete. Results are in $$METRICS_CSV)
 
-# NEW Target: Benchmark the IPRA optimization using the existing compilers.
-ipra_data: fdo_clang thinly_linked_fdo_clang
-	@$(call log,STEP 7: Benchmarking IPRA compiler performance by rebuilding LLD)
-	@set -e; \
-	BENCHMARK_RUNS=10; \
-	mkdir -p "$(METRICS_DIR)"; \
-	echo "Compiler,Run,RealTime_s,UserTime_s,SysTime_s" > "$(IPRA_METRICS_CSV)"; \
-	\
-	# --- Pre-Benchmark Setup: Configure LLD build environments once ---
-	TEMP_BUILD_DIR_IPRA_FDO="$(DEV_DIR)/temp_benchmark_build_fdo_clang"; \
-	TEMP_BUILD_DIR_IPRA_THINLTO="$(DEV_DIR)/temp_benchmark_build_thinly_linked_fdo_clang"; \
-	\
-	$(call log,Configuring LLD benchmark for fdo_clang with IPRA...); \
-	rm -rf "$$TEMP_BUILD_DIR_IPRA_FDO"; \
-	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR_IPRA_FDO" \
-		-D CMAKE_C_COMPILER="$(IPRA_FDO_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(IPRA_FDO_DIR)/bin/clang++" \
-		-D CMAKE_BUILD_TYPE=Release \
-		-D LLVM_ENABLE_PROJECTS=lld \
-		-D LLVM_TARGETS_TO_BUILD=X86 \
-		-D LLVM_ENABLE_RUNTIMES="" 1> /dev/null; \
-	\
-	$(call log,Configuring LLD benchmark for thinly_linked_fdo_clang with IPRA...); \
-	rm -rf "$$TEMP_BUILD_DIR_IPRA_THINLTO"; \
-	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_BUILD_DIR_IPRA_THINLTO" \
-		-D CMAKE_C_COMPILER="$(IPRA_THINLTO_DIR)/bin/clang" \
-		-D CMAKE_CXX_COMPILER="$(IPRA_THINLTO_DIR)/bin/clang++" \
-		-D CMAKE_BUILD_TYPE=Release \
-		-D LLVM_ENABLE_PROJECTS=lld \
-		-D LLVM_TARGETS_TO_BUILD=X86 \
-		-D LLVM_ENABLE_RUNTIMES="" 1> /dev/null; \
-	\
-	# This function now times a clean rebuild of the 'lld' target in a pre-configured directory.
-	run_benchmark() { \
-		local compiler_name=$$1; local temp_build_dir=$$2; local run_num=$$3; \
-		ninja -C "$$temp_build_dir" -t clean lld 1> /dev/null; \
-		timing_output=$$( (time -p ninja -j $(JOBS) -C "$$temp_build_dir" lld) 2>&1 ); \
-		real_time=$$(echo "$$timing_output" | grep '^real' | awk '{print $$2}'); \
-		user_time=$$(echo "$$timing_output" | grep '^user' | awk '{print $$2}'); \
-		sys_time=$$(echo "$$timing_output" | grep '^sys' | awk '{print $$2}'); \
-		echo "  Run $$run_num: Real=$$real_time\s, User=$$user_time\s, Sys=$$sys_time\s"; \
-		echo "$$compiler_name,$$run_num,$$real_time,$$user_time,$$sys_time" >> "$(IPRA_METRICS_CSV)"; \
-	}; \
-	\
-	# This function calculates and appends summary statistics to the CSV.
-	calculate_stats() { \
-		local compiler_name=$$1; \
-		$(call log,Calculating statistics for $$compiler_name); \
-		awk -F, -v compiler="$$compiler_name" ' \
-			$$1 == compiler && $$2 ~ /^[0-9]+$$/ { count++; real_sum += $$3; real_sum_sq += $$3*$$3; user_sum += $$4; user_sum_sq += $$4*$$4; sys_sum += $$5; sys_sum_sq += $$5*$$5; } \
-			END { \
-				if (count > 0) { \
-					real_avg = real_sum/count; \
-					user_avg = user_sum/count; \
-					sys_avg = sys_sum/count; \
-					\
-					real_stddev = (count > 1) ? sqrt(real_sum_sq/count - real_avg*real_avg) : 0; \
-					user_stddev = (count > 1) ? sqrt(user_sum_sq/count - user_avg*user_avg) : 0; \
-					sys_stddev = (count > 1) ? sqrt(sys_sum_sq/count - sys_avg*sys_avg) : 0; \
-					\
-					printf "%s,avg,%.3f,%.3f,%.3f\n", compiler, real_avg, user_avg, sys_avg; \
-					printf "%s,stddev,%.3f,%.3f,%.3f\n", compiler, real_stddev, user_stddev, sys_stddev; \
-				} \
-			}' "$(IPRA_METRICS_CSV)" >> "$(IPRA_METRICS_CSV)"; \
-	}; \
-	\
-	# --- Main Execution Loop ---
-	for i in $$(seq 1 $$BENCHMARK_RUNS); do \
-		$(call log,Benchmark Iteration $$i of $$BENCHMARK_RUNS); \
-		run_benchmark "ipra_fdo_clang" "$$TEMP_BUILD_DIR_IPRA_FDO" $$i; \
-		run_benchmark "ipra_thinly_linked_fdo_clang" "$$TEMP_BUILD_DIR_IPRA_THINLTO" $$i; \
-	done; \
-	\
-	# --- Post-Benchmark Cleanup & Analysis ---
-	rm -rf "$$TEMP_BUILD_DIR_IPRA_FDO" "$$TEMP_BUILD_DIR_IPRA_THINLTO"; \
-	# FIX: Calculate stats for the correct IPRA compilers.
-	calculate_stats "ipra_fdo_clang"; \
-	calculate_stats "ipra_thinly_linked_fdo_clang"; \
-	\
-	$(call log,✅ All tasks complete. IPRA benchmark results are in $(IPRA_METRICS_CSV))
+data:
+	$(call log,Running Baseline Benchmark Suite)
+	$(MAKE) benchmark COMPILER=bootstrapped_clang
+	$(MAKE) benchmark COMPILER=fdo_clang
+	$(MAKE) benchmark COMPILER=thinly_linked_fdo_clang
 
+ipra_data:
+	$(call log,Running IPRA Benchmark Suite)
+	$(MAKE) benchmark COMPILER=ipra_fdo_clang
+	$(MAKE) benchmark COMPILER=ipra_thinly_linked_fdo_clang
+
+linked_data:
+	$(call log,Running LTO Benchmark Suite)
+	$(MAKE) benchmark COMPILER=thinly_linked_fdo_clang
+	$(MAKE) benchmark COMPILER=ipra_thinly_linked_fdo_clang
+	$(MAKE) benchmark COMPILER=fully_linked_fdo_clang
+	$(MAKE) benchmark COMPILER=ipra_fully_linked_fdo_clang
 
 # Target to clean up all build artifacts and metrics
 clean:
 	@$(call log,Cleaning up all build directories and metrics)
-	@rm -rf "$(BOOTSTRAP_DIR)" "$(INSTR_DIR)" "$(FDO_DIR)" "$(THINLTO_DIR)"
+	@rm -rf "$(BOOTSTRAPPED_DIR)" "$(INSTR_DIR)" "$(FDO_DIR)" "$(THINLY_LINKED_DIR)"
 	@echo "Cleanup complete."
