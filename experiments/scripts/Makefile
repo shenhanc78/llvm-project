@@ -18,7 +18,8 @@ COMPILER_LIST := \
 	fully_linked_fdo_clang \
 	ipra_fdo_clang \
 	ipra_thinly_linked_fdo_clang \
-	ipra_fully_linked_fdo_clang
+	ipra_fully_linked_fdo_clang \
+	preserve_none_fdo_clang
 
 # Loop through the list and automatically define the _DIR and _SENTINEL variables.
 $(foreach compiler, $(COMPILER_LIST), \
@@ -52,30 +53,30 @@ print-var:
 # --- Main Targets ---
 
 # Default target: build everything up to the FDO-optimized clang
-all: fdo_clang thinly_linked_fdo_clang ipra_fdo_clang ipra_thinly_linked_fdo_clang data ipra_data
+all: bootstrapped_clang instr_clang instr_clang_data fdo_clang thinly_linked_fdo_clang ipra_fdo_clang ipra_thinly_linked_fdo_clang fully_linked_fdo_clang ipra_fully_linked_fdo_clang data ipra_data linked_data
 experiments: ipra_fdo_clang ipra_thinly_linked_fdo_clang ipra_data
 linked: thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang fully_linked_fdo_clang ipra_fully_linked_fdo_clang
 
 # Target 1: Build the initial, optimized 'bootstrapped_clang'
-bootstrapped_clang: $(BOOTSTRAP_SENTINEL)
-$(BOOTSTRAP_SENTINEL):
+bootstrapped_clang: $(BOOTSTRAPPED_SENTINEL)
+$(BOOTSTRAPPED_SENTINEL):
 	$(call log,STEP 1: Building bootstrapped_clang (Release build with runtimes))
-	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(BOOTSTRAP_DIR)" \
+	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(BOOTSTRAPPED_DIR)" \
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS="clang;lld" \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
 	  -D LLVM_ENABLE_RUNTIMES="compiler-rt"
-	ninja -j "$(JOBS)" -C "$(BOOTSTRAP_DIR)"
+	ninja -j "$(JOBS)" -C "$(BOOTSTRAPPED_DIR)"
 	@touch $@
 	$(call log,✅ STEP 1: bootstrapped_clang built successfully.)
 
 # Target 2: Build the instrumented 'instr_clang'
 instr_clang: $(INSTR_SENTINEL)
-$(INSTR_SENTINEL): $(BOOTSTRAP_SENTINEL)
+$(INSTR_SENTINEL): $(BOOTSTRAPPED_SENTINEL)
 	$(call log,STEP 2: Building instr_clang (Instrumented build))
 	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(INSTR_DIR)" \
-	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
-	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS="clang;lld" \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
@@ -112,11 +113,11 @@ $(PROFILE_MERGED_FILE): $(INSTR_SENTINEL)
 
 # Target 4: Build the final 'fdo_clang' with Profile-Guided Optimizations
 fdo_clang: $(FDO_SENTINEL)
-$(FDO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
+$(FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	@$(call log,STEP 5: Building fdo_clang (PGO-optimized build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(FDO_DIR)" \
-	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
-	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
@@ -127,11 +128,11 @@ $(FDO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
 thinly_linked_fdo_clang: $(THINLTO_SENTINEL)
-$(THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
+$(THINLTO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	@$(call log,STEP 5B: Building thinly_linked_fdo_clang (PGO + ThinLTO build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(THINLTO_DIR)" \
-	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
-	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
@@ -144,11 +145,11 @@ $(THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
 fully_linked_fdo_clang: $(FULLLTO_SENTINEL)
-$(FULLLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
+$(FULLLTO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	@$(call log,STEP 5E: Building fully_linked_fdo_clang (PGO + FULLLTO build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(FULLLTO_DIR)" \
-	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
-	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
@@ -161,11 +162,11 @@ $(FULLLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
 ipra_fully_linked_fdo_clang: $(IPRA_FULLLTO_SENTINEL)
-$(IPRA_FULLLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
+$(IPRA_FULLLTO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	@$(call log,STEP 5F: Building ipra_fully_linked_fdo_clang (PGO + FULLLTO build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(FULLLTO_DIR)" \
-	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
-	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
@@ -183,11 +184,11 @@ $(IPRA_FULLLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 
 # NEW Target: Build 'ipra_fdo_clang' with PGO and the IPRA optimization.
 ipra_fdo_clang: $(IPRA_FDO_SENTINEL)
-$(IPRA_FDO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
+$(IPRA_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	@$(call log,STEP 5C: Building ipra_fdo_clang (PGO + IPRA build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(IPRA_FDO_DIR)" \
-	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
-	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
@@ -200,11 +201,11 @@ $(IPRA_FDO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 
 # NEW Target: Build 'ipra_thinly_linked_fdo_clang' with PGO, ThinLTO, and IPRA.
 ipra_thinly_linked_fdo_clang: $(IPRA_THINLTO_SENTINEL)
-$(IPRA_THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
+$(IPRA_THINLTO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	@$(call log,STEP 5D: Building ipra_thinly_linked_fdo_clang (PGO + ThinLTO + IPRA build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(IPRA_THINLTO_DIR)" \
-	  -D CMAKE_C_COMPILER="$(BOOTSTRAP_DIR)/bin/clang" \
-	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAP_DIR)/bin/clang++" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
@@ -219,6 +220,25 @@ $(IPRA_THINLTO_SENTINEL): $(BOOTSTRAP_SENTINEL) $(PROFILE_MERGED_FILE)
 	@ninja -j "$(JOBS)" -C "$(IPRA_THINLTO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5D: ipra_thinly_linked_fdo_clang built successfully.)
+
+# NEW Target: Build 'preserve_none_fdo_clang' with PGO and the PreserveNonePass optimization.
+preserve_none_fdo_clang:
+	@$(call log,STEP 5G: Building preserve_none_fdo_clang)
+	@set -e; \
+	# Define the path to the JSON profile locally for this target.
+	PRESERVE_NONE_PROFILE="$(FDO_LIVENESS_OUTPUT_DIR)/liveness_profdata.json"; 
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PRESERVE_NONE_FDO_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=Release \
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+      -D CMAKE_C_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
+      -D CMAKE_CXX_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}"
+	@ninja -j "$(JOBS)" -C "$(PRESERVE_NONE_FDO_DIR)" && \
+	touch $@ && \
+	$(call log,✅ STEP 5G: preserve_none_fdo_clang built successfully.)
 
 fdo_liveness_analysis: fdo_clang
 	@$(call log,Collecting Liveness Data using fdo_clang)
@@ -264,7 +284,7 @@ benchmark:
 	\
 	$(call log,Starting benchmark for '$(COMPILER)'); \
 	\
-	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-2}; \
+	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-10}; \
 	TEMP_BUILD_DIR="$(DEV_DIR)/temp_benchmark_build_$(COMPILER)"; \
 	METRICS_CSV="$(METRICS_DIR)/$(COMPILER)_metrics.csv"; \
 	\
@@ -320,19 +340,17 @@ data:
 	$(call log,Running Baseline Benchmark Suite)
 	$(MAKE) benchmark COMPILER=bootstrapped_clang
 	$(MAKE) benchmark COMPILER=fdo_clang
-	$(MAKE) benchmark COMPILER=thinly_linked_fdo_clang
 
 ipra_data:
 	$(call log,Running IPRA Benchmark Suite)
 	$(MAKE) benchmark COMPILER=ipra_fdo_clang
 	$(MAKE) benchmark COMPILER=ipra_thinly_linked_fdo_clang
+	$(MAKE) benchmark COMPILER=ipra_fully_linked_fdo_clang
 
 linked_data:
 	$(call log,Running LTO Benchmark Suite)
 	$(MAKE) benchmark COMPILER=thinly_linked_fdo_clang
-	$(MAKE) benchmark COMPILER=ipra_thinly_linked_fdo_clang
 	$(MAKE) benchmark COMPILER=fully_linked_fdo_clang
-	$(MAKE) benchmark COMPILER=ipra_fully_linked_fdo_clang
 
 # Target to clean up all build artifacts and metrics
 clean:
