@@ -166,7 +166,7 @@ $(FULLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 ipra_fully_linked_fdo_clang: $(IPRA_FULLY_LINKED_FDO_SENTINEL)
 $(IPRA_FULLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	@$(call log,STEP 5F: Building ipra_fully_linked_fdo_clang (PGO + FULLLTO build))
-	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(FULLLTO_DIR)" \
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(IPRA_FULLY_LINKED_FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
 	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
