@@ -53,7 +53,7 @@ print-var:
 # --- Main Targets ---
 
 # Default target: build everything up to the FDO-optimized clang
-all: bootstrapped_clang instr_clang instr_clang_data fdo_clang thinly_linked_fdo_clang ipra_fdo_clang ipra_thinly_linked_fdo_clang fully_linked_fdo_clang ipra_fully_linked_fdo_clang preserve_none_fdo_clang data ipra_data linked_data
+all: bootstrapped_clang instr_clang instr_clang_data fdo_clang thinly_linked_fdo_clang ipra_fdo_clang ipra_thinly_linked_fdo_clang preserve_none_fdo_clang data ipra_data linked_data
 	@$(MAKE) benchmark COMPILER=fdo_clang
 
 experiments: ipra_fdo_clang ipra_thinly_linked_fdo_clang ipra_data
@@ -236,8 +236,8 @@ preserve_none_fdo_clang:
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
-      -D CMAKE_C_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
-      -D CMAKE_CXX_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}"
+	  -D CMAKE_C_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
+	  -D CMAKE_CXX_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}"
 	@ninja -j "$(JOBS)" -C "$(PRESERVE_NONE_FDO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5G: preserve_none_fdo_clang built successfully.)
@@ -347,12 +347,10 @@ ipra_data:
 	$(call log,Running IPRA Benchmark Suite)
 	$(MAKE) benchmark COMPILER=ipra_fdo_clang
 	$(MAKE) benchmark COMPILER=ipra_thinly_linked_fdo_clang
-	$(MAKE) benchmark COMPILER=ipra_fully_linked_fdo_clang
 
 linked_data:
 	$(call log,Running LTO Benchmark Suite)
 	$(MAKE) benchmark COMPILER=thinly_linked_fdo_clang
-	$(MAKE) benchmark COMPILER=fully_linked_fdo_clang
 
 # Target to clean up all build artifacts and metrics
 clean:
