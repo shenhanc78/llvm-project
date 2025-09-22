@@ -1,0 +1,22 @@
+IPRA: Function: _ZN4llvm18ExponentialBackoff18waitForNextAttemptEv[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm18ExponentialBackoff18waitForNextAttemptEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18ExponentialBackoff18waitForNextAttemptEv[] Calls: _ZNSt6chrono3_V212steady_clock3nowEv[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $r14
+IPRA: Function: _ZN4llvm18ExponentialBackoff18waitForNextAttemptEv[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18ExponentialBackoff18waitForNextAttemptEv[] Calls: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] IsTailCall: 0 CallSiteLoc: 1.8 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm18ExponentialBackoff18waitForNextAttemptEv[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18ExponentialBackoff18waitForNextAttemptEv[] Calls: _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE[] Calls: nanosleep[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt11this_thread9sleep_forIlSt5ratioILl1ELl1000000000EEEEvRKNSt6chrono8durationIT_T0_EE[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] Calls: _ZNSt13random_device9_M_getvalEv[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $r12 $r14 $r15
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] Calls: _ZNSt13random_device9_M_getvalEv[] IsTailCall: 0 CallSiteLoc: 4.5 LivingCSRegs: $rbp $r12 $r14
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] Calls: _ZNSt13random_device9_M_getvalEv[] IsTailCall: 0 CallSiteLoc: 7.3 LivingCSRegs: 
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] Calls: _ZNSt13random_device9_M_getvalEv[] IsTailCall: 0 CallSiteLoc: 9.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] Calls: _ZNSt24uniform_int_distributionImEclISt13random_deviceEEmRT_RKNS0_10param_typeE[] IsTailCall: 0 CallSiteLoc: 9.9 LivingCSRegs: $rbx $r12 $r13 $r14 $r15

@@ -1,0 +1,176 @@
+IPRA: Function: _ZN4llvm15GlobalSplitPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15GlobalSplitPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15GlobalSplitPass3runERNS_6ModuleERNS_15AnalysisManagerIS1_JEEE[] Calls: _ZL12splitGlobalsRN4llvm6ModuleE[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx
+IPRA: Function: _ZL12splitGlobalsRN4llvm6ModuleE[] CallingConv: 8 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZL12splitGlobalsRN4llvm6ModuleE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL12splitGlobalsRN4llvm6ModuleE[] Calls: _ZN4llvm9Intrinsic22getDeclarationIfExistsEPKNS_6ModuleEj[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZL12splitGlobalsRN4llvm6ModuleE[] Calls: _ZN4llvm9Intrinsic22getDeclarationIfExistsEPKNS_6ModuleEj[] IsTailCall: 0 CallSiteLoc: 0.7 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZL12splitGlobalsRN4llvm6ModuleE[] Calls: _ZN4llvm9Intrinsic22getDeclarationIfExistsEPKNS_6ModuleEj[] IsTailCall: 0 CallSiteLoc: 0.11 LivingCSRegs: $rbx
+IPRA: Function: _ZL12splitGlobalsRN4llvm6ModuleE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL12splitGlobalsRN4llvm6ModuleE[] Calls: _ZL11splitGlobalRN4llvm14GlobalVariableE[] IsTailCall: 0 CallSiteLoc: 4.6 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm10DataLayout22getIndexTypeSizeInBitsEPNS_4TypeE[] IsTailCall: 0 CallSiteLoc: 5.10 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm10DataLayout15getStructLayoutEPNS_10StructTypeE[] IsTailCall: 0 CallSiteLoc: 5.17 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm11GlobalValue13getDataLayoutEv[] IsTailCall: 0 CallSiteLoc: 5.21 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm11GEPOperator10getInRangeEv[] IsTailCall: 0 CallSiteLoc: 9.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm11GEPOperator24accumulateConstantOffsetERKNS_10DataLayoutERNS_5APIntENS_12function_refIFbRNS_5ValueES5_EEE[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm13ConstantRange11sextOrTruncEj[] IsTailCall: 0 CallSiteLoc: 13.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm13ConstantRangeD2Ev[] IsTailCall: 0 CallSiteLoc: 15.3 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm13ConstantRange3addERKS0_[] IsTailCall: 0 CallSiteLoc: 15.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm13ConstantRangeC1ENS_5APIntE[] IsTailCall: 0 CallSiteLoc: 15.10 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm13ConstantRange8containsERKNS_5APIntE[] IsTailCall: 0 CallSiteLoc: 16.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm13ConstantRangeD2Ev[] IsTailCall: 0 CallSiteLoc: 16.8 LivingCSRegs: $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5APInt3ugeEm[] IsTailCall: 0 CallSiteLoc: 17.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 17.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm12StructLayout26getElementContainingOffsetEm[] IsTailCall: 0 CallSiteLoc: 19.12 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5APIntneEm[] IsTailCall: 0 CallSiteLoc: 21.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 21.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5APIntneEm[] IsTailCall: 0 CallSiteLoc: 22.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 22.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 25 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm15SmallVectorImplIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoE12emplace_backIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] IsTailCall: 0 CallSiteLoc: 25.3 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm5APIntmIEm[] IsTailCall: 0 CallSiteLoc: 25.13 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 25.16 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 27 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm13ConstantRangeD2Ev[] IsTailCall: 0 CallSiteLoc: 27.3 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 28 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev[] IsTailCall: 0 CallSiteLoc: 28.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 29 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EEC2EmRKS3_[] IsTailCall: 0 CallSiteLoc: 29.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm4Type10getInt32TyERNS_11LLVMContextE[] IsTailCall: 0 CallSiteLoc: 29.9 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5Value10getContextEv[] IsTailCall: 0 CallSiteLoc: 29.11 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5Value11getMetadataEjRNS_15SmallVectorImplIPNS_6MDNodeEEE[] IsTailCall: 0 CallSiteLoc: 29.13 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 31 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm14GlobalVariableC1ERNS_6ModuleEPNS_4TypeEbNS_11GlobalValue12LinkageTypesEPNS_8ConstantERKNS_5TwineEPS0_NS5_15ThreadLocalModeESt8optionalIjEb[] IsTailCall: 0 CallSiteLoc: 31.7 LivingCSRegs: $rbp $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 31.29 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm6utostrB5cxx11Emb[] IsTailCall: 0 CallSiteLoc: 31.36 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5Value7getNameEv[] IsTailCall: 0 CallSiteLoc: 31.46 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm4UsernwEmNS0_28IntrusiveOperandsAllocMarkerE[] IsTailCall: 0 CallSiteLoc: 31.62 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 32.1 LivingCSRegs: $rbp $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 33.4 LivingCSRegs: $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm8TypeSizecvmEv[] IsTailCall: 0 CallSiteLoc: 33.21 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 42 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm15ValueAsMetadata3getEPNS_5ValueE[] IsTailCall: 0 CallSiteLoc: 42.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm11ConstantInt3getEPNS_11IntegerTypeEmb[] IsTailCall: 0 CallSiteLoc: 42.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5Value10getContextEv[] IsTailCall: 0 CallSiteLoc: 42.13 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 44 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm5Value11addMetadataEjRNS_6MDNodeE[] IsTailCall: 0 CallSiteLoc: 44.2 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm7MDTuple7getImplERNS_11LLVMContextENS_8ArrayRefIPNS_8MetadataEEENS4_11StorageTypeEb[] IsTailCall: 0 CallSiteLoc: 44.6 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 48 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5Value15getMetadataImplEj[] IsTailCall: 0 CallSiteLoc: 48.3 LivingCSRegs: $rbx
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 49 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm12GlobalObject26setVCallVisibilityMetadataENS0_15VCallVisibilityE[] IsTailCall: 0 CallSiteLoc: 49.1 LivingCSRegs: $rbx
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm12GlobalObject18getVCallVisibilityEv[] IsTailCall: 0 CallSiteLoc: 49.4 LivingCSRegs: $rbx
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 54 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm5Value18replaceAllUsesWithEPS0_[] IsTailCall: 0 CallSiteLoc: 54.4 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev[] IsTailCall: 0 CallSiteLoc: 54.7 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] IsTailCall: 0 CallSiteLoc: 54.10 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm11ConstantInt3getERNS_11LLVMContextERKNS_5APIntE[] IsTailCall: 0 CallSiteLoc: 54.23 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5Value10getContextEv[] IsTailCall: 0 CallSiteLoc: 54.26 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm4Type9getInt8TyERNS_11LLVMContextE[] IsTailCall: 0 CallSiteLoc: 54.32 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5Value10getContextEv[] IsTailCall: 0 CallSiteLoc: 54.34 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 56 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm5Value18replaceAllUsesWithEPS0_[] IsTailCall: 0 CallSiteLoc: 56.1 LivingCSRegs: $rbp
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm11PoisonValue3getEPNS_4TypeE[] IsTailCall: 0 CallSiteLoc: 56.4 LivingCSRegs: $rbp
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 57 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm14GlobalVariable15eraseFromParentEv[] IsTailCall: 0 CallSiteLoc: 57.4 LivingCSRegs: 
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 58 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 58.1 LivingCSRegs: 
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 63 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm13ConstantRangeD2Ev[] IsTailCall: 0 CallSiteLoc: 63.1 LivingCSRegs: 
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 65 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev[] IsTailCall: 0 CallSiteLoc: 65.1 LivingCSRegs: 
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 67 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev[] IsTailCall: 0 CallSiteLoc: 67.2 LivingCSRegs: $rbx
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 72 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZNK4llvm5APInt13equalSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 72.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 73 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 73.2 LivingCSRegs: $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 74 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 74.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 76 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 76.2 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 77 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZN4llvm5APInt12initSlowCaseEmb[] IsTailCall: 0 CallSiteLoc: 77.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 79 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 79.2 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 81 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 81.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 83 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 83.2 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 85 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 85.2 LivingCSRegs: 
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] MBB: 86 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL11splitGlobalRN4llvm14GlobalVariableE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 86.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13ConstantRangeD2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13ConstantRangeD2Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13ConstantRangeD2Ev[] Calls: _ZdaPv[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13ConstantRangeD2Ev[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13ConstantRangeD2Ev[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 5.6 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm5APInt3ugeEm[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 1 EntryCount: 51557247
+IPRA: Function: _ZNK4llvm5APInt3ugeEm[] MBB: 5 IsMBBHot: 0 MBBCount: 7800
+IPRA: Function: _ZNK4llvm5APInt3ugeEm[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 5.7 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK4llvm5APIntneEm[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 1 EntryCount: 23121810
+IPRA: Function: _ZNK4llvm5APIntneEm[] MBB: 5 IsMBBHot: 0 MBBCount: 602253
+IPRA: Function: _ZNK4llvm5APIntneEm[] Calls: _ZNK4llvm5APInt25countLeadingZerosSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 5.7 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm15SmallVectorImplIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoE12emplace_backIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] CallingConv: 8 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoE12emplace_backIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoE12emplace_backIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] Calls: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE18growAndEmplaceBackIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev[] Calls: _ZdaPv[] IsTailCall: 1 CallSiteLoc: 3.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt14_Optional_baseIN4llvm13ConstantRangeELb0ELb0EED2Ev[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 6.6 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EEC2EmRKS3_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EEC2EmRKS3_[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EEC2EmRKS3_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 2.8 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EEC2EmRKS3_[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EEC2EmRKS3_[] Calls: memset[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EEC2EmRKS3_[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt6vectorIPN4llvm14GlobalVariableESaIS2_EEC2EmRKS3_[] Calls: _ZSt20__throw_length_errorPKc[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvmplERKNS_5TwineES2_[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 1 EntryCount: 65607337
+IPRA: Function: _ZN4llvm6utostrB5cxx11Emb[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm6utostrB5cxx11Emb[] MBB: 4 IsMBBHot: 0 MBBCount: 4103759
+IPRA: Function: _ZN4llvm6utostrB5cxx11Emb[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 4.4 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm6utostrB5cxx11Emb[] MBB: 10 IsMBBHot: 0 MBBCount: 2735839
+IPRA: Function: _ZN4llvm6utostrB5cxx11Emb[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 10.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] MBB: 6 IsMBBHot: 0 MBBCount: 577757
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] Calls: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantENS_8ArrayRefIPNS_5ValueEEENS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] IsTailCall: 0 CallSiteLoc: 6.5 LivingCSRegs: $r14
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] MBB: 10 IsMBBHot: 0 MBBCount: 5013
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 10.6 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] MBB: 11 IsMBBHot: 0 MBBCount: 5013
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 11.5 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] MBB: 13 IsMBBHot: 0 MBBCount: 1503
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 13.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] MBB: 15 IsMBBHot: 0 MBBCount: 1503
+IPRA: Function: _ZN4llvm12ConstantExpr16getGetElementPtrEPNS_4TypeEPNS_8ConstantES4_NS_14GEPNoWrapFlagsESt8optionalINS_13ConstantRangeEES2_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 15.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev[] CallingConv: 8 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev[] Calls: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE13destroy_rangeEPS3_S5_[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11SmallVectorIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLj1EED2Ev[] Calls: free[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE18growAndEmplaceBackIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE18growAndEmplaceBackIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE18growAndEmplaceBackIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] Calls: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE19moveElementsForGrowEPS3_[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE18growAndEmplaceBackIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] Calls: _ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm[] IsTailCall: 0 CallSiteLoc: 0.21 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE18growAndEmplaceBackIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE18growAndEmplaceBackIJRPNS_11GEPOperatorERjNS_5APIntEEEERS3_DpOT_[] Calls: free[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE19moveElementsForGrowEPS3_[] CallingConv: 8 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE19moveElementsForGrowEPS3_[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE19moveElementsForGrowEPS3_[] Calls: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE13destroy_rangeEPS3_S5_[] IsTailCall: 1 CallSiteLoc: 4.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE13destroy_rangeEPS3_S5_[] CallingConv: 8 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE13destroy_rangeEPS3_S5_[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23SmallVectorTemplateBaseIZL11splitGlobalRNS_14GlobalVariableEE7GEPInfoLb0EE13destroy_rangeEPS3_S5_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 5.4 LivingCSRegs: $rbx $r14

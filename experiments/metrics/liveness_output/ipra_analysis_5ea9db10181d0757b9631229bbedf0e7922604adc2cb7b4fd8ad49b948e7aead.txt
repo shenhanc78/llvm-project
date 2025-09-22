@@ -1,0 +1,21 @@
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] MBB: 0 IsMBBHot: 0 MBBCount: 206580
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] Calls: _ZNK4llvm8Function13getDataLayoutEv[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $rbx
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] MBB: 9 IsMBBHot: 0 MBBCount: 5476213
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] Calls: _ZNK4llvm10DataLayout16getPrefTypeAlignEPNS_4TypeE[] IsTailCall: 0 CallSiteLoc: 9.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] MBB: 12 IsMBBHot: 0 MBBCount: 131530
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] Calls: _ZN4llvm19tryEnforceAlignmentEPNS_5ValueENS_5AlignERKNS_10DataLayoutE[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] MBB: 21 IsMBBHot: 0 MBBCount: 5476213
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] Calls: _ZN4llvm16computeKnownBitsEPKNS_5ValueERKNS_10DataLayoutEjPNS_15AssumptionCacheEPKNS_11InstructionEPKNS_13DominatorTreeEb[] IsTailCall: 0 CallSiteLoc: 21.6 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] Calls: _ZNK4llvm10DataLayout16getPrefTypeAlignEPNS_4TypeE[] IsTailCall: 0 CallSiteLoc: 21.17 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] MBB: 31 IsMBBHot: 0 MBBCount: 80123
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] Calls: _ZNK4llvm5APInt25countTrailingOnesSlowCaseEv[] IsTailCall: 0 CallSiteLoc: 31.3 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] MBB: 34 IsMBBHot: 0 MBBCount: 28494
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 34.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] MBB: 36 IsMBBHot: 0 MBBCount: 28494
+IPRA: Function: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 36.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm18InferAlignmentPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm18InferAlignmentPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE[] MBB: 0 IsMBBHot: 0 MBBCount: 206580
+IPRA: Function: _ZN4llvm18InferAlignmentPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE[] Calls: _Z14inferAlignmentRN4llvm8FunctionERNS_15AssumptionCacheERNS_13DominatorTreeE[] IsTailCall: 0 CallSiteLoc: 0.28 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm18InferAlignmentPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE[] Calls: _ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_[] IsTailCall: 0 CallSiteLoc: 0.32 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm18InferAlignmentPass3runERNS_8FunctionERNS_15AnalysisManagerIS1_JEEE[] Calls: _ZN4llvm15AnalysisManagerINS_8FunctionEJEE13getResultImplEPNS_11AnalysisKeyERS1_[] IsTailCall: 0 CallSiteLoc: 0.37 LivingCSRegs: $rbx $r14 $r15
