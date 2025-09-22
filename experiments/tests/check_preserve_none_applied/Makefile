@@ -5,6 +5,12 @@ CLANG := $(LLVM_BUILD)/bin/clang
 
 all: opt-test
 
+dump: input.ll out.ll
+	clang -c input.ll -o input.o
+	clang -c out.ll -o out.o
+	objdump -d input.o > input.s
+	objdump -d out.o > out.s
+
 opt-test: out.ll
 	@grep -n "preserve_nonecc" out.ll >/dev/null && \
 	  echo "[OK] opt applied preserve_nonecc" || \
@@ -19,4 +25,4 @@ out.ll: input.ll profile.json
 clean:
 	rm -f out.ll
 
-.PHONY: all opt-test clean
+.PHONY: all opt-test dump clean
