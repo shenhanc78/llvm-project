@@ -53,7 +53,7 @@ print-var:
 # --- Main Targets ---
 
 # Default target: build everything up to the FDO-optimized clang
-all: bootstrapped_clang instr_clang instr_clang_data fdo_clang thinly_linked_fdo_clang ipra_fdo_clang ipra_thinly_linked_fdo_clang preserve_none_fdo_clang data ipra_data linked_data
+all: bootstrapped_clang instr_clang instr_clang_data fdo_clang thinly_linked_fdo_clang ipra_fdo_clang ipra_thinly_linked_fdo_clang data ipra_data linked_data
 	@$(MAKE) benchmark COMPILER=fdo_clang
 
 experiments: ipra_fdo_clang ipra_thinly_linked_fdo_clang ipra_data
@@ -114,8 +114,7 @@ $(PROFILE_MERGED_FILE): $(INSTR_SENTINEL)
 	$(call log,✅ STEP 4: Merged profile data created at $@)
 
 # Target 4: Build the final 'fdo_clang' with Profile-Guided Optimizations
-fdo_clang: $(FDO_SENTINEL)
-$(FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
+fdo_clang:
 	@$(call log,STEP 5: Building fdo_clang (PGO-optimized build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
@@ -235,6 +234,8 @@ preserve_none_fdo_clang:
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_TABLEGEN="$(BOOTSTRAPPED_DIR)/bin/llvm-tblgen" \
+	  -D LLVM_MIN_TABLEGEN="$(BOOTSTRAPPED_DIR)/bin/llvm-min-tblgen" \
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 	  -D CMAKE_C_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
 	  -D CMAKE_CXX_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}"
