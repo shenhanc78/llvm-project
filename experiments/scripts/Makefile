@@ -234,8 +234,6 @@ preserve_none_fdo_clang:
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
-	  -D LLVM_TABLEGEN="$(BOOTSTRAPPED_DIR)/bin/llvm-tblgen" \
-	  -D LLVM_MIN_TABLEGEN="$(BOOTSTRAPPED_DIR)/bin/llvm-min-tblgen" \
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 	  -D CMAKE_C_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
 	  -D CMAKE_CXX_FLAGS="-mllvm -preserve-none-enable -mllvm -preserve-none-json=$${PRESERVE_NONE_PROFILE}"
