@@ -1,7 +1,7 @@
 # --- Configuration ---
 SHELL := /bin/bash
 .ONESHELL:
-.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang data clean
+.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang preserve_none_fdo_clang thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang ipra_fdo_clang data clean
 
 # Base directory for LLVM source code
 LLVM_SRC_DIR := $(shell cd ../../ ; pwd)
@@ -341,6 +341,7 @@ data:
 	$(call log,Running Baseline Benchmark Suite)
 	$(MAKE) benchmark COMPILER=bootstrapped_clang
 	$(MAKE) benchmark COMPILER=fdo_clang
+	$(MAKE) benchmark COMPILER=preserve_none_fdo_clang
 
 ipra_data:
 	$(call log,Running IPRA Benchmark Suite)
