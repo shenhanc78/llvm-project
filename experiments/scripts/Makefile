@@ -55,8 +55,7 @@ print-var:
 # --- Main Targets ---
 
 # Default target: build everything up to the FDO-optimized clang
-all: bootstrapped_clang instr_clang instr_clang_data fdo_clang thinly_linked_fdo_clang ipra_fdo_clang ipra_thinly_linked_fdo_clang data ipra_data linked_data
-	@$(MAKE) benchmark COMPILER=fdo_clang
+all: bootstrapped_clang instr_clang instr_clang_data fdo_clang preserve_none_fdo_clang thinly_linked_fdo_clang preserve_none_thinly_linked_fdo_clang ipra_fdo_clang ipra_thinly_linked_fdo_clang data preserve_none_pairs ipra_data linked_data
 
 experiments: ipra_fdo_clang ipra_thinly_linked_fdo_clang ipra_data
 linked: thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang fully_linked_fdo_clang ipra_fully_linked_fdo_clang
@@ -365,7 +364,7 @@ benchmark:
 	\
 	$(call log,Starting benchmark for '$(COMPILER)'); \
 	\
-	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-30}; \
+	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-10}; \
 	TEMP_BUILD_DIR="$(DEV_DIR)/temp_benchmark_build_$(COMPILER)"; \
 	METRICS_CSV="$(METRICS_DIR)/$(COMPILER)_metrics.csv"; \
 	\
