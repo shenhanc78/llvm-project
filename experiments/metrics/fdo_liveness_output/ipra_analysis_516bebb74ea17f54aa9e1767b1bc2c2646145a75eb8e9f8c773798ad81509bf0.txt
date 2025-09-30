@@ -1,0 +1,81 @@
+IPRA: Function: _ZN4llvm27CrashRecoveryContextCleanupD2Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm27CrashRecoveryContextCleanupD0Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContextC2Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContextC2Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 1618
+IPRA: Function: _ZN4llvm20CrashRecoveryContextC2Ev[] Calls: _ZN4llvm3sys27DisableSystemDialogsOnCrashEv[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContextD2Ev[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContextD2Ev[] MBB: 4 IsMBBHot: 0 MBBCount: 1618
+IPRA: Function: _ZN4llvm20CrashRecoveryContextD2Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 4.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm20CrashRecoveryContext21isRecoveringFromCrashEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext10GetCurrentEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] MBB: 0 IsMBBHot: 0 MBBCount: 1626
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] MBB: 2 IsMBBHot: 0 MBBCount: 1626
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.9 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.13 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.17 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.21 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: sigemptyset[] IsTailCall: 0 CallSiteLoc: 2.26 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] MBB: 3 IsMBBHot: 0 MBBCount: 1626
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: pthread_mutex_unlock[] IsTailCall: 0 CallSiteLoc: 3.6 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext6EnableEv[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.9 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.13 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.17 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] Calls: sigaction[] IsTailCall: 0 CallSiteLoc: 2.21 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] Calls: pthread_mutex_unlock[] IsTailCall: 1 CallSiteLoc: 3.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7DisableEv[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext15registerCleanupEPNS_27CrashRecoveryContextCleanupE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext17unregisterCleanupEPNS_27CrashRecoveryContextCleanupE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE[] MBB: 1 IsMBBHot: 0 MBBCount: 1618
+IPRA: Function: _ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE[] Calls: _setjmp[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 1.20 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm20CrashRecoveryContext10HandleExitEi[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext10HandleExitEi[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext10HandleExitEi[] Calls: _ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim[] IsTailCall: 0 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim[] CallingConv: 8 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim[] Calls: _ZN4llvm3sys15CleanupOnSignalEm[] IsTailCall: 0 CallSiteLoc: 1.2 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim[] Calls: longjmp[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm20CrashRecoveryContext7isCrashEi[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext12throwIfCrashEi[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext12throwIfCrashEi[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext12throwIfCrashEi[] Calls: raise[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm20CrashRecoveryContext12throwIfCrashEi[] Calls: _ZN4llvm3sys18unregisterHandlersEv[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj[] Calls: _ZN4llvm27llvm_execute_on_thread_implEPFPvS0_ES0_St8optionalIjE[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.12 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm20CrashRecoveryContext17RunSafelyOnThreadENS_12function_refIFvvEEEj[] Calls: _ZN4llvm21llvm_thread_join_implEm[] IsTailCall: 0 CallSiteLoc: 2.4 LivingCSRegs: $rbx
+IPRA: Function: _ZL26RunSafelyOnThread_DispatchPv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZL26RunSafelyOnThread_DispatchPv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL26RunSafelyOnThread_DispatchPv[] Calls: _ZN4llvm20CrashRecoveryContext9RunSafelyENS_12function_refIFvvEEE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx
+IPRA: Function: _ZL26CrashRecoverySignalHandleri[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZL26CrashRecoverySignalHandleri[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL26CrashRecoverySignalHandleri[] Calls: raise[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZL26CrashRecoverySignalHandleri[] Calls: _ZN4llvm20CrashRecoveryContext7DisableEv[] IsTailCall: 0 CallSiteLoc: 1.11 LivingCSRegs: $rbx
+IPRA: Function: _ZL26CrashRecoverySignalHandleri[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL26CrashRecoverySignalHandleri[] Calls: _ZN12_GLOBAL__N_124CrashRecoveryContextImpl11HandleCrashEim[] IsTailCall: 0 CallSiteLoc: 2.10 LivingCSRegs: 
+IPRA: Function: _ZL26CrashRecoverySignalHandleri[] Calls: sigprocmask[] IsTailCall: 0 CallSiteLoc: 2.17 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZL26CrashRecoverySignalHandleri[] Calls: sigaddset[] IsTailCall: 0 CallSiteLoc: 2.21 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZL26CrashRecoverySignalHandleri[] Calls: sigemptyset[] IsTailCall: 0 CallSiteLoc: 2.24 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEES3_S3_[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEES3_S3_[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6thread11ThreadProxyISt5tupleIJPFvPvEPN12_GLOBAL__N_121RunSafelyOnThreadInfoEEEEES3_S3_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: 

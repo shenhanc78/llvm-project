@@ -1,7 +1,7 @@
 # --- Configuration ---
 SHELL := /bin/bash
 .ONESHELL:
-.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang preserve_none_fdo_clang thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang ipra_fdo_clang data clean
+.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang fdo_liveness_analysis preserve_none_fdo_clang thinly_linked_fdo_clang preserve_none_thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang ipra_fdo_clang data clean rebuild_preserve_none_fdo_clang
 
 # Base directory for LLVM source code
 LLVM_SRC_DIR := $(shell cd ../../ ; pwd)
@@ -19,7 +19,8 @@ COMPILER_LIST := \
 	ipra_fdo_clang \
 	ipra_thinly_linked_fdo_clang \
 	ipra_fully_linked_fdo_clang \
-	preserve_none_fdo_clang
+	preserve_none_fdo_clang \
+	preserve_none_thinly_linked_fdo_clang
 
 # Loop through the list and automatically define the _DIR and _SENTINEL variables.
 $(foreach compiler, $(COMPILER_LIST), \
@@ -32,8 +33,9 @@ PROFILE_RAW_DIR := $(INSTR_DIR)/profiles
 PROFILE_MERGED_FILE := $(INSTR_DIR)/clang.profdata
 
 # Metrics file
-METRICS_DIR := $(DEV_DIR)/metrics
+METRICS_DIR := $(shell cd ../metrics/ ; pwd)
 FDO_LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/fdo_liveness_output
+THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/thinly_linked_fdo_liveness_output
 
 # Number of parallel jobs to use for compilation
 # Can reduce to nproc - 4 if system is under heavy load
@@ -82,11 +84,7 @@ $(INSTR_SENTINEL): $(BOOTSTRAPPED_SENTINEL)
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS="clang;lld" \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
-	  -D LLVM_BUILD_INSTRUMENTED=ON \
-	  -D CMAKE_C_FLAGS="-fprofile-instr-generate" \
-	  -D CMAKE_CXX_FLAGS="-fprofile-instr-generate" \
-	  -D CMAKE_EXE_LINKER_FLAGS="-fprofile-instr-generate" \
-	  -D CMAKE_SHARED_LINKER_FLAGS="-fprofile-instr-generate"
+	  -D LLVM_BUILD_INSTRUMENTED=IR
 	ninja -j "$(JOBS)" -C "$(INSTR_DIR)"
 	@touch $@
 	$(call log,✅ STEP 2: instr_clang built successfully.)
@@ -113,6 +111,7 @@ $(PROFILE_MERGED_FILE): $(INSTR_SENTINEL)
 	"$(INSTR_DIR)/bin/llvm-profdata" merge -j "$(JOBS)" -o "$@" "$(PROFILE_RAW_DIR)"/*.profraw; \
 	$(call log,✅ STEP 4: Merged profile data created at $@)
 
+
 # Target 4: Build the final 'fdo_clang' with Profile-Guided Optimizations
 fdo_clang:
 	@$(call log,STEP 5: Building fdo_clang (PGO-optimized build))
@@ -127,6 +126,7 @@ fdo_clang:
 	@touch $@
 	@$(call log,✅ STEP 5: fdo_clang built successfully.)
 
+
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
 thinly_linked_fdo_clang: $(THINLY_LINKED_FDO_SENTINEL)
 $(THINLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
@@ -139,7 +139,10 @@ $(THINLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 	  -D LLVM_ENABLE_LTO=Thin \
-	  -D LLVM_USE_LINKER=lld
+	  -D LLVM_USE_LINKER=lld \
+	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld"
 	@ninja -j "$(JOBS)" -C "$(THINLY_LINKED_FDO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5B: thinly_linked_fdo_clang built successfully.)
@@ -156,7 +159,10 @@ $(FULLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 	  -D LLVM_ENABLE_LTO=Full \
-	  -D LLVM_USE_LINKER=lld
+	  -D LLVM_USE_LINKER=lld \
+	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld"
 	@ninja -j "$(JOBS)" -C "$(FULLY_LINKED_FDO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5E: fully_linked_fdo_clang built successfully.)
@@ -227,7 +233,7 @@ preserve_none_fdo_clang:
 	@$(call log,STEP 5G: Building preserve_none_fdo_clang)
 	@set -e; \
 	# Define the path to the JSON profile locally for this target.
-	PRESERVE_NONE_PROFILE="$(FDO_LIVENESS_OUTPUT_DIR)/liveness_profdata.json"; 
+	PRESERVE_NONE_PROFILE="$(FDO_LIVENESS_OUTPUT_DIR)/liveness_profdata.json";
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PRESERVE_NONE_FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
 	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
@@ -241,6 +247,27 @@ preserve_none_fdo_clang:
 	touch $@ && \
 	$(call log,✅ STEP 5G: preserve_none_fdo_clang built successfully.)
 
+preserve_none_thinly_linked_fdo_clang:
+	@$(call log,STEP 5H: Building preserve_none_thinly_linked_fdo_clang)
+	@set -e; \
+	# Define the path to the JSON profile locally for this target.
+	PRESERVE_NONE_PROFILE="$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)/liveness_profdata.json";
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=Release \
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_ENABLE_LTO=Thin \
+	  -D LLVM_USE_LINKER=lld \
+	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}"
+	@ninja -j "$(JOBS)" -C "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)" && \
+	touch $@ && \
+	$(call log,✅ STEP 5H: preserve_none_thinly_linked_fdo_clang built successfully.)
+
 fdo_liveness_analysis: fdo_clang
 	@$(call log,Collecting Liveness Data using fdo_clang)
 	@mkdir -p "$(FDO_LIVENESS_OUTPUT_DIR)"
@@ -253,10 +280,63 @@ fdo_liveness_analysis: fdo_clang
 		-D LLVM_ENABLE_PROJECTS=lld \
 		-D LLVM_TARGETS_TO_BUILD=X86 \
 		-D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+		-D CMAKE_C_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR)" \
 		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR)"
 	@ninja -j "$(JOBS)" -C "$$TEMP_LLD_BUILD_DIR" lld
 	@rm -rf "$$TEMP_LLD_BUILD_DIR"
 	@$(call log,✅ Liveness Data collected in $(FDO_LIVENESS_OUTPUT_DIR))
+
+thinly_linked_fdo_liveness_analysis: thinly_linked_fdo_clang
+	@$(call log,Collecting Liveness Data using thinly_linked_fdo_clang)
+	@mkdir -p "$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
+	@TEMP_LLD_BUILD_DIR="$(DEV_DIR)/temp_lld_for_liveness_analysis"
+	@rm -rf "$$TEMP_LLD_BUILD_DIR"
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_LLD_BUILD_DIR" \
+		-D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D LLVM_ENABLE_PROJECTS=lld \
+		-D LLVM_TARGETS_TO_BUILD=X86 \
+		-D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+		-D LLVM_ENABLE_LTO=Thin \
+	  	-D LLVM_USE_LINKER=lld \
+		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
+	    -D CMAKE_SHARED_LINKER_FLAGS=-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
+	    -D CMAKE_MODULE_LINKER_FLAGS=-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
+		-D CMAKE_C_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
+		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
+	@ninja -j "$(JOBS)" -C "$$TEMP_LLD_BUILD_DIR" lld
+	@rm -rf "$$TEMP_LLD_BUILD_DIR"
+	@$(call log,✅ Liveness Data collected in $(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR))\
+
+rebuild_preserve_none_fdo_clang:
+	# Rebuild LLVM source build
+	@ninja -j "$(JOBS)" -C "$(LLVM_SRC_DIR)/build"
+	# Rebuild bootstrapped_clang
+	@rm "$(BOOTSTRAPPED_SENTINEL)"
+	@$(MAKE) bootstrapped_clang
+	# Rebuild preserve_none_fdo_clang
+	@rm -rf "$(PRESERVE_NONE_FDO_DIR)"
+	@rm "$(PRESERVE_NONE_FDO_SENTINEL)"
+	@rm "preserve_none_fdo_clang"
+	@$(MAKE) preserve_none_fdo_clang
+
+rebuild_preserve_none_thinly_linked_fdo_clang:
+	# Rebuild LLVM source build
+	@ninja -j "$(JOBS)" -C "$(LLVM_SRC_DIR)/build"
+	# Rebuild bootstrapped_clang
+	@rm "$(BOOTSTRAPPED_SENTINEL)"
+	@$(MAKE) bootstrapped_clang
+	# Rebuild preserve_none_thinly_linked_fdo_clang
+	@rm -rf "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)"
+	@rm "$(PRESERVE_NONE_THINLY_LINKED_FDO_SENTINEL)"
+	@rm "preserve_none_thinly_linked_fdo_clang"
+	@$(MAKE) preserve_none_thinly_linked_fdo_clang
+
+check_linkage_stats:
+	# Make sure to decomment the relevant lines in PreserveNonePass.cpp to enable linkage stats collection.
+	@rm "$(DEV_DIR)/metrics/preserve_none_linkage_stats.json" || true
+	@python3 "../metrics/linkage_stats.py" "$(DEV_DIR)/metrics/preserve_none_linkage_stats.json" > "$(DEV_DIR)/metrics/preserve_none_linkage_stats.txt"
 
 # Usage: make benchmark COMPILER=<compiler_name> [BENCHMARK_RUNS=N]
 benchmark:
@@ -285,7 +365,7 @@ benchmark:
 	\
 	$(call log,Starting benchmark for '$(COMPILER)'); \
 	\
-	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-10}; \
+	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-30}; \
 	TEMP_BUILD_DIR="$(DEV_DIR)/temp_benchmark_build_$(COMPILER)"; \
 	METRICS_CSV="$(METRICS_DIR)/$(COMPILER)_metrics.csv"; \
 	\
@@ -341,7 +421,6 @@ data:
 	$(call log,Running Baseline Benchmark Suite)
 	$(MAKE) benchmark COMPILER=bootstrapped_clang
 	$(MAKE) benchmark COMPILER=fdo_clang
-	$(MAKE) benchmark COMPILER=preserve_none_fdo_clang
 
 ipra_data:
 	$(call log,Running IPRA Benchmark Suite)
@@ -351,6 +430,12 @@ ipra_data:
 linked_data:
 	$(call log,Running LTO Benchmark Suite)
 	$(MAKE) benchmark COMPILER=thinly_linked_fdo_clang
+
+preserve_none_pairs:
+	$(call log,Running PreserveNone Benchmark Suite)
+	$(MAKE) benchmark COMPILER=preserve_none_fdo_clang
+	$(MAKE) benchmark COMPILER=preserve_none_thinly_linked_fdo_clang
+
 
 # Target to clean up all build artifacts and metrics
 clean:

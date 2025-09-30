@@ -1,0 +1,41 @@
+IPRA: Function: _ZN4llvm18report_fatal_errorEPKcb[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorEPKcb[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorEPKcb[] Calls: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: _ZN4llvm11raw_ostreamD2Ev[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $rbp $r13
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: write[] IsTailCall: 0 CallSiteLoc: 1.6 LivingCSRegs: $rbx $rbp $r13 $r15
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 0 CallSiteLoc: 1.11 LivingCSRegs: $rbx $rbp $r13 $r15
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: _ZNK4llvm5Twine5printERNS_11raw_ostreamE[] IsTailCall: 0 CallSiteLoc: 1.14 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 0 CallSiteLoc: 1.18 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: pthread_mutex_unlock[] IsTailCall: 0 CallSiteLoc: 1.38 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: free[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: _ZN4llvm3sys20RunInterruptHandlersEv[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: abort[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] Calls: exit[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] Calls: abort[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] Calls: write[] IsTailCall: 0 CallSiteLoc: 1.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] Calls: write[] IsTailCall: 0 CallSiteLoc: 1.6 LivingCSRegs: 
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 1.10 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] Calls: write[] IsTailCall: 0 CallSiteLoc: 1.12 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] Calls: pthread_mutex_unlock[] IsTailCall: 0 CallSiteLoc: 1.16 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm22report_bad_alloc_errorEPKcb[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm33install_out_of_memory_new_handlerEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm33install_out_of_memory_new_handlerEv[] MBB: 0 IsMBBHot: 0 MBBCount: 1748
+IPRA: Function: _ZN4llvm33install_out_of_memory_new_handlerEv[] Calls: _ZSt15set_new_handlerPFvvE[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZL25out_of_memory_new_handlerv.llvm.10039595038774060627[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZL25out_of_memory_new_handlerv.llvm.10039595038774060627[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL25out_of_memory_new_handlerv.llvm.10039595038774060627[] Calls: _ZN4llvm22report_bad_alloc_errorEPKcb[] IsTailCall: 0 CallSiteLoc: 0.1 LivingCSRegs: 

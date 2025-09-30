@@ -1,0 +1,33 @@
+IPRA: Function: _ZN4llvm8codeview17LocallyHashedType8hashTypeENS_8ArrayRefIhEE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview17LocallyHashedType8hashTypeENS_8ArrayRefIhEE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview17LocallyHashedType8hashTypeENS_8ArrayRefIhEE[] Calls: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] IsTailCall: 0 CallSiteLoc: 0.12 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] Calls: llvm_blake3_hasher_update[] IsTailCall: 0 CallSiteLoc: 0.7 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] Calls: llvm_blake3_hasher_init[] IsTailCall: 0 CallSiteLoc: 0.13 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] Calls: llvm_blake3_hasher_init[] IsTailCall: 0 CallSiteLoc: 0.15 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] Calls: _ZN4llvm8codeview19discoverTypeIndicesENS_8ArrayRefIhEERNS_15SmallVectorImplINS0_11TiReferenceEEE[] IsTailCall: 0 CallSiteLoc: 0.18 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] Calls: llvm_blake3_hasher_update[] IsTailCall: 0 CallSiteLoc: 2.10 LivingCSRegs: $r12 $r15
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] Calls: llvm_blake3_hasher_update[] IsTailCall: 0 CallSiteLoc: 5.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] Calls: free[] IsTailCall: 0 CallSiteLoc: 14.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] Calls: llvm_blake3_hasher_finalize[] IsTailCall: 0 CallSiteLoc: 17.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm8codeview18GloballyHashedType8hashTypeENS_8ArrayRefIhEENS2_IS1_EES4_[] Calls: llvm_blake3_hasher_update[] IsTailCall: 0 CallSiteLoc: 17.8 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] Calls: _ZN4llvm7hashing6detail10hash_shortEPKcmm[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] Calls: _ZN4llvm7hashing6detail10hash_state3mixEPKc[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] Calls: _ZN4llvm7hashing6detail10hash_state3mixEPKc[] IsTailCall: 0 CallSiteLoc: 4.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] Calls: _ZN4llvm7hashing6detail10hash_state3mixEPKc[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7hashing6detail23hash_combine_range_implIKhEENSt9enable_ifIXsr16is_hashable_dataIT_EE5valueENS_9hash_codeEE4typeEPS5_S9_[] Calls: _ZN4llvm7hashing6detail10hash_state8finalizeEm[] IsTailCall: 0 CallSiteLoc: 7.14 LivingCSRegs: 
+IPRA: Function: _ZN4llvm7hashing6detail10hash_shortEPKcmm[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 1 EntryCount: 3944284698
+IPRA: Function: _ZN4llvm7hashing6detail10hash_state3mixEPKc[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 1 EntryCount: 189475814
+IPRA: Function: _ZN4llvm7hashing6detail10hash_state8finalizeEm[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 1 EntryCount: 87329250
+IPRA: Function: _GLOBAL__sub_I_TypeHashing.cpp[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0

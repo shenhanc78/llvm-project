@@ -1,0 +1,42 @@
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilderC2ERNS_3msf10MSFBuilderERNS0_14NamedStreamMapE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10setVersionENS0_14PdbRaw_ImplVerE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 3.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder10addFeatureENS0_17PdbRaw_FeatureSigE[] Calls: _ZSt20__throw_length_errorPKc[] IsTailCall: 0 CallSiteLoc: 9.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder24setHashPDBContentsToGUIDEb[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder6setAgeEj[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder12setSignatureEj[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder7setGuidENS_8codeview4GUIDE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder17finalizeMsfLayoutEv[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder17finalizeMsfLayoutEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder17finalizeMsfLayoutEv[] Calls: _ZN4llvm3msf10MSFBuilder13setStreamSizeEjj[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3pdb17InfoStreamBuilder17finalizeMsfLayoutEv[] Calls: _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE25calculateSerializedLengthEv[] IsTailCall: 0 CallSiteLoc: 0.20 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZN4llvm3msf25WritableMappedBlockStream19createIndexedStreamERKNS0_9MSFLayoutENS_23WritableBinaryStreamRefEjRNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE[] IsTailCall: 0 CallSiteLoc: 6.4 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE[] IsTailCall: 0 CallSiteLoc: 9.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZN4llvm23WritableBinaryStreamRefC1ERNS_20WritableBinaryStreamE[] IsTailCall: 0 CallSiteLoc: 9.16 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZNK4llvm3pdb14NamedStreamMap6commitERNS_18BinaryStreamWriterE[] IsTailCall: 0 CallSiteLoc: 10.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE[] IsTailCall: 0 CallSiteLoc: 11.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZNK4llvm23WritableBinaryStreamRef10writeBytesEmNS_8ArrayRefIhEE[] IsTailCall: 0 CallSiteLoc: 14.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZN4llvm17TimeTraceProfiler3endERNS_22TimeTraceProfilerEntryE[] IsTailCall: 0 CallSiteLoc: 26.2 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 30 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] IsTailCall: 0 CallSiteLoc: 30.2 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 34 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] IsTailCall: 0 CallSiteLoc: 34.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 35 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZN4llvm17TimeTraceProfiler5beginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_12function_refIFS6_vEEENS_18TimeTraceEventTypeE[] IsTailCall: 0 CallSiteLoc: 35.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] IsTailCall: 0 CallSiteLoc: 35.14 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] MBB: 36 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3pdb17InfoStreamBuilder6commitERKNS_3msf9MSFLayoutENS_23WritableBinaryStreamRefE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 36.1 LivingCSRegs: $rbx $rbp $r12 $r13

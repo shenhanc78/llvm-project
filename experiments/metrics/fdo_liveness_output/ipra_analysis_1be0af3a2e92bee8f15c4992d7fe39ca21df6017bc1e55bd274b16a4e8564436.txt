@@ -1,0 +1,325 @@
+IPRA: Function: _ZN4llvm17FileCollectorBaseC2Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17FileCollectorBaseD2Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17FileCollectorBaseD2Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17FileCollectorBaseD2Ev[] Calls: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 128919
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev[] Calls: free[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev[] MBB: 6 IsMBBHot: 0 MBBCount: 345054
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev[] Calls: _ZN4llvm17deallocate_bufferEPvmm[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm17FileCollectorBaseD0Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] Calls: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] Calls: _ZN4llvm13StringMapImpl4hashENS_9StringRefE[] IsTailCall: 0 CallSiteLoc: 2.8 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] Calls: pthread_mutex_unlock[] IsTailCall: 0 CallSiteLoc: 6.14 LivingCSRegs: 
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm17FileCollectorBase12addDirectoryERKNS_5TwineE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase12addDirectoryERKNS_5TwineE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm17FileCollectorBase12addDirectoryERKNS_5TwineE[] Calls: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $r12
+IPRA: Function: _ZN4llvm17FileCollectorBase12addDirectoryERKNS_5TwineE[] Calls: _ZN4llvm3vfs17getRealFileSystemEv[] IsTailCall: 0 CallSiteLoc: 0.13 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm17FileCollectorBase12addDirectoryERKNS_5TwineE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 0.17 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollectorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollectorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag[] IsTailCall: 0 CallSiteLoc: 0.22 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollectorC2ENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag[] IsTailCall: 0 CallSiteLoc: 0.29 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZNK4llvm13StringMapImpl7FindKeyENS_9StringRefEj[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm13StringMapImpl4hashENS_9StringRefE[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE[] IsTailCall: 0 CallSiteLoc: 0.17 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm3sys4path8filenameENS_9StringRefENS1_5StyleE[] IsTailCall: 0 CallSiteLoc: 0.23 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm3sys2fs9real_pathERKNS_5TwineERNS_15SmallVectorImplIcEEb[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] IsTailCall: 0 CallSiteLoc: 7.2 LivingCSRegs: $r14
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_[] IsTailCall: 0 CallSiteLoc: 7.5 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_[] IsTailCall: 0 CallSiteLoc: 9.5 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] IsTailCall: 0 CallSiteLoc: 9.10 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm13StringMapImpl4hashENS_9StringRefE[] IsTailCall: 0 CallSiteLoc: 9.15 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] IsTailCall: 0 CallSiteLoc: 9.18 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 10.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] Calls: _ZSt19__throw_logic_errorPKc[] IsTailCall: 0 CallSiteLoc: 11.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] MBB: 11 IsMBBHot: 0 MBBCount: 4
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 17.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 18.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE4swapERS1_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 20.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] Calls: _ZN4llvm3sys4path23remove_leading_dotslashENS_9StringRefENS1_5StyleE[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] Calls: _ZN4llvm3sys4path6nativeERNS_15SmallVectorImplIcEENS1_5StyleE[] IsTailCall: 0 CallSiteLoc: 0.11 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] Calls: _ZN4llvm3sys2fs13make_absoluteERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 0.14 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] Calls: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] IsTailCall: 0 CallSiteLoc: 0.16 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] Calls: _ZN4llvm3sys4path11remove_dotsERNS_15SmallVectorImplIcEEbNS1_5StyleE[] IsTailCall: 0 CallSiteLoc: 2.13 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] Calls: _ZN4llvm13FileCollector17PathCanonicalizer18updateWithRealPathERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 2.17 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] Calls: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] IsTailCall: 0 CallSiteLoc: 2.20 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] Calls: _ZN4llvm13FileCollector16addFileToMappingENS_9StringRefES1_[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $r12 $r15
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] Calls: _ZN4llvm3sys4path6appendERNS_15SmallVectorImplIcEERKNS_5TwineES7_S7_S7_[] IsTailCall: 0 CallSiteLoc: 0.10 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] Calls: _ZN4llvm3sys4path13relative_pathENS_9StringRefENS1_5StyleE[] IsTailCall: 0 CallSiteLoc: 0.23 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] Calls: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] IsTailCall: 0 CallSiteLoc: 0.27 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] Calls: _ZN4llvm13FileCollector17PathCanonicalizer12canonicalizeENS_9StringRefE[] IsTailCall: 0 CallSiteLoc: 0.37 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector11addFileImplENS_9StringRefE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13FileCollector16addFileToMappingENS_9StringRefES1_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollector16addFileToMappingENS_9StringRefES1_[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector16addFileToMappingENS_9StringRefES1_[] Calls: _ZN4llvm3sys2fs12is_directoryERKNS_5TwineERb[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector16addFileToMappingENS_9StringRefES1_[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector16addFileToMappingENS_9StringRefES1_[] Calls: _ZN4llvm3vfs13YAMLVFSWriter19addDirectoryMappingENS_9StringRefES2_[] IsTailCall: 0 CallSiteLoc: 2.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13FileCollector16addFileToMappingENS_9StringRefES1_[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector16addFileToMappingENS_9StringRefES1_[] Calls: _ZN4llvm3vfs13YAMLVFSWriter14addFileMappingENS_9StringRefES2_[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] Calls: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] IsTailCall: 0 CallSiteLoc: 2.17 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] Calls: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] Calls: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] Calls: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] Calls: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] IsTailCall: 0 CallSiteLoc: 9.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector16addDirectoryImplERKNS_5TwineENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEERSt10error_code[] Calls: _ZNK4llvm3vfs18directory_iteratoreqERKS1_[] IsTailCall: 0 CallSiteLoc: 9.6 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbp $r14
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbp $r14
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE[] IsTailCall: 0 CallSiteLoc: 9.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys4path11parent_pathENS_9StringRefENS1_5StyleE[] IsTailCall: 0 CallSiteLoc: 9.12 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys2fs18create_directoriesERKNS_5TwineEbNS1_5permsE[] IsTailCall: 0 CallSiteLoc: 11.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys2fs9copy_fileERKNS_5TwineES4_[] IsTailCall: 0 CallSiteLoc: 12.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys2fs14getPermissionsERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 13.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys2fs14setPermissionsERKNS_5TwineENS1_5permsE[] IsTailCall: 0 CallSiteLoc: 14.5 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys2fs8openFileERKNS_5TwineERiNS1_19CreationDispositionENS1_10FileAccessENS1_9OpenFlagsEj[] IsTailCall: 0 CallSiteLoc: 15.3 LivingCSRegs: $rbx $rbp $r13 $r14
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys2fs32setLastAccessAndModificationTimeEiNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEESA_[] IsTailCall: 0 CallSiteLoc: 17.3 LivingCSRegs: $rbx $rbp $r13 $r14
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZNK4llvm3sys2fs17basic_file_status23getLastModificationTimeEv[] IsTailCall: 0 CallSiteLoc: 17.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZNK4llvm3sys2fs17basic_file_status19getLastAccessedTimeEv[] IsTailCall: 0 CallSiteLoc: 17.10 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi[] IsTailCall: 0 CallSiteLoc: 18.2 LivingCSRegs: $rbx $rbp $r13 $r14
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 19.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: pthread_mutex_unlock[] IsTailCall: 0 CallSiteLoc: 20.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector9copyFilesEb[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 22.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZN4llvm3sys2fs9real_pathERKNS_5TwineERNS_15SmallVectorImplIcEEb[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] IsTailCall: 0 CallSiteLoc: 1.20 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE[] IsTailCall: 0 CallSiteLoc: 1.35 LivingCSRegs: $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbp $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbp $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: $rbp $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE[] IsTailCall: 0 CallSiteLoc: 8.4 LivingCSRegs: $r13 $r15
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 8.12 LivingCSRegs: $r15
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: pthread_mutex_unlock[] IsTailCall: 0 CallSiteLoc: 10.18 LivingCSRegs: $rbp $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZN4llvm14raw_fd_ostreamD1Ev[] IsTailCall: 0 CallSiteLoc: 10.20 LivingCSRegs: $rbp $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] IsTailCall: 0 CallSiteLoc: 11.5 LivingCSRegs: $rbx $rbp $r13 $r15
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZNK4llvm9StringRef5upperB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 11.11 LivingCSRegs: $rbx $rbp $r13 $r15
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 12.1 LivingCSRegs: $rbx $rbp $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZN4llvm3sys2fs9real_pathERKNS_5TwineERNS_15SmallVectorImplIcEEb[] IsTailCall: 0 CallSiteLoc: 13.3 LivingCSRegs: $rbx $rbp $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: bcmp[] IsTailCall: 0 CallSiteLoc: 16.3 LivingCSRegs: $rbx $rbp $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZN4llvm3vfs13YAMLVFSWriter5writeERNS_11raw_ostreamE[] IsTailCall: 0 CallSiteLoc: 18.2 LivingCSRegs: $rbp $r13
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector12writeMappingENS_9StringRefE[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 19.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] IsTailCall: 0 CallSiteLoc: 1.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_[] IsTailCall: 0 CallSiteLoc: 2.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3vfs13YAMLVFSWriter13setOverlayDirENS_9StringRefE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm13FileCollector18createCollectorVFSENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEESt10shared_ptrIS0_E[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollector18createCollectorVFSENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEESt10shared_ptrIS0_E[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollector18createCollectorVFSENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEESt10shared_ptrIS0_E[] Calls: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] IsTailCall: 0 CallSiteLoc: 0.11 LivingCSRegs: $r15
+IPRA: Function: _ZN4llvm13FileCollector18createCollectorVFSENS_18IntrusiveRefCntPtrINS_3vfs10FileSystemEEESt10shared_ptrIS0_E[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.29 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] Calls: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEED2Ev[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] Calls: _ZNSt6vectorIN4llvm3vfs12YAMLVFSEntryESaIS2_EED2Ev[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD2Ev[] Calls: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev[] IsTailCall: 1 CallSiteLoc: 6.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] Calls: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEED2Ev[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] Calls: _ZNSt6vectorIN4llvm3vfs12YAMLVFSEntryESaIS2_EED2Ev[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 6.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm13FileCollectorD0Ev[] Calls: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEED2Ev[] IsTailCall: 0 CallSiteLoc: 6.10 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 1 EntryCount: 3497241
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] MBB: 0 IsMBBHot: 1 MBBCount: 3497241
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] Calls: _ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] MBB: 8 IsMBBHot: 1 MBBCount: 1001110
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 8.4 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] MBB: 9 IsMBBHot: 1 MBBCount: 1001110
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 9.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] MBB: 10 IsMBBHot: 1 MBBCount: 1001110
+IPRA: Function: _ZN4llvm9StringMapISt9nullopt_tNS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS1_EEbENS_9StringRefEjDpOT_[] Calls: _ZN4llvm13StringMapImpl11RehashTableEj[] IsTailCall: 0 CallSiteLoc: 10.4 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] Calls: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] IsTailCall: 1 CallSiteLoc: 7.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] MBB: 6 IsMBBHot: 0 MBBCount: 6562
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 14.4 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm3vfs18directory_iteratoreqERKS1_[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm3vfs18directory_iteratoreqERKS1_[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3vfs18directory_iteratoreqERKS1_[] Calls: bcmp[] IsTailCall: 0 CallSiteLoc: 4.6 LivingCSRegs: 
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 1 EntryCount: 141641527
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] MBB: 3 IsMBBHot: 1 MBBCount: 109165425
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] MBB: 5 IsMBBHot: 1 MBBCount: 49490098
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 5.10 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD2Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD2Ev[] Calls: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD2Ev[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD2Ev[] Calls: _ZN4llvm3vfs10FileSystemD2Ev[] IsTailCall: 1 CallSiteLoc: 3.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD0Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD0Ev[] Calls: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD0Ev[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 3.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm23FileCollectorFileSystemD0Ev[] Calls: _ZN4llvm3vfs10FileSystemD2Ev[] IsTailCall: 0 CallSiteLoc: 3.6 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm11RTTIExtendsINS_3vfs10FileSystemENS_8RTTIRootEJEE14dynamicClassIDEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11RTTIExtendsINS_3vfs10FileSystemENS_8RTTIRootEJEE3isAEPKv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem6statusERKNS_5TwineE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem6statusERKNS_5TwineE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem6statusERKNS_5TwineE[] Calls: _ZNK4llvm3vfs6Status6existsEv[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem6statusERKNS_5TwineE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem6statusERKNS_5TwineE[] Calls: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 3.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem15openFileForReadERKNS_5TwineE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem15openFileForReadERKNS_5TwineE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem15openFileForReadERKNS_5TwineE[] Calls: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 3.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3vfs10FileSystem21openFileForReadBinaryERKNS_5TwineE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem9dir_beginERKNS_5TwineERSt10error_code[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem26setCurrentWorkingDirectoryERKNS_5TwineE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm23FileCollectorFileSystem26getCurrentWorkingDirectoryB5cxx11Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem11getRealPathERKNS_5TwineERNS_15SmallVectorImplIcEE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem11getRealPathERKNS_5TwineERNS_15SmallVectorImplIcEE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem11getRealPathERKNS_5TwineERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem11getRealPathERKNS_5TwineERNS_15SmallVectorImplIcEE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem11getRealPathERKNS_5TwineERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm17FileCollectorBase7addFileERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $rbp $r15
+IPRA: Function: _ZN4llvm23FileCollectorFileSystem7isLocalERKNS_5TwineERb[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3vfs10FileSystem21visitChildFileSystemsENS_12function_refIFvRS1_EEE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm3vfs10FileSystem9printImplERNS_11raw_ostreamENS1_9PrintTypeEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm3vfs10FileSystem9printImplERNS_11raw_ostreamENS1_9PrintTypeEj[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3vfs10FileSystem9printImplERNS_11raw_ostreamENS1_9PrintTypeEj[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK4llvm3vfs10FileSystem9printImplERNS_11raw_ostreamENS1_9PrintTypeEj[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3vfs10FileSystem9printImplERNS_11raw_ostreamENS1_9PrintTypeEj[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 1 CallSiteLoc: 3.1 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm11raw_ostreamlsEPKc[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 1 EntryCount: 145670938
+IPRA: Function: _ZN4llvm11raw_ostreamlsEPKc[] MBB: 1 IsMBBHot: 1 MBBCount: 145670938
+IPRA: Function: _ZN4llvm11raw_ostreamlsEPKc[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 1.6 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm11raw_ostreamlsEPKc[] MBB: 2 IsMBBHot: 1 MBBCount: 142795803
+IPRA: Function: _ZN4llvm11raw_ostreamlsEPKc[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm11raw_ostreamlsEPKc[] MBB: 12 IsMBBHot: 0 MBBCount: 25442
+IPRA: Function: _ZN4llvm11raw_ostreamlsEPKc[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEED2Ev[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEED2Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 1622
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEED2Ev[] Calls: free[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEED2Ev[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEED2Ev[] Calls: _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyINS_15MallocAllocatorEEEvRT_[] IsTailCall: 0 CallSiteLoc: 7.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyINS_15MallocAllocatorEEEvRT_[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyINS_15MallocAllocatorEEEvRT_[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyINS_15MallocAllocatorEEEvRT_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 1.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyINS_15MallocAllocatorEEEvRT_[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm14StringMapEntryINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE7DestroyINS_15MallocAllocatorEEEvRT_[] Calls: _ZN4llvm17deallocate_bufferEPvmm[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNSt6vectorIN4llvm3vfs12YAMLVFSEntryESaIS2_EED2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt6vectorIN4llvm3vfs12YAMLVFSEntryESaIS2_EED2Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt6vectorIN4llvm3vfs12YAMLVFSEntryESaIS2_EED2Ev[] Calls: _ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm3vfs12YAMLVFSEntryEEEvT_S6_[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt6vectorIN4llvm3vfs12YAMLVFSEntryESaIS2_EED2Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt6vectorIN4llvm3vfs12YAMLVFSEntryESaIS2_EED2Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm3vfs12YAMLVFSEntryEEEvT_S6_[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm3vfs12YAMLVFSEntryEEEvT_S6_[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm3vfs12YAMLVFSEntryEEEvT_S6_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm3vfs12YAMLVFSEntryEEEvT_S6_[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt12_Destroy_auxILb0EE9__destroyIPN4llvm3vfs12YAMLVFSEntryEEEvT_S6_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 1 EntryCount: 121776987
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag[] MBB: 3 IsMBBHot: 1 MBBCount: 57323202
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag[] MBB: 5 IsMBBHot: 1 MBBCount: 28563810
+IPRA: Function: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPcEEvT_S7_St20forward_iterator_tag[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 5.10 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 1 EntryCount: 974639645
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] MBB: 5 IsMBBHot: 1 MBBCount: 436952721
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 5.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] MBB: 8 IsMBBHot: 0 MBBCount: 28692
+IPRA: Function: _ZN4llvm15SmallVectorImplIcE6appendIPKcvEEvT_S5_[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 8.4 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] Calls: _ZN4llvm13StringMapImpl15LookupBucketForENS_9StringRefEj[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $r12 $r14 $r15
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 7.4 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm9StringMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15MallocAllocatorEE21try_emplace_with_hashIJEEESt4pairINS_17StringMapIteratorIS6_EEbENS_9StringRefEjDpOT_[] Calls: _ZN4llvm13StringMapImpl11RehashTableEj[] IsTailCall: 0 CallSiteLoc: 9.4 LivingCSRegs: $r14

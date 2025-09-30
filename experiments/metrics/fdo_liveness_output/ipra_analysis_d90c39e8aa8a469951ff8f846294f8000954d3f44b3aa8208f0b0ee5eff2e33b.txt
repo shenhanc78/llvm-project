@@ -1,0 +1,237 @@
+IPRA: Function: LLVMGetFirstTarget[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetFirstTarget[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetFirstTarget[] Calls: _ZN4llvm14TargetRegistry7targetsEv[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetFirstTarget[] Calls: _ZN4llvm14TargetRegistry7targetsEv[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: 
+IPRA: Function: LLVMGetFirstTarget[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetFirstTarget[] Calls: _ZN4llvm14TargetRegistry7targetsEv[] IsTailCall: 0 CallSiteLoc: 1.2 LivingCSRegs: 
+IPRA: Function: LLVMGetNextTarget[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetTargetFromName[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetTargetFromName[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetFromName[] Calls: _ZN4llvm14TargetRegistry7targetsEv[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $r12 $r15
+IPRA: Function: LLVMGetTargetFromName[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 1.6 LivingCSRegs: $r15
+IPRA: Function: LLVMGetTargetFromName[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetFromName[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: LLVMGetTargetFromName[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetFromName[] Calls: bcmp[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: LLVMGetTargetFromName[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetFromName[] Calls: _ZN4llvm14TargetRegistry7targetsEv[] IsTailCall: 0 CallSiteLoc: 7.4 LivingCSRegs: 
+IPRA: Function: LLVMGetTargetFromName[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetFromName[] Calls: _ZN4llvm14TargetRegistry7targetsEv[] IsTailCall: 0 CallSiteLoc: 12.15 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetTargetFromTriple[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetTargetFromTriple[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetFromTriple[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: LLVMGetTargetFromTriple[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetFromTriple[] Calls: _ZN4llvm14TargetRegistry12lookupTargetENS_9StringRefERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: LLVMGetTargetFromTriple[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetFromTriple[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: LLVMGetTargetFromTriple[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetFromTriple[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbp
+IPRA: Function: LLVMGetTargetName[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetTargetDescription[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetHasJIT[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetHasTargetMachine[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetHasAsmBackend[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMCreateTargetMachineOptions[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMCreateTargetMachineOptions[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachineOptions[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.24 LivingCSRegs: 
+IPRA: Function: LLVMDisposeTargetMachineOptions[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: LLVMDisposeTargetMachineOptions[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMDisposeTargetMachineOptions[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMDisposeTargetMachineOptions[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMDisposeTargetMachineOptions[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMDisposeTargetMachineOptions[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMDisposeTargetMachineOptions[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMDisposeTargetMachineOptions[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMDisposeTargetMachineOptions[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 7.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMTargetMachineOptionsSetCPU[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetMachineOptionsSetCPU[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineOptionsSetCPU[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMTargetMachineOptionsSetCPU[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 0.13 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMTargetMachineOptionsSetFeatures[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetMachineOptionsSetFeatures[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineOptionsSetFeatures[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMTargetMachineOptionsSetFeatures[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 0.13 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMTargetMachineOptionsSetABI[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetMachineOptionsSetABI[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineOptionsSetABI[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMTargetMachineOptionsSetABI[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 0.13 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMTargetMachineOptionsSetCodeGenOptLevel[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetMachineOptionsSetRelocMode[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetMachineOptionsSetCodeModel[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] Calls: _ZN4llvm15MCTargetOptionsC1Ev[] IsTailCall: 0 CallSiteLoc: 0.10 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 1.2 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] Calls: _ZN4llvm6TripleC1ERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 3.19 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] Calls: _ZN4llvm15MCTargetOptionsD2Ev[] IsTailCall: 0 CallSiteLoc: 7.5 LivingCSRegs: $rbx
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachineWithOptions[] Calls: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] IsTailCall: 0 CallSiteLoc: 16.2 LivingCSRegs: $rbx
+IPRA: Function: LLVMCreateTargetMachine[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: LLVMCreateTargetMachine[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachine[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm[] IsTailCall: 0 CallSiteLoc: 0.20 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: LLVMCreateTargetMachine[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 0.27 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: LLVMCreateTargetMachine[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm[] IsTailCall: 0 CallSiteLoc: 0.30 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: LLVMCreateTargetMachine[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 0.36 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: LLVMCreateTargetMachine[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.63 LivingCSRegs: $rbp $r12 $r15
+IPRA: Function: LLVMCreateTargetMachine[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachine[] Calls: LLVMCreateTargetMachineWithOptions[] IsTailCall: 0 CallSiteLoc: 9.6 LivingCSRegs: $rbx
+IPRA: Function: LLVMCreateTargetMachine[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachine[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 10.1 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMCreateTargetMachine[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachine[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 12.1 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMCreateTargetMachine[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachine[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 14.1 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMCreateTargetMachine[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetMachine[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 15.17 LivingCSRegs: $r14
+IPRA: Function: LLVMDisposeTargetMachine[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetTargetMachineTarget[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetTargetMachineTriple[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetTargetMachineTriple[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineTriple[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: LLVMGetTargetMachineTriple[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineTriple[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: $r13
+IPRA: Function: LLVMGetTargetMachineTriple[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineTriple[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $r13
+IPRA: Function: LLVMGetTargetMachineTriple[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineTriple[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetTargetMachineCPU[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetTargetMachineCPU[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineCPU[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: LLVMGetTargetMachineCPU[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineCPU[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $r13
+IPRA: Function: LLVMGetTargetMachineCPU[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineCPU[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 6.3 LivingCSRegs: $rbx $r13
+IPRA: Function: LLVMGetTargetMachineCPU[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineCPU[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 7.2 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetTargetMachineCPU[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineCPU[] Calls: _ZSt19__throw_logic_errorPKc[] IsTailCall: 0 CallSiteLoc: 10.1 LivingCSRegs: 
+IPRA: Function: LLVMGetTargetMachineFeatureString[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetTargetMachineFeatureString[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineFeatureString[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: LLVMGetTargetMachineFeatureString[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineFeatureString[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $r13
+IPRA: Function: LLVMGetTargetMachineFeatureString[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineFeatureString[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 6.3 LivingCSRegs: $rbx $r13
+IPRA: Function: LLVMGetTargetMachineFeatureString[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineFeatureString[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 7.2 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetTargetMachineFeatureString[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetTargetMachineFeatureString[] Calls: _ZSt19__throw_logic_errorPKc[] IsTailCall: 0 CallSiteLoc: 10.1 LivingCSRegs: 
+IPRA: Function: LLVMSetTargetMachineAsmVerbosity[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMSetTargetMachineFastISel[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMSetTargetMachineGlobalISel[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMSetTargetMachineGlobalISelAbort[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMSetTargetMachineMachineOutliner[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMCreateTargetDataLayout[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: LLVMCreateTargetDataLayout[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMCreateTargetDataLayout[] Calls: _ZN4llvm10DataLayoutaSERKS0_[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $r14
+IPRA: Function: LLVMCreateTargetDataLayout[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.47 LivingCSRegs: $rbx
+IPRA: Function: LLVMTargetMachineEmitToFile[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetMachineEmitToFile[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToFile[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: LLVMTargetMachineEmitToFile[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToFile[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: LLVMTargetMachineEmitToFile[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToFile[] Calls: _ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: LLVMTargetMachineEmitToFile[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToFile[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 4.5 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMTargetMachineEmitToFile[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToFile[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: 
+IPRA: Function: LLVMTargetMachineEmitToFile[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToFile[] Calls: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] IsTailCall: 0 CallSiteLoc: 7.5 LivingCSRegs: $r12
+IPRA: Function: LLVMTargetMachineEmitToFile[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToFile[] Calls: _ZN4llvm11raw_ostream14flush_nonemptyEv[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMTargetMachineEmitToFile[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToFile[] Calls: _ZN4llvm14raw_fd_ostreamD1Ev[] IsTailCall: 0 CallSiteLoc: 9.17 LivingCSRegs: $rbx
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: _ZN4llvm10DataLayoutD1Ev[] IsTailCall: 0 CallSiteLoc: 0.15 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: _ZN4llvm6Module13setDataLayoutERKNS_10DataLayoutE[] IsTailCall: 0 CallSiteLoc: 0.17 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: _ZN4llvm10DataLayoutaSERKS0_[] IsTailCall: 0 CallSiteLoc: 0.20 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: _ZN4llvm6legacy11PassManagerC1Ev[] IsTailCall: 0 CallSiteLoc: 0.61 LivingCSRegs: $rbp $r12 $r14 $r15
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbp
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm[] IsTailCall: 0 CallSiteLoc: 1.6 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: _ZN4llvm6legacy11PassManager3runERNS_6ModuleE[] IsTailCall: 0 CallSiteLoc: 2.4 LivingCSRegs: $r14
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: _ZN4llvm11raw_ostream14flush_nonemptyEv[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: 
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbp
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] Calls: _ZN4llvm6legacy11PassManagerD1Ev[] IsTailCall: 0 CallSiteLoc: 7.17 LivingCSRegs: $rbp
+IPRA: Function: LLVMTargetMachineEmitToMemoryBuffer[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: LLVMTargetMachineEmitToMemoryBuffer[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToMemoryBuffer[] Calls: _ZN4llvm11raw_ostreamD2Ev[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbp
+IPRA: Function: LLVMTargetMachineEmitToMemoryBuffer[] Calls: LLVMCreateMemoryBufferWithMemoryRangeCopy[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: LLVMTargetMachineEmitToMemoryBuffer[] Calls: _ZL21LLVMTargetMachineEmitP23LLVMOpaqueTargetMachineP16LLVMOpaqueModuleRN4llvm17raw_pwrite_streamE19LLVMCodeGenFileTypePPc[] IsTailCall: 0 CallSiteLoc: 0.15 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMTargetMachineEmitToMemoryBuffer[] Calls: _ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE[] IsTailCall: 0 CallSiteLoc: 0.21 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: LLVMTargetMachineEmitToMemoryBuffer[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMTargetMachineEmitToMemoryBuffer[] Calls: free[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbp
+IPRA: Function: LLVMGetDefaultTargetTriple[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetDefaultTargetTriple[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetDefaultTargetTriple[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetDefaultTargetTriple[] Calls: _ZN4llvm3sys22getDefaultTargetTripleB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 0.7 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetDefaultTargetTriple[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetDefaultTargetTriple[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 1.2 LivingCSRegs: $rbx
+IPRA: Function: LLVMNormalizeTargetTriple[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: LLVMNormalizeTargetTriple[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMNormalizeTargetTriple[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx
+IPRA: Function: LLVMNormalizeTargetTriple[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMNormalizeTargetTriple[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $rbx
+IPRA: Function: LLVMNormalizeTargetTriple[] Calls: _ZN4llvm6Triple9normalizeB5cxx11ENS_9StringRefENS0_13CanonicalFormE[] IsTailCall: 0 CallSiteLoc: 3.7 LivingCSRegs: $r14
+IPRA: Function: LLVMNormalizeTargetTriple[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMNormalizeTargetTriple[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 4.2 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetHostCPUName[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetHostCPUName[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetHostCPUName[] Calls: strdup[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: LLVMGetHostCPUName[] Calls: _ZN4llvm3sys14getHostCPUNameEv[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: 
+IPRA: Function: LLVMGetHostCPUFeatures[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: LLVMGetHostCPUFeatures[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: _ZN4llvm3sys18getHostCPUFeaturesEv[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: _ZN4llvm17SubtargetFeaturesC1ENS_9StringRefE[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: 
+IPRA: Function: LLVMGetHostCPUFeatures[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: _ZN4llvm17SubtargetFeatures10AddFeatureENS_9StringRefEb[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMGetHostCPUFeatures[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: strdup[] IsTailCall: 0 CallSiteLoc: 12.5 LivingCSRegs: $r14
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: _ZNK4llvm17SubtargetFeatures9getStringB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 12.8 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: free[] IsTailCall: 0 CallSiteLoc: 12.11 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetHostCPUFeatures[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 13.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetHostCPUFeatures[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 18.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: LLVMGetHostCPUFeatures[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 21.1 LivingCSRegs: $rbx
+IPRA: Function: LLVMGetHostCPUFeatures[] MBB: 27 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMGetHostCPUFeatures[] Calls: _ZN4llvm17deallocate_bufferEPvmm[] IsTailCall: 0 CallSiteLoc: 27.1 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMAddAnalysisPasses[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: LLVMAddAnalysisPasses[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: LLVMAddAnalysisPasses[] Calls: _ZN4llvm36createTargetTransformInfoWrapperPassENS_16TargetIRAnalysisE[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $rbx $r14
+IPRA: Function: LLVMAddAnalysisPasses[] Calls: _ZNK4llvm13TargetMachine19getTargetIRAnalysisEv[] IsTailCall: 0 CallSiteLoc: 0.10 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] MBB: 6 IsMBBHot: 0 MBBCount: 1258
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] MBB: 8 IsMBBHot: 0 MBBCount: 1662
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] MBB: 10 IsMBBHot: 0 MBBCount: 1662
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 10.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] MBB: 16 IsMBBHot: 0 MBBCount: 16
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 16.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 17.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 18.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 19.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15MCTargetOptionsD2Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 20.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0

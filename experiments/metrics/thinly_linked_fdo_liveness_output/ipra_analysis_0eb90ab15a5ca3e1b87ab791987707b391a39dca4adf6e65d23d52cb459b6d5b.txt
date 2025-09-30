@@ -1,0 +1,48 @@
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: mmap[] IsTailCall: 0 CallSiteLoc: 9.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] IsTailCall: 0 CallSiteLoc: 11.10 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] IsTailCall: 0 CallSiteLoc: 14.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 15.3 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 15.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: __cxa_guard_acquire[] IsTailCall: 0 CallSiteLoc: 18.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: _ZN4llvm3sys7Process11getPageSizeEv[] IsTailCall: 0 CallSiteLoc: 19.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: __cxa_guard_release[] IsTailCall: 0 CallSiteLoc: 21.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory20allocateMappedMemoryEmPKNS0_11MemoryBlockEjRSt10error_code[] Calls: _ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_[] IsTailCall: 0 CallSiteLoc: 22.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] Calls: mprotect[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] Calls: __cxa_guard_acquire[] IsTailCall: 0 CallSiteLoc: 10.4 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] Calls: _ZN4llvm3sys7Process11getPageSizeEv[] IsTailCall: 0 CallSiteLoc: 11.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] Calls: __cxa_guard_release[] IsTailCall: 0 CallSiteLoc: 13.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19protectMappedMemoryERKNS0_11MemoryBlockEj[] Calls: _ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_[] IsTailCall: 0 CallSiteLoc: 14.4 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] Calls: munmap[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 3.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: 
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys6Memory19releaseMappedMemoryERNS0_11MemoryBlockE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 7.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3sys6Memory26InvalidateInstructionCacheEPKvm[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0

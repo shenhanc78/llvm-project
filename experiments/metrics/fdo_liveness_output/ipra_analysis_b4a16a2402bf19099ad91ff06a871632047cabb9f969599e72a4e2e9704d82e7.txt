@@ -1,0 +1,74 @@
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZN4llvm3sys2fs6accessERKNS_5TwineENS1_10AccessModeE[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZN4llvm3sys2fs15is_regular_fileERKNS_5TwineERb[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZN4llvm3sys2fs6removeERKNS_5TwineEb[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZN4llvm3sys2fs15openFileForReadERKNS_5TwineERiNS1_9OpenFlagsEPNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 4.11 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZNSt6thread15_M_start_threadESt10unique_ptrINS_6_StateESt14default_deleteIS1_EEPFvvE[] IsTailCall: 0 CallSiteLoc: 6.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 6.16 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZNSt18condition_variableC1Ev[] IsTailCall: 0 CallSiteLoc: 6.23 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZNSt6thread6detachEv[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZNSt11unique_lockISt5mutexE4lockEv[] IsTailCall: 0 CallSiteLoc: 9.4 LivingCSRegs: $r14
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZNSt18condition_variable4waitERSt11unique_lockISt5mutexE[] IsTailCall: 0 CallSiteLoc: 11.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: pthread_mutex_unlock[] IsTailCall: 0 CallSiteLoc: 14.1 LivingCSRegs: 
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZNSt18condition_variableD1Ev[] IsTailCall: 0 CallSiteLoc: 15.2 LivingCSRegs: 
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld11unlinkAsyncEN4llvm9StringRefE[] Calls: _ZSt9terminatev[] IsTailCall: 0 CallSiteLoc: 16.1 LivingCSRegs: 
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] Calls: _ZN4llvm22timeTraceProfilerBeginENS_9StringRefES0_[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] Calls: _ZN4llvm16FileOutputBuffer6createENS_9StringRefEmj[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $r12 $r13
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] Calls: _ZN4llvm16errorToErrorCodeENS_5ErrorE[] IsTailCall: 0 CallSiteLoc: 6.6 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld13tryCreateFileEN4llvm9StringRefE[] Calls: _ZN4llvm20timeTraceProfilerEndEPNS_22TimeTraceProfilerEntryE[] IsTailCall: 0 CallSiteLoc: 11.1 LivingCSRegs: $rbp $r14
+IPRA: Function: _ZN3lld8openFileEN4llvm9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN3lld8openFileEN4llvm9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld8openFileEN4llvm9StringRefE[] Calls: _ZN4llvm14raw_fd_ostreamC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN3lld8openFileEN4llvm9StringRefE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.11 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN3lld8openFileEN4llvm9StringRefE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 0.14 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN3lld8openFileEN4llvm9StringRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld8openFileEN4llvm9StringRefE[] Calls: _ZN3lld5errorERKN4llvm5TwineE[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN3lld8openFileEN4llvm9StringRefE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld8openFileEN4llvm9StringRefE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN3lld17openLTOOutputFileEN4llvm9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN3lld17openLTOOutputFileEN4llvm9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld17openLTOOutputFileEN4llvm9StringRefE[] Calls: _ZN4llvm13raw_fd_streamC1ENS_9StringRefERSt10error_code[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN3lld17openLTOOutputFileEN4llvm9StringRefE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN3lld17openLTOOutputFileEN4llvm9StringRefE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 0.12 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN3lld17openLTOOutputFileEN4llvm9StringRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN3lld17openLTOOutputFileEN4llvm9StringRefE[] Calls: _ZN3lld8openFileEN4llvm9StringRefE[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZNSt11unique_lockISt5mutexE4lockEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt11unique_lockISt5mutexE4lockEv[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt11unique_lockISt5mutexE4lockEv[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt11unique_lockISt5mutexE4lockEv[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt11unique_lockISt5mutexE4lockEv[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: 
+IPRA: Function: _ZNSt11unique_lockISt5mutexE4lockEv[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt11unique_lockISt5mutexE4lockEv[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: 
+IPRA: Function: _ZNSt11unique_lockISt5mutexE4lockEv[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt11unique_lockISt5mutexE4lockEv[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: 
+IPRA: Function: _ZNSt6thread24_M_thread_deps_never_runEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEED0Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEED0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEED0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEED0Ev[] Calls: _ZNSt6thread6_StateD2Ev[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEE6_M_runEv[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEE6_M_runEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEE6_M_runEv[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEE6_M_runEv[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEE6_M_runEv[] Calls: close[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEE6_M_runEv[] Calls: pthread_mutex_unlock[] IsTailCall: 0 CallSiteLoc: 1.9 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEE6_M_runEv[] Calls: _ZNSt18condition_variable10notify_allEv[] IsTailCall: 0 CallSiteLoc: 1.11 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEE6_M_runEv[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt6thread11_State_implINS_8_InvokerISt5tupleIJZN3lld11unlinkAsyncEN4llvm9StringRefEE3$_0EEEEE6_M_runEv[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: 

@@ -12,6 +12,7 @@
 #include "llvm/Support/MemoryBuffer.h"
 #include "llvm/Support/WithColor.h"
 #include "llvm/Support/raw_ostream.h"
+#include "llvm/Support/FileSystem.h" // TODO: comment out or remote in production code
 
 using namespace llvm;
 
@@ -29,36 +30,121 @@ static cl::opt<std::string> PreserveNoneJsonPath(
     cl::init(""), cl::cat(PreserveNoneCat));
 
 // ---------- Helpers ----------
-static bool isODRorInternal(const Function &F) {
-  switch (F.getLinkage()) {
-  case GlobalValue::InternalLinkage:
-  case GlobalValue::PrivateLinkage:
-  case GlobalValue::LinkOnceODRLinkage:
-  case GlobalValue::WeakODRLinkage:
-    return true;
-  default:
-    return false;
-  }
-}
-
 static bool isDirectUserOf(const CallBase &CB, const Function &F) {
   const Value *Callee = CB.getCalledOperand();
   Callee = Callee->stripPointerCasts();
   return Callee == &F;
 }
 
-static bool isSafeForPreserveNone(const Function &F) {
-  if (F.isDeclaration()) return false;
-  if (F.isIntrinsic())   return false;
-  if (F.isVarArg())      return false;
-  if (!isODRorInternal(F)) return false;     // avoid stable external ABI symbols
-  if (F.hasAddressTaken()) return false;     // unknown indirect callers exist
-  if (F.hasFnAttribute(Attribute::Naked)) return false;
+// TODO: comment out or remove this function in production code
+const char *PreserveNoneStatsFile = "../metrics/preserve_none_linkage_stats.json";
+// --- Helper struct to automatically count and print linkage stats ---
+struct LinkageStatsCollector {
+  StringMap<unsigned> Counts;
 
-  // Only retag from default C (or if already PreserveNone).
-  if (F.getCallingConv() != CallingConv::C &&
-      F.getCallingConv() != CallingConv::PreserveNone)
+  ~LinkageStatsCollector() {
+    if (Counts.empty()) return;
+
+    std::error_code EC;
+    raw_fd_ostream OS(PreserveNoneStatsFile, EC, sys::fs::OF_Append);
+    if (EC) {
+      errs() << "[PreserveNone] Error opening stats file '" << PreserveNoneStatsFile
+             << "': " << EC.message() << "\n";
+      return;
+    }
+
+    // The json::Value constructor cannot implicitly convert from StringMap.
+    json::Object StatsObject;
+    for (const auto &Pair : Counts) {
+        StatsObject[Pair.getKey()] = Pair.getValue();
+    }
+    
+    // Write the correctly formed json::Object to the file.
+    OS << json::Value(std::move(StatsObject)) << "\n";
+  }
+};
+
+static LinkageStatsCollector Stats;
+
+// --- Helper function to convert LinkageTypes enum to string ---
+static StringRef getLinkageNameString(GlobalValue::LinkageTypes LT) {
+  switch (LT) {
+    case GlobalValue::ExternalLinkage: return "external";
+    case GlobalValue::PrivateLinkage: return "private";
+    case GlobalValue::InternalLinkage: return "internal";
+    case GlobalValue::LinkOnceAnyLinkage: return "linkonce";
+    case GlobalValue::LinkOnceODRLinkage: return "linkonce_odr";
+    case GlobalValue::WeakAnyLinkage: return "weak";
+    case GlobalValue::WeakODRLinkage: return "weak_odr";
+    case GlobalValue::CommonLinkage: return "common";
+    case GlobalValue::AppendingLinkage: return "appending";
+    case GlobalValue::ExternalWeakLinkage: return "extern_weak";
+    case GlobalValue::AvailableExternallyLinkage: return "available_externally";
+  }
+  llvm_unreachable("Unhandled linkage type!");
+}
+
+
+static bool isSafeLinkage(const Function &F) {
+  // This is the MOST CRITICAL check. We only want to modify functions that
+  // are not visible outside the current compilation unit. This prevents us
+  // from breaking the ABI of any external or standard library functions.
+  switch (F.getLinkage()) {
+  case GlobalValue::InternalLinkage:
+  case GlobalValue::PrivateLinkage:
+  case GlobalValue::LinkOnceODRLinkage:
+  // case GlobalValue::ExternalLinkage:
+    WithColor::warning(errs()) << "[PreserveNone] Found function F having safe linkage type\n";
+    return true;
+  default:
     return false;
+  }
+
+  return false;
+}
+
+static bool isSafeForPreserveNone(const Function &F) {
+  if (F.isIntrinsic()) {
+    WithColor::warning(errs()) << "[PreserveNone] Intrinsic F not applicable for preserve none cc\n";
+    return false;
+  }
+  if (F.isVarArg()) {
+    WithColor::warning(errs()) << "[PreserveNone] VarArg F not applicable for preserve none cc\n";
+    return false;
+  }
+  // avoid stable external ABI symbols
+  if (!isSafeLinkage(F)) {
+    WithColor::warning(errs()) << "[PreserveNone] Not safely linked F not applicable for preserve none cc\n";
+    return false; 
+  }
+  // unknown indirect callers exist
+  if (F.hasAddressTaken()) {
+    WithColor::warning(errs()) << "[PreserveNone] Address Taken F not applicable for preserve none cc\n";
+    return false;
+  }
+  // Only retag from the default C calling convention.
+  if (F.getCallingConv() != CallingConv::C) {
+    WithColor::warning(errs()) << "[PreserveNone] Non default cc F not applicable for preserve none cc\n";
+    return false;
+  }
+
+  // Add a more detailed check of the function's users.
+  for (const User *U : F.users()) {
+    const auto *CB = dyn_cast<CallBase>(U);
+    
+    // If a user is not a call instruction OR it is not a direct call, it's unsafe.
+    if (!CB || !isDirectUserOf(*CB, F)) {
+      WithColor::warning(errs()) << "[PreserveNone] Indirectly invoked F not applicable for preserve none cc\n";
+      return false;
+    }
+    
+    // It is unsafe to change the calling convention of a function
+    // involved in a musttail call, as it breaks a strong ABI guarantee.
+    if (CB->isMustTailCall()) {
+      WithColor::warning(errs()) << "[PreserveNone] Must tail-called F not applicable for preserve none cc\n";
+      return false;
+    }
+  }
 
   return true;
 }
@@ -109,8 +195,9 @@ static StringMap<double> loadCandidateJSON(StringRef Path) {
 
 // ---------- Pass ----------
 PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
-  if (!EnablePreserveNone)
+  if (!EnablePreserveNone){
     return PreservedAnalyses::all(); // hard gate
+  }
 
   StringMap<double> Candidates = loadCandidateJSON(PreserveNoneJsonPath);
   if (Candidates.empty()) {
@@ -125,6 +212,7 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
   for (Function &F : M) {
     if (!Candidates.contains(F.getName())) continue;
     if (!isSafeForPreserveNone(F)) continue;
+    Stats.Counts[getLinkageNameString(F.getLinkage())]++;
     Targets.push_back(&F);
   }
 
@@ -137,17 +225,19 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
   for (Function *F : Targets) {
     if (F->getCallingConv() != CallingConv::PreserveNone) {
       F->setCallingConv(CallingConv::PreserveNone);
+      WithColor::note(errs()) << "[PreserveNone] Retagged function: " << F->getName() << "\n";
       Changed = true;
     }
 
     for (User *U : F->users()) {
-      if (auto *CB = dyn_cast<CallBase>(U)) {
-        if (isDirectUserOf(*CB, *F) &&
-            CB->getCallingConv() != CallingConv::PreserveNone) {
-          CB->setCallingConv(CallingConv::PreserveNone);
-          Changed = true;
-        }
-      }
+        auto *CB = dyn_cast<CallBase>(U);
+        // if (isDirectUserOf(*CB, *F) &&
+        //     CB->getCallingConv() != CallingConv::PreserveNone) {
+        CB->setCallingConv(CallingConv::PreserveNone);
+        WithColor::note(errs()) << "[PreserveNone]  Retagged callsite in: "
+                                << CB->getFunction()->getName() << "\n";
+        Changed = true;
+        // }
     }
   }
 

@@ -1,0 +1,79 @@
+IPRA: Function: _ZN4llvm7vputils17onlyFirstLaneUsedEPKNS_7VPValueE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7vputils17onlyFirstPartUsedEPKNS_7VPValueE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] MBB: 6 IsMBBHot: 0 MBBCount: 31760
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] Calls: _ZN4llvm5VPlan14getOrAddLiveInEPNS_5ValueE[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] MBB: 12 IsMBBHot: 0 MBBCount: 57940
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] Calls: _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_4SCEVEPNS_7VPValueENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S6_EEEES4_S6_S8_SB_E20InsertIntoBucketImplIS4_EEPSB_RKT_SF_[] IsTailCall: 0 CallSiteLoc: 12.4 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] MBB: 16 IsMBBHot: 0 MBBCount: 26180
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] Calls: _ZN4llvm17VPSingleDefRecipeC2EhNS_8ArrayRefIPNS_7VPValueEEENS_8DebugLocE[] IsTailCall: 0 CallSiteLoc: 16.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 16.13 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] MBB: 23 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils29getOrCreateVPValueForSCEVExprERNS_5VPlanEPKNS_4SCEVERNS_15ScalarEvolutionE[] Calls: _ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE[] IsTailCall: 0 CallSiteLoc: 23.2 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] Calls: _ZNK4llvm29VPWidenIntOrFpInductionRecipe11isCanonicalEv[] IsTailCall: 0 CallSiteLoc: 13.3 LivingCSRegs: 
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] Calls: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS0_7bind_tyINS_7VPValueEEES5_EELj53ELb0EJNS_13VPWidenRecipeENS_17VPReplicateRecipeENS_17VPWidenCastRecipeENS_13VPInstructionEEE5matchEPKNS_12VPRecipeBaseE[] IsTailCall: 0 CallSiteLoc: 14.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] Calls: _ZNK4llvm29VPWidenIntOrFpInductionRecipe11isCanonicalEv[] IsTailCall: 0 CallSiteLoc: 18.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] Calls: _ZN4llvm5VPlan29getOrCreateBackedgeTakenCountEv[] IsTailCall: 0 CallSiteLoc: 19.4 LivingCSRegs: $r14
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] Calls: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS1_IS2_IJEELj0ELb0EJNS_22VPCanonicalIVPHIRecipeEEEENS0_15specific_intvalILj0EEEEELj0ELb0EJNS_21VPScalarIVStepsRecipeEEE21all_of_tuple_elementsIZNKSA_5matchEPKNS_12VPRecipeBaseEEUlT_jE_JLm0ELm1EEEEbSt16integer_sequenceImJXspT0_EEESF_[] IsTailCall: 0 CallSiteLoc: 21.4 LivingCSRegs: $r14
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils12isHeaderMaskEPKNS_7VPValueERNS_5VPlanE[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 26.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm5VPlan29getOrCreateBackedgeTakenCountEv[] CallingConv: 8 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm5VPlan29getOrCreateBackedgeTakenCountEv[] MBB: 1 IsMBBHot: 0 MBBCount: 216
+IPRA: Function: _ZN4llvm5VPlan29getOrCreateBackedgeTakenCountEv[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 1.15 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm7vputils21getSCEVExprForVPValueEPNS_7VPValueERNS_15ScalarEvolutionE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7vputils21getSCEVExprForVPValueEPNS_7VPValueERNS_15ScalarEvolutionE[] MBB: 11 IsMBBHot: 0 MBBCount: 120
+IPRA: Function: _ZN4llvm7vputils21getSCEVExprForVPValueEPNS_7VPValueERNS_15ScalarEvolutionE[] Calls: _ZN4llvm15ScalarEvolution14createSCEVIterEPNS_5ValueE[] IsTailCall: 1 CallSiteLoc: 11.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm7vputils21getSCEVExprForVPValueEPNS_7VPValueERNS_15ScalarEvolutionE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils21getSCEVExprForVPValueEPNS_7VPValueERNS_15ScalarEvolutionE[] Calls: _ZN4llvm15ScalarEvolution18getCouldNotComputeEv[] IsTailCall: 1 CallSiteLoc: 12.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 2 IsMBBHot: 0 MBBCount: 155659
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZNK4llvm5VPlan19getVectorLoopRegionEv[] IsTailCall: 0 CallSiteLoc: 2.4 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZNK4llvm11VPBlockBase7getPlanEv[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 5 IsMBBHot: 0 MBBCount: 118722
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZN4llvm5VPlan19getVectorLoopRegionEv[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZN4llvm11VPBlockBase7getPlanEv[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 21 IsMBBHot: 0 MBBCount: 94
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] IsTailCall: 1 CallSiteLoc: 21.1 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 30 IsMBBHot: 0 MBBCount: 10262
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 30.3 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 32 IsMBBHot: 0 MBBCount: 22531
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 32.3 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 34 IsMBBHot: 0 MBBCount: 26116
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 34.4 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 40 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 40.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 41 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 41.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 42 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 42.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] MBB: 43 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 43.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS1_IS2_IJEELj0ELb0EJNS_22VPCanonicalIVPHIRecipeEEEENS0_15specific_intvalILj0EEEEELj0ELb0EJNS_21VPScalarIVStepsRecipeEEE21all_of_tuple_elementsIZNKSA_5matchEPKNS_12VPRecipeBaseEEUlT_jE_JLm0ELm1EEEEbSt16integer_sequenceImJXspT0_EEESF_[] CallingConv: 8 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS1_IS2_IJEELj0ELb0EJNS_22VPCanonicalIVPHIRecipeEEEENS0_15specific_intvalILj0EEEEELj0ELb0EJNS_21VPScalarIVStepsRecipeEEE21all_of_tuple_elementsIZNKSA_5matchEPKNS_12VPRecipeBaseEEUlT_jE_JLm0ELm1EEEEbSt16integer_sequenceImJXspT0_EEESF_[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS1_IS2_IJEELj0ELb0EJNS_22VPCanonicalIVPHIRecipeEEEENS0_15specific_intvalILj0EEEEELj0ELb0EJNS_21VPScalarIVStepsRecipeEEE21all_of_tuple_elementsIZNKSA_5matchEPKNS_12VPRecipeBaseEEUlT_jE_JLm0ELm1EEEEbSt16integer_sequenceImJXspT0_EEESF_[] Calls: _ZN4llvm5APInt12initSlowCaseERKS0_[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS1_IS2_IJEELj0ELb0EJNS_22VPCanonicalIVPHIRecipeEEEENS0_15specific_intvalILj0EEEEELj0ELb0EJNS_21VPScalarIVStepsRecipeEEE21all_of_tuple_elementsIZNKSA_5matchEPKNS_12VPRecipeBaseEEUlT_jE_JLm0ELm1EEEEbSt16integer_sequenceImJXspT0_EEESF_[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS1_IS2_IJEELj0ELb0EJNS_22VPCanonicalIVPHIRecipeEEEENS0_15specific_intvalILj0EEEEELj0ELb0EJNS_21VPScalarIVStepsRecipeEEE21all_of_tuple_elementsIZNKSA_5matchEPKNS_12VPRecipeBaseEEUlT_jE_JLm0ELm1EEEEbSt16integer_sequenceImJXspT0_EEESF_[] Calls: _ZNK4llvm17VPlanPatternMatch15specific_intvalILj0EE5matchEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 7.4 LivingCSRegs: $r14
+IPRA: Function: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS1_IS2_IJEELj0ELb0EJNS_22VPCanonicalIVPHIRecipeEEEENS0_15specific_intvalILj0EEEEELj0ELb0EJNS_21VPScalarIVStepsRecipeEEE21all_of_tuple_elementsIZNKSA_5matchEPKNS_12VPRecipeBaseEEUlT_jE_JLm0ELm1EEEEbSt16integer_sequenceImJXspT0_EEESF_[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS1_IS2_IJEELj0ELb0EJNS_22VPCanonicalIVPHIRecipeEEEENS0_15specific_intvalILj0EEEEELj0ELb0EJNS_21VPScalarIVStepsRecipeEEE21all_of_tuple_elementsIZNKSA_5matchEPKNS_12VPRecipeBaseEEUlT_jE_JLm0ELm1EEEEbSt16integer_sequenceImJXspT0_EEESF_[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 9.2 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm17VPlanPatternMatch12Recipe_matchISt5tupleIJNS0_7bind_tyINS_7VPValueEEES5_EELj53ELb0EJNS_13VPWidenRecipeENS_17VPReplicateRecipeENS_17VPWidenCastRecipeENS_13VPInstructionEEE5matchEPKNS_12VPRecipeBaseE[] CallingConv: 8 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] MBB: 2 IsMBBHot: 0 MBBCount: 39
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 2.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 6.3 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 7.3 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 9.3 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 13.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZSt6all_ofIPKPN4llvm7VPValueEZZNS0_7vputils24isUniformAcrossVFsAndUFsES2_ENK3$_2clINS0_17VPReplicateRecipeEEEDaPKT_EUlS2_E_EbS9_S9_T0_[] Calls: _ZN4llvm7vputils24isUniformAcrossVFsAndUFsEPNS_7VPValueE[] IsTailCall: 0 CallSiteLoc: 16.3 LivingCSRegs: $rbx $r14
