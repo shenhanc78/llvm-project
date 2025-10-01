@@ -267,7 +267,7 @@ preserve_none_thinly_linked_fdo_clang:
 	touch $@ && \
 	$(call log,✅ STEP 5H: preserve_none_thinly_linked_fdo_clang built successfully.)
 
-fdo_liveness_analysis: fdo_clang
+fdo_liveness_analysis: 
 	@$(call log,Collecting Liveness Data using fdo_clang)
 	@mkdir -p "$(FDO_LIVENESS_OUTPUT_DIR)"
 	@TEMP_LLD_BUILD_DIR="$(DEV_DIR)/temp_lld_for_liveness_analysis"
@@ -279,13 +279,13 @@ fdo_liveness_analysis: fdo_clang
 		-D LLVM_ENABLE_PROJECTS=lld \
 		-D LLVM_TARGETS_TO_BUILD=X86 \
 		-D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
-		-D CMAKE_C_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR)" \
-		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR)"
+		-D CMAKE_C_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR) -mllvm -enable-ipra-prera-analysis -mllvm -ipra-dry-run -mllvm -ipra-prera-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR)" \
+		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR) -mllvm -enable-ipra-prera-analysis -mllvm -ipra-dry-run -mllvm -ipra-prera-analysis-output-dir=$(FDO_LIVENESS_OUTPUT_DIR)"
 	@ninja -j "$(JOBS)" -C "$$TEMP_LLD_BUILD_DIR" lld
 	@rm -rf "$$TEMP_LLD_BUILD_DIR"
 	@$(call log,✅ Liveness Data collected in $(FDO_LIVENESS_OUTPUT_DIR))
 
-thinly_linked_fdo_liveness_analysis: thinly_linked_fdo_clang
+thinly_linked_fdo_liveness_analysis: 
 	@$(call log,Collecting Liveness Data using thinly_linked_fdo_clang)
 	@mkdir -p "$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
 	@TEMP_LLD_BUILD_DIR="$(DEV_DIR)/temp_lld_for_liveness_analysis"
@@ -299,14 +299,19 @@ thinly_linked_fdo_liveness_analysis: thinly_linked_fdo_clang
 		-D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 		-D LLVM_ENABLE_LTO=Thin \
 	  	-D LLVM_USE_LINKER=lld \
-		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
-	    -D CMAKE_SHARED_LINKER_FLAGS=-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
-	    -D CMAKE_MODULE_LINKER_FLAGS=-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
-		-D CMAKE_C_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
-		-D CMAKE_CXX_FLAGS="-mllvm -enable-cs-reg-liveness-analysis -mllvm -cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
+		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
+	    -D CMAKE_SHARED_LINKER_FLAGS=-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
+	    -D CMAKE_MODULE_LINKER_FLAGS=-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
 	@ninja -j "$(JOBS)" -C "$$TEMP_LLD_BUILD_DIR" lld
 	@rm -rf "$$TEMP_LLD_BUILD_DIR"
 	@$(call log,✅ Liveness Data collected in $(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR))\
+
+rebuild:
+	# Rebuild LLVM source build
+	@ninja -j "$(JOBS)" -C "$(LLVM_SRC_DIR)/build"
+	# Rebuild bootstrapped_clang
+	@rm "$(BOOTSTRAPPED_SENTINEL)"
+	@$(MAKE) bootstrapped_clang
 
 rebuild_preserve_none_fdo_clang:
 	# Rebuild LLVM source build
