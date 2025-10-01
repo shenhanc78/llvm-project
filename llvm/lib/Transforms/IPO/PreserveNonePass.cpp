@@ -89,11 +89,14 @@ static bool isSafeLinkage(const Function &F) {
   // This is the MOST CRITICAL check. We only want to modify functions that
   // are not visible outside the current compilation unit. This prevents us
   // from breaking the ABI of any external or standard library functions.
+  return true;
+
+  WithColor::warning(errs()) << ">>>> " << F.getName() << ": " << getLinkageNameString(F.getLinkage()) << "<<<< \n";
   switch (F.getLinkage()) {
   case GlobalValue::InternalLinkage:
   case GlobalValue::PrivateLinkage:
   case GlobalValue::LinkOnceODRLinkage:
-  // case GlobalValue::ExternalLinkage:
+  case GlobalValue::ExternalLinkage:
     WithColor::warning(errs()) << "[PreserveNone] Found function F having safe linkage type\n";
     return true;
   default:
