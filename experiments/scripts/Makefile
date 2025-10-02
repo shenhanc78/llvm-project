@@ -127,8 +127,7 @@ fdo_clang:
 
 
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
-thinly_linked_fdo_clang: $(THINLY_LINKED_FDO_SENTINEL)
-$(THINLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
+thinly_linked_fdo_clang:
 	@$(call log,STEP 5B: Building thinly_linked_fdo_clang (PGO + ThinLTO build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(THINLY_LINKED_FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
@@ -245,6 +244,12 @@ preserve_none_fdo_clang:
 	@ninja -j "$(JOBS)" -C "$(PRESERVE_NONE_FDO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5G: preserve_none_fdo_clang built successfully.)
+
+test_preserve_none_thinly_linked_fdo_clang:
+	@$(call log,Starting test build for preserve_none_thinly_linked_fdo_clang)
+	rm -rf "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)"
+	$(MAKE) preserve_none_thinly_linked_fdo_clang
+	$(MAKE) benchmark COMPILER=preserve_none_thinly_linked_fdo_clang
 
 preserve_none_thinly_linked_fdo_clang:
 	@$(call log,STEP 5H: Building preserve_none_thinly_linked_fdo_clang)
@@ -369,7 +374,7 @@ benchmark:
 	\
 	$(call log,Starting benchmark for '$(COMPILER)'); \
 	\
-	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-10}; \
+	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-1}; \
 	TEMP_BUILD_DIR="$(DEV_DIR)/temp_benchmark_build_$(COMPILER)"; \
 	METRICS_CSV="$(METRICS_DIR)/$(COMPILER)_metrics.csv"; \
 	\
@@ -434,6 +439,7 @@ ipra_data:
 linked_data:
 	$(call log,Running LTO Benchmark Suite)
 	$(MAKE) benchmark COMPILER=thinly_linked_fdo_clang
+	$(MAKE) benchmark COMPILER=preserve_none_thinly_linked_fdo_clang
 
 preserve_none_pairs:
 	$(call log,Running PreserveNone Benchmark Suite)
