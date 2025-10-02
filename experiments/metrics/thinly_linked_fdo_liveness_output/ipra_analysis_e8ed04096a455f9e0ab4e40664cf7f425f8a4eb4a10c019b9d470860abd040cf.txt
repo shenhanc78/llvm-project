@@ -1,0 +1,407 @@
+IPRA: Function: _ZNK4llvm3vfs6Status10equivalentERKS1_[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm3vfs6Status6existsEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3vfs10FileSystem16getBufferForFileERKNS_5TwineElbbb[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] MBB: 0 IsMBBHot: 0 MBBCount: 1
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm3sys4path11is_absoluteERKNS_5TwineENS1_5StyleE[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] MBB: 2 IsMBBHot: 0 MBBCount: 1
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 2.4 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] Calls: _ZN4llvm3sys2fs13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 2.5 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] MBB: 5 IsMBBHot: 0 MBBCount: 1
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm3vfs10FileSystem12makeAbsoluteERNS_15SmallVectorImplIcEE[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 7.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3vfs10FileSystem6existsERKNS_5TwineE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3vfs10FileSystem6existsERKNS_5TwineE[] MBB: 4 IsMBBHot: 0 MBBCount: 34465
+IPRA: Function: _ZN4llvm3vfs10FileSystem6existsERKNS_5TwineE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 4.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3vfs17getRealFileSystemEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3vfs17getRealFileSystemEv[] MBB: 4 IsMBBHot: 0 MBBCount: 1896
+IPRA: Function: _ZN4llvm3vfs17getRealFileSystemEv[] Calls: __cxa_guard_acquire[] IsTailCall: 0 CallSiteLoc: 4.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3vfs17getRealFileSystemEv[] MBB: 5 IsMBBHot: 0 MBBCount: 1896
+IPRA: Function: _ZN4llvm3vfs17getRealFileSystemEv[] Calls: __cxa_guard_release[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3vfs17getRealFileSystemEv[] Calls: __cxa_atexit[] IsTailCall: 0 CallSiteLoc: 5.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3vfs17getRealFileSystemEv[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 5.15 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm18IntrusiveRefCntPtrINS_3vfs10FileSystemEED2Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3vfs6detail11DirIterImplD1Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3vfs6detail11DirIterImplD1Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3vfs6detail11DirIterImplD1Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm3vfs6detail11DirIterImplD0Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11SmallStringILj128EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv[] CallingConv: 8 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11SmallStringILj128EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11SmallStringILj128EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11SmallStringILj128EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11SmallStringILj128EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv[] Calls: _ZSt19__throw_logic_errorPKc[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11RTTIExtendsINS_3vfs10FileSystemENS_8RTTIRootEJEE14dynamicClassIDEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11RTTIExtendsINS_3vfs10FileSystemENS_8RTTIRootEJEE3isAEPKv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3vfs10FileSystem21visitChildFileSystemsENS_12function_refIFvRS1_EEE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] CallingConv: 8 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] Calls: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] Calls: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE[] IsTailCall: 0 CallSiteLoc: 1.6 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] Calls: free[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] Calls: free[] IsTailCall: 0 CallSiteLoc: 5.2 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] Calls: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystemD2Ev.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystemD2Ev.llvm.9625491805854195299[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystemD2Ev.llvm.9625491805854195299[] Calls: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEED2Ev[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: 
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystemD0Ev.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystemD0Ev.llvm.9625491805854195299[] MBB: 1 IsMBBHot: 0 MBBCount: 169
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystemD0Ev.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystemD0Ev.llvm.9625491805854195299[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystemD0Ev.llvm.9625491805854195299[] Calls: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEED2Ev[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 3 IsMBBHot: 0 MBBCount: 467272
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs6statusERKNS_5TwineERNS1_11file_statusEb[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 7 IsMBBHot: 0 MBBCount: 119761
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 7.17 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 10 IsMBBHot: 0 MBBCount: 29072
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 10.2 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 12.6 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem6statusERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine8toVectorERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 12.16 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 1 EntryCount: 1643098
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 8 IsMBBHot: 1 MBBCount: 1557980
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE[] IsTailCall: 0 CallSiteLoc: 8.6 LivingCSRegs: $rbp $r12 $r13 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE[] IsTailCall: 0 CallSiteLoc: 8.11 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 11 IsMBBHot: 1 MBBCount: 1643098
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: __errno_location[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $r12 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 12 IsMBBHot: 1 MBBCount: 1643098
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: open[] IsTailCall: 0 CallSiteLoc: 12.4 LivingCSRegs: $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 14 IsMBBHot: 1 MBBCount: 990839
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 14.1 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 24 IsMBBHot: 0 MBBCount: 652259
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 24.2 LivingCSRegs: $rbx $rbp $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 27 IsMBBHot: 0 MBBCount: 650144
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: readlink[] IsTailCall: 0 CallSiteLoc: 27.3 LivingCSRegs: $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: snprintf[] IsTailCall: 0 CallSiteLoc: 27.7 LivingCSRegs: $rbp $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 32 IsMBBHot: 0 MBBCount: 650144
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 32.10 LivingCSRegs: $r12 $r13 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 32.21 LivingCSRegs: $rbp $r12 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 32.26 LivingCSRegs: $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 34 IsMBBHot: 0 MBBCount: 227789
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 34.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 37 IsMBBHot: 0 MBBCount: 501352
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 37.1 LivingCSRegs: $r12
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 40 IsMBBHot: 0 MBBCount: 648313
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 40.2 LivingCSRegs: $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 41 IsMBBHot: 0 MBBCount: 217199
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 41.3 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 44 IsMBBHot: 0 MBBCount: 1838
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: __cxa_guard_acquire[] IsTailCall: 0 CallSiteLoc: 44.3 LivingCSRegs: $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 45 IsMBBHot: 0 MBBCount: 1838
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: __cxa_guard_release[] IsTailCall: 0 CallSiteLoc: 45.2 LivingCSRegs: $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: access[] IsTailCall: 0 CallSiteLoc: 45.6 LivingCSRegs: $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 46 IsMBBHot: 0 MBBCount: 233
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: __cxa_guard_acquire[] IsTailCall: 0 CallSiteLoc: 46.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 47 IsMBBHot: 0 MBBCount: 233
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: __cxa_guard_release[] IsTailCall: 0 CallSiteLoc: 47.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: __cxa_atexit[] IsTailCall: 0 CallSiteLoc: 47.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 48 IsMBBHot: 0 MBBCount: 12
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 48.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 49 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 49.2 LivingCSRegs: $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 50 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 50.2 LivingCSRegs: $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 52 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 52.2 LivingCSRegs: $rbp $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 53 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 53.3 LivingCSRegs: $rbp $r12 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 54 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] IsTailCall: 0 CallSiteLoc: 54.1 LivingCSRegs: 
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 55 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 55.7 LivingCSRegs: $rbp $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine8toVectorERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 55.16 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 57 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: realpath[] IsTailCall: 0 CallSiteLoc: 57.3 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine25toNullTerminatedStringRefERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 57.6 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 58 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm15SmallVectorImplIcE6appendIPcvEEvT_S4_[] IsTailCall: 0 CallSiteLoc: 58.1 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 58.6 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 60 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 60.2 LivingCSRegs: $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 61 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem15openFileForReadERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 61.4 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem21openFileForReadBinaryERKN4llvm5TwineE.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem21openFileForReadBinaryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem21openFileForReadBinaryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 3 IsMBBHot: 0 MBBCount: 65848
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 3.23 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 12 IsMBBHot: 0 MBBCount: 3258
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 12.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 16 IsMBBHot: 0 MBBCount: 3662
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_[] IsTailCall: 0 CallSiteLoc: 16.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 18.2 LivingCSRegs: $rbx $rbp $r13 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 19 IsMBBHot: 0 MBBCount: 857
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 19.10 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 23 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] IsTailCall: 0 CallSiteLoc: 23.2 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 25 IsMBBHot: 0 MBBCount: 4
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 25.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 26.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 27 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 27.5 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine8toVectorERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 27.14 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 28 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _ZNK4llvm3sys2fs15directory_entry6statusEv[] IsTailCall: 0 CallSiteLoc: 28.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] MBB: 31 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem9dir_beginERKN4llvm5TwineERSt10error_code.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 31.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs12is_directoryERKNS_5TwineERb[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r12 $r13
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK4llvm5Twine8toVectorERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 1.9 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNK12_GLOBAL__N_114RealFileSystem10adjustPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 1.13 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: $rbp $r13 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbp $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbp $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs16set_current_pathERKNS_5TwineE[] IsTailCall: 1 CallSiteLoc: 10.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs9real_pathERKNS_5TwineERNS_15SmallVectorImplIcEEb[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $r12 $r13
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] IsTailCall: 0 CallSiteLoc: 14.1 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZN4llvm15SmallVectorImplIcEaSERKS1_[] IsTailCall: 0 CallSiteLoc: 16.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNSt8optionalIN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEEEaSIS4_EENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS6_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES9_ISt6__and_IJSt9is_scalarIS5_ESA_IS5_NSt5decayISD_E4typeEEEEESt16is_constructibleIS5_JSD_EESt13is_assignableIRS5_SD_EEERS6_E4typeEOSD_[] IsTailCall: 0 CallSiteLoc: 17.4 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 18.1 LivingCSRegs: $r12 $r13 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 20.1 LivingCSRegs: $r12 $r13
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 21.2 LivingCSRegs: $rbp $r12 $r13
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem26setCurrentWorkingDirectoryERKN4llvm5TwineE.llvm.9625491805854195299[] Calls: _ZNSt3_V216generic_categoryEv[] IsTailCall: 0 CallSiteLoc: 22.1 LivingCSRegs: $rbp $r12 $r13
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] MBB: 2 IsMBBHot: 0 MBBCount: 3461
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs12current_pathERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] MBB: 5 IsMBBHot: 0 MBBCount: 1213
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 5.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] MBB: 8 IsMBBHot: 0 MBBCount: 2669
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] MBB: 15 IsMBBHot: 0 MBBCount: 4
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 15.2 LivingCSRegs: $rbx
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] Calls: _ZNK4llvm11SmallStringILj128EEcvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEv[] IsTailCall: 0 CallSiteLoc: 16.8 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] Calls: _ZSt19__throw_logic_errorPKc[] IsTailCall: 0 CallSiteLoc: 22.1 LivingCSRegs: 
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] MBB: 23 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 23.2 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] MBB: 24 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 24.1 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem26getCurrentWorkingDirectoryB5cxx11Ev.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 26.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem11getRealPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem11getRealPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE.llvm.9625491805854195299[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem11getRealPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs9real_pathERKNS_5TwineERNS_15SmallVectorImplIcEEb[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem11getRealPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE.llvm.9625491805854195299[] Calls: _ZNK12_GLOBAL__N_114RealFileSystem10adjustPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem11getRealPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE.llvm.9625491805854195299[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem11getRealPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem7isLocalERKN4llvm5TwineERb.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem7isLocalERKN4llvm5TwineERb.llvm.9625491805854195299[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem7isLocalERKN4llvm5TwineERb.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs8is_localERKNS_5TwineERb[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem7isLocalERKN4llvm5TwineERb.llvm.9625491805854195299[] Calls: _ZNK12_GLOBAL__N_114RealFileSystem10adjustPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 0.7 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem7isLocalERKN4llvm5TwineERb.llvm.9625491805854195299[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem7isLocalERKN4llvm5TwineERb.llvm.9625491805854195299[] Calls: free[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem9printImplERN4llvm11raw_ostreamENS1_3vfs10FileSystem9PrintTypeEj.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem9printImplERN4llvm11raw_ostreamENS1_3vfs10FileSystem9PrintTypeEj.llvm.9625491805854195299[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem9printImplERN4llvm11raw_ostreamENS1_3vfs10FileSystem9PrintTypeEj.llvm.9625491805854195299[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem9printImplERN4llvm11raw_ostreamENS1_3vfs10FileSystem9PrintTypeEj.llvm.9625491805854195299[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem9printImplERN4llvm11raw_ostreamENS1_3vfs10FileSystem9PrintTypeEj.llvm.9625491805854195299[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 1 CallSiteLoc: 3.1 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem9printImplERN4llvm11raw_ostreamENS1_3vfs10FileSystem9PrintTypeEj.llvm.9625491805854195299[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 0 CallSiteLoc: 3.14 LivingCSRegs: $rbx
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem9printImplERN4llvm11raw_ostreamENS1_3vfs10FileSystem9PrintTypeEj.llvm.9625491805854195299[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 0 CallSiteLoc: 3.20 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] CallingConv: 8 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] Calls: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEED2Ev[] IsTailCall: 0 CallSiteLoc: 2.6 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] Calls: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] IsTailCall: 0 CallSiteLoc: 6.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] Calls: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEaSEOS4_[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 9.2 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEED2Ev[] CallingConv: 8 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEED2Ev[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEED2Ev[] Calls: free[] IsTailCall: 0 CallSiteLoc: 3.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEED2Ev[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEED2Ev[] Calls: free[] IsTailCall: 1 CallSiteLoc: 5.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] CallingConv: 8 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 1 EntryCount: 7277347
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] MBB: 7 IsMBBHot: 1 MBBCount: 7277307
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 14.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 15.2 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 17.3 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] Calls: free[] IsTailCall: 0 CallSiteLoc: 22.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE[] CallingConv: 8 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE[] Calls: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm7ErrorOrIN12_GLOBAL__N_114RealFileSystem16WorkingDirectoryEEC2IS3_EEOT_PNSt9enable_ifIXsr3stdE16is_convertible_vIS6_S3_EEvE4typeE[] Calls: _ZN4llvm15SmallVectorImplIcEaSEOS1_[] IsTailCall: 1 CallSiteLoc: 3.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem10adjustPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE[] CallingConv: 8 CSRegUsage: $rbx $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem10adjustPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem10adjustPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE[] Calls: _ZN4llvm3sys2fs13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 3.17 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK12_GLOBAL__N_114RealFileSystem10adjustPathERKN4llvm5TwineERNS1_15SmallVectorImplIcEE[] Calls: _ZNK4llvm5Twine8toVectorERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 3.26 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: _ZN4llvm3sys2fs21openNativeFileForReadERKNS_5TwineENS1_9OpenFlagsEPNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: _ZN4llvm16errorToErrorCodeENS_5ErrorE[] IsTailCall: 0 CallSiteLoc: 4.7 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 6.10 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 6.21 LivingCSRegs: $rbx $rbp $r12 $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 6.27 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 8.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 11.1 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 14.1 LivingCSRegs: $rbp $r12
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 19.2 LivingCSRegs: $rbp
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 20.2 LivingCSRegs: 
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: _ZN4llvm3sys2fs13make_absoluteERKNS_5TwineERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 21.7 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_114RealFileSystem24openFileForReadWithFlagsERKN4llvm5TwineENS1_3sys2fs9OpenFlagsE[] Calls: _ZNK4llvm5Twine8toVectorERNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 21.17 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD2Ev[] CallingConv: 0 CSRegUsage: $rbx $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD2Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD2Ev[] Calls: _ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD2Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD2Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD2Ev[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD2Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 3.1 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD0Ev[] CallingConv: 0 CSRegUsage: $rbx $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 649193
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD0Ev[] Calls: _ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD0Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 649193
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD0Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD0Ev[] MBB: 3 IsMBBHot: 0 MBBCount: 647364
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD0Ev[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD0Ev[] MBB: 4 IsMBBHot: 0 MBBCount: 649193
+IPRA: Function: _ZN12_GLOBAL__N_18RealFileD0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 4.1 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] MBB: 1 IsMBBHot: 0 MBBCount: 643708
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] Calls: _ZN4llvm3sys2fs6statusEiRNS1_11file_statusE[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] MBB: 2 IsMBBHot: 0 MBBCount: 643708
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_[] IsTailCall: 0 CallSiteLoc: 2.13 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 2.26 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] MBB: 3 IsMBBHot: 0 MBBCount: 643708
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 3.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] MBB: 7 IsMBBHot: 0 MBBCount: 303320
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] MBB: 10 IsMBBHot: 0 MBBCount: 150700
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile6statusEv[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 10.6 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7getNameB5cxx11Ev[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7getNameB5cxx11Ev[] MBB: 3 IsMBBHot: 0 MBBCount: 572763
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7getNameB5cxx11Ev[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7getNameB5cxx11Ev[] MBB: 8 IsMBBHot: 0 MBBCount: 150700
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7getNameB5cxx11Ev[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 8.8 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7getNameB5cxx11Ev[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7getNameB5cxx11Ev[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7getNameB5cxx11Ev[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7getNameB5cxx11Ev[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 12.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile9getBufferERKN4llvm5TwineElbb[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile9getBufferERKN4llvm5TwineElbb[] MBB: 0 IsMBBHot: 0 MBBCount: 649193
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile9getBufferERKN4llvm5TwineElbb[] Calls: _ZL15getOpenFileImplIN4llvm12MemoryBufferEENS0_7ErrorOrISt10unique_ptrIT_St14default_deleteIS4_EEEEiRKNS0_5TwineEmmlbbSt8optionalINS0_5AlignEE.llvm.17530555134526585502[] IsTailCall: 0 CallSiteLoc: 0.7 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile5closeEv[] CallingConv: 0 CSRegUsage: $rbx $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile5closeEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile5closeEv[] Calls: _ZN4llvm3sys7Process25SafelyCloseFileDescriptorEi[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_[] IsTailCall: 0 CallSiteLoc: 3.13 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 3.23 LivingCSRegs: $rbx $r12 $r15
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 4.1 LivingCSRegs: $r12
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_18RealFile7setPathERKN4llvm5TwineE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: 
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv.llvm.9625491805854195299[] MBB: 0 IsMBBHot: 0 MBBCount: 65848
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_113RealFSDirIterESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info[] Calls: _ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] MBB: 0 IsMBBHot: 0 MBBCount: 65848
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 0.27 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] MBB: 4 IsMBBHot: 0 MBBCount: 65848
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] Calls: _ZN4llvm3sys2fs6detail28directory_iterator_constructERNS2_12DirIterStateENS_9StringRefEb[] IsTailCall: 0 CallSiteLoc: 4.6 LivingCSRegs: $rbx $r13
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] MBB: 7 IsMBBHot: 0 MBBCount: 16573
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] Calls: _ZNK4llvm5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE[] IsTailCall: 0 CallSiteLoc: 7.6 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] Calls: _ZNK4llvm5Twine13printOneChildERNS_11raw_ostreamENS0_5ChildENS0_8NodeKindE[] IsTailCall: 0 CallSiteLoc: 7.11 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] MBB: 10 IsMBBHot: 0 MBBCount: 301
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 10.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] Calls: free[] IsTailCall: 0 CallSiteLoc: 13.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm3sys2fs18directory_iteratorC2ERKNS_5TwineERSt10error_codeb[] Calls: _ZdaPv[] IsTailCall: 0 CallSiteLoc: 15.2 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD2Ev.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD2Ev.llvm.9625491805854195299[] MBB: 6 IsMBBHot: 0 MBBCount: 3658
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD2Ev.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 6.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD2Ev.llvm.9625491805854195299[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD2Ev.llvm.9625491805854195299[] Calls: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] IsTailCall: 0 CallSiteLoc: 10.2 LivingCSRegs: $r14
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD0Ev.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD0Ev.llvm.9625491805854195299[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD0Ev.llvm.9625491805854195299[] Calls: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] IsTailCall: 0 CallSiteLoc: 0.7 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD0Ev.llvm.9625491805854195299[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD0Ev.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD0Ev.llvm.9625491805854195299[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIterD0Ev.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] MBB: 0 IsMBBHot: 0 MBBCount: 10986
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] Calls: _ZN4llvm3sys2fs6detail28directory_iterator_incrementERNS2_12DirIterStateE[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $r15
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] MBB: 4 IsMBBHot: 0 MBBCount: 6517
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] MBB: 14 IsMBBHot: 0 MBBCount: 7316
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 14.1 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] MBB: 19 IsMBBHot: 0 MBBCount: 1715
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm[] IsTailCall: 0 CallSiteLoc: 19.12 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] MBB: 21 IsMBBHot: 0 MBBCount: 8
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 21.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] MBB: 28 IsMBBHot: 0 MBBCount: 66
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 28.1 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] MBB: 30 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] Calls: _ZNK4llvm3sys2fs15directory_entry6statusEv[] IsTailCall: 0 CallSiteLoc: 30.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN12_GLOBAL__N_113RealFSDirIter9incrementEv.llvm.9625491805854195299[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 32.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EED0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv[] MBB: 0 IsMBBHot: 0 MBBCount: 65848
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv[] Calls: _ZN4llvm3sys2fs6detail27directory_iterator_destructERNS2_12DirIterStateE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv[] MBB: 2 IsMBBHot: 0 MBBCount: 3658
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_disposeEv[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv[] MBB: 0 IsMBBHot: 0 MBBCount: 65848
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE10_M_destroyEv[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt23_Sp_counted_ptr_inplaceIN4llvm3sys2fs6detail12DirIterStateESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info[] Calls: _ZNSt19_Sp_make_shared_tag5_S_eqERKSt9type_info[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev[] Calls: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] IsTailCall: 1 CallSiteLoc: 7.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EED2Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0

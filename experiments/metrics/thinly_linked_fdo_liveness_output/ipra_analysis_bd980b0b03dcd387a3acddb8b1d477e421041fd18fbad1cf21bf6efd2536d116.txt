@@ -1,0 +1,77 @@
+IPRA: Function: _ZN4llvm6objectlsERNS_11raw_ostreamERKNS0_16SectionedAddressE[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm6objectlsERNS_11raw_ostreamERKNS0_16SectionedAddressE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6objectlsERNS_11raw_ostreamERKNS0_16SectionedAddressE[] Calls: _ZN4llvm11raw_ostreamlsERKNS_15FormattedNumberE[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm6objectlsERNS_11raw_ostreamERKNS0_16SectionedAddressE[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 0 CallSiteLoc: 0.12 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm6objectlsERNS_11raw_ostreamERKNS0_16SectionedAddressE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6objectlsERNS_11raw_ostreamERKNS0_16SectionedAddressE[] Calls: _ZN4llvm11raw_ostreamlsEm[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm6objectlsERNS_11raw_ostreamERKNS0_16SectionedAddressE[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm6objectlsERNS_11raw_ostreamERKNS0_16SectionedAddressE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6objectlsERNS_11raw_ostreamERKNS0_16SectionedAddressE[] Calls: _ZN4llvm11raw_ostreamlsEPKc[] IsTailCall: 0 CallSiteLoc: 2.8 LivingCSRegs: 
+IPRA: Function: _ZN4llvm6object10ObjectFile6anchorEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm6object10ObjectFileC2EjNS_15MemoryBufferRefE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10SectionRef14containsSymbolENS0_9SymbolRefE[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10SectionRef14containsSymbolENS0_9SymbolRefE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10SectionRef14containsSymbolENS0_9SymbolRefE[] Calls: _ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm6object10ObjectFile14getSymbolValueENS0_11DataRefImplE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile14getSymbolValueENS0_11DataRefImplE[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile14getSymbolValueENS0_11DataRefImplE[] Calls: _ZNK4llvm6object10ObjectFile19getCommonSymbolSizeENS0_11DataRefImplE[] IsTailCall: 0 CallSiteLoc: 9.2 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm6object10ObjectFile19getCommonSymbolSizeENS0_11DataRefImplE[] CallingConv: 8 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile19getCommonSymbolSizeENS0_11DataRefImplE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile19getCommonSymbolSizeENS0_11DataRefImplE[] Calls: _ZN4llvm18report_fatal_errorENS_5ErrorEb[] IsTailCall: 0 CallSiteLoc: 5.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm6object10ObjectFile15printSymbolNameERNS_11raw_ostreamENS0_11DataRefImplE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile15printSymbolNameERNS_11raw_ostreamENS0_11DataRefImplE[] MBB: 2 IsMBBHot: 0 MBBCount: 92638
+IPRA: Function: _ZNK4llvm6object10ObjectFile15printSymbolNameERNS_11raw_ostreamENS0_11DataRefImplE[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm6object10ObjectFile15printSymbolNameERNS_11raw_ostreamENS0_11DataRefImplE[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile15printSymbolNameERNS_11raw_ostreamENS0_11DataRefImplE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 10.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm6object10ObjectFile18getSymbolAlignmentENS0_11DataRefImplE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile16isSectionBitcodeENS0_11DataRefImplE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile16isSectionBitcodeENS0_11DataRefImplE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile16isSectionBitcodeENS0_11DataRefImplE[] Calls: _ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm6object10ObjectFile17isSectionStrippedENS0_11DataRefImplE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile14isBerkeleyTextENS0_11DataRefImplE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile14isBerkeleyDataENS0_11DataRefImplE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile14isDebugSectionENS0_11DataRefImplE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile12hasDebugInfoEv[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile19getRelocatedSectionENS0_11DataRefImplE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] Calls: _ZN4llvm6Triple7setArchENS0_8ArchTypeENS0_11SubArchTypeE[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] Calls: _ZN4llvm6Triple5setOSENS0_6OSTypeE[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] Calls: _ZN4llvm6Triple15setObjectFormatENS0_16ObjectFormatTypeE[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] Calls: _ZN4llvm6Triple9setTripleERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 10.2 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] Calls: _ZN4llvm6Triple5setOSENS0_6OSTypeE[] IsTailCall: 0 CallSiteLoc: 12.4 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] Calls: _ZN4llvm6Triple5setOSENS0_6OSTypeE[] IsTailCall: 0 CallSiteLoc: 14.4 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile10makeTripleEv[] Calls: _ZN4llvm6Triple9setVendorENS0_10VendorTypeE[] IsTailCall: 0 CallSiteLoc: 17.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] CallingConv: 0 CSRegUsage: $rbx $r14 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] MBB: 2 IsMBBHot: 0 MBBCount: 1603
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] Calls: _ZN4llvm6object10ObjectFile19createELFObjectFileENS_15MemoryBufferRefEb[] IsTailCall: 0 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] MBB: 4 IsMBBHot: 0 MBBCount: 56
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] Calls: _ZN4llvm14identify_magicENS_9StringRefE[] IsTailCall: 0 CallSiteLoc: 4.4 LivingCSRegs: $rbx $rbp $r14
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] Calls: _ZN4llvm16errorCodeToErrorESt10error_code[] IsTailCall: 0 CallSiteLoc: 6.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] Calls: _ZN4llvm6object15object_categoryEv[] IsTailCall: 0 CallSiteLoc: 6.7 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] Calls: _ZN4llvm6object10ObjectFile21createMachOObjectFileENS_15MemoryBufferRefEjjm[] IsTailCall: 0 CallSiteLoc: 7.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] Calls: _ZN4llvm6object10ObjectFile20createCOFFObjectFileENS_15MemoryBufferRefE[] IsTailCall: 0 CallSiteLoc: 8.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] Calls: _ZN4llvm6object10ObjectFile21createXCOFFObjectFileENS_15MemoryBufferRefEj[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] Calls: _ZN4llvm6object10ObjectFile20createWasmObjectFileENS_15MemoryBufferRefE[] IsTailCall: 0 CallSiteLoc: 12.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_9StringRefE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_9StringRefE[] Calls: _ZN4llvm12MemoryBuffer7getFileERKNS_5TwineEbbbSt8optionalINS_5AlignEE[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_9StringRefE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_9StringRefE[] Calls: _ZN4llvm16errorCodeToErrorESt10error_code[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_9StringRefE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_9StringRefE[] Calls: _ZN4llvm6object10ObjectFile16createObjectFileENS_15MemoryBufferRefENS_10file_magicEb[] IsTailCall: 0 CallSiteLoc: 3.4 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm6object10ObjectFile16createObjectFileENS_9StringRefE[] Calls: _ZNK4llvm12MemoryBuffer15getMemBufferRefEv[] IsTailCall: 0 CallSiteLoc: 3.13 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm6object10ObjectFile29isReflectionSectionStrippableENS_12binaryformat27Swift5ReflectionSectionKindE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm6object10ObjectFileD0Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm6object10ObjectFile19mapDebugSectionNameENS_9StringRefE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0

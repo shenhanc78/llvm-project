@@ -1,0 +1,526 @@
+IPRA: Function: _ZN4llvm11MCAssemblerC2ERNS_9MCContextESt10unique_ptrINS_12MCAsmBackendESt14default_deleteIS4_EES3_INS_13MCCodeEmitterES5_IS8_EES3_INS_14MCObjectWriterES5_ISB_EE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler5resetEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler5resetEv[] MBB: 10 IsMBBHot: 0 MBBCount: 100
+IPRA: Function: _ZN4llvm11MCAssembler5resetEv[] Calls: memset[] IsTailCall: 0 CallSiteLoc: 10.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm11MCAssembler5resetEv[] MBB: 11 IsMBBHot: 0 MBBCount: 1
+IPRA: Function: _ZN4llvm11MCAssembler5resetEv[] Calls: _ZN4llvm19SmallPtrSetImplBase16shrink_and_clearEv[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm11MCAssembler15registerSectionERNS_9MCSectionE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler15registerSectionERNS_9MCSectionE[] MBB: 4 IsMBBHot: 0 MBBCount: 9743
+IPRA: Function: _ZN4llvm11MCAssembler15registerSectionERNS_9MCSectionE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 4.5 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 1 EntryCount: 5248733
+IPRA: Function: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] MBB: 5 IsMBBHot: 0 MBBCount: 1569
+IPRA: Function: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] MBB: 10 IsMBBHot: 0 MBBCount: 1569
+IPRA: Function: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] Calls: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] IsTailCall: 0 CallSiteLoc: 10.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] Calls: _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv[] IsTailCall: 0 CallSiteLoc: 11.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler11isThumbFuncEPKNS_8MCSymbolE[] Calls: _ZNK4llvm19SmallPtrSetImplBase6doFindEPKv[] IsTailCall: 0 CallSiteLoc: 13.6 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 14.4 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 19.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] MBB: 26 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 26.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] MBB: 30 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 30.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] MBB: 34 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 34.3 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] MBB: 44 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 44.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] MBB: 46 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13evaluateFixupERKNS_7MCFixupEPKNS_10MCFragmentERNS_7MCValueEPKNS_15MCSubtargetInfoERmRb[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 46.9 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler15getSymbolOffsetERKNS_8MCSymbolE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 1 EntryCount: 1447446
+IPRA: Function: _ZNK4llvm11MCAssembler15getSymbolOffsetERKNS_8MCSymbolE[] MBB: 0 IsMBBHot: 1 MBBCount: 1447446
+IPRA: Function: _ZNK4llvm11MCAssembler15getSymbolOffsetERKNS_8MCSymbolE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 0.7 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm11MCAssembler17getFragmentOffsetERKNS_10MCFragmentE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler17getFragmentOffsetERKNS_10MCFragmentE[] MBB: 0 IsMBBHot: 0 MBBCount: 130100
+IPRA: Function: _ZNK4llvm11MCAssembler17getFragmentOffsetERKNS_10MCFragmentE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 0.5 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] MBB: 3 IsMBBHot: 0 MBBCount: 8014
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 3.18 LivingCSRegs: $r12 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] MBB: 12 IsMBBHot: 0 MBBCount: 797
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 12.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 21.3 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] MBB: 23 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 23.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] MBB: 24 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 24.9 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] MBB: 25 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 25.3 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler15getSymbolOffsetERKNS_8MCSymbolERm[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler15getSymbolOffsetERKNS_8MCSymbolERm[] MBB: 0 IsMBBHot: 0 MBBCount: 385665
+IPRA: Function: _ZNK4llvm11MCAssembler15getSymbolOffsetERKNS_8MCSymbolERm[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_[] Calls: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] IsTailCall: 0 CallSiteLoc: 0.4 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_[] Calls: _ZN4llvm18report_fatal_errorEPKcb[] IsTailCall: 0 CallSiteLoc: 17.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 1 EntryCount: 9149899
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] MBB: 8 IsMBBHot: 0 MBBCount: 457321
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 8.16 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] MBB: 18 IsMBBHot: 0 MBBCount: 45503
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 18.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] MBB: 27 IsMBBHot: 0 MBBCount: 1
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 27.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] MBB: 29 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] Calls: _ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_[] IsTailCall: 0 CallSiteLoc: 29.4 LivingCSRegs: $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] MBB: 31 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 31.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 32.8 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] MBB: 33 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 33.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] MBB: 37 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 37.2 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] CallingConv: 8 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 1 EntryCount: 9320948
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 11 IsMBBHot: 0 MBBCount: 3672
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 11.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 13 IsMBBHot: 0 MBBCount: 3672
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 13.5 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 20.8 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZNK4llvm8MCSymbol7getNameEv[] IsTailCall: 0 CallSiteLoc: 21.4 LivingCSRegs: 
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 22 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] IsTailCall: 0 CallSiteLoc: 22.1 LivingCSRegs: 
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 22.4 LivingCSRegs: $rbx
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 23 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZNK4llvm8MCSymbol7getNameEv[] IsTailCall: 0 CallSiteLoc: 23.5 LivingCSRegs: 
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 25 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 25.5 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 34 IsMBBHot: 0 MBBCount: 460934
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 34.16 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 44 IsMBBHot: 0 MBBCount: 45863
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 44.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 48 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 48.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 50 IsMBBHot: 0 MBBCount: 1
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 50.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 52 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZNK4llvm11MCAssembler12layoutBundleEPNS_10MCFragmentES2_[] IsTailCall: 0 CallSiteLoc: 52.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 54 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 54.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 55 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 55.9 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 56 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 56.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 60 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 60.2 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] MBB: 65 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 65.6 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler13getBaseSymbolERKNS_8MCSymbolE[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13getBaseSymbolERKNS_8MCSymbolE[] MBB: 2 IsMBBHot: 0 MBBCount: 1556
+IPRA: Function: _ZNK4llvm11MCAssembler13getBaseSymbolERKNS_8MCSymbolE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm11MCAssembler13getBaseSymbolERKNS_8MCSymbolE[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler13getBaseSymbolERKNS_8MCSymbolE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 15.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler21getSectionAddressSizeERKNS_9MCSectionE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler21getSectionAddressSizeERKNS_9MCSectionE[] MBB: 0 IsMBBHot: 0 MBBCount: 3324
+IPRA: Function: _ZNK4llvm11MCAssembler21getSectionAddressSizeERKNS_9MCSectionE[] Calls: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $r15
+IPRA: Function: _ZNK4llvm11MCAssembler21getSectionAddressSizeERKNS_9MCSectionE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 0.13 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm11MCAssembler18getSectionFileSizeERKNS_9MCSectionE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler18getSectionFileSizeERKNS_9MCSectionE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler18getSectionFileSizeERKNS_9MCSectionE[] Calls: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] IsTailCall: 0 CallSiteLoc: 1.12 LivingCSRegs: $r15
+IPRA: Function: _ZNK4llvm11MCAssembler18getSectionFileSizeERKNS_9MCSectionE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 1.16 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm11MCAssembler14registerSymbolERKNS_8MCSymbolE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 1 EntryCount: 7306169
+IPRA: Function: _ZN4llvm11MCAssembler14registerSymbolERKNS_8MCSymbolE[] MBB: 4 IsMBBHot: 0 MBBCount: 16704
+IPRA: Function: _ZN4llvm11MCAssembler14registerSymbolERKNS_8MCSymbolE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 4.5 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler20writeFragmentPaddingERNS_11raw_ostreamERKNS_17MCEncodedFragmentEm[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20writeFragmentPaddingERNS_11raw_ostreamERKNS_17MCEncodedFragmentEm[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20writeFragmentPaddingERNS_11raw_ostreamERKNS_17MCEncodedFragmentEm[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 7.5 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZNK4llvm11MCAssembler20writeFragmentPaddingERNS_11raw_ostreamERKNS_17MCEncodedFragmentEm[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20writeFragmentPaddingERNS_11raw_ostreamERKNS_17MCEncodedFragmentEm[] Calls: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] IsTailCall: 0 CallSiteLoc: 8.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler20writeFragmentPaddingERNS_11raw_ostreamERKNS_17MCEncodedFragmentEm[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 8.4 LivingCSRegs: $r14
+IPRA: Function: _ZNK4llvm11MCAssembler20writeFragmentPaddingERNS_11raw_ostreamERKNS_17MCEncodedFragmentEm[] MBB: 9 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20writeFragmentPaddingERNS_11raw_ostreamERKNS_17MCEncodedFragmentEm[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 9.6 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 12.2 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 13 IsMBBHot: 1 MBBCount: 1262803
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 13.1 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 31 IsMBBHot: 1 MBBCount: 2752854
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 0 CallSiteLoc: 31.1 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 33 IsMBBHot: 0 MBBCount: 371430
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 33.16 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 48 IsMBBHot: 0 MBBCount: 197368
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm[] IsTailCall: 0 CallSiteLoc: 48.3 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 74 IsMBBHot: 0 MBBCount: 36957
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 74.3 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 81 IsMBBHot: 0 MBBCount: 11815
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: malloc[] IsTailCall: 0 CallSiteLoc: 81.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 83 IsMBBHot: 0 MBBCount: 11815
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 83.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 87 IsMBBHot: 0 MBBCount: 5430
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm11raw_ostream13SetBufferSizeEm[] IsTailCall: 0 CallSiteLoc: 87.1 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 89 IsMBBHot: 0 MBBCount: 4286
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: realloc[] IsTailCall: 0 CallSiteLoc: 89.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 91 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZL17replaceAllocationPvmmm.llvm.7554519629958700880[] IsTailCall: 0 CallSiteLoc: 91.5 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 113 IsMBBHot: 0 MBBCount: 6
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 113.2 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 120 IsMBBHot: 0 MBBCount: 1
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 120.3 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 123 IsMBBHot: 0 MBBCount: 3116
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 123.2 LivingCSRegs: $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 133 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 133.1 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 144 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 144.3 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 145 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 145.8 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 146 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 146.3 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 159 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm[] IsTailCall: 0 CallSiteLoc: 159.10 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE22__resize_and_overwriteIZNS_9to_stringElEUlPcmE_EEvmT_[] IsTailCall: 0 CallSiteLoc: 159.16 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 160 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 160.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 161 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 161.4 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 161.12 LivingCSRegs: $rbp $r14
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 161.20 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 163 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZSt20__throw_length_errorPKc[] IsTailCall: 0 CallSiteLoc: 163.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 164 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm22report_bad_alloc_errorEPKcb[] IsTailCall: 0 CallSiteLoc: 164.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 167 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 167.3 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 168 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm18report_fatal_errorERKNS_5TwineEb[] IsTailCall: 0 CallSiteLoc: 168.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvmplERKNS_5TwineES2_[] IsTailCall: 0 CallSiteLoc: 168.4 LivingCSRegs: $r14
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 177 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc[] IsTailCall: 0 CallSiteLoc: 177.9 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 178 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 178.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 181 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc[] IsTailCall: 0 CallSiteLoc: 181.10 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEOS8_S9_[] IsTailCall: 0 CallSiteLoc: 181.13 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE22__resize_and_overwriteIZNS_9to_stringElEUlPcmE_EEvmT_[] IsTailCall: 0 CallSiteLoc: 181.18 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 183 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 183.5 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 184 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 184.1 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 186 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 186.1 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 188 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 188.1 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 190 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 190.1 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 192 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 192.1 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 194 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 194.1 LivingCSRegs: $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 204 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 0 CallSiteLoc: 204.2 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 205 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 205.1 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 208 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 208.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 216 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZL17replaceAllocationPvmmm.llvm.7554519629958700880[] IsTailCall: 0 CallSiteLoc: 216.6 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 217 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm11raw_ostream13SetUnbufferedEv[] IsTailCall: 0 CallSiteLoc: 217.2 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 220 IsMBBHot: 0 MBBCount: 6037
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 220.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] MBB: 223 IsMBBHot: 0 MBBCount: 12
+IPRA: Function: _ZNK4llvm11MCAssembler16writeSectionDataERNS_11raw_ostreamEPKNS_9MCSectionE[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 0 CallSiteLoc: 223.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] MBB: 14 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 14.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 18.8 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] MBB: 24 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 24.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] MBB: 28 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 28.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 32.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] MBB: 45 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 45.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] MBB: 46 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler11handleFixupERNS_10MCFragmentERKNS_7MCFixupEPKNS_15MCSubtargetInfoE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 46.9 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 14 IsMBBHot: 1 MBBCount: 5639677
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK12_GLOBAL__N_113X86AsmBackend17mayNeedRelaxationERKN4llvm6MCInstERKNS1_15MCSubtargetInfoE.llvm.6523329019321643[] IsTailCall: 0 CallSiteLoc: 14.1 LivingCSRegs: $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 18 IsMBBHot: 1 MBBCount: 4716351
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 18.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 39 IsMBBHot: 1 MBBCount: 4184794
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 39.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 43 IsMBBHot: 1 MBBCount: 4271324
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 43.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 60 IsMBBHot: 1 MBBCount: 3918860
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 60.3 LivingCSRegs: $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 78 IsMBBHot: 0 MBBCount: 609374
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 78.1 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 87 IsMBBHot: 0 MBBCount: 483377
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 87.1 LivingCSRegs: $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 103 IsMBBHot: 0 MBBCount: 213901
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 103.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 111 IsMBBHot: 0 MBBCount: 85759
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 111.2 LivingCSRegs: $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 126 IsMBBHot: 0 MBBCount: 61
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj[] IsTailCall: 0 CallSiteLoc: 126.4 LivingCSRegs: $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 126.9 LivingCSRegs: $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 127 IsMBBHot: 0 MBBCount: 36
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] IsTailCall: 0 CallSiteLoc: 127.1 LivingCSRegs: $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 141 IsMBBHot: 0 MBBCount: 502192
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15ELFObjectWriter16recordRelocationERNS_11MCAssemblerEPKNS_10MCFragmentERKNS_7MCFixupENS_7MCValueERm[] IsTailCall: 0 CallSiteLoc: 141.1 LivingCSRegs: $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 143 IsMBBHot: 1 MBBCount: 2996131
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 143.3 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 164 IsMBBHot: 1 MBBCount: 2658451
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 164.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 168 IsMBBHot: 1 MBBCount: 2713421
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 168.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 220 IsMBBHot: 0 MBBCount: 135883
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 220.4 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 223 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 223.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 225 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm11MCAssembler18relaxBoundaryAlignERNS_23MCBoundaryAlignFragmentE[] IsTailCall: 0 CallSiteLoc: 225.2 LivingCSRegs: $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 226 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15CodeViewContext21encodeInlineLineTableERKNS_11MCAssemblerERNS_27MCCVInlineLineTableFragmentE[] IsTailCall: 0 CallSiteLoc: 226.4 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm9MCContext12getCVContextEv[] IsTailCall: 0 CallSiteLoc: 226.8 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 227 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15CodeViewContext14encodeDefRangeERKNS_11MCAssemblerERNS_20MCCVDefRangeFragmentE[] IsTailCall: 0 CallSiteLoc: 227.4 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm9MCContext12getCVContextEv[] IsTailCall: 0 CallSiteLoc: 227.8 LivingCSRegs: $rbx $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 228 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] IsTailCall: 0 CallSiteLoc: 228.2 LivingCSRegs: $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 229 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE[] IsTailCall: 0 CallSiteLoc: 229.2 LivingCSRegs: $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 233 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 233.3 LivingCSRegs: $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 249 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 249.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 251 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 251.1 LivingCSRegs: $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 258 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 258.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 267 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 267.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 269 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: free[] IsTailCall: 0 CallSiteLoc: 269.2 LivingCSRegs: $rbp $r12 $r13
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 271 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 271.2 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 273 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 273.2 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 275 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 275.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 276 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 276.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 280 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 280.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 284 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 284.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 286 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 286.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 287 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 287.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 288 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm10MCFragmentC2ENS0_12FragmentTypeEb[] IsTailCall: 0 CallSiteLoc: 288.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 291 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm25SmallVectorTemplateCommonISt4pairIjNS_9MCSection8FragListEEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS4_Lb1EEEEEPKS4_PT_RS9_m[] IsTailCall: 0 CallSiteLoc: 291.15 LivingCSRegs: $rbx $rbp $r12 $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 294 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 294.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 295 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 295.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 296 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 296.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 298 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 298.3 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] MBB: 299 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler6layoutEv[] Calls: _ZN4llvm15SmallVectorBaseImE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 299.3 LivingCSRegs: $rbx $rbp $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler10layoutOnceEv[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler10layoutOnceEv[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler10layoutOnceEv[] Calls: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] IsTailCall: 0 CallSiteLoc: 4.4 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler6FinishEv[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler6FinishEv[] MBB: 0 IsMBBHot: 0 MBBCount: 1715
+IPRA: Function: _ZN4llvm11MCAssembler6FinishEv[] Calls: _ZN4llvm11MCAssembler6layoutEv[] IsTailCall: 0 CallSiteLoc: 0.9 LivingCSRegs: $rbx
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 0.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 13.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 17.8 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] MBB: 28 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 28.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] MBB: 32 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 32.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] MBB: 36 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 36.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] MBB: 48 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 48.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] MBB: 50 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler20fixupNeedsRelaxationERKNS_7MCFixupEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 50.6 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 16.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 21.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] MBB: 40 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 40.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] MBB: 44 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 44.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] MBB: 48 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 48.3 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] MBB: 56 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 56.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] MBB: 57 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm11MCAssembler23fragmentNeedsRelaxationEPKNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 57.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 3.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 16.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 21 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 21.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 41 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 41.1 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 50 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 50.1 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 56 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 56.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 60 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 60.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 67 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 67.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 72 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 72.3 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 78 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 78.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 80 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 80.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 81 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 81.2 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 83 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 83.2 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 87 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 87.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] MBB: 90 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler16relaxInstructionERNS_19MCRelaxableFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 90.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 1 IsMBBHot: 0 MBBCount: 36
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZNK4llvm6MCExpr18evaluateAsAbsoluteERlRKNS_11MCAssemblerE[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 4 IsMBBHot: 0 MBBCount: 36
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE[] IsTailCall: 0 CallSiteLoc: 4.4 LivingCSRegs: $rbx $rbp $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 7 IsMBBHot: 0 MBBCount: 64
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 10 IsMBBHot: 0 MBBCount: 36
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZN4llvm11raw_ostreamD2Ev[] IsTailCall: 0 CallSiteLoc: 10.17 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZNK4llvm6MCExpr21evaluateKnownAbsoluteERlRKNS_11MCAssemblerE[] IsTailCall: 0 CallSiteLoc: 12.2 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj[] IsTailCall: 0 CallSiteLoc: 16.2 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 16.7 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 27 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 27.1 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 34 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 34.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 42 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 42.1 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] MBB: 47 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 47.2 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm11MCAssembler18relaxBoundaryAlignERNS_23MCBoundaryAlignFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler18relaxBoundaryAlignERNS_23MCBoundaryAlignFragmentE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler18relaxBoundaryAlignERNS_23MCBoundaryAlignFragmentE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm11MCAssembler18relaxBoundaryAlignERNS_23MCBoundaryAlignFragmentE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler18relaxBoundaryAlignERNS_23MCBoundaryAlignFragmentE[] Calls: _ZNK4llvm11MCAssembler19computeFragmentSizeERKNS_10MCFragmentE[] IsTailCall: 0 CallSiteLoc: 2.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE[] Calls: _ZN4llvm15MCDwarfLineAddr6encodeERNS_9MCContextENS_22MCDwarfLineTableParamsElmRNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $rbp
+IPRA: Function: _ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE[] Calls: _ZNK4llvm6MCExpr21evaluateKnownAbsoluteERlRKNS_11MCAssemblerE[] IsTailCall: 0 CallSiteLoc: 2.14 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler27relaxDwarfCallFrameFragmentERNS_24MCDwarfCallFrameFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler27relaxDwarfCallFrameFragmentERNS_24MCDwarfCallFrameFragmentE[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler27relaxDwarfCallFrameFragmentERNS_24MCDwarfCallFrameFragmentE[] Calls: _ZNK4llvm6MCExpr18evaluateAsAbsoluteERlRKNS_11MCAssemblerE[] IsTailCall: 0 CallSiteLoc: 1.3 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler27relaxDwarfCallFrameFragmentERNS_24MCDwarfCallFrameFragmentE[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler27relaxDwarfCallFrameFragmentERNS_24MCDwarfCallFrameFragmentE[] Calls: _ZN4llvm19MCDwarfFrameEmitter16encodeAdvanceLocERNS_9MCContextEmRNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 2.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm11MCAssembler27relaxDwarfCallFrameFragmentERNS_24MCDwarfCallFrameFragmentE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler27relaxDwarfCallFrameFragmentERNS_24MCDwarfCallFrameFragmentE[] Calls: _ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm11MCAssembler27relaxDwarfCallFrameFragmentERNS_24MCDwarfCallFrameFragmentE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 5.9 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm11MCAssembler22relaxCVInlineLineTableERNS_27MCCVInlineLineTableFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler22relaxCVInlineLineTableERNS_27MCCVInlineLineTableFragmentE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler22relaxCVInlineLineTableERNS_27MCCVInlineLineTableFragmentE[] Calls: _ZN4llvm15CodeViewContext21encodeInlineLineTableERKNS_11MCAssemblerERNS_27MCCVInlineLineTableFragmentE[] IsTailCall: 0 CallSiteLoc: 0.10 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm11MCAssembler22relaxCVInlineLineTableERNS_27MCCVInlineLineTableFragmentE[] Calls: _ZN4llvm9MCContext12getCVContextEv[] IsTailCall: 0 CallSiteLoc: 0.14 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler15relaxCVDefRangeERNS_20MCCVDefRangeFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler15relaxCVDefRangeERNS_20MCCVDefRangeFragmentE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler15relaxCVDefRangeERNS_20MCCVDefRangeFragmentE[] Calls: _ZN4llvm15CodeViewContext14encodeDefRangeERKNS_11MCAssemblerERNS_20MCCVDefRangeFragmentE[] IsTailCall: 0 CallSiteLoc: 0.10 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm11MCAssembler15relaxCVDefRangeERNS_20MCCVDefRangeFragmentE[] Calls: _ZN4llvm9MCContext12getCVContextEv[] IsTailCall: 0 CallSiteLoc: 0.14 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] Calls: _ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] Calls: _ZNK4llvm6MCExpr21evaluateKnownAbsoluteERlRKNS_11MCAssemblerE[] IsTailCall: 0 CallSiteLoc: 0.24 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 6.1 LivingCSRegs: $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 13.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] MBB: 17 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] Calls: _ZN4llvm11raw_ostream5writeEh[] IsTailCall: 0 CallSiteLoc: 17.1 LivingCSRegs: $r12
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] MBB: 18 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] Calls: _ZN4llvm11raw_ostreamD2Ev[] IsTailCall: 0 CallSiteLoc: 18.17 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZNK4llvm6MCExpr25evaluateAsRelocatableImplERNS_7MCValueEPKNS_11MCAssemblerEPKNS_7MCFixupEPKNS_8DenseMapIPKNS_9MCSectionEmNS_12DenseMapInfoISC_vEENS_6detail12DenseMapPairISC_mEEEEb[] IsTailCall: 0 CallSiteLoc: 6.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 19.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 24 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZNK4llvm11MCAssembler11ensureValidERNS_9MCSectionE[] IsTailCall: 0 CallSiteLoc: 24.8 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 40 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZNK4llvm6MCExpr18evaluateAsAbsoluteERlRKNS_11MCAssemblerE[] IsTailCall: 0 CallSiteLoc: 40.3 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 41 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm19MCDwarfFrameEmitter16encodeAdvanceLocERNS_9MCContextEmRNS_15SmallVectorImplIcEE[] IsTailCall: 0 CallSiteLoc: 41.2 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 47 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 47.1 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 56 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 56.1 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 62 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 62.5 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 66 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZL19getSymbolOffsetImplRKN4llvm11MCAssemblerERKNS_8MCSymbolEbRm.llvm.9310617103079443131[] IsTailCall: 0 CallSiteLoc: 66.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 73 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 73.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 77 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm11MCAssembler8relaxLEBERNS_13MCLEBFragmentE[] IsTailCall: 1 CallSiteLoc: 77.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 78 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm11MCAssembler18relaxBoundaryAlignERNS_23MCBoundaryAlignFragmentE[] IsTailCall: 1 CallSiteLoc: 78.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 79 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm15CodeViewContext21encodeInlineLineTableERKNS_11MCAssemblerERNS_27MCCVInlineLineTableFragmentE[] IsTailCall: 0 CallSiteLoc: 79.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm9MCContext12getCVContextEv[] IsTailCall: 0 CallSiteLoc: 79.7 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 80 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm15CodeViewContext14encodeDefRangeERKNS_11MCAssemblerERNS_20MCCVDefRangeFragmentE[] IsTailCall: 0 CallSiteLoc: 80.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm9MCContext12getCVContextEv[] IsTailCall: 0 CallSiteLoc: 80.7 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 81 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm11MCAssembler20relaxPseudoProbeAddrERNS_25MCPseudoProbeAddrFragmentE[] IsTailCall: 1 CallSiteLoc: 81.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 82 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm11MCAssembler18relaxDwarfLineAddrERNS_23MCDwarfLineAddrFragmentE[] IsTailCall: 1 CallSiteLoc: 82.1 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 84 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 84.3 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 88 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm14MCConstantExpr6createElRNS_9MCContextEbj[] IsTailCall: 0 CallSiteLoc: 88.3 LivingCSRegs: $rbx $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm9MCContext11reportErrorENS_5SMLocERKNS_5TwineE[] IsTailCall: 0 CallSiteLoc: 88.9 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 92 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 92.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 94 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: free[] IsTailCall: 0 CallSiteLoc: 94.2 LivingCSRegs: 
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 95 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 95.2 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 97 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: memmove[] IsTailCall: 0 CallSiteLoc: 97.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 100 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 100.6 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] MBB: 103 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm11MCAssembler13relaxFragmentERNS_10MCFragmentE[] Calls: _ZNK4llvm6MCExpr22findAssociatedFragmentEv[] IsTailCall: 0 CallSiteLoc: 103.7 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm25SmallVectorTemplateCommonISt4pairIjNS_9MCSection8FragListEEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS4_Lb1EEEEEPKS4_PT_RS9_m[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm25SmallVectorTemplateCommonISt4pairIjNS_9MCSection8FragListEEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS4_Lb1EEEEEPKS4_PT_RS9_m[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm25SmallVectorTemplateCommonISt4pairIjNS_9MCSection8FragListEEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS4_Lb1EEEEEPKS4_PT_RS9_m[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 3.2 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm25SmallVectorTemplateCommonISt4pairIjNS_9MCSection8FragListEEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS4_Lb1EEEEEPKS4_PT_RS9_m[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm25SmallVectorTemplateCommonISt4pairIjNS_9MCSection8FragListEEvE32reserveForParamAndGetAddressImplINS_23SmallVectorTemplateBaseIS4_Lb1EEEEEPKS4_PT_RS9_m[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 5.4 LivingCSRegs: $rbx $r14

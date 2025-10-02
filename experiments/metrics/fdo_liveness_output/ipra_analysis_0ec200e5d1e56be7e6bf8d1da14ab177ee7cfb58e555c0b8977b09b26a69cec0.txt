@@ -1,0 +1,54 @@
+IPRA: Function: _ZNK4llvm8codeview25AppendingTypeTableBuilder13nextTypeIndexEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderC2ERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEE[] Calls: _ZN4llvm8codeview20SimpleTypeSerializerC1Ev[] IsTailCall: 0 CallSiteLoc: 0.8 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderD2Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderD2Ev[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderD2Ev[] Calls: free[] IsTailCall: 0 CallSiteLoc: 1.5 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderD2Ev[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderD2Ev[] Calls: _ZN4llvm8codeview20SimpleTypeSerializerD1Ev[] IsTailCall: 1 CallSiteLoc: 2.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderD0Ev[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderD0Ev[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderD0Ev[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilderD0Ev[] Calls: _ZN4llvm8codeview25AppendingTypeTableBuilderD2Ev[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $rbx
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder8getFirstEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder7getNextENS0_9TypeIndexE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder7getTypeENS0_9TypeIndexE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder11getTypeNameENS0_9TypeIndexE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder8containsENS0_9TypeIndexE[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder4sizeEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder8capacityEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm8codeview25AppendingTypeTableBuilder7recordsEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder5resetEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder17insertRecordBytesERNS_8ArrayRefIhEE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder17insertRecordBytesERNS_8ArrayRefIhEE[] MBB: 3 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder17insertRecordBytesERNS_8ArrayRefIhEE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 3.6 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder17insertRecordBytesERNS_8ArrayRefIhEE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder17insertRecordBytesERNS_8ArrayRefIhEE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 5.3 LivingCSRegs: $rbx $rbp $r14 $r15
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder17insertRecordBytesERNS_8ArrayRefIhEE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder17insertRecordBytesERNS_8ArrayRefIhEE[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 6.4 LivingCSRegs: $rbx $rbp $r12 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] Calls: _ZN4llvm8codeview25ContinuationRecordBuilder3endENS0_9TypeIndexE[] IsTailCall: 0 CallSiteLoc: 0.6 LivingCSRegs: $r14 $r15
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 5.4 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 7.3 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: $rbx $rbp $r12 $r13 $r14
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder12insertRecordERNS0_25ContinuationRecordBuilderE[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 12.1 LivingCSRegs: $rbp
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder11replaceTypeERNS0_9TypeIndexENS0_8CVRecordINS0_12TypeLeafKindEEEb[] CallingConv: 0 CSRegUsage: $rbx $r12 $r14 $r15 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder11replaceTypeERNS0_9TypeIndexENS0_8CVRecordINS0_12TypeLeafKindEEEb[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder11replaceTypeERNS0_9TypeIndexENS0_8CVRecordINS0_12TypeLeafKindEEEb[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 4.2 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder11replaceTypeERNS0_9TypeIndexENS0_8CVRecordINS0_12TypeLeafKindEEEb[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm8codeview25AppendingTypeTableBuilder11replaceTypeERNS0_9TypeIndexENS0_8CVRecordINS0_12TypeLeafKindEEEb[] Calls: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] IsTailCall: 0 CallSiteLoc: 6.4 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 1 EntryCount: 47613419
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] MBB: 1 IsMBBHot: 1 MBBCount: 47536635
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 1.4 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] MBB: 4 IsMBBHot: 1 MBBCount: 3483539
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 4.4 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] MBB: 5 IsMBBHot: 0 MBBCount: 76784
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] Calls: _ZN4llvm15allocate_bufferEmm[] IsTailCall: 0 CallSiteLoc: 5.5 LivingCSRegs: $rbx $r12 $r13 $r14
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] MBB: 6 IsMBBHot: 0 MBBCount: 31652
+IPRA: Function: _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbx $r12 $r13 $r14 $r15

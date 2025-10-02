@@ -1,0 +1,63 @@
+IPRA: Function: _ZN4llvm15CodeGenCoverageC2Ev[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15CodeGenCoverage10setCoveredEm[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15CodeGenCoverage10setCoveredEm[] MBB: 1 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15CodeGenCoverage10setCoveredEm[] Calls: _ZN4llvm9BitVector6resizeEjb[] IsTailCall: 0 CallSiteLoc: 1.1 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm9BitVector6resizeEjb[] CallingConv: 0 CSRegUsage: $rbx $r14 $r15 IsFunctionEntryHot: 1 EntryCount: 45391596
+IPRA: Function: _ZN4llvm9BitVector6resizeEjb[] MBB: 18 IsMBBHot: 0 MBBCount: 515225
+IPRA: Function: _ZN4llvm9BitVector6resizeEjb[] Calls: _ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm[] IsTailCall: 0 CallSiteLoc: 18.4 LivingCSRegs: $rbx $r14 $r15
+IPRA: Function: _ZNK4llvm15CodeGenCoverage9isCoveredEm[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage7coveredEv[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage7coveredEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage7coveredEv[] Calls: _ZNK4llvm9BitVector10find_firstEv[] IsTailCall: 0 CallSiteLoc: 0.13 LivingCSRegs: $rbx $r14
+IPRA: Function: _ZN4llvm15CodeGenCoverage5parseERNS_12MemoryBufferENS_9StringRefE[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15CodeGenCoverage5parseERNS_12MemoryBufferENS_9StringRefE[] MBB: 6 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15CodeGenCoverage5parseERNS_12MemoryBufferENS_9StringRefE[] Calls: strlen[] IsTailCall: 0 CallSiteLoc: 6.2 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZN4llvm15CodeGenCoverage5parseERNS_12MemoryBufferENS_9StringRefE[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15CodeGenCoverage5parseERNS_12MemoryBufferENS_9StringRefE[] Calls: bcmp[] IsTailCall: 0 CallSiteLoc: 8.4 LivingCSRegs: $rbx $r12 $r13 $r15
+IPRA: Function: _ZN4llvm15CodeGenCoverage5parseERNS_12MemoryBufferENS_9StringRefE[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15CodeGenCoverage5parseERNS_12MemoryBufferENS_9StringRefE[] Calls: _ZN4llvm9BitVector6resizeEjb[] IsTailCall: 0 CallSiteLoc: 13.2 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] CallingConv: 0 CSRegUsage: $rbx $r12 $r13 $r14 $r15 $rbp IsFunctionEntryHot: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 4 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: pthread_mutex_lock[] IsTailCall: 0 CallSiteLoc: 4.3 LivingCSRegs: $rbx $r13
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZN4llvm14ToolOutputFileC1ENS_9StringRefERSt10error_codeNS_3sys2fs9OpenFlagsE[] IsTailCall: 0 CallSiteLoc: 5.5 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _Znwm[] IsTailCall: 0 CallSiteLoc: 5.13 LivingCSRegs: $rbx $r12
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZNSt3_V215system_categoryEv[] IsTailCall: 0 CallSiteLoc: 5.16 LivingCSRegs: $rbx $r12 $r14
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZNK4llvm5Twine3strB5cxx11Ev[] IsTailCall: 0 CallSiteLoc: 5.18 LivingCSRegs: $rbx $r12 $r14 $r15
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZN4llvm11raw_ostreamD2Ev[] IsTailCall: 0 CallSiteLoc: 5.28 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZN4llvm11raw_ostreamlsEl[] IsTailCall: 0 CallSiteLoc: 5.30 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE[] IsTailCall: 0 CallSiteLoc: 5.33 LivingCSRegs: $rbx $rbp $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZN4llvm3sys7Process12getProcessIdEv[] IsTailCall: 0 CallSiteLoc: 5.56 LivingCSRegs: $rbx $r13
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 7 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 0 CallSiteLoc: 7.1 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 8 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZNK4llvm9BitVector10find_firstEv[] IsTailCall: 0 CallSiteLoc: 8.3 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 0 CallSiteLoc: 8.5 LivingCSRegs: $rbx $r13 $r14
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 10 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZNK4llvm9BitVector13find_first_inEjjb[] IsTailCall: 0 CallSiteLoc: 10.4 LivingCSRegs: $rbx $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 0 CallSiteLoc: 10.10 LivingCSRegs: $rbx $rbp $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 11 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZN4llvm11raw_ostream5writeEPKcm[] IsTailCall: 0 CallSiteLoc: 11.2 LivingCSRegs: $r13 $r14
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 12 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_[] IsTailCall: 0 CallSiteLoc: 12.5 LivingCSRegs: $r13
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 13 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 13.1 LivingCSRegs: $r13
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 15 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZdlPvm[] IsTailCall: 0 CallSiteLoc: 15.1 LivingCSRegs: $r13
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 16 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: pthread_mutex_unlock[] IsTailCall: 0 CallSiteLoc: 16.3 LivingCSRegs: $r13
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 19 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: memcpy[] IsTailCall: 0 CallSiteLoc: 19.3 LivingCSRegs: $rbx $r12 $r13 $r14 $r15
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] MBB: 20 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNK4llvm15CodeGenCoverage4emitENS_9StringRefES1_[] Calls: _ZSt20__throw_system_errori[] IsTailCall: 0 CallSiteLoc: 20.1 LivingCSRegs: 
+IPRA: Function: _ZN4llvm15CodeGenCoverage5resetEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 0
+IPRA: Function: _ZN4llvm15CodeGenCoverage5resetEv[] MBB: 0 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZN4llvm15CodeGenCoverage5resetEv[] Calls: _ZN4llvm9BitVector6resizeEjb[] IsTailCall: 1 CallSiteLoc: 0.1 LivingCSRegs: 
+IPRA: Function: _ZNK4llvm9BitVector10find_firstEv[] CallingConv: 0 CSRegUsage:  IsFunctionEntryHot: 1 EntryCount: 6832315
+IPRA: Function: _ZNK4llvm9BitVector13find_first_inEjjb[] CallingConv: 0 CSRegUsage: $rbx $r14 IsFunctionEntryHot: 1 EntryCount: 67808586
+IPRA: Function: _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_[] CallingConv: 0 CSRegUsage: $rbx IsFunctionEntryHot: 0
+IPRA: Function: _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_[] MBB: 2 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_[] Calls: _ZN4llvm14raw_fd_ostreamD1Ev[] IsTailCall: 0 CallSiteLoc: 2.2 LivingCSRegs: $rbx
+IPRA: Function: _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_[] MBB: 5 IsMBBHot: 0 MBBCount: 0
+IPRA: Function: _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_[] Calls: _ZdlPvm[] IsTailCall: 1 CallSiteLoc: 5.1 LivingCSRegs: $rbx
+IPRA: Function: _ZNKSt14default_deleteIN4llvm14ToolOutputFileEEclEPS1_[] Calls: _ZN4llvm16CleanupInstallerD1Ev[] IsTailCall: 0 CallSiteLoc: 5.6 LivingCSRegs: $rbx
