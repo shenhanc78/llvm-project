@@ -37,61 +37,58 @@ static bool isDirectUserOf(const CallBase &CB, const Function &F) {
 }
 
 // TODO: comment out or remove this function in production code
-const char *PreserveNoneStatsFile = "../metrics/preserve_none_linkage_stats.json";
-// --- Helper struct to automatically count and print linkage stats ---
-struct LinkageStatsCollector {
-  StringMap<unsigned> Counts;
+// const char *PreserveNoneStatsFile = "../metrics/preserve_none_linkage_stats.json";
+// // --- Helper struct to automatically count and print linkage stats ---
+// struct LinkageStatsCollector {
+//   StringMap<unsigned> Counts;
 
-  ~LinkageStatsCollector() {
-    if (Counts.empty()) return;
+//   ~LinkageStatsCollector() {
+//     if (Counts.empty()) return;
 
-    std::error_code EC;
-    raw_fd_ostream OS(PreserveNoneStatsFile, EC, sys::fs::OF_Append);
-    if (EC) {
-      errs() << "[PreserveNone] Error opening stats file '" << PreserveNoneStatsFile
-             << "': " << EC.message() << "\n";
-      return;
-    }
+//     std::error_code EC;
+//     raw_fd_ostream OS(PreserveNoneStatsFile, EC, sys::fs::OF_Append);
+//     if (EC) {
+//       errs() << "[PreserveNone] Error opening stats file '" << PreserveNoneStatsFile
+//              << "': " << EC.message() << "\n";
+//       return;
+//     }
 
-    // The json::Value constructor cannot implicitly convert from StringMap.
-    json::Object StatsObject;
-    for (const auto &Pair : Counts) {
-        StatsObject[Pair.getKey()] = Pair.getValue();
-    }
+//     // The json::Value constructor cannot implicitly convert from StringMap.
+//     json::Object StatsObject;
+//     for (const auto &Pair : Counts) {
+//         StatsObject[Pair.getKey()] = Pair.getValue();
+//     }
     
-    // Write the correctly formed json::Object to the file.
-    OS << json::Value(std::move(StatsObject)) << "\n";
-  }
-};
+//     // Write the correctly formed json::Object to the file.
+//     OS << json::Value(std::move(StatsObject)) << "\n";
+//   }
+// };
 
-static LinkageStatsCollector Stats;
+// static LinkageStatsCollector Stats;
 
-// --- Helper function to convert LinkageTypes enum to string ---
-static StringRef getLinkageNameString(GlobalValue::LinkageTypes LT) {
-  switch (LT) {
-    case GlobalValue::ExternalLinkage: return "external";
-    case GlobalValue::PrivateLinkage: return "private";
-    case GlobalValue::InternalLinkage: return "internal";
-    case GlobalValue::LinkOnceAnyLinkage: return "linkonce";
-    case GlobalValue::LinkOnceODRLinkage: return "linkonce_odr";
-    case GlobalValue::WeakAnyLinkage: return "weak";
-    case GlobalValue::WeakODRLinkage: return "weak_odr";
-    case GlobalValue::CommonLinkage: return "common";
-    case GlobalValue::AppendingLinkage: return "appending";
-    case GlobalValue::ExternalWeakLinkage: return "extern_weak";
-    case GlobalValue::AvailableExternallyLinkage: return "available_externally";
-  }
-  llvm_unreachable("Unhandled linkage type!");
-}
+// // --- Helper function to convert LinkageTypes enum to string ---
+// static StringRef getLinkageNameString(GlobalValue::LinkageTypes LT) {
+//   switch (LT) {
+//     case GlobalValue::ExternalLinkage: return "external";
+//     case GlobalValue::PrivateLinkage: return "private";
+//     case GlobalValue::InternalLinkage: return "internal";
+//     case GlobalValue::LinkOnceAnyLinkage: return "linkonce";
+//     case GlobalValue::LinkOnceODRLinkage: return "linkonce_odr";
+//     case GlobalValue::WeakAnyLinkage: return "weak";
+//     case GlobalValue::WeakODRLinkage: return "weak_odr";
+//     case GlobalValue::CommonLinkage: return "common";
+//     case GlobalValue::AppendingLinkage: return "appending";
+//     case GlobalValue::ExternalWeakLinkage: return "extern_weak";
+//     case GlobalValue::AvailableExternallyLinkage: return "available_externally";
+//   }
+//   llvm_unreachable("Unhandled linkage type!");
+// }
 
 
 static bool isSafeLinkage(const Function &F) {
   // This is the MOST CRITICAL check. We only want to modify functions that
   // are not visible outside the current compilation unit. This prevents us
   // from breaking the ABI of any external or standard library functions.
-  return true;
-
-  WithColor::warning(errs()) << ">>>> " << F.getName() << ": " << getLinkageNameString(F.getLinkage()) << "<<<< \n";
   switch (F.getLinkage()) {
   case GlobalValue::InternalLinkage:
   case GlobalValue::PrivateLinkage:
@@ -130,9 +127,17 @@ static bool isSafeForPreserveNone(const Function &F) {
     WithColor::warning(errs()) << "[PreserveNone] Non default cc F not applicable for preserve none cc\n";
     return false;
   }
+  if (F.getName() == "main") {
+    WithColor::warning(errs()) << "[PreserveNone] main cannot be tagged.\n";
+    return false;
+  }
 
   // Add a more detailed check of the function's users.
   for (const User *U : F.users()) {
+    if (!isa<CallInst>(U)){
+      WithColor::warning(errs()) << "[PreserveNone] Not all Users are CallInst.\n";
+      return false;
+    }
     const auto *CB = dyn_cast<CallBase>(U);
     
     // If a user is not a call instruction OR it is not a direct call, it's unsafe.
@@ -215,7 +220,7 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
   for (Function &F : M) {
     if (!Candidates.contains(F.getName())) continue;
     if (!isSafeForPreserveNone(F)) continue;
-    Stats.Counts[getLinkageNameString(F.getLinkage())]++;
+    // Stats.Counts[getLinkageNameString(F.getLinkage())]++;
     Targets.push_back(&F);
   }
 
@@ -226,21 +231,21 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
 
   // Retag function + direct callsites.
   for (Function *F : Targets) {
-    if (F->getCallingConv() != CallingConv::PreserveNone) {
-      F->setCallingConv(CallingConv::PreserveNone);
-      WithColor::note(errs()) << "[PreserveNone] Retagged function: " << F->getName() << "\n";
-      Changed = true;
-    }
-
     for (User *U : F->users()) {
         auto *CB = dyn_cast<CallBase>(U);
         // if (isDirectUserOf(*CB, *F) &&
         //     CB->getCallingConv() != CallingConv::PreserveNone) {
         CB->setCallingConv(CallingConv::PreserveNone);
-        WithColor::note(errs()) << "[PreserveNone]  Retagged callsite in: "
+        WithColor::note(errs()) << "[PreserveNone] Retagged callsite in: "
                                 << CB->getFunction()->getName() << "\n";
         Changed = true;
         // }
+    }
+
+    if (F->getCallingConv() != CallingConv::PreserveNone) {
+      F->setCallingConv(CallingConv::PreserveNone);
+      WithColor::note(errs()) << "[PreserveNone] Retagged function: " << F->getName() << "\n";
+      Changed = true;
     }
   }
 

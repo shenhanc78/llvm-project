@@ -1310,7 +1310,7 @@ PassBuilder::buildModuleSimplificationPipeline(OptimizationLevel Level,
 
   if (EnableIPRAPreRAAnalysis &&
       (Phase == ThinOrFullLTOPhase::ThinLTOPostLink)) {
-    // if (EnableIPRAPreRAAnalysis) {
+  // if (EnableIPRAPreRAAnalysis) {
     // dbgs() << "Adding IPRAPreRA Analysis at point 1\n";
     MPM.addPass(IPRAPreRAAnalysisPass());
   }
