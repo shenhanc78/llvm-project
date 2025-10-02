@@ -1308,15 +1308,9 @@ PassBuilder::buildModuleSimplificationPipeline(OptimizationLevel Level,
   //   MPM.addPass(IPRAPreRAAnalysisPass());
   // }
 
-<<<<<<< HEAD
   if (EnableIPRAPreRAAnalysis &&
       (Phase == ThinOrFullLTOPhase::ThinLTOPostLink)) {
   // if (EnableIPRAPreRAAnalysis) {
-=======
-  // if (EnableIPRAPreRAAnalysis &&
-  //     (Phase == ThinOrFullLTOPhase::ThinLTOPostLink)) {
-  if (EnableIPRAPreRAAnalysis) {
->>>>>>> 2e9ffc4ec92a0c275fecf304df8eefde535c146f
     // dbgs() << "Adding IPRAPreRA Analysis at point 1\n";
     MPM.addPass(IPRAPreRAAnalysisPass());
   }
