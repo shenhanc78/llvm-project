@@ -20,7 +20,8 @@ COMPILER_LIST := \
 	ipra_thinly_linked_fdo_clang \
 	ipra_fully_linked_fdo_clang \
 	preserve_none_fdo_clang \
-	preserve_none_thinly_linked_fdo_clang
+	preserve_none_thinly_linked_fdo_clang \
+	preserve_none_thinly_linked_fdo_clang2
 
 # Loop through the list and automatically define the _DIR and _SENTINEL variables.
 $(foreach compiler, $(COMPILER_LIST), \
@@ -272,6 +273,36 @@ preserve_none_thinly_linked_fdo_clang:
 	touch $@ && \
 	$(call log,✅ STEP 5H: preserve_none_thinly_linked_fdo_clang built successfully.)
 
+# NEW Target: Build with the reference pass your mentor provided.
+preserve_none_thinly_linked_fdo_clang2:
+	@$(call log,STEP 5I: Building preserve_none_thinly_linked_fdo_clang2 with Reference Pass)
+	@set -e; \
+	IPRA_SYMS_FILE="$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)/pn.syms"; \
+	echo "--- Using symbol file for reference pass: $${IPRA_SYMS_FILE}"; \
+	if [ ! -f "$${IPRA_SYMS_FILE}" ]; then \
+		echo "Warning: Symbol file not found at '$${IPRA_SYMS_FILE}'. Creating an empty placeholder."; \
+		echo "# This is a placeholder symbol file. Add function names here, one per line." > "$${IPRA_SYMS_FILE}"; \
+	fi; \
+	IPRA_CFLAGS="-mllvm -enable-ipra-prera-analysis -mllvm -ipra-prera-function-syms-file=$${IPRA_SYMS_FILE}"; \
+	IPRA_LDFLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-prera-function-syms-file=$${IPRA_SYMS_FILE}";
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PRESERVE_NONE_THINLY_LINKED_FDO_CLANG2_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=Release \
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_ENABLE_LTO=Thin \
+	  -D LLVM_USE_LINKER=lld \
+	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+	  -D CMAKE_C_FLAGS="$${IPRA_CFLAGS}" \
+	  -D CMAKE_CXX_FLAGS="$${IPRA_CFLAGS}" \
+	  -D CMAKE_EXE_LINKER_FLAGS="$${IPRA_LDFLAGS}" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="$${IPRA_LDFLAGS}" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="$${IPRA_LDFLAGS}"
+	@ninja -j "$(JOBS)" -C "$(PRESERVE_NONE_THINLY_LINKED_FDO_CLANG2_DIR)"
+	@touch $@; \
+	$(call log,✅ STEP 5I: preserve_none_thinly_linked_fdo_clang2 built successfully.)
+
 fdo_liveness_analysis: 
 	@$(call log,Collecting Liveness Data using fdo_clang)
 	@mkdir -p "$(FDO_LIVENESS_OUTPUT_DIR)"
@@ -341,6 +372,18 @@ rebuild_preserve_none_thinly_linked_fdo_clang:
 	@rm "$(PRESERVE_NONE_THINLY_LINKED_FDO_SENTINEL)"
 	@rm "preserve_none_thinly_linked_fdo_clang"
 	@$(MAKE) preserve_none_thinly_linked_fdo_clang
+
+rebuild_preserve_none_thinly_linked_fdo_clang2:
+	# Rebuild LLVM source build
+	@ninja -j "$(JOBS)" -C "$(LLVM_SRC_DIR)/build"
+	# Rebuild bootstrapped_clang
+	@rm -f "$(BOOTSTRAPPED_SENTINEL)"
+	@$(MAKE) bootstrapped_clang
+	# Rebuild preserve_none_thinly_linked_fdo_clang2
+	@rm -rf "$(PRESERVE_NONE_THINLY_LINKED_FDO_CLANG2_DIR)"
+	@rm -f "$(PRESERVE_NONE_THINLY_LINKED_FDO_CLANG2_SENTINEL)"
+	@rm "preserve_none_thinly_linked_fdo_clang2"
+	@$(MAKE) preserve_none_thinly_linked_fdo_clang2
 
 check_linkage_stats:
 	# Make sure to decomment the relevant lines in PreserveNonePass.cpp to enable linkage stats collection.
