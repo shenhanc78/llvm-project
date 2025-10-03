@@ -1,18 +1,43 @@
 #include "llvm/Transforms/IPO/PreserveNonePass.h"
 
+#include <cstdio>
+#include <iomanip>
+#include <iostream>
+#include <list>
+#include <random>
+#include <set>
+#include <sstream>
+#include <string>
+#include <system_error>  // NOLINT
+#include <vector>
+
 #include "llvm/ADT/SmallVector.h"
 #include "llvm/ADT/StringMap.h"
+#include "llvm/ADT/StringRef.h"
+#include "llvm/IR/Analysis.h"
+#include "llvm/IR/BasicBlock.h"
 #include "llvm/IR/CallingConv.h"
+#include "llvm/IR/DebugInfoMetadata.h"
 #include "llvm/IR/Function.h"
+#include "llvm/IR/Instructions.h"
 #include "llvm/IR/InstrTypes.h"
 #include "llvm/IR/Instructions.h"
 #include "llvm/IR/Module.h"
+#include "llvm/IR/PassManager.h"
+#include "llvm/IR/Use.h"
+#include "llvm/IR/User.h"
+#include "llvm/IR/Value.h"
+#include "llvm/Support/Casting.h"
+#include "llvm/Support/ErrorHandling.h"
+#include "llvm/Support/FileSystem.h"
 #include "llvm/Support/CommandLine.h"
+#include "llvm/Support/Debug.h"
 #include "llvm/Support/JSON.h"
 #include "llvm/Support/MemoryBuffer.h"
+#include "llvm/Support/LineIterator.h"
+#include "llvm/Support/Path.h"
 #include "llvm/Support/WithColor.h"
 #include "llvm/Support/raw_ostream.h"
-#include "llvm/Support/FileSystem.h" // TODO: comment out or remote in production code
 
 using namespace llvm;
 
@@ -28,6 +53,50 @@ static cl::opt<std::string> PreserveNoneJsonPath(
     "preserve-none-json",
     cl::desc("Path to JSON file containing {\"functions\": {\"name\": score, ...}}"),
     cl::init(""), cl::cat(PreserveNoneCat));
+
+// ---------- JSON Parsing ----------
+// Parse {"functions": {"name": number, ...}} JSON file.
+// TODO: this may be a temporary solution for storing profile data.
+// In the long term we may want to integrate with PGO infrastructure.
+static StringMap<double> loadCandidateJSON(StringRef Path) {
+  StringMap<double> C;
+
+  if (Path.empty()) {
+    WithColor::warning(errs()) << "[PreserveNone] No JSON path provided; no functions selected.\n";
+    return C;
+  }
+
+  auto BufOrErr = MemoryBuffer::getFile(Path);
+  if (!BufOrErr) {
+    WithColor::warning(errs()) << "[PreserveNone] Failed to read JSON: " << Path << "\n";
+    return C;
+  }
+
+  Expected<json::Value> Parsed = json::parse(BufOrErr.get()->getBuffer());
+  if (!Parsed) {
+    WithColor::warning(errs()) << "[PreserveNone] Invalid JSON: " << Path << "\n";
+    consumeError(Parsed.takeError());
+    return C;
+  }
+
+  auto *Obj = Parsed->getAsObject();
+  if (!Obj) {
+    WithColor::warning(errs()) << "[PreserveNone] Root must be an object\n";
+    return C;
+  }
+
+  auto *Fns = Obj->getObject("functions");
+  if (!Fns) {
+    WithColor::warning(errs()) << "[PreserveNone] Missing \"functions\" object\n";
+    return C;
+  }
+
+  for (auto &KV : *Fns) {
+    double Score = *KV.second.getAsNumber();
+    C.try_emplace(KV.first, Score);
+  }
+  return C;
+}
 
 // ---------- Helpers ----------
 static bool isDirectUserOf(const CallBase &CB, const Function &F) {
@@ -89,6 +158,8 @@ static bool isSafeLinkage(const Function &F) {
   // This is the MOST CRITICAL check. We only want to modify functions that
   // are not visible outside the current compilation unit. This prevents us
   // from breaking the ABI of any external or standard library functions.
+  return true; // Experiment, to be removed if unsafe
+
   switch (F.getLinkage()) {
   case GlobalValue::InternalLinkage:
   case GlobalValue::PrivateLinkage:
@@ -104,101 +175,50 @@ static bool isSafeLinkage(const Function &F) {
 }
 
 static bool isSafeForPreserveNone(const Function &F) {
-  if (F.isIntrinsic()) {
-    WithColor::warning(errs()) << "[PreserveNone] Intrinsic F not applicable for preserve none cc\n";
-    return false;
-  }
-  if (F.isVarArg()) {
-    WithColor::warning(errs()) << "[PreserveNone] VarArg F not applicable for preserve none cc\n";
-    return false;
-  }
-  // avoid stable external ABI symbols
-  if (!isSafeLinkage(F)) {
-    WithColor::warning(errs()) << "[PreserveNone] Not safely linked F not applicable for preserve none cc\n";
-    return false; 
-  }
-  // unknown indirect callers exist
-  if (F.hasAddressTaken()) {
-    WithColor::warning(errs()) << "[PreserveNone] Address Taken F not applicable for preserve none cc\n";
-    return false;
-  }
-  // Only retag from the default C calling convention.
-  if (F.getCallingConv() != CallingConv::C) {
-    WithColor::warning(errs()) << "[PreserveNone] Non default cc F not applicable for preserve none cc\n";
-    return false;
-  }
-  if (F.getName() == "main") {
-    WithColor::warning(errs()) << "[PreserveNone] main cannot be tagged.\n";
-    return false;
-  }
-
-  // Add a more detailed check of the function's users.
-  for (const User *U : F.users()) {
-    if (!isa<CallInst>(U)){
-      WithColor::warning(errs()) << "[PreserveNone] Not all Users are CallInst.\n";
-      return false;
+    // --- Initial simple checks ---
+    if (F.isIntrinsic() || F.isVarArg() || F.isInterposable() || !isSafeLinkage(F) || 
+        F.hasAddressTaken() || F.getCallingConv() != CallingConv::C || F.getName() == "main") {
+        return false;
     }
-    const auto *CB = dyn_cast<CallBase>(U);
-    
-    // If a user is not a call instruction OR it is not a direct call, it's unsafe.
-    if (!CB || !isDirectUserOf(*CB, F)) {
-      WithColor::warning(errs()) << "[PreserveNone] Indirectly invoked F not applicable for preserve none cc\n";
-      return false;
+
+    // --- Check if the function ITSELF contains a must-tail call ---
+    if (!F.isDeclaration()) {
+        for (const BasicBlock &B : F) {
+            for (const Instruction &I : B) {
+                if (const auto *CI = dyn_cast<CallInst>(&I)) {
+                    if (CI->isMustTailCall()) {
+                        WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " contains a must-tail call.\n";
+                        return false;
+                    }
+                }
+            }
+        }
     }
-    
-    // It is unsafe to change the calling convention of a function
-    // involved in a musttail call, as it breaks a strong ABI guarantee.
-    if (CB->isMustTailCall()) {
-      WithColor::warning(errs()) << "[PreserveNone] Must tail-called F not applicable for preserve none cc\n";
-      return false;
+
+    // --- Check all USERS of the function for unsafe patterns ---
+    for (const User *U : F.users()) {
+        // User must not be a block address and must be a call instruction.
+        if (isa<BlockAddress>(U) || !isa<CallInst>(U)) {
+            WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " has a user that is not a CallBase.\n";
+            return false;
+        }
+
+        const auto *CB = cast<CallBase>(U);
+
+        // Must be a direct call.
+        if (!isDirectUserOf(*CB, F)) {
+            WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " has an indirect call user.\n";
+            return false;
+        }
+
+        // The call site itself must not be a must-tail call.
+        if (CB->isMustTailCall()) {
+            WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " is the target of a must-tail call.\n";
+            return false;
+        }
     }
-  }
 
-  return true;
-}
-
-// ---------- JSON Parsing ----------
-// Parse {"functions": {"name": number, ...}} JSON file.
-// TODO: this may be a temporary solution for storing profile data.
-// In the long term we may want to integrate with PGO infrastructure.
-static StringMap<double> loadCandidateJSON(StringRef Path) {
-  StringMap<double> C;
-
-  if (Path.empty()) {
-    WithColor::warning(errs()) << "[PreserveNone] No JSON path provided; no functions selected.\n";
-    return C;
-  }
-
-  auto BufOrErr = MemoryBuffer::getFile(Path);
-  if (!BufOrErr) {
-    WithColor::warning(errs()) << "[PreserveNone] Failed to read JSON: " << Path << "\n";
-    return C;
-  }
-
-  Expected<json::Value> Parsed = json::parse(BufOrErr.get()->getBuffer());
-  if (!Parsed) {
-    WithColor::warning(errs()) << "[PreserveNone] Invalid JSON: " << Path << "\n";
-    consumeError(Parsed.takeError());
-    return C;
-  }
-
-  auto *Obj = Parsed->getAsObject();
-  if (!Obj) {
-    WithColor::warning(errs()) << "[PreserveNone] Root must be an object\n";
-    return C;
-  }
-
-  auto *Fns = Obj->getObject("functions");
-  if (!Fns) {
-    WithColor::warning(errs()) << "[PreserveNone] Missing \"functions\" object\n";
-    return C;
-  }
-
-  for (auto &KV : *Fns) {
-    double Score = *KV.second.getAsNumber();
-    C.try_emplace(KV.first, Score);
-  }
-  return C;
+    return true;
 }
 
 // ---------- Pass ----------
@@ -216,12 +236,11 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
   bool Changed = false;
   SmallVector<Function*, 16> Targets;
 
-  // Intersect JSON list with module contents + safety filter.
+  // Intersect JSON list with module contents + new safety filters.
   for (Function &F : M) {
-    if (!Candidates.contains(F.getName())) continue;
-    if (!isSafeForPreserveNone(F)) continue;
-    // Stats.Counts[getLinkageNameString(F.getLinkage())]++;
-    Targets.push_back(&F);
+    if (Candidates.contains(F.getName()) && isSafeForPreserveNone(F)) {
+        Targets.push_back(&F);
+    }
   }
 
   if (Targets.empty()) {
@@ -229,23 +248,48 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
     return PreservedAnalyses::all();
   }
 
-  // Retag function + direct callsites.
+  // Apply the transformation.
   for (Function *F : Targets) {
-    for (User *U : F->users()) {
-        auto *CB = dyn_cast<CallBase>(U);
-        // if (isDirectUserOf(*CB, *F) &&
-        //     CB->getCallingConv() != CallingConv::PreserveNone) {
-        CB->setCallingConv(CallingConv::PreserveNone);
-        WithColor::note(errs()) << "[PreserveNone] Retagged callsite in: "
-                                << CB->getFunction()->getName() << "\n";
-        Changed = true;
-        // }
+    // 1. Disable tail calls on any calls *within* the function itself.
+    if (!F->isDeclaration()) {
+      for (BasicBlock &B : *F) {
+        for (Instruction &I : B) {
+          if (auto *CI = dyn_cast<CallInst>(&I)) {
+            if (CI->isTailCall()) {
+              CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+              Changed = true;
+            }
+          }
+        }
+      }
     }
 
+    // 2. Modify the call sites that call this function.
+    for (User *U : F->users()) {
+      auto *CB = cast<CallBase>(U);
+
+      // Disable tail calls at the call site.
+      if (auto *CI = dyn_cast<CallInst>(CB)) {
+        if (CI->isTailCall()) {
+           CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+           Changed = true;
+        }
+      }
+
+      // Set the calling convention for the call site.
+      if (CB->getCallingConv() != CallingConv::PreserveNone) {
+        CB->setCallingConv(CallingConv::PreserveNone);
+        Changed = true;
+        WithColor::note(errs()) << "[PreserveNone] Retagged callsite in: "
+                                << CB->getFunction()->getName() << "\n";
+      }
+    }
+
+    // 3. Set the calling convention for the function itself.
     if (F->getCallingConv() != CallingConv::PreserveNone) {
       F->setCallingConv(CallingConv::PreserveNone);
-      WithColor::note(errs()) << "[PreserveNone] Retagged function: " << F->getName() << "\n";
       Changed = true;
+      WithColor::note(errs()) << "[PreserveNone] Retagged function: " << F->getName() << "\n";
     }
   }
 
