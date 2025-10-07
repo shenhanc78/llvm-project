@@ -1694,7 +1694,7 @@ PassBuilder::buildPerModuleDefaultPipeline(OptimizationLevel Level,
   // Now add the optimization pipeline.
   MPM.addPass(buildModuleOptimizationPipeline(Level, Phase));
 
-  MPM.addPass(PreserveNonePass());
+  // MPM.addPass(PreserveNonePass());
 
   if (PGOOpt && PGOOpt->PseudoProbeForProfiling &&
       PGOOpt->Action == PGOOptions::SampleUse)

@@ -187,9 +187,14 @@ static bool isSafeForPreserveNone(const Function &F) {
             for (const Instruction &I : B) {
                 if (const auto *CI = dyn_cast<CallInst>(&I)) {
                     if (CI->isMustTailCall()) {
-                        WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " contains a must-tail call.\n";
-                        return false;
+                      WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " contains a must-tail call.\n";
+                      return false;
                     }
+                    // To check tail call, must check isDeclaration function F as well, but need to modify current analysis pass
+                    // if (CI->isTailCall()) {
+                    //   WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " contains a tail call.\n";
+                    //   return false;
+                    // }
                 }
             }
         }
@@ -199,23 +204,28 @@ static bool isSafeForPreserveNone(const Function &F) {
     for (const User *U : F.users()) {
         // User must not be a block address and must be a call instruction.
         if (isa<BlockAddress>(U) || !isa<CallInst>(U)) {
-            WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " has a user that is not a CallBase.\n";
-            return false;
+          WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " has a user that is not a CallBase.\n";
+          return false;
         }
 
         const auto *CB = cast<CallBase>(U);
 
         // Must be a direct call.
         if (!isDirectUserOf(*CB, F)) {
-            WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " has an indirect call user.\n";
-            return false;
+          WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " has an indirect call user.\n";
+          return false;
         }
 
         // The call site itself must not be a must-tail call.
         if (CB->isMustTailCall()) {
-            WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " is the target of a must-tail call.\n";
-            return false;
+          WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " is the target of a must-tail call.\n";
+          return false;
         }
+
+        // if (CB->isTailCall()) {
+        //   WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " is the target of a tail call.\n";
+        //   return false;
+        // }
     }
 
     return true;
