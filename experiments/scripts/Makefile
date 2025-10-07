@@ -417,7 +417,7 @@ benchmark:
 	\
 	$(call log,Starting benchmark for '$(COMPILER)'); \
 	\
-	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-1}; \
+	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-10}; \
 	TEMP_BUILD_DIR="$(DEV_DIR)/temp_benchmark_build_$(COMPILER)"; \
 	METRICS_CSV="$(METRICS_DIR)/$(COMPILER)_metrics.csv"; \
 	\
