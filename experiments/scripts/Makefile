@@ -336,8 +336,8 @@ thinly_linked_fdo_liveness_analysis:
 		-D LLVM_ENABLE_LTO=Thin \
 	  	-D LLVM_USE_LINKER=lld \
 		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
-	    -D CMAKE_SHARED_LINKER_FLAGS=-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
-	    -D CMAKE_MODULE_LINKER_FLAGS=-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
+	    -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
+	    -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
 	@ninja -j "$(JOBS)" -C "$$TEMP_LLD_BUILD_DIR" lld
 	@rm -rf "$$TEMP_LLD_BUILD_DIR"
 	@$(call log,✅ Liveness Data collected in $(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR))\
@@ -476,7 +476,7 @@ data:
 
 ipra_data:
 	$(call log,Running IPRA Benchmark Suite)
-	$(MAKE) benchmark COMPILER=ipra_fdo_clang
+	$(MAKE) benchmark COMPILER=thinly_linked_fdo_clang
 	$(MAKE) benchmark COMPILER=ipra_thinly_linked_fdo_clang
 
 linked_data:
