@@ -2,6 +2,7 @@ import subprocess
 import sys
 import os
 import datetime
+import shutil
 
 # --- Configuration ---
 NUM_RUNS = 10
@@ -23,6 +24,8 @@ COMMANDS = {
         "1"
     ]
 }
+# Copy json prof_data for documentations
+JSON_SRC_FILE = '../metrics/thinly_linked_fdo_liveness_output/liveness_profdata.json'
 # ---------------------
 
 
@@ -33,6 +36,8 @@ def run_benchmark():
     base_results_dir = f"../metrics/references/benchmark_results/benchmark_results_{timestamp}"
     os.makedirs(base_results_dir, exist_ok=True)
     print(f"📂 Saving all results to: {base_results_dir}\n")
+    print('📂 For record, documenting liveness_profdata.json...')
+    shutil.copy(JSON_SRC_FILE, base_results_dir)
 
     for name, command_list in COMMANDS.items():
         print("="*80)

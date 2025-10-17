@@ -20,8 +20,7 @@ COMPILER_LIST := \
 	ipra_thinly_linked_fdo_clang \
 	ipra_fully_linked_fdo_clang \
 	preserve_none_fdo_clang \
-	preserve_none_thinly_linked_fdo_clang \
-	preserve_none_thinly_linked_fdo_clang2
+	preserve_none_thinly_linked_fdo_clang
 
 # Loop through the list and automatically define the _DIR and _SENTINEL variables.
 $(foreach compiler, $(COMPILER_LIST), \
@@ -104,7 +103,7 @@ $(PROFILE_MERGED_FILE): $(INSTR_SENTINEL)
 	  -D CMAKE_BUILD_TYPE=Release \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86; \
-	ninja -j "$(JOBS)" -C "$$TEMP_PROFILE_BUILD_DIR" llc; \
+	ninja -j "$(JOBS)" -C "$$TEMP_PROFILE_BUILD_DIR"; \
 	rm -rf "$$TEMP_PROFILE_BUILD_DIR"; \
 	$(call log,✅ STEP 3: Profile data generated in $(PROFILE_RAW_DIR)); \
 	$(call log,STEP 4: Merging profile data); \
@@ -275,29 +274,6 @@ preserve_none_thinly_linked_fdo_clang:
 	touch $@ && \
 	$(call log,✅ STEP 5H: preserve_none_thinly_linked_fdo_clang built successfully.)
 
-# NEW Target: Build with the reference pass your mentor provided.
-preserve_none_thinly_linked_fdo_clang2:
-	@$(call log,STEP 5H: Building preserve_none_thinly_linked_fdo_clang)
-	@set -e; \
-	# Define the path to the JSON profile locally for this target.
-	BUILD_TYPE=$${BUILD_TYPE:-Release};
-	PRESERVE_NONE_PROFILE="$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)/liveness_profdata.json";
-	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)" \
-	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
-	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
-	  -D CMAKE_BUILD_TYPE=$${BUILD_TYPE} \
-	  -D LLVM_ENABLE_PROJECTS=clang \
-	  -D LLVM_TARGETS_TO_BUILD=X86 \
-	  -D LLVM_ENABLE_LTO=Thin \
-	  -D LLVM_USE_LINKER=lld \
-	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
-	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
-	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
-	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}"
-	@ninja -j "$(JOBS)" -C "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)" && \
-	touch $@ && \
-	$(call log,✅ STEP 5H: preserve_none_thinly_linked_fdo_clang built successfully.)
-
 fdo_liveness_analysis: 
 	@$(call log,Collecting Liveness Data using fdo_clang)
 	@mkdir -p "$(FDO_LIVENESS_OUTPUT_DIR)"
@@ -367,18 +343,6 @@ rebuild_preserve_none_thinly_linked_fdo_clang:
 	@rm "$(PRESERVE_NONE_THINLY_LINKED_FDO_SENTINEL)"
 	@rm "preserve_none_thinly_linked_fdo_clang"
 	@$(MAKE) preserve_none_thinly_linked_fdo_clang
-
-rebuild_preserve_none_thinly_linked_fdo_clang2:
-	# Rebuild LLVM source build
-	@ninja -j "$(JOBS)" -C "$(LLVM_SRC_DIR)/build"
-	# Rebuild bootstrapped_clang
-	@rm -f "$(BOOTSTRAPPED_SENTINEL)"
-	@$(MAKE) bootstrapped_clang
-	# Rebuild preserve_none_thinly_linked_fdo_clang2
-	@rm -rf "$(PRESERVE_NONE_THINLY_LINKED_FDO_CLANG2_DIR)"
-	@rm -f "$(PRESERVE_NONE_THINLY_LINKED_FDO_CLANG2_SENTINEL)"
-	@rm "preserve_none_thinly_linked_fdo_clang2"
-	@$(MAKE) preserve_none_thinly_linked_fdo_clang2
 
 check_linkage_stats:
 	# Make sure to decomment the relevant lines in PreserveNonePass.cpp to enable linkage stats collection.
