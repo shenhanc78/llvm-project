@@ -1315,9 +1315,10 @@ PassBuilder::buildModuleSimplificationPipeline(OptimizationLevel Level,
     MPM.addPass(IPRAPreRAAnalysisPass());
   }
 
-  if (Phase == ThinOrFullLTOPhase::ThinLTOPostLink) {
-    MPM.addPass(PreserveNonePass());
-  }
+  // PreserveNonePass Placement #1
+  // if (Phase == ThinOrFullLTOPhase::ThinLTOPostLink) {
+  //   MPM.addPass(PreserveNonePass());
+  // }
 
   // Remove any dead arguments exposed by cleanups, constant folding globals,
   // and argument promotion.
@@ -1665,7 +1666,12 @@ PassBuilder::buildModuleOptimizationPipeline(OptimizationLevel Level,
   if (!LTOPreLink)
     MPM.addPass(RelLookupTableConverterPass());
 
-  return MPM;
+  // PreserveNonePass Placement #2:
+  if(LTOPhase == ThinOrFullLTOPhase::ThinLTOPostLink){
+    MPM.addPass(PreserveNonePass());
+  }
+
+return MPM;
 }
 
 ModulePassManager
@@ -1694,6 +1700,7 @@ PassBuilder::buildPerModuleDefaultPipeline(OptimizationLevel Level,
   // Now add the optimization pipeline.
   MPM.addPass(buildModuleOptimizationPipeline(Level, Phase));
 
+  // PreserveNonePass placement #1
   // MPM.addPass(PreserveNonePass());
 
   if (PGOOpt && PGOOpt->PseudoProbeForProfiling &&
@@ -1859,7 +1866,7 @@ ModulePassManager PassBuilder::buildThinLTODefaultPipeline(
   // Now add the optimization pipeline.
   MPM.addPass(buildModuleOptimizationPipeline(
       Level, ThinOrFullLTOPhase::ThinLTOPostLink));
-  
+
   // Emit annotation remarks.
   addAnnotationRemarksPass(MPM);
 

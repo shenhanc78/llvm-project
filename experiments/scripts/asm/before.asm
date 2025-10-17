@@ -1,0 +1,66 @@
+00000000030b15f0 <_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE>:
+ 30b15f0:	55                   	push   %rbp
+ 30b15f1:	41 57                	push   %r15
+ 30b15f3:	41 56                	push   %r14
+ 30b15f5:	41 55                	push   %r13
+ 30b15f7:	41 54                	push   %r12
+ 30b15f9:	53                   	push   %rbx
+ 30b15fa:	48 83 ec 28          	sub    $0x28,%rsp
+ 30b15fe:	48 89 fb             	mov    %rdi,%rbx
+ 30b1601:	4c 8b 5c 24 70       	mov    0x70(%rsp),%r11
+ 30b1606:	44 8b 54 24 68       	mov    0x68(%rsp),%r10d
+ 30b160b:	8a 44 24 60          	mov    0x60(%rsp),%al
+ 30b160f:	41 80 79 20 02       	cmpb   $0x2,0x20(%r9)
+ 30b1614:	0f 82 82 00 00 00    	jb     30b169c <_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE+0xac>
+ 30b161a:	4d 89 ce             	mov    %r9,%r14
+ 30b161d:	48 89 34 24          	mov    %rsi,(%rsp)
+ 30b1621:	41 89 d5             	mov    %edx,%r13d
+ 30b1624:	89 cd                	mov    %ecx,%ebp
+ 30b1626:	45 89 c4             	mov    %r8d,%r12d
+ 30b1629:	4c 8d 7c 24 08       	lea    0x8(%rsp),%r15
+ 30b162e:	4c 89 ff             	mov    %r15,%rdi
+ 30b1631:	4c 89 ce             	mov    %r9,%rsi
+ 30b1634:	e8 07 37 e6 fe       	call   1f14d40 <_ZNK4llvm5Twine3strB5cxx11Ev>
+ 30b1639:	49 8b 3f             	mov    (%r15),%rdi
+ 30b163c:	4d 8b 7f 08          	mov    0x8(%r15),%r15
+ 30b1640:	48 8d 44 24 18       	lea    0x18(%rsp),%rax
+ 30b1645:	48 39 c7             	cmp    %rax,%rdi
+ 30b1648:	74 0d                	je     30b1657 <_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE+0x67>
+ 30b164a:	48 8b 74 24 18       	mov    0x18(%rsp),%rsi
+ 30b164f:	48 ff c6             	inc    %rsi
+ 30b1652:	e8 e9 c2 f0 02       	call   5fbd940 <_ZdlPvm@plt>
+ 30b1657:	4d 85 ff             	test   %r15,%r15
+ 30b165a:	75 45                	jne    30b16a1 <_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE+0xb1>
+ 30b165c:	45 31 c9             	xor    %r9d,%r9d
+ 30b165f:	45 89 e0             	mov    %r12d,%r8d
+ 30b1662:	89 e9                	mov    %ebp,%ecx
+ 30b1664:	44 89 ea             	mov    %r13d,%edx
+ 30b1667:	48 8b 34 24          	mov    (%rsp),%rsi
+ 30b166b:	44 8b 54 24 68       	mov    0x68(%rsp),%r10d
+ 30b1670:	4c 8b 5c 24 70       	mov    0x70(%rsp),%r11
+ 30b1675:	8a 44 24 60          	mov    0x60(%rsp),%al
+ 30b1679:	48 83 ec 08          	sub    $0x8,%rsp
+ 30b167d:	0f b6 c0             	movzbl %al,%eax
+ 30b1680:	48 89 df             	mov    %rbx,%rdi
+ 30b1683:	41 53                	push   %r11
+ 30b1685:	41 52                	push   %r10
+ 30b1687:	50                   	push   %rax
+ 30b1688:	e8 33 00 00 00       	call   30b16c0 <_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjPKNS_11MCSymbolELFEbjS6_>
+ 30b168d:	48 83 c4 48          	add    $0x48,%rsp
+ 30b1691:	5b                   	pop    %rbx
+ 30b1692:	41 5c                	pop    %r12
+ 30b1694:	41 5d                	pop    %r13
+ 30b1696:	41 5e                	pop    %r14
+ 30b1698:	41 5f                	pop    %r15
+ 30b169a:	5d                   	pop    %rbp
+ 30b169b:	c3                   	ret
+ 30b169c:	45 31 c9             	xor    %r9d,%r9d
+ 30b169f:	eb d8                	jmp    30b1679 <_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE+0x89>
+ 30b16a1:	48 89 df             	mov    %rbx,%rdi
+ 30b16a4:	4c 89 f6             	mov    %r14,%rsi
+ 30b16a7:	e8 34 94 00 00       	call   30baae0 <_ZN4llvm9MCContext17getOrCreateSymbolERKNS_5TwineE>
+ 30b16ac:	49 89 c1             	mov    %rax,%r9
+ 30b16af:	eb ae                	jmp    30b165f <_ZN4llvm9MCContext13getELFSectionERKNS_5TwineEjjjS3_bjPKNS_11MCSymbolELFE+0x6f>
+ 30b16b1:	66 66 66 66 66 66 2e 	data16 data16 data16 data16 data16 cs nopw 0x0(%rax,%rax,1)
+ 30b16b8:	0f 1f 84 00 00 00 00 
+ 30b16bf:	00

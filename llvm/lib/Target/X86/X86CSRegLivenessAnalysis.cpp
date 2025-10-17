@@ -274,7 +274,10 @@ bool X86CSRegLivenessAnalysis::calculateMachineFunctionCSRegUsage(
     (*OS) <<  " IsFunctionEntryHot: 1 EntryCount: "
        << (oec.has_value() ? oec->getCount() : 0);
   } else {
-    (*OS) <<  " IsFunctionEntryHot: 0";
+    std::optional<Function::ProfileCount> oec =
+        MF.getFunction().getEntryCount(/*AllowSynthetic=*/true);
+    (*OS) <<  " IsFunctionEntryHot: 0 EntryCount: "
+       << (oec.has_value() ? oec->getCount() : 0);
   }
   (*OS) <<  "\n";
 

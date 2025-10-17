@@ -1,7 +1,7 @@
 # --- Configuration ---
 SHELL := /bin/bash
 .ONESHELL:
-.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang fdo_liveness_analysis preserve_none_fdo_clang thinly_linked_fdo_clang preserve_none_thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang ipra_fdo_clang data clean rebuild_preserve_none_fdo_clang
+.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang fdo_liveness_analysis preserve_none_fdo_clang thinly_linked_fdo_clang preserve_none_thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang ipra_fdo_clang data clean rebuild_preserve_none_fdo_clang size
 
 # Base directory for LLVM source code
 LLVM_SRC_DIR := $(shell cd ../../ ; pwd)
@@ -130,10 +130,11 @@ fdo_clang:
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
 thinly_linked_fdo_clang:
 	@$(call log,STEP 5B: Building thinly_linked_fdo_clang (PGO + ThinLTO build))
+	BUILD_TYPE=$${BUILD_TYPE:-Release};
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(THINLY_LINKED_FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
 	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
-	  -D CMAKE_BUILD_TYPE=Release \
+	  -D CMAKE_BUILD_TYPE=$${BUILD_TYPE}\
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
@@ -256,11 +257,12 @@ preserve_none_thinly_linked_fdo_clang:
 	@$(call log,STEP 5H: Building preserve_none_thinly_linked_fdo_clang)
 	@set -e; \
 	# Define the path to the JSON profile locally for this target.
+	BUILD_TYPE=$${BUILD_TYPE:-Release};
 	PRESERVE_NONE_PROFILE="$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)/liveness_profdata.json";
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
 	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
-	  -D CMAKE_BUILD_TYPE=Release \
+	  -D CMAKE_BUILD_TYPE=$${BUILD_TYPE} \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
 	  -D LLVM_ENABLE_LTO=Thin \
@@ -275,33 +277,26 @@ preserve_none_thinly_linked_fdo_clang:
 
 # NEW Target: Build with the reference pass your mentor provided.
 preserve_none_thinly_linked_fdo_clang2:
-	@$(call log,STEP 5I: Building preserve_none_thinly_linked_fdo_clang2 with Reference Pass)
+	@$(call log,STEP 5H: Building preserve_none_thinly_linked_fdo_clang)
 	@set -e; \
-	IPRA_SYMS_FILE="$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)/pn.syms"; \
-	echo "--- Using symbol file for reference pass: $${IPRA_SYMS_FILE}"; \
-	if [ ! -f "$${IPRA_SYMS_FILE}" ]; then \
-		echo "Warning: Symbol file not found at '$${IPRA_SYMS_FILE}'. Creating an empty placeholder."; \
-		echo "# This is a placeholder symbol file. Add function names here, one per line." > "$${IPRA_SYMS_FILE}"; \
-	fi; \
-	IPRA_CFLAGS="-mllvm -enable-ipra-prera-analysis -mllvm -ipra-prera-function-syms-file=$${IPRA_SYMS_FILE}"; \
-	IPRA_LDFLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-prera-function-syms-file=$${IPRA_SYMS_FILE}";
-	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PRESERVE_NONE_THINLY_LINKED_FDO_CLANG2_DIR)" \
+	# Define the path to the JSON profile locally for this target.
+	BUILD_TYPE=$${BUILD_TYPE:-Release};
+	PRESERVE_NONE_PROFILE="$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)/liveness_profdata.json";
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
 	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
-	  -D CMAKE_BUILD_TYPE=Release \
+	  -D CMAKE_BUILD_TYPE=$${BUILD_TYPE} \
 	  -D LLVM_ENABLE_PROJECTS=clang \
 	  -D LLVM_TARGETS_TO_BUILD=X86 \
 	  -D LLVM_ENABLE_LTO=Thin \
 	  -D LLVM_USE_LINKER=lld \
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
-	  -D CMAKE_C_FLAGS="$${IPRA_CFLAGS}" \
-	  -D CMAKE_CXX_FLAGS="$${IPRA_CFLAGS}" \
-	  -D CMAKE_EXE_LINKER_FLAGS="$${IPRA_LDFLAGS}" \
-	  -D CMAKE_SHARED_LINKER_FLAGS="$${IPRA_LDFLAGS}" \
-	  -D CMAKE_MODULE_LINKER_FLAGS="$${IPRA_LDFLAGS}"
-	@ninja -j "$(JOBS)" -C "$(PRESERVE_NONE_THINLY_LINKED_FDO_CLANG2_DIR)"
-	@touch $@; \
-	$(call log,✅ STEP 5I: preserve_none_thinly_linked_fdo_clang2 built successfully.)
+	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}"
+	@ninja -j "$(JOBS)" -C "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)" && \
+	touch $@ && \
+	$(call log,✅ STEP 5H: preserve_none_thinly_linked_fdo_clang built successfully.)
 
 fdo_liveness_analysis: 
 	@$(call log,Collecting Liveness Data using fdo_clang)
@@ -324,13 +319,13 @@ fdo_liveness_analysis:
 thinly_linked_fdo_liveness_analysis: 
 	@$(call log,Collecting Liveness Data using thinly_linked_fdo_clang)
 	@mkdir -p "$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
-	@TEMP_LLD_BUILD_DIR="$(DEV_DIR)/temp_lld_for_liveness_analysis"
-	@rm -rf "$$TEMP_LLD_BUILD_DIR"
-	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_LLD_BUILD_DIR" \
+	@TEMP_CLANG_BUILD_DIR="$(DEV_DIR)/temp_clang_for_liveness_analysis"
+	@rm -rf "$$TEMP_CLANG_BUILD_DIR"
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_CLANG_BUILD_DIR" \
 		-D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
 		-D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 		-D CMAKE_BUILD_TYPE=Release \
-		-D LLVM_ENABLE_PROJECTS=lld \
+		-D LLVM_ENABLE_PROJECTS=clang \
 		-D LLVM_TARGETS_TO_BUILD=X86 \
 		-D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 		-D LLVM_ENABLE_LTO=Thin \
@@ -338,8 +333,8 @@ thinly_linked_fdo_liveness_analysis:
 		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
 	    -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)" \
 	    -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
-	@ninja -j "$(JOBS)" -C "$$TEMP_LLD_BUILD_DIR" lld
-	@rm -rf "$$TEMP_LLD_BUILD_DIR"
+	@ninja -j "$(JOBS)" -C "$$TEMP_CLANG_BUILD_DIR"
+	@rm -rf "$$TEMP_CLANG_BUILD_DIR"
 	@$(call log,✅ Liveness Data collected in $(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR))\
 
 rebuild:
@@ -417,7 +412,7 @@ benchmark:
 	\
 	$(call log,Starting benchmark for '$(COMPILER)'); \
 	\
-	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-10}; \
+	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-1}; \
 	TEMP_BUILD_DIR="$(DEV_DIR)/temp_benchmark_build_$(COMPILER)"; \
 	METRICS_CSV="$(METRICS_DIR)/$(COMPILER)_metrics.csv"; \
 	\
@@ -437,6 +432,7 @@ benchmark:
 		-D LLVM_TARGETS_TO_BUILD=X86 \
 		-D LLVM_ENABLE_RUNTIMES="" 1> /dev/null; \
 	\
+
 	for i in $$(seq 1 $$BENCHMARK_RUNS); do \
 		$(call log,Benchmark Iteration $$i of $$BENCHMARK_RUNS for $(COMPILER)); \
 		ninja -C "$$TEMP_BUILD_DIR" -t clean lld > /dev/null; \
@@ -468,6 +464,24 @@ benchmark:
 	\
 	rm -rf "$$TEMP_BUILD_DIR"; \
 	$(call log,✅ Benchmark for '$(COMPILER)' complete. Results are in $$METRICS_CSV)
+
+size:
+	@if [ -z "$(COMPILER)" ]; then \
+	echo "Error: You must specify which compiler to benchmark."; \
+	echo "Usage: make benchmark COMPILER=<name>"; \
+	exit 1; \
+	fi
+
+	@set -e; \
+	\
+	# Dynamically construct the variable names based on the COMPILER input.
+	VAR_BASE_NAME=$$(echo $(COMPILER) | tr '[:lower:]' '[:upper:]' | sed 's/_CLANG$$//'); \
+	DIR_VAR_NAME="$${VAR_BASE_NAME}_DIR"; \
+	\
+	# Dynamically get the VALUE of the make variables by recursively calling make.
+	COMPILER_DIR=$$( $(MAKE) -s --no-print-directory -f $(lastword $(MAKEFILE_LIST)) print-var VARNAME=$$DIR_VAR_NAME ); \
+
+	@size $${COMPILER_DIR}/bin/clang;
 
 data:
 	$(call log,Running Baseline Benchmark Suite)
