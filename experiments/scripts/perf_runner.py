@@ -5,7 +5,7 @@ import datetime
 import shutil
 
 # --- Configuration ---
-NUM_RUNS = 10
+NUM_RUNS = 6
 COMMANDS = {
     "ThinLTO FDO": [
         "/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh",

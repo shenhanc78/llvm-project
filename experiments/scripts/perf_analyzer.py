@@ -59,6 +59,8 @@ def analyze_directory(results_dir):
         run_files = sorted([f for f in os.listdir(bench_path) if f.startswith('run_') and f.endswith('.txt')])
 
         for run_file in run_files:
+            if run_file == 'run_1.txt':
+                continue
             file_path = os.path.join(bench_path, run_file)
             parsed_metrics = parse_perf_data(file_path)
             for key, value in parsed_metrics.items():

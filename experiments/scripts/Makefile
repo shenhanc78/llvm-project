@@ -1,7 +1,7 @@
 # --- Configuration ---
 SHELL := /bin/bash
 .ONESHELL:
-.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang fdo_liveness_analysis preserve_none_fdo_clang thinly_linked_fdo_clang preserve_none_thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang ipra_fdo_clang data clean rebuild_preserve_none_fdo_clang size
+.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang fdo_liveness_analysis preserve_none_fdo_clang thinly_linked_fdo_clang preserve_none_thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang ipra_fdo_clang data clean rebuild_preserve_none_fdo_clang size test_preserve_none_thinly_linked_fdo_clang
 
 # Base directory for LLVM source code
 LLVM_SRC_DIR := $(shell cd ../../ ; pwd)
@@ -343,6 +343,10 @@ rebuild_preserve_none_thinly_linked_fdo_clang:
 	@rm "$(PRESERVE_NONE_THINLY_LINKED_FDO_SENTINEL)"
 	@rm "preserve_none_thinly_linked_fdo_clang"
 	@$(MAKE) preserve_none_thinly_linked_fdo_clang
+
+perf_preserve_none_thinly_linked_fdo_clang:
+	@$(MAKE) rebuild_preserve_none_thinly_linked_fdo_clang
+	@python3 perf_runner.py
 
 check_linkage_stats:
 	# Make sure to decomment the relevant lines in PreserveNonePass.cpp to enable linkage stats collection.

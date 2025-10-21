@@ -89,7 +89,7 @@ if __name__ == "__main__":
 python3 dump_and_diff.py \
   --before-binary  ../../../ipra-run/preserve_none_thinly_linked_fdo_clang/bin/clang-21 \
   --after-binary   ../../../ipra-run/thinly_linked_fdo_clang/bin/clang-21 \
-  --symbol         _ZN5clang12LookupResult11resolveKindEv \
+  --symbol         gnosticsEngineEPNS_18CoverageSourceInfoE \
   --out-dir        ./asm \
   --objdump        objdump
 """

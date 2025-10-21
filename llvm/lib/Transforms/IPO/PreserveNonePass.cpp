@@ -63,8 +63,8 @@ static cl::opt<std::string> PreserveNoneRecordPath(
 // Parse {"functions": {"name": number, ...}} JSON file.
 // TODO: this may be a ttxtemporary solution for storing profile data.
 // In the long term we may want to integrate with PGO infrastructure.
-static StringMap<double> loadCandidateJSON(StringRef Path) {
-  StringMap<double> C;
+static std::set<std::string> loadCandidateJSON(StringRef Path) {
+  std::set<std::string> C;
 
   if (Path.empty()) {
     WithColor::warning(errs()) << "[PreserveNone] No JSON path provided; no functions selected.\n";
@@ -97,8 +97,8 @@ static StringMap<double> loadCandidateJSON(StringRef Path) {
   }
 
   for (auto &KV : *Fns) {
-    double Score = *KV.second.getAsNumber();
-    C.try_emplace(KV.first, Score);
+    std::string func_name = KV.first.str();
+    C.insert(func_name);
   }
   return C;
 }
@@ -173,7 +173,7 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
     return PreservedAnalyses::all(); // hard gate
   }
 
-  StringMap<double> Candidates = loadCandidateJSON(PreserveNoneJsonPath);
+  std::set<std::string> Candidates = loadCandidateJSON(PreserveNoneJsonPath);
   if (Candidates.empty()) {
     WithColor::warning(errs()) << "[PreserveNone] Candidate set empty; nothing to do.\n";
     return PreservedAnalyses::all();
@@ -187,7 +187,7 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
 
   // Intersect JSON list with module contents + new safety filters.
   for (Function &F : M) {
-    if (Candidates.contains(F.getName()) && isSafeForPreserveNone(F)) {
+    if (Candidates.find(F.getName().str()) != Candidates.end() && isSafeForPreserveNone(F)) {
         Targets.push_back(&F);
     }
   }

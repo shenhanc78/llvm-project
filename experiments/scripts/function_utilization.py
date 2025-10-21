@@ -9,7 +9,7 @@ with open(FUNCTION_DATA, 'r') as f:
 actual_usage_set = set()
 with open(ACTUAL_USAGE_DATA, 'r') as f:
     for func_name in f:
-        actual_usage_set.add(func_name)
+        actual_usage_set.add(func_name.strip())
 
 theoretical_dynamic_scores = sum(function_dict.values())
 actual_dynamic_score = sum([score for func, score in function_dict.items() if func in actual_usage_set])
@@ -17,6 +17,8 @@ actual_dynamic_score = sum([score for func, score in function_dict.items() if fu
 print("=" * 20)
 print(f"Theoretical Dynamic Score: {theoretical_dynamic_scores}")
 print(f"Actual Dynamic Score: {actual_dynamic_score}")
+print(f"Theoretical Funtion Length: {len(function_dict)}")
+print(f"Actual Function Length: {len(actual_usage_set)}")
 print("=" * 20)
 
 
