@@ -372,12 +372,6 @@ benchmark:
 	SENTINEL_FILE=$$( $(MAKE) -s --no-print-directory -f $(lastword $(MAKEFILE_LIST)) print-var VARNAME=$$SENTINEL_VAR_NAME ); \
 	COMPILER_DIR=$$( $(MAKE) -s --no-print-directory -f $(lastword $(MAKEFILE_LIST)) print-var VARNAME=$$DIR_VAR_NAME ); \
 	\
-	# Ensure the compiler is built before benchmarking.
-	if [ ! -f "$$SENTINEL_FILE" ]; then \
-		$(call log,Compiler '$(COMPILER)' is not built yet. Building it first.); \
-		$(MAKE) $(COMPILER); \
-	fi; \
-	\
 	$(call log,Starting benchmark for '$(COMPILER)'); \
 	\
 	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-1}; \
