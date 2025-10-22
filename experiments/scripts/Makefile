@@ -20,7 +20,9 @@ COMPILER_LIST := \
 	ipra_thinly_linked_fdo_clang \
 	ipra_fully_linked_fdo_clang \
 	preserve_none_fdo_clang \
-	preserve_none_thinly_linked_fdo_clang
+	preserve_none_thinly_linked_fdo_clang \
+	autofdo_metadata_clang \
+	thinlto_autofdo_clang
 
 # Loop through the list and automatically define the _DIR and _SENTINEL variables.
 $(foreach compiler, $(COMPILER_LIST), \
@@ -31,6 +33,8 @@ $(foreach compiler, $(COMPILER_LIST), \
 # Profile data directories and files
 PROFILE_RAW_DIR := $(INSTR_DIR)/profiles
 PROFILE_MERGED_FILE := $(INSTR_DIR)/clang.profdata
+AUTOFDO_PERF_FILE := $(AUTOFDO_METADATA_DIR)/perf.data
+AUTOFDO_PROFILE_FILE := $(AUTOFDO_METADATA_DIR)/clang.prof
 
 # Metrics file
 METRICS_DIR := $(shell cd ../metrics/ ; pwd)
@@ -128,6 +132,26 @@ fdo_clang:
 
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
 thinly_linked_fdo_clang:
+	@$(call log,STEP 5B: Building thinly_linked_fdo_clang (PGO + ThinLTO build))
+	BUILD_TYPE=$${BUILD_TYPE:-Release};
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(THINLY_LINKED_FDO_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=$${BUILD_TYPE}\
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+	  -D LLVM_ENABLE_LTO=Thin \
+	  -D LLVM_USE_LINKER=lld \
+	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld"
+	@ninja -j "$(JOBS)" -C "$(THINLY_LINKED_FDO_DIR)" && \
+	touch $@ && \
+	$(call log,✅ STEP 5B: thinly_linked_fdo_clang built successfully.)
+
+# NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
+thinly_linked_auto_fdo_clang:
 	@$(call log,STEP 5B: Building thinly_linked_fdo_clang (PGO + ThinLTO build))
 	BUILD_TYPE=$${BUILD_TYPE:-Release};
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(THINLY_LINKED_FDO_DIR)" \
@@ -312,6 +336,72 @@ thinly_linked_fdo_liveness_analysis:
 	@ninja -j "$(JOBS)" -C "$$TEMP_CLANG_BUILD_DIR"
 	@rm -rf "$$TEMP_CLANG_BUILD_DIR"
 	@$(call log,✅ Liveness Data collected in $(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR))\
+
+# --- AutoFDO Build Targets ---
+# Step 1: Build clang with AutoFDO metadata flags
+autofdo_metadata_clang:
+	$(call log,STEP AFDO-1: Building autofdo_metadata_clang (Release build with AutoFDO flags))
+	cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(AUTOFDO_METADATA_DIR)" \
+		-D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D LLVM_ENABLE_PROJECTS="clang;lld" \
+		-D LLVM_TARGETS_TO_BUILD=X86 \
+		-D LLVM_ENABLE_RUNTIMES="compiler-rt" \
+		-D LLVM_ENABLE_LTO=Thin \
+		-D CMAKE_C_FLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true" \
+		-D CMAKE_CXX_FLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true" \
+		-D LLVM_USE_LINKER=lld \
+		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--build-id" \
+		-D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--build-id" \
+		-D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--build-id"
+	ninja -j "$(JOBS)" -C "$(AUTOFDO_METADATA_DIR)"
+	@touch $@
+	$(call log,✅ STEP AFDO-1: autofdo_metadata_clang built successfully.)
+
+# Step 2: Collect perf profile data using the metadata clang
+# (This target just defines the file, it's run by the next target)
+autofdo_collect_perf:
+	@$(call log,STEP AFDO-2: Collecting perf profile data)
+	@set -e; \
+	perf record -e BR_INST_RETIRED.NEAR_TAKEN:u -b -c 500009 \
+		-o "$(AUTOFDO_PERF_FILE)" -- \
+		/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh \
+			run_local \
+			--cc "$(AUTOFDO_METADATA_DIR)/bin/clang++" \
+			--iterations 1; \
+	$(call log,✅ STEP AFDO-2: Perf data collected at $(AUTOFDO_PERF_FILE))
+
+# Step 3: Convert perf data to LLVM profile format
+autofdo_convert_profile:
+	$(call log,STEP AFDO-3: Converting perf data to LLVM profile)
+	./create_llvm_prof --binary="$(AUTOFDO_METADATA_DIR)/bin/clang++" \
+					 --profile="$(AUTOFDO_PERF_FILE)" \
+					 --format=extbinary \
+					 --out="$(AUTOFDO_PROFILE_FILE)"
+	$(call log,✅ STEP AFDO-3: LLVM profile created at $(AUTOFDO_PROFILE_FILE))
+
+# Step 4: Build the final ThinLTO + AutoFDO clang
+thinlto_autofdo_clang:
+	@$(call log,STEP AFDO-4: Building thinlto_autofdo_clang (ThinLTO + AutoFDO optimized build))
+	BUILD_TYPE=$${BUILD_TYPE:-Release};
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(THINLTO_AUTOFDO_DIR)" \
+		-D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+		-D CMAKE_BUILD_TYPE=$${BUILD_TYPE} \
+		-D LLVM_ENABLE_PROJECTS="clang;lld" \
+		-D LLVM_TARGETS_TO_BUILD=X86 \
+		-D LLVM_ENABLE_LTO=Thin \
+		-D LLVM_USE_LINKER=lld \
+		-D CMAKE_C_FLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -fprofile-sample-use=$(AUTOFDO_PROFILE_FILE) -ffunction-sections -fdata-sections" \
+		-D CMAKE_CXX_FLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -fprofile-sample-use=$(AUTOFDO_PROFILE_FILE) -ffunction-sections -fdata-sections" \
+		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--lto-sample-profile=$(AUTOFDO_PROFILE_FILE)" \
+		-D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--lto-sample-profile=$(AUTOFDO_PROFILE_FILE)" \
+		-D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--lto-sample-profile=$(AUTOFDO_PROFILE_FILE)"
+	@ninja -j "$(JOBS)" -C "$(THINLTO_AUTOFDO_DIR)" && \
+	touch $@ && \
+	$(call log,✅ STEP AFDO-4: thinlto_autofdo_clang built successfully.)
+
 
 rebuild:
 	# Rebuild LLVM source build
