@@ -30,9 +30,12 @@ def parse_perf_data(file_path):
         'ipc': re.compile(r'(\d+\.\d+)\s+insn per cycle'),
         'itlb_load_misses': re.compile(r'([\d,]+)\s+iTLB-load-misses'),
         'l1_icache_load_misses': re.compile(r'([\d,]+)\s+L1-icache-load-misses'),
+        'l1_dcache_load_misses': re.compile(r'([\d,]+)\s+L1-dcache-load-misses'),
+        'llc_load_misses': re.compile(r'([\d,]+)\s+LLC-load-misses'),
         'wall_time_s': re.compile(r'(\d+\.\d+)\s+seconds time elapsed'),
         'user_time_s': re.compile(r'(\d+\.\d+)\s+seconds user'),
         'sys_time_s' : re.compile(r'(\d+\.\d+)\s+seconds sys'),
+        'branch_misses': re.compile(r'([\d,]+)\s+branch-misses'),
     }
 
     for key, pattern in patterns.items():
@@ -59,8 +62,6 @@ def analyze_directory(results_dir):
         run_files = sorted([f for f in os.listdir(bench_path) if f.startswith('run_') and f.endswith('.txt')])
 
         for run_file in run_files:
-            if run_file == 'run_1.txt':
-                continue
             file_path = os.path.join(bench_path, run_file)
             parsed_metrics = parse_perf_data(file_path)
             for key, value in parsed_metrics.items():

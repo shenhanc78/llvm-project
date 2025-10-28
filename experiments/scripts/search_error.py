@@ -16,7 +16,7 @@ import subprocess
 
 # --- Configuration (edit to your repo layout) ---------------------------------
 
-LIVENESS_DATA_DIR = Path("../metrics/thinly_linked_fdo_liveness_output")
+LIVENESS_DATA_DIR = Path("../metrics/pn_thinlto_autofdo_liveness_output")
 CANDIDATES_JSON = LIVENESS_DATA_DIR / "liveness_profdata.json"
 GOOD_FUNCTIONS_JSON = LIVENESS_DATA_DIR / "good_functions.json"
 BAD_FUNCTIONS_TXT = LIVENESS_DATA_DIR / "bad_functions.txt"
@@ -24,7 +24,7 @@ CACHE_PKL = LIVENESS_DATA_DIR / "tested_cache.pkl"
 BACKUP_SUFFIX = ".bak"
 
 # Your make target that consumes CANDIDATES_JSON and builds/runs benchmarks
-MAKE_TARGET = "test_preserve_none_thinly_linked_fdo_clang"
+MAKE_TARGET = "test_pn_thinlto_autofdo_clang"
 
 # Optional: path to a JSON that already contains scores: { "functions": {name: score}}
 # If provided, we sort by descending score to test the hottest first.

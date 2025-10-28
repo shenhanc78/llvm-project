@@ -1,7 +1,7 @@
 # --- Configuration ---
 SHELL := /bin/bash
 .ONESHELL:
-.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang fdo_liveness_analysis preserve_none_fdo_clang thinly_linked_fdo_clang preserve_none_thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang ipra_fdo_clang data clean rebuild_preserve_none_fdo_clang size test_preserve_none_thinly_linked_fdo_clang
+.PHONY: all bootstrapped_clang instr_clang instr_clang_data fdo_clang fdo_liveness_analysis preserve_none_fdo_clang thinly_linked_fdo_clang preserve_none_thinly_linked_fdo_clang ipra_thinly_linked_fdo_clang ipra_fdo_clang data clean rebuild_preserve_none_fdo_clang size test_preserve_none_thinly_linked_fdo_clang pn_thinlto_autofdo_clang test_pn_thinlto_autofdo_clang
 
 # Base directory for LLVM source code
 LLVM_SRC_DIR := $(shell cd ../../ ; pwd)
@@ -14,15 +14,19 @@ COMPILER_LIST := \
 	bootstrapped_clang \
 	instr_clang \
 	fdo_clang \
+	thinlto_clang \
 	thinly_linked_fdo_clang \
 	fully_linked_fdo_clang \
 	ipra_fdo_clang \
-	ipra_thinly_linked_fdo_clang \
+	ipra_thinlto_fdo_clang \
 	ipra_fully_linked_fdo_clang \
 	preserve_none_fdo_clang \
 	preserve_none_thinly_linked_fdo_clang \
+	pn_thinlto_autofdo_clang \
+	pn_thinlto_autofdo_legacy_clang \
 	autofdo_metadata_clang \
-	thinlto_autofdo_clang
+	thinlto_autofdo_clang \
+	pn_ipra_thinlto_fdo_clang
 
 # Loop through the list and automatically define the _DIR and _SENTINEL variables.
 $(foreach compiler, $(COMPILER_LIST), \
@@ -40,6 +44,7 @@ AUTOFDO_PROFILE_FILE := $(AUTOFDO_METADATA_DIR)/clang.prof
 METRICS_DIR := $(shell cd ../metrics/ ; pwd)
 FDO_LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/fdo_liveness_output
 THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/thinly_linked_fdo_liveness_output
+IPRA_THINLTO_FDO_LIVENESS_OUTPUT_DIR := $(METRICS_DIR)/ipra_thinlto_fdo_liveness_output
 
 # Number of parallel jobs to use for compilation
 # Can reduce to nproc - 4 if system is under heavy load
@@ -129,6 +134,23 @@ fdo_clang:
 	@touch $@
 	@$(call log,✅ STEP 5: fdo_clang built successfully.)
 
+thinlto_clang:
+	@$(call log,Building thinlto_clang)
+	BUILD_TYPE=$${BUILD_TYPE:-Release};
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(THINLTO_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=$${BUILD_TYPE}\
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_ENABLE_LTO=Thin \
+	  -D LLVM_USE_LINKER=lld \
+	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld"
+	@ninja -j "$(JOBS)" -C "$(THINLTO_DIR)" && \
+	touch $@ && \
+	$(call log,✅ thinlto_clang built successfully.)
 
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
 thinly_linked_fdo_clang:
@@ -171,8 +193,7 @@ thinly_linked_auto_fdo_clang:
 	$(call log,✅ STEP 5B: thinly_linked_fdo_clang built successfully.)
 
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
-fully_linked_fdo_clang: $(FULLY_LINKED_FDO_SENTINEL)
-$(FULLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
+fully_linked_fdo_clang:
 	@$(call log,STEP 5E: Building fully_linked_fdo_clang (PGO + FULLLTO build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(FULLY_LINKED_FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
@@ -191,8 +212,7 @@ $(FULLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	$(call log,✅ STEP 5E: fully_linked_fdo_clang built successfully.)
 
 # NEW Target: Build the 'thinly_linked_fdo_clang' with PGO and ThinLTO
-ipra_fully_linked_fdo_clang: $(IPRA_FULLY_LINKED_FDO_SENTINEL)
-$(IPRA_FULLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
+ipra_fully_linked_fdo_clang:
 	@$(call log,STEP 5F: Building ipra_fully_linked_fdo_clang (PGO + FULLLTO build))
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(IPRA_FULLY_LINKED_FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
@@ -229,11 +249,9 @@ $(IPRA_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
 	touch $@ && \
 	$(call log,✅ STEP 5C: ipra_fdo_clang built successfully.)
 
-# NEW Target: Build 'ipra_thinly_linked_fdo_clang' with PGO, ThinLTO, and IPRA.
-ipra_thinly_linked_fdo_clang: $(IPRA_THINLY_LINKED_FDO_SENTINEL)
-$(IPRA_THINLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FILE)
-	@$(call log,STEP 5D: Building ipra_thinly_linked_fdo_clang (PGO + ThinLTO + IPRA build))
-	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(IPRA_THINLY_LINKED_FDO_DIR)" \
+ipra_thinlto_fdo_clang:
+	@$(call log, Building ipra_thinlto_fdo_clang (PGO + ThinLTO + IPRA build))
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(IPRA_THINLTO_FDO_DIR)" \
 	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
 	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 	  -D CMAKE_BUILD_TYPE=Release \
@@ -242,12 +260,31 @@ $(IPRA_THINLY_LINKED_FDO_SENTINEL): $(BOOTSTRAPPED_SENTINEL) $(PROFILE_MERGED_FI
 	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
 	  -D LLVM_ENABLE_LTO=Thin \
 	  -D LLVM_USE_LINKER=lld \
-	  -D CMAKE_C_FLAGS="-mllvm -enable-ipra" \
-	  -D CMAKE_CXX_FLAGS="-mllvm -enable-ipra" \
 	  -D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra" \
 	  -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra" \
 	  -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra"
-	@ninja -j "$(JOBS)" -C "$(IPRA_THINLY_LINKED_FDO_DIR)" && \
+	@ninja -j "$(JOBS)" -C "$(IPRA_THINLTO_FDO_DIR)" && \
+	touch $@ && \
+	$(call log, ipra_thinlto_fdo_clang built successfully.)
+
+# NEW Target: Build 'ipra_thinly_linked_fdo_clang' with PGO, ThinLTO, and IPRA.
+pn_ipra_thinlto_fdo_clang:
+	@$(call log,STEP 5D: Building ipra_thinlto_fdo_clang (PGO + ThinLTO + IPRA build))
+	PRESERVE_NONE_PROFILE="$(IPRA_THINLTO_FDO_LIVENESS_OUTPUT_DIR)/liveness_profdata.json";
+	LFLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}";
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PN_IPRA_THINLTO_FDO_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=Release \
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+	  -D LLVM_ENABLE_LTO=Thin \
+	  -D LLVM_USE_LINKER=lld \
+	  -D CMAKE_EXE_LINKER_FLAGS="$${LFLAGS}"
+	  -D CMAKE_SHARED_LINKER_FLAGS="$${LFLAGS}" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="$${LFLAGS}"
+	@ninja -j "$(JOBS)" -C "$(PN_IPRA_THINLTO_FDO_DIR)" && \
 	touch $@ && \
 	$(call log,✅ STEP 5D: ipra_thinly_linked_fdo_clang built successfully.)
 
@@ -275,6 +312,12 @@ test_preserve_none_thinly_linked_fdo_clang:
 	rm -rf "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)"
 	$(MAKE) preserve_none_thinly_linked_fdo_clang
 	$(MAKE) benchmark COMPILER=preserve_none_thinly_linked_fdo_clang
+
+test_pn_thinlto_autofdo_clang:
+	@$(call log,Starting test build for preserve_none_thinly_linked_fdo_clang)
+	rm -rf "$(PN_THINLTO_AUTOFDO_DIR)"
+	$(MAKE) pn_thinlto_autofdo_clang
+	$(MAKE) benchmark COMPILER=pn_thinlto_autofdo_clang
 
 preserve_none_thinly_linked_fdo_clang:
 	@$(call log,STEP 5H: Building preserve_none_thinly_linked_fdo_clang)
@@ -335,7 +378,30 @@ thinly_linked_fdo_liveness_analysis:
 	    -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR)"
 	@ninja -j "$(JOBS)" -C "$$TEMP_CLANG_BUILD_DIR"
 	@rm -rf "$$TEMP_CLANG_BUILD_DIR"
-	@$(call log,✅ Liveness Data collected in $(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR))\
+	@$(call log,✅ Liveness Data collected in $(THINLY_LINKED_FDO_LIVENESS_OUTPUT_DIR));
+
+ipra_thinlto_fdo_liveness_analysis:
+	@$(call log,Collecting Liveness Data using thinly_linked_fdo_clang)
+	@mkdir -p "$(IPRA_THINLTO_FDO_LIVENESS_OUTPUT_DIR)"
+	@TEMP_CLANG_BUILD_DIR="$(DEV_DIR)/temp_clang_for_liveness_analysis"
+	@rm -rf "$$TEMP_CLANG_BUILD_DIR";
+
+	LFLAGS="-fuse-ld=lld -Wl,-mllvm,-enable-ipra -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(IPRA_THINLTO_FDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(IPRA_THINLTO_FDO_LIVENESS_OUTPUT_DIR)"
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_CLANG_BUILD_DIR" \
+		-D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+		-D CMAKE_BUILD_TYPE=Release \
+		-D LLVM_ENABLE_PROJECTS=clang \
+		-D LLVM_TARGETS_TO_BUILD=X86 \
+		-D LLVM_PROFDATA_FILE="$(PROFILE_MERGED_FILE)" \
+		-D LLVM_ENABLE_LTO=Thin \
+	  	-D LLVM_USE_LINKER=lld \
+		-D CMAKE_EXE_LINKER_FLAGS="$${LFLAGS}" \
+	    -D CMAKE_SHARED_LINKER_FLAGS="$${LFLAGS}" \
+	    -D CMAKE_MODULE_LINKER_FLAGS="$${LFLAGS}"
+	@ninja -j "$(JOBS)" -C "$$TEMP_CLANG_BUILD_DIR"
+	@rm -rf "$$TEMP_CLANG_BUILD_DIR"
+	@$(call log,✅ Liveness Data collected in $(IPRA_THINLTO_FDO_LIVENESS_OUTPUT_DIR));
 
 # --- AutoFDO Build Targets ---
 # Step 1: Build clang with AutoFDO metadata flags
@@ -383,13 +449,15 @@ autofdo_convert_profile:
 
 # Step 4: Build the final ThinLTO + AutoFDO clang
 thinlto_autofdo_clang:
+	@$(MAKE) autofdo_collect_perf
+	@$(MAKE) autofdo_convert_profile
 	@$(call log,STEP AFDO-4: Building thinlto_autofdo_clang (ThinLTO + AutoFDO optimized build))
 	BUILD_TYPE=$${BUILD_TYPE:-Release};
 	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(THINLTO_AUTOFDO_DIR)" \
 		-D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
 		-D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
 		-D CMAKE_BUILD_TYPE=$${BUILD_TYPE} \
-		-D LLVM_ENABLE_PROJECTS="clang;lld" \
+		-D LLVM_ENABLE_PROJECTS=clang \
 		-D LLVM_TARGETS_TO_BUILD=X86 \
 		-D LLVM_ENABLE_LTO=Thin \
 		-D LLVM_USE_LINKER=lld \
@@ -402,37 +470,104 @@ thinlto_autofdo_clang:
 	touch $@ && \
 	$(call log,✅ STEP AFDO-4: thinlto_autofdo_clang built successfully.)
 
+pn_thinlto_autofdo_liveness_analysis:
+	@$(call log,Collecting Liveness Data using thinly_linked_fdo_clang)
+	BUILD_TYPE=$${BUILD_TYPE:-Release};
+	@mkdir -p "$(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR)"
+	@TEMP_CLANG_BUILD_DIR="$(DEV_DIR)/temp_clang_for_liveness_analysis"
+	@rm -rf "$$TEMP_CLANG_BUILD_DIR"
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$$TEMP_CLANG_BUILD_DIR" \
+		-D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+		-D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+		-D CMAKE_BUILD_TYPE=$${BUILD_TYPE} \
+		-D LLVM_ENABLE_PROJECTS=clang \
+		-D LLVM_TARGETS_TO_BUILD=X86 \
+		-D LLVM_ENABLE_LTO=Thin \
+	  	-D LLVM_USE_LINKER=lld \
+		-D CMAKE_C_FLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -fprofile-sample-use=$(AUTOFDO_PROFILE_FILE) -ffunction-sections -fdata-sections" \
+		-D CMAKE_CXX_FLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -fprofile-sample-use=$(AUTOFDO_PROFILE_FILE) -ffunction-sections -fdata-sections" \
+		-D CMAKE_EXE_LINKER_FLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--lto-sample-profile=$(AUTOFDO_PROFILE_FILE) -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR)" \
+	    -D CMAKE_SHARED_LINKER_FLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--lto-sample-profile=$(AUTOFDO_PROFILE_FILE) -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR)" \
+	    -D CMAKE_MODULE_LINKER_FLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--lto-sample-profile=$(AUTOFDO_PROFILE_FILE) -Wl,-mllvm,-enable-cs-reg-liveness-analysis -Wl,-mllvm,-cs-reg-liveness-analysis-output-dir=$(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR) -Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-dry-run -Wl,-mllvm,-ipra-prera-analysis-output-dir=$(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR)"
+	@ninja -j "$(JOBS)" -C "$$TEMP_CLANG_BUILD_DIR"
+	@rm -rf "$$TEMP_CLANG_BUILD_DIR"
+	@$(call log,✅ Liveness Data collected in $(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR))\
+
+pn_thinlto_autofdo_clang:
+	@$(call log,Building pn_thinlto_autofdo_clang)
+	@set -e;
+	# Define the path to the JSON profile locally for this target.
+	BUILD_TYPE=$${BUILD_TYPE:-Release};
+	PRESERVE_NONE_PROFILE="$(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR)/liveness_profdata.json";
+	CFLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -fprofile-sample-use=$(AUTOFDO_PROFILE_FILE) -ffunction-sections -fdata-sections";
+	LFLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--lto-sample-profile=$(AUTOFDO_PROFILE_FILE) -Wl,-mllvm,-preserve-none-enable -Wl,-mllvm,-preserve-none-json=$${PRESERVE_NONE_PROFILE}";
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PN_THINLTO_AUTOFDO_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=$${BUILD_TYPE} \
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_ENABLE_LTO=Thin \
+	  -D LLVM_USE_LINKER=lld \
+	  -D CMAKE_C_FLAGS="$${CFLAGS}" \
+	  -D CMAKE_CXX_FLAGS="$${CFLAGS}" \
+	  -D CMAKE_EXE_LINKER_FLAGS="$${LFLAGS}" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="$${LFLAGS}" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="$${LFLAGS}"
+	@ninja -j "$(JOBS)" -C "$(PN_THINLTO_AUTOFDO_DIR)" && \
+	touch $@ && \
+	$(call log,✅ pn_thinlto_autofdo_clang built successfully.)
+
+pn_thinlto_autofdo_legacy_clang:
+	@$(call log,Building pn_thinlto_autofdo_clang)
+	@set -e; \
+	# Define the path to the JSON profile locally for this target.
+	BUILD_TYPE=$${BUILD_TYPE:-Release};
+	PN_SYMS_FILE="$(PN_THINLTO_AUTOFDO_LIVENESS_OUTPUT_DIR)/pn.syms";
+	PN_CFLAGS="-mllvm -enable-ipra-prera-analysis -mllvm -ipra-prera-function-syms-file=$${PN_SYMS_FILE}"; \
+	PN_LFLAGS="-Wl,-mllvm,-enable-ipra-prera-analysis -Wl,-mllvm,-ipra-prera-function-syms-file=$${PN_SYMS_FILE}";
+	CFLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -fprofile-sample-use=$(AUTOFDO_PROFILE_FILE) -ffunction-sections -fdata-sections"; \
+	LFLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -Wl,--lto-sample-profile=$(AUTOFDO_PROFILE_FILE)";
+	@cmake -G Ninja -S "$(LLVM_SRC_DIR)/llvm" -B "$(PN_THINLTO_AUTOFDO_LEGACY_DIR)" \
+	  -D CMAKE_C_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang" \
+	  -D CMAKE_CXX_COMPILER="$(BOOTSTRAPPED_DIR)/bin/clang++" \
+	  -D CMAKE_BUILD_TYPE=$${BUILD_TYPE} \
+	  -D LLVM_ENABLE_PROJECTS=clang \
+	  -D LLVM_TARGETS_TO_BUILD=X86 \
+	  -D LLVM_ENABLE_LTO=Thin \
+	  -D LLVM_USE_LINKER=lld \
+	  -D CMAKE_C_FLAGS="$${CFLAGS} $${PN_CFLAGS}" \
+	  -D CMAKE_CXX_FLAGS="$${CFLAGS} $${PN_CFLAGS}" \
+	  -D CMAKE_EXE_LINKER_FLAGS="$${LFLAGS} $${PN_LFLAGS}" \
+	  -D CMAKE_SHARED_LINKER_FLAGS="$${LFLAGS} $${PN_LFLAGS}" \
+	  -D CMAKE_MODULE_LINKER_FLAGS="$${LFLAGS} $${PN_LFLAGS}"
+	@ninja -j "$(JOBS)" -C "$(PN_THINLTO_AUTOFDO_LEGACY_DIR)" && \
+	touch $@ && \
+	$(call log,✅ pn_thinlto_autofdo_clang built successfully.)
 
 rebuild:
 	# Rebuild LLVM source build
 	@ninja -j "$(JOBS)" -C "$(LLVM_SRC_DIR)/build"
 	# Rebuild bootstrapped_clang
-	@rm "$(BOOTSTRAPPED_SENTINEL)"
 	@$(MAKE) bootstrapped_clang
 
-rebuild_preserve_none_fdo_clang:
-	# Rebuild LLVM source build
-	@ninja -j "$(JOBS)" -C "$(LLVM_SRC_DIR)/build"
-	# Rebuild bootstrapped_clang
-	@rm "$(BOOTSTRAPPED_SENTINEL)"
-	@$(MAKE) bootstrapped_clang
-	# Rebuild preserve_none_fdo_clang
-	@rm -rf "$(PRESERVE_NONE_FDO_DIR)"
-	@rm "$(PRESERVE_NONE_FDO_SENTINEL)"
-	@rm "preserve_none_fdo_clang"
-	@$(MAKE) preserve_none_fdo_clang
+	@if [ -z "$(COMPILER)" ]; then \
+		echo "Rebuild bootstrapped_clang done."; \
+		echo "If you want to rebuild opt clang: make rebuild COMPILER=<name>"; \
+		exit 0; \
+	fi
 
-rebuild_preserve_none_thinly_linked_fdo_clang:
-	# Rebuild LLVM source build
-	@ninja -j "$(JOBS)" -C "$(LLVM_SRC_DIR)/build"
-	# Rebuild bootstrapped_clang
-	@rm "$(BOOTSTRAPPED_SENTINEL)"
-	@$(MAKE) bootstrapped_clang
-	# Rebuild preserve_none_thinly_linked_fdo_clang
-	@rm -rf "$(PRESERVE_NONE_THINLY_LINKED_FDO_DIR)"
-	@rm "$(PRESERVE_NONE_THINLY_LINKED_FDO_SENTINEL)"
-	@rm "preserve_none_thinly_linked_fdo_clang"
-	@$(MAKE) preserve_none_thinly_linked_fdo_clang
+	VAR_BASE_NAME=$$(echo $(COMPILER) | tr '[:lower:]' '[:upper:]' | sed 's/_CLANG$$//'); \
+	SENTINEL_VAR_NAME="$${VAR_BASE_NAME}_SENTINEL"; \
+	DIR_VAR_NAME="$${VAR_BASE_NAME}_DIR";
+	SENTINEL_FILE=$$( $(MAKE) -s --no-print-directory -f $(lastword $(MAKEFILE_LIST)) print-var VARNAME=$$SENTINEL_VAR_NAME ); \
+	COMPILER_DIR=$$( $(MAKE) -s --no-print-directory -f $(lastword $(MAKEFILE_LIST)) print-var VARNAME=$$DIR_VAR_NAME ); \
+
+	# Rebuild specified opt clang
+	@rm -rf $${COMPILER_DIR}
+	@rm $${SENTINEL_FILE}
+	@rm $(COMPILER)
+	@$(MAKE) $(COMPILER)
 
 perf_preserve_none_thinly_linked_fdo_clang:
 	@$(MAKE) rebuild_preserve_none_thinly_linked_fdo_clang

@@ -1,7 +1,7 @@
 import json
 
-FUNCTION_DATA = "../metrics/thinly_linked_fdo_liveness_output/liveness_profdata.json"
-ACTUAL_USAGE_DATA = "../../../ipra-run/preserve_none_thinly_linked_fdo_clang/pn_functions.txt"
+FUNCTION_DATA = "../metrics/ipra_thinlto_fdo_liveness_output/liveness_profdata.json"
+ACTUAL_USAGE_DATA = "../../../ipra-run/pn_ipra_thinlto_fdo_clang/pn_functions.txt"
 
 with open(FUNCTION_DATA, 'r') as f:
     function_dict = json.load(f)["functions"]

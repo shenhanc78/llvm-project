@@ -5,21 +5,21 @@ import datetime
 import shutil
 
 # --- Configuration ---
-NUM_RUNS = 6
+NUM_RUNS = 10
 COMMANDS = {
+    "Preserve None": [
+        "/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh",
+        "run_local",
+        "--cc",
+        "/usr/local/google/home/tanjihui/ipra-run/pn_ipra_thinlto_fdo_clang/bin/clang++",
+        "--iterations",
+        "1"
+    ],
     "ThinLTO FDO": [
         "/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh",
         "run_local",
         "--cc",
         "/usr/local/google/home/tanjihui/ipra-run/thinly_linked_fdo_clang/bin/clang++",
-        "--iterations",
-        "1"
-    ],
-    "Preserve None": [
-        "/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh",
-        "run_local",
-        "--cc",
-        "/usr/local/google/home/tanjihui/ipra-run/preserve_none_thinly_linked_fdo_clang/bin/clang++",
         "--iterations",
         "1"
     ]
@@ -55,7 +55,7 @@ def run_benchmark():
             
             print(f"--- Running [{name}] Iteration {i} of {NUM_RUNS}... ", end="", flush=True)
 
-            perf_command = ["perf", "stat", "-e instructions,cycles,iTLB-load-misses,L1-icache-load-misses", "--"] + command_list
+            perf_command = ["perf", "stat", "-e instructions,cycles,L1-icache-load-misses,iTLB-load-misses,L1-dcache-load-misses,LLC-load-misses,branch-misses", "--"] + command_list
             
             try:
                 result = subprocess.run(
