@@ -162,93 +162,100 @@ static unsigned int parseSymbolsFile(StringMap<unsigned> &FunctionSymsMap) {
   return count;
 }
 
-// Returns true if the function is part of the tail call chain.
-bool ProcessTailCallChain(const StringMap<unsigned> &FunctionSymsMap,
-                          Function &F,
-                          raw_ostream &OS) {
-  std::set<std::string> chain_func_set = {};
-  for (const std::list<std::string> &chain : tailcall_chains)
-    for (const std::string& func_name : chain)
-      chain_func_set.insert(func_name);
+// // Returns true if the function is part of the tail call chain.
+// bool ProcessTailCallChain(const StringMap<unsigned> &FunctionSymsMap,
+//                           Function &F,
+//                           raw_ostream &OS) {
+//   std::set<std::string> chain_func_set = {};
+//   for (const std::list<std::string> &chain : tailcall_chains)
+//     for (const std::string& func_name : chain)
+//       chain_func_set.insert(func_name);
 
-  bool found = false;
-  size_t total_chains =
-      sizeof(tailcall_chains) / sizeof(std::list<std::string>);
-  OS << "IPRA: Total tailcall chains: " << total_chains << "\n";
-  for (size_t chain_iter = 0; !found && chain_iter < total_chains; ++chain_iter)
-    for (auto chain_func_iter = tailcall_chains[chain_iter].begin();
-         !found && (chain_func_iter != tailcall_chains[chain_iter].end());
-         ++chain_func_iter)
-      if (F.getName() == *chain_func_iter)
-        found = true;
+//   bool found = false;
+//   size_t total_chains =
+//       sizeof(tailcall_chains) / sizeof(std::list<std::string>);
+//   OS << "IPRA: Total tailcall chains: " << total_chains << "\n";
+//   for (size_t chain_iter = 0; !found && chain_iter < total_chains; ++chain_iter)
+//     for (auto chain_func_iter = tailcall_chains[chain_iter].begin();
+//          !found && (chain_func_iter != tailcall_chains[chain_iter].end());
+//          ++chain_func_iter)
+//       if (F.getName() == *chain_func_iter)
+//         found = true;
 
-  if (!found)
-    return false;
+//   if (!found)
+//     return false;
 
-  for (User *U : F.users())
-    if (!isa<CallInst>(U))
-      llvm::report_fatal_error("Unexpected: not all of function users "
-                               "are call instructions: " +
-                               F.getName());
+//   for (User *U : F.users())
+//     if (!isa<CallInst>(U))
+//       llvm::report_fatal_error("Unexpected: not all of function users "
+//                                "are call instructions: " +
+//                                F.getName());
 
-  // 1. Set the calling conv of F to preserve none.
-  F.setCallingConv(CallingConv::PreserveNone);
-  OS << "IPRA: set " << F.getName() << " to preserve none (tailcall)\n";
+//   // 1. Set the calling conv of F to preserve none.
+//   F.setCallingConv(CallingConv::PreserveNone);
+//   OS << "IPRA: set " << F.getName() << " to preserve none (tailcall)\n";
 
-  // 2. Make sure all callers of F are not tail call except the caller is
-  // already a preserve none function or when the caller is in the tail call
-  // chain.
-  for (User *U : F.users()) {
-    CallInst *CI = cast<CallInst>(U);
-    // All instructions to call F are preserve none.
-    CI->setCallingConv(CallingConv::PreserveNone);
+//   // 2. Make sure all callers of F are not tail call except the caller is
+//   // already a preserve none function or when the caller is in the tail call
+//   // chain.
+//   for (User *U : F.users()) {
+//     CallInst *CI = cast<CallInst>(U);
+//     // All instructions to call F are preserve none.
+//     CI->setCallingConv(CallingConv::PreserveNone);
 
-    Function *Caller = CI->getCaller();
-    if (FunctionSymsMap.contains(Caller->getName()) ||
-        chain_func_set.find(std::string(Caller->getName())) !=
-            chain_func_set.end()) {
-      OS << "IPRA: both caller and callee are preserve none, do not change "
-            "tail call kind: "
-         << Caller->getName() << "->" << F.getName() << "\n";
-    } else {
-      CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-      OS << "IPRA: set call: " << Caller->getName() << "->" << F.getName()
-             << " to no tail call\n";
-    }
-  }
+//     Function *Caller = CI->getCaller();
+//     if (FunctionSymsMap.contains(Caller->getName()) ||
+//         chain_func_set.find(std::string(Caller->getName())) !=
+//             chain_func_set.end()) {
+//       OS << "IPRA: both caller and callee are preserve none, do not change "
+//             "tail call kind: "
+//          << Caller->getName() << "->" << F.getName() << "\n";
+//     } else {
+//       CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+//       OS << "IPRA: set call: " << Caller->getName() << "->" << F.getName()
+//              << " to no tail call\n";
+//     }
+//   }
 
-  // 3. Make sure all callees of F are not tail call except when the callee is
-  // in the tail call chain or when the callee is a preserve none function.
-  if (F.isDeclaration())
-    return true;
+//   // 3. Make sure all callees of F are not tail call except when the callee is
+//   // in the tail call chain or when the callee is a preserve none function.
+//   if (F.isDeclaration())
+//     return true;
 
-  for (BasicBlock &B : F) {
-    for (Instruction &I : B) {
-      if (!isa<CallInst>(I))
-        continue;
+//   for (BasicBlock &B : F) {
+//     for (Instruction &I : B) {
+//       if (!isa<CallInst>(I))
+//         continue;
 
-      CallInst *CI = cast<CallInst>(&I);
-      if (!CI)
-        continue;
-      Function *Callee = CI->getCalledFunction();
-      if (!Callee) {
-        CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-        continue;
-      }
-      if (FunctionSymsMap.contains(Callee->getName()) ||
-          chain_func_set.find(std::string(Callee->getName())) !=
-              chain_func_set.end()) {
-        OS << "IPRA: both caller and callee are preserve none, do not change "
-              "tail call kind: "
-           << F.getName() << "->" << Callee->getName() << "\n";
-      } else {
-        CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-        OS << "IPRA: set call: " << F.getName() << "->" << Callee->getName()
-           << " to no tail call\n";
-      }
-    }
-  }
-  return true;
+//       CallInst *CI = cast<CallInst>(&I);
+//       if (!CI)
+//         continue;
+//       Function *Callee = CI->getCalledFunction();
+//       if (!Callee) {
+//         CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+//         continue;
+//       }
+//       if (FunctionSymsMap.contains(Callee->getName()) ||
+//           chain_func_set.find(std::string(Callee->getName())) !=
+//               chain_func_set.end()) {
+//         OS << "IPRA: both caller and callee are preserve none, do not change "
+//               "tail call kind: "
+//            << F.getName() << "->" << Callee->getName() << "\n";
+//       } else {
+//         CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+//         OS << "IPRA: set call: " << F.getName() << "->" << Callee->getName()
+//            << " to no tail call\n";
+//       }
+//     }
+//   }
+//   return true;
+// }
+
+// ---------- Helpers ----------
+static bool isDirectUserOf(const CallBase &CB, const Function &F) {
+  const Value *Callee = CB.getCalledOperand();
+  Callee = Callee->stripPointerCasts();
+  return Callee == &F;
 }
 
 PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
@@ -318,36 +325,44 @@ PreservedAnalyses IPRAPreRAAnalysisPass::run(Module &M,
       }
       // Tailcall check 2 and use sites check.
       bool all_uses_are_call = true;
-      bool uses_are_indirect_call = false;
+      bool uses_are_indirect = false;
       for (User *U : F.users()) {
-        if (isa<CallInst>(U)) {
+        if (!isa<BlockAddress>(U) && isa<CallInst>(U)) {
           CallInst *ci = cast<CallInst>(U);
           if (ci->isMustTailCall()) {
             must_tail_call = true;
             break;
-          } else if (ci->isIndirectCall()) {
-            // Not likely to happen, but check
-            uses_are_indirect_call = true;
-            break;
+          } else if (!isDirectUserOf(*ci, F)) {
+              uses_are_indirect = true;
+              break;
           }
         } else {
           all_uses_are_call = false;
           break;
         }
       }
-      if (!all_uses_are_call || must_tail_call || uses_are_indirect_call ||
-          F.isInterposable() || F.hasAddressTaken()) {
+
+      if (!all_uses_are_call || must_tail_call || uses_are_indirect ||
+          F.isInterposable() || F.hasAddressTaken() || F.isIntrinsic() ||
+          F.isVarArg() || F.getName() == "main") {
         (*OS) << "IPRA: Function: " << FNameCStr << "[" << CUNameStr << "]";
         if (!all_uses_are_call)
           (*OS) << " AllUsesAreNotCall: 1";
+        if (uses_are_indirect)
+          (*OS) << " UsesAreIndirect: 1";
         if (must_tail_call)
           (*OS) << " MustTailCall: 1";
-        if (uses_are_indirect_call)
-          (*OS) << " UsesAreIndirectCall: 1";
-        if (F.isInterposable())
-          (*OS) << " IsInterposable: 1";
         if (F.hasAddressTaken())
           (*OS) << " HasAddressTaken: 1";
+        if (F.isInterposable())
+          (*OS) << " IsInterposable: 1";
+        if (F.isIntrinsic())
+          (*OS) << " IsIntrinsic: 1";
+        if (F.isVarArg())
+          (*OS) << " IsVarArg: 1";
+        if (F.getName() == "main")
+          (*OS) << " main: 1";
+
         (*OS) << "\n";
       }
     }

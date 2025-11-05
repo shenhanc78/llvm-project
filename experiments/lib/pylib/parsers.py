@@ -1,6 +1,7 @@
 from collections import defaultdict
 import os
 import re
+import json
 
 class Parser:
     def __init__(self, directory, validator=None):
@@ -34,10 +35,14 @@ class Parser:
 
         for filepath in files_to_process:
             with open(filepath, 'r') as f:
+                if os.fstat(f.fileno()).st_size == 0:
+                    print(f"WARNING: File {f} is empty, skipping")
+                    continue
                 for line in f:
                     # Every line must have function name or something is wrong
                     func_match = func_pattern.search(line)
                     if not func_match:
+                        breakpoint()
                         raise ValueError(f"Line {line} does not have a function, which is not expected")
                     caller = func_match.group(1).strip()
                     all_functions.add(caller)
@@ -109,6 +114,8 @@ class Parser:
                         present_flags = flag_pattern.findall(flags_string)
                         
                         dangerous_functions[func_name] = present_flags
+        
+        dangerous_functions["main"] = ["MAIN"]
 
         # Filter out known bad functions
         if not bad_function_path:
@@ -120,12 +127,84 @@ class Parser:
             with open(bad_function_path, 'r') as file:
                 for line in file:
                     bad_func = line.strip()
-                    dangerous_functions[bad_func] = "UNKNOWN"
+                    dangerous_functions[bad_func] = ["UNKNOWN"]
         except Exception:
             raise FileNotFoundError(f"ERROR: BAD_FUNCTION_PATH: {bad_function_path} does not exist")
 
         print(f"Get {len(dangerous_functions)} dangerous functions.")
         return dangerous_functions
+    
+
+    def load_pn_context(self):
+        pattern = r"^(.+)/liveness_output/(.+)_liveness_output/?$"
+        replacement = r"\1/pn_functions/\2_pn_functions"
+        context_directory = re.sub(pattern, replacement, self.directory)
+
+        var_names = [
+            "costs", "sites", "successors", "predecessors", "all_nodes",
+            "function_hotness", "function_entrycount", "dangerous_functions"
+        ]
+
+        loaded_data = {}
+        print(f"Loading context from: {context_directory}")
+        
+        for var_name in var_names:
+            file_path = os.path.join(context_directory, f"{var_name}.json")
+            try:
+                with open(file_path, 'r') as f:
+                    loaded_data[var_name] = json.load(f)
+            except FileNotFoundError:
+                print(f"Error: Context file not found {file_path}")
+                raise
+            except json.JSONDecodeError:
+                print(f"Error: Failed to decode JSON from {file_path}")
+                raise
+
+        print(f"Successfully loaded {len(loaded_data)} context files.")
+
+        # --- Re-convert data structures ---
+
+        # 1. costs: dict[str, list] -> dict[str, set]
+        costs = {func: set(regs) for func, regs in loaded_data['costs'].items()}
+
+        # 2. sites: Rebuild defaultdicts and inner sets
+        sites_data = loaded_data['sites']
+        sites_dd = defaultdict(lambda: defaultdict(list))
+        for callee, callers_dict in sites_data.items():
+            # Rebuild inner defaultdict
+            sites_dd[callee] = defaultdict(list)
+            for caller, call_sites in callers_dict.items():
+                # Rebuild inner sets
+                for call_site in call_sites:
+                    call_site['live_csrs'] = set(call_site['live_csrs'])
+                sites_dd[callee][caller] = call_sites
+
+        # 3. successors: dict[str, list] -> defaultdict(set)
+        successors_dd = defaultdict(set)
+        for caller, callees in loaded_data['successors'].items():
+            successors_dd[caller] = set(callees)
+            
+        # 4. predecessors: dict[str, list] -> defaultdict(set)
+        predecessors_dd = defaultdict(set)
+        for callee, callers in loaded_data['predecessors'].items():
+            predecessors_dd[callee] = set(callers)
+
+        # 5. all_nodes: list -> set
+        all_nodes = set(loaded_data['all_nodes'])
+
+        # 6. Others (hotness, entrycount, dangerous) are loaded in the correct format
+        
+        # Return in the same order as parse_liveness_files, plus dangerous_functions
+        return (
+            costs,  # This is function_regs
+            sites_dd, # This is callee_call_sites
+            successors_dd,
+            predecessors_dd,
+            all_nodes,
+            loaded_data['function_hotness'],
+            loaded_data['function_entrycount'],
+            loaded_data['dangerous_functions']
+        )
 
 class TestParser:
     def __init__(self, parser: Parser):

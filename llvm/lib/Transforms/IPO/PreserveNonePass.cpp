@@ -39,6 +39,10 @@
 #include "llvm/Support/WithColor.h"
 #include "llvm/Support/raw_ostream.h"
 
+// // For online analysis in bottom up order
+// #include "llvm/Analysis/CallGraph.h"
+// #include "llvm/IR/CallGraphSCCPass.h"
+
 using namespace llvm;
 
 // ---------- Flags (available to opt/clang when LLVMIpo is linked) ----------
@@ -103,70 +107,6 @@ static std::set<std::string> loadCandidateJSON(StringRef Path) {
   return C;
 }
 
-// ---------- Helpers ----------
-static bool isDirectUserOf(const CallBase &CB, const Function &F) {
-  const Value *Callee = CB.getCalledOperand();
-  Callee = Callee->stripPointerCasts();
-  return Callee == &F;
-}
-
-static bool isSafeForPreserveNone(const Function &F) {
-    // --- Initial simple checks ---
-    if (F.isIntrinsic() || F.isVarArg() || F.isInterposable() || 
-        F.hasAddressTaken() || F.getCallingConv() != CallingConv::C || F.getName() == "main") {
-        return false;
-    }
-
-    // --- Check if the function ITSELF contains a must-tail call ---
-    if (!F.isDeclaration()) {
-        for (const BasicBlock &B : F) {
-            for (const Instruction &I : B) {
-                if (const auto *CI = dyn_cast<CallInst>(&I)) {
-                    if (CI->isMustTailCall()) {
-                      WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " contains a must-tail call.\n";
-                      return false;
-                    }
-                    // To check tail call, must check isDeclaration function F as well, but need to modify current analysis pass
-                    // if (CI->isTailCall()) {
-                    //   WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " contains a tail call.\n";
-                    //   return false;
-                    // }
-                }
-            }
-        }
-    }
-
-    // --- Check all USERS of the function for unsafe patterns ---
-    for (const User *U : F.users()) {
-        // User must not be a block address and must be a call instruction.
-        if (isa<BlockAddress>(U) || !isa<CallInst>(U)) {
-          WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " has a user that is not a CallBase.\n";
-          return false;
-        }
-
-        const auto *CB = cast<CallBase>(U);
-
-        // Must be a direct call.
-        if (!isDirectUserOf(*CB, F)) {
-          WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " has an indirect call user.\n";
-          return false;
-        }
-
-        // The call site itself must not be a must-tail call.
-        if (CB->isMustTailCall()) {
-          WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " is the target of a must-tail call.\n";
-          return false;
-        }
-
-        // if (CB->isTailCall()) {
-        //   WithColor::warning(errs()) << "[PreserveNone] Reject: " << F.getName() << " is the target of a tail call.\n";
-        //   return false;
-        // }
-    }
-
-    return true;
-}
-
 // ---------- Pass ----------
 PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
   if (!EnablePreserveNone){
@@ -180,49 +120,46 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
   }
 
   bool Changed = false;
-  SmallVector<Function*, 16> Targets;
 
   // A set to store the names of functions we modify.
   std::set<std::string> PreserveNoneFunctions;
 
-  // Intersect JSON list with module contents + new safety filters.
-  for (Function &F : M) {
-    if (Candidates.find(F.getName().str()) != Candidates.end() && isSafeForPreserveNone(F)) {
-        Targets.push_back(&F);
-    }
-  }
-
-  if (Targets.empty()) {
-    WithColor::note(errs()) << "[PreserveNone] No eligible functions after filtering.\n";
-    return PreservedAnalyses::all();
-  }
-
+  // Intersect JSON list with module contents + safety filters.
   // Apply the transformation.
-  for (Function *F : Targets) {
-    // 1. Disable tail calls on any calls *within* the function itself.
-    if (!F->isDeclaration()) {
-      for (BasicBlock &B : *F) {
+  for (Function &F : M) {
+    if (Candidates.find(F.getName().str()) == Candidates.end())
+      continue;
+
+    // 1. Set the calling convention for the function itself.
+    if (F.getCallingConv() != CallingConv::PreserveNone) {
+      F.setCallingConv(CallingConv::PreserveNone);
+      Changed = true;
+      WithColor::note(errs()) << "[PreserveNone] Retagged function: " << F.getName() << "\n";
+      // Add the function's name to our set.
+      PreserveNoneFunctions.insert(F.getName().str());
+    }
+
+    // 2. Disable tail calls on any calls *within* the function itself.
+    if (!F.isDeclaration()) {
+      for (BasicBlock &B : F) {
         for (Instruction &I : B) {
           if (auto *CI = dyn_cast<CallInst>(&I)) {
-            if (CI->isTailCall()) {
-              CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-              Changed = true;
-            }
+            CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+            Changed = true;
           }
         }
       }
     }
 
-    // 2. Modify the call sites that call this function.
-    for (User *U : F->users()) {
+    // 3. Modify the call sites that call this function.
+    for (User *U : F.users()) {
       auto *CB = cast<CallBase>(U);
 
-      // Disable tail calls at the call site.
+      // Disable tail calls at the call site except the caller
+      // is already a preserve none function or when the caller is in the tail call chain
       if (auto *CI = dyn_cast<CallInst>(CB)) {
-        if (CI->isTailCall()) {
-           CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-           Changed = true;
-        }
+          CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+          Changed = true;
       }
 
       // Set the calling convention for the call site.
@@ -232,15 +169,6 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
         WithColor::note(errs()) << "[PreserveNone] Retagged callsite in: "
                                 << CB->getFunction()->getName() << "\n";
       }
-    }
-
-    // 3. Set the calling convention for the function itself.
-    if (F->getCallingConv() != CallingConv::PreserveNone) {
-      F->setCallingConv(CallingConv::PreserveNone);
-      Changed = true;
-      WithColor::note(errs()) << "[PreserveNone] Retagged function: " << F->getName() << "\n";
-      // Add the function's name to our set.
-      PreserveNoneFunctions.insert(F->getName().str());
     }
   }
 

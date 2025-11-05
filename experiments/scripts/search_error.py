@@ -16,25 +16,23 @@ import subprocess
 
 # --- Configuration (edit to your repo layout) ---------------------------------
 
-LIVENESS_DATA_DIR = Path("../metrics/pn_thinlto_autofdo_liveness_output")
-CANDIDATES_JSON = LIVENESS_DATA_DIR / "liveness_profdata.json"
-GOOD_FUNCTIONS_JSON = LIVENESS_DATA_DIR / "good_functions.json"
-BAD_FUNCTIONS_TXT = LIVENESS_DATA_DIR / "bad_functions.txt"
-CACHE_PKL = LIVENESS_DATA_DIR / "tested_cache.pkl"
+LIVENESS_DATA_DIR = Path("../metrics/liveness_output/thinlto_autofdo_liveness_output")
+CANDIDATES_JSON = Path("../metrics/pn_functions/thinlto_autofdo_pn_functions/liveness_profdata.json")
+GOOD_FUNCTIONS_JSON = Path("../metrics/pn_functions/good_functions.json")
+BAD_FUNCTIONS_TXT = Path("../metrics/pn_functions/bad_functions.txt")
+CACHE_PKL = Path("../metrics/pn_functions/thinlto_autofdo_pn_functions/tested_cache.pkl")
 BACKUP_SUFFIX = ".bak"
 
+
 # Your make target that consumes CANDIDATES_JSON and builds/runs benchmarks
-MAKE_TARGET = "test_pn_thinlto_autofdo_clang"
+COMPILER="pn_thinlto_autofdo_clang"
+MAKE_TARGET = f"test_{COMPILER}"
 
 # Optional: path to a JSON that already contains scores: { "functions": {name: score}}
 # If provided, we sort by descending score to test the hottest first.
 OPTIONAL_SCORED_CANDIDATES_JSON = None  # e.g., LIVENESS_DATA_DIR / "liveness_with_scores.json"
 
-# Parallelize build where possible
-MAKE_FLAGS = ["-j"]  # extend if needed, e.g., ["-j", "24"]
-
-# Persist progress every N test invocations
-PERSIST_EVERY = 5
+MAKE_FLAGS = ["-j"]
 
 # -----------------------------------------------------------------------------
 
@@ -301,7 +299,12 @@ def main():
     while remaining:
         # Try to classify a big chunk at once (group testing).
         # Heuristic: test up to 1/3 of the remaining, capped for build stability.
-        chunk_sz = max(1, min(len(remaining) // 3, 200))
+        SMALL_POOL_THRESHOLD = 10  # Test all if 10 or fewer remain
+        if len(remaining) <= SMALL_POOL_THRESHOLD:
+            chunk_sz = len(remaining)
+        else:
+            # Original heuristic for large sets
+            chunk_sz = max(1, min(len(remaining) // 3, 200))
         block = remaining[:chunk_sz]
         test_set = good_functions | set(block)
 
