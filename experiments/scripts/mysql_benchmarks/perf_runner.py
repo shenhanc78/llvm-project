@@ -7,41 +7,72 @@ import shutil
 # --- Configuration ---
 NUM_RUNS = 10
 COMMANDS = {
-    "Preserve None": [
-        "/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh",
-        "run_local",
-        "--cc",
-        "/usr/local/google/home/tanjihui/ipra-run/pn_ipra_thinlto_autofdo_clang/bin/clang++",
-        "--iterations",
+    # Key name will be used for the directory, e.g., "Baseline_MySQL"
+    "PreserveNone_MySQL": [
+        "./run-benchmark.sh",
+        "../../../../ipra-run/mysql_benchmark/pn_thinlto_autofdo_mysql",
+        "benchmark",
         "1"
     ],
-    "ThinLTO FDO": [
-        "/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh",
-        "run_local",
-        "--cc",
-        "/usr/local/google/home/tanjihui/ipra-run/thinlto_autofdo_clang/bin/clang++",
-        "--iterations",
-        "1"
+    "Baseline_MySQL": [
+        "./run-benchmark.sh",
+        "../../../../ipra-run/mysql_benchmark/thinlto_autofdo_mysql",
+        "benchmark",
+        "1" # We run 1 iteration; this script loops NUM_RUNS times
     ]
 }
-# Copy json prof_data for documentations
-JSON_SRC_FILE = '../metrics/pn_functions/ipra_thinlto_autofdo_pn_functions/liveness_profdata.json'
-BASE_DIR = f"../metrics/references/clangbench_results/"
+
+# Copy json prof_data for documentation
+# Paths are relative to mysql_benchmarks/
+JSON_SRC_FILE = '../../metrics/pn_functions/thinlto_autofdo_mysql_pn_functions/liveness_profdata.json'
+BASE_DIR = f"../../metrics/references/mysql_results/"
 # ---------------------
+
+def setup_databases():
+    """
+    Runs the one-time database initialization for each target.
+    This is done *outside* of the main perf stat loop.
+    """
+    print("="*80)
+    print("🚀 Starting One-Time Database Setup (mysqld --initialize-insecure)")
+    print("This may take a minute...")
+    
+    for name, command_list in COMMANDS.items():
+        # [./run-benchmark.sh, <build_dir>, "benchmark", "1"]
+        build_dir = command_list[1]
+        setup_command = ["./run-benchmark.sh", build_dir, "setup_db"]
+        
+        print(f"--- Initializing DB for [{name}] in {build_dir}")
+        try:
+            subprocess.run(setup_command, check=True, capture_output=True, text=True)
+            print(f"✅ DB for [{name}] initialized successfully.")
+        except subprocess.CalledProcessError as e:
+            print(f"❌ ERROR: Failed to setup database for [{name}]")
+            print(e.stderr)
+            sys.exit(1)
+            
+    print("✅ All databases initialized successfully.")
+    print("="*80 + "\n")
+
+
 def run_benchmark():
-    """
-    Runs benchmarks in an interleaved fashion:
-    Run 1 (A), Run 1 (B), Run 2 (A), Run 2 (B), ...
-    """
+    # --- NEW: Run one-time setup first ---
+    setup_databases()
+
     # Create a unique, timestamped directory for this entire benchmark session
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
-    base_results_dir = f"{BASE_DIR}clangbench_results_{timestamp}"
+    base_results_dir = f"{BASE_DIR}mysql_results_{timestamp}"
     os.makedirs(base_results_dir, exist_ok=True)
     print(f"📂 Saving all results to: {base_results_dir}\n")
-    print('📂 For record, documenting liveness_profdata.json...')
-    shutil.copy(JSON_SRC_FILE, base_results_dir)
+    
+    if os.path.exists(JSON_SRC_FILE):
+        print('📂 For record, documenting liveness_profdata.json...')
+        shutil.copy(JSON_SRC_FILE, base_results_dir)
+    else:
+        print(f"ℹ️ Note: Liveness profile not found at {JSON_SRC_FILE}, skipping copy.")
 
-    # --- NEW: Create all benchmark-specific directories first ---
+
+    # --- Create all benchmark-specific directories first ---
     benchmark_dirs = {}
     print("Pre-creating result directories:")
     for name in COMMANDS.keys():
@@ -50,16 +81,16 @@ def run_benchmark():
         benchmark_dir = os.path.join(base_results_dir, sanitized_name)
         os.makedirs(benchmark_dir, exist_ok=True)
         benchmark_dirs[name] = benchmark_dir
-        print(f"   -> {benchmark_dir}")
+        print(f"    -> {benchmark_dir}")
 
 
     print("\n" + "="*80)
+    print("🚀 Starting Formal Benchmark Runs")
     
-    # --- MODIFIED: Loop by run number FIRST, then by command ---
-    for i in range(1, NUM_RUNS + 1):
-        print(f"🚀 Starting Global Iteration {i} of {NUM_RUNS}")
-
-        for name, command_list in COMMANDS.items():
+    # --- Loop by run number FIRST, then by command ---
+    for name, command_list in COMMANDS.items():
+        for i in range(1, NUM_RUNS + 1):
+            print(f"🚀 Starting Global Iteration {i} of {NUM_RUNS}")
             # Get the pre-made directory for this benchmark
             benchmark_dir = benchmark_dirs[name]
             
@@ -99,7 +130,7 @@ def run_benchmark():
                     if e.stdout: f.write("--- Stdout ---\n" + e.stdout.strip() + "\n\n")
                     if e.stderr: f.write("--- Stderr ---\n" + e.stderr.strip() + "\n")
                 print(f"🔥 Error details saved to: {output_file}")
-                sys.exit(1)
+                # Don't exit, just continue to the next iteration
         
         print("-" * 80) # Add a separator between iterations
 

@@ -1,0 +1,34 @@
+--- a/dbt2-0.37.50.16/scripts/mysql/mysql_load_db.sh	2019-09-11 18:28:36.000000000 -0700
++++ dbt2-0.37.50.16/scripts/mysql/mysql_load_db.sh	2022-06-09 12:00:32.390012940 -0700
+@@ -99,10 +99,11 @@
+ else
+   TABLES="customer district history item new_order order_line orders stock warehouse"
+ fi
+ 
+ SET_BATCH_SIZE="set ndb_batch_size=2*1024*1024;"
++SET_BATCH_SIZE=""
+ for TABLE in $TABLES ; do
+   COLUMN_NAMES=
+   if [ "$TABLE" = "history" ]; then
+     COLUMN_NAMES="(h_c_id,h_c_d_id,h_c_w_id,h_d_id,h_w_id,h_date,h_amount,h_data)"
+   fi
+@@ -486,15 +487,15 @@
+ fi
+ 
+ if [ "$PARTITION_NO" != "" ]; then
+   PARTITION_NO="PARTITIONS $PARTITION_NO"
+ fi
+-if [ ! -f "$MYSQL" ]; then
+-  usage "MySQL client binary '$MYSQL' not exists.
+-       Please specify correct one using -c #"
+-  exit 1
+-fi
++# if [ ! -f "$MYSQL" ]; then
++#   usage "MySQL client binary '$MYSQL' not exists.
++#        Please specify correct one using -c #"
++#   exit 1
++# fi
+ 
+ if [ "$DB_PASSWORD" != "" ]; then
+   MYSQL_ARGS="-p $DB_PASSWORD"
+ fi

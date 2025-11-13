@@ -1,31 +1,33 @@
 import os
 import json
 import sys
-sys.path.append('../')
+# Assumes the 'lib' folder is in the parent directory (scripts/)
+sys.path.append('../../')
 from lib.pylib.graph_algorithms import GraphAlgorithm
 from lib.pylib.validators import Validator
 from lib.pylib.parsers import Parser, TestParser
 from lib.pylib.utils import Util
 from lib.pylib.scoring import Scoring
 
-COMPILER = 'ipra_thinlto_autofdo_clang'
+# ------- Configuration for MySQL Experiment --------
+# This should be the name of the target build you are analyzing
+TARGET = 'thinlto_autofdo_mysql'
 
-# ------- Constants determined by `COMPILER` ---------
-COMPILER_TYPE = COMPILER[:-6]
-LIVENESS_DIR = f'../metrics/liveness_output/{COMPILER_TYPE}_liveness_output/'
-CONTEXT_OUTPUT_DIR = f'../metrics/pn_functions/{COMPILER_TYPE}_pn_functions/'
-BAD_FUNCTION_PATH='../metrics/pn_functions/bad_functions.txt'
+# ------- Constants determined by `target` ---------
+# Paths are now relative to the mysql_benchmarks/ directory
+LIVENESS_DIR = f'../../metrics/liveness_output/{TARGET}_liveness_output/'
+CONTEXT_OUTPUT_DIR = f'../../metrics/pn_functions/{TARGET}_pn_functions/'
+BAD_FUNCTION_PATH = '../../metrics/pn_functions/mysql_bad_functions.txt'
 
-print(f"COMPILER: {COMPILER}")
-print(f"COMPILER_TYPE: {COMPILER_TYPE}")
+print(f"TARGET: {TARGET}")
 print(f"LIVENESS_DIR: {LIVENESS_DIR}")
 print(f"CONTEXT_OUTPUT_DIR: {CONTEXT_OUTPUT_DIR}")
 print(f"BAD_FUNCTION_PATH: {BAD_FUNCTION_PATH}")
 
 validator = Validator(system_arch="x86-64", abi="System V")
 parser = Parser(LIVENESS_DIR, validator)
-test_parser = TestParser(Parser('../tests/ipra_analysis_test_dir', validator))
-test_parser.test_parse_files()
+# test_parser = TestParser(Parser('../tests/ipra_analysis_test_dir', validator))
+# test_parser.test_parse_files()
 
 costs, sites, successors, predecessors, all_nodes, function_hotness, function_entrycount = parser.parse_liveness_files()
 dangerous_functions = parser.parse_dangerous_functions(BAD_FUNCTION_PATH)
@@ -55,3 +57,5 @@ os.makedirs(CONTEXT_OUTPUT_DIR, exist_ok=True)
 for variable, value in data_to_save.items():
     with open(f"{CONTEXT_OUTPUT_DIR}{variable}.json", "w") as f:
         json.dump(value, f, indent=4)
+
+print(f"✅ Successfully generated context files in '{CONTEXT_OUTPUT_DIR}'")

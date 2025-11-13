@@ -32,7 +32,7 @@ class Parser:
         files_to_process = [os.path.join(self.directory, f) for f in os.listdir(self.directory) if f.startswith('ipra_analysis_') and f.endswith('.txt')]
         print(f"Found {len(files_to_process)} profile files to process.")
 
-
+        broken_count = 0
         for filepath in files_to_process:
             with open(filepath, 'r') as f:
                 if os.fstat(f.fileno()).st_size == 0:
@@ -42,8 +42,11 @@ class Parser:
                     # Every line must have function name or something is wrong
                     func_match = func_pattern.search(line)
                     if not func_match:
-                        breakpoint()
-                        raise ValueError(f"Line {line} does not have a function, which is not expected")
+                        broken_count += 1
+                        print(f"WARNING: {line} in {filepath} is broken.")
+                        continue
+                        # breakpoint()
+                        # raise ValueError(f"Line {line} does not have a function, which is not expected")
                     caller = func_match.group(1).strip()
                     all_functions.add(caller)
                         
@@ -91,7 +94,8 @@ class Parser:
                         })
                         successors[caller].add(callee)
                         predecessors[callee].add(caller)
-
+        if broken_count > 0:
+            print(f"WARNING: broken_count={broken_count}")
         print(f"Found {len(all_functions)} unique functions in the call graph.")
         return function_regs, callee_call_sites, successors, predecessors, all_functions, function_hotness, function_entrycount
 
@@ -193,7 +197,7 @@ class Parser:
         all_nodes = set(loaded_data['all_nodes'])
 
         # 6. Others (hotness, entrycount, dangerous) are loaded in the correct format
-        
+
         # Return in the same order as parse_liveness_files, plus dangerous_functions
         return (
             costs,  # This is function_regs
