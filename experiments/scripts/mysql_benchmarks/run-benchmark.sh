@@ -1,24 +1,23 @@
 #!/bin/bash
 #
-# run-benchmark.sh: Wrapper script to run MySQL sysbench workloads.
+# run-benchmark.sh: Wrapper script to run individual MySQL sysbench functions.
 #
 # Usage:
-#   ./run-benchmark.sh <build_dir> "setup_db"
-#   ./run-benchmark.sh <build_dir> "loadtest"
-#   ./run-benchmark.sh <build_dir> "benchmark" [iterations]
+#   ./run-benchmark.sh <build_dir> <function_to_run> [args...]
 #
 
 set -e
 
 if [[ "$#" -lt 2 ]]; then
-    echo "Usage: $0 <build_dir> \"setup_db\" | \"loadtest\" | \"benchmark\" [iterations]"
+    echo "Usage: $0 <build_dir> <function_to_run> [args...]"
     exit 1
 fi
 
 # --- Configuration ---
 BUILD_DIR_ABS=$(cd "$1" && pwd)
 RUN_MODE="$2"
-ITERATIONS="${3:-5}" # Default to 5 iterations for benchmark
+shift 2 # All remaining args are passed to the function
+ARGS=("$@")
 
 # Get base paths
 CUR_DIR=$(cd "$(dirname "$0")" && pwd)
@@ -37,11 +36,11 @@ INSTALL_DIR="${BUILD_DIR_ABS}/install"
 BENCH_DIR="${BUILD_DIR_ABS}/bench.dir" # Working directory for benchmark
 MYSQL_DATA_DIR="data.dir" # Subdirectory within BENCH_DIR
 
-echo "--- Starting MySQL Run ---"
-echo "  Build: ${BUILD_DIR_ABS}"
-echo "  Mode: ${RUN_MODE}"
-echo "  Work Dir: ${BENCH_DIR}"
-echo "  Install Dir: ${INSTALL_DIR}"
+# --- Minimal logging for helper scripts ---
+if [[ "$RUN_MODE" != "loadtest" && "$RUN_MODE" != "benchmark" ]]; then
+    echo "--- MySQL Helper ---"
+    echo "  Mode: ${RUN_MODE}"
+fi
 
 # Create and move into the benchmark directory
 mkdir -p "${BENCH_DIR}"
@@ -56,36 +55,8 @@ source "${MYSQL_RUN_FUNCS_PATH}"
 ln -sfn "${INSTALL_DIR}" install.dir
 
 # --- Run Workload ---
+# Dynamically call the function passed as RUN_MODE,
+# passing MYSQL_DATA_DIR as the first arg, and any other args after.
+"${RUN_MODE}" "${MYSQL_DATA_DIR}" "${ARGS[@]}"
 
-if [ "${RUN_MODE}" == "setup_db" ]; then
-    echo "Setting up MySQL database in ${MYSQL_DATA_DIR}..."
-    setup_mysql_database "${MYSQL_DATA_DIR}"
-    if [[ "$?" -ne 0 ]]; then echo "*** setup_mysql_database failed ***"; exit 1; fi
-    echo "--- Database Setup Complete ---"
-    exit 0
-fi
-
-# --- From here on, we assume setup_db has already been run ---
-# The benchmark/loadtest modes will just create the config, not init the db
-
-echo "Starting mysqld..."
-start_mysqld "${MYSQL_DATA_DIR}"
-if [[ "$?" -ne 0 ]]; then echo "*** start_mysqld failed ***"; exit 1; fi
-
-# Trap to ensure mysqld is stopped even if the script fails
-trap "echo 'Stopping mysqld...'; stop_mysqld '${MYSQL_DATA_DIR}'; echo 'Stopped.'" EXIT
-
-if [ "${RUN_MODE}" == "loadtest" ]; then
-    echo "Running 'loadtest' workload (for profiling)..."
-    run_sysbench_loadtest "${MYSQL_DATA_DIR}"
-
-elif [ "${RUN_MODE}" == "benchmark" ]; then
-    echo "Running 'benchmark' workload (${ITERATIONS} iterations)..."
-    run_sysbench_benchmark "${MYSQL_DATA_DIR}" "${ITERATIONS}"
-
-else
-    echo "Error: Unknown run mode '${RUN_MODE}'"
-    exit 1
-fi
-
-echo "--- MySQL Run Complete ---"
+# We don't print a "complete" message, as this script is a silent helper

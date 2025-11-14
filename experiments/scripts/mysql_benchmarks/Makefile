@@ -38,7 +38,10 @@ JOBS := $(shell nproc)
 # --- Compiler Build Definitions ---
 
 # Master list of all MySQL build names
+# --- NEW: Added baseline_mysql and thinlto_mysql ---
 COMPILER_LIST := \
+	baseline_mysql \
+	thinlto_mysql \
 	autofdo_metadata_mysql \
 	thinlto_autofdo_mysql \
 	pn_thinlto_autofdo_mysql
@@ -66,7 +69,8 @@ endef
 
 # --- Main Targets ---
 
-all: thinlto_autofdo_mysql pn_thinlto_autofdo_mysql
+# --- NEW: Added baseline_mysql and thinlto_mysql to the default 'all' target ---
+all: baseline_mysql thinlto_mysql thinlto_autofdo_mysql pn_thinlto_autofdo_mysql
 
 # Target 0: Download, patch, and build dependencies
 setup_source: $(SOURCE_BASE_DIR)/.setup_complete
@@ -96,6 +100,45 @@ define COMMON_CMAKE_FLAGS
 	-DENABLED_PROFILING=Off \
 	-DCMAKE_INSTALL_PREFIX=$(1)/install
 endef
+
+# --- NEW: Sanity Check: Baseline Build (No LTO, No FDO) ---
+baseline_mysql:
+	@$(call log, Building baseline_mysql (Release build, no LTO, no FDO))
+	mkdir -p "$(BASELINE_MYSQL_DIR)"
+	# COMMON_CMAKE_FLAGS already sets -DWITH_LTO=OFF.
+	# We use similar flags for consistency, but without -flto=thin.
+	CFLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -ffunction-sections -fdata-sections";
+	CXXFLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -ffunction-sections -fdata-sections";
+	LFLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -static-libgcc -static-libstdc++";
+	@cmake -S "$(MYSQL_SOURCE_DIR)" -B "$(BASELINE_MYSQL_DIR)" \
+		$(call COMMON_CMAKE_FLAGS,$(BASELINE_MYSQL_DIR)) \
+		-DCMAKE_C_FLAGS="$${CFLAGS}" \
+		-DCMAKE_CXX_FLAGS="$${CXXFLAGS}" \
+		-DCMAKE_EXE_LINKER_FLAGS="$${LFLAGS}" \
+		-DCMAKE_SHARED_LINKER_FLAGS="$${LFLAGS}" \
+		-DCMAKE_MODULE_LINKER_FLAGS="$${LFLAGS}";
+	@ninja -j "$(JOBS)" -C "$(BASELINE_MYSQL_DIR)" install;
+	@touch $@;
+	@$(call log,✅ baseline_mysql built successfully.)
+
+# --- NEW: Sanity Check: ThinLTO Build (No FDO) ---
+thinlto_mysql:
+	@$(call log, Building thinlto_mysql (ThinLTO optimized build, no FDO))
+	mkdir -p "$(THINLTO_MYSQL_DIR)"
+	# These flags are from thinlto_autofdo_mysql, but *without* profile-use flags
+	CFLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -ffunction-sections -fdata-sections -flto=thin";
+	CXXFLAGS="-gmlt -fdebug-info-for-profiling -mllvm -enable-fs-discriminator=true -mllvm -improved-fs-discriminator=true -ffunction-sections -fdata-sections -flto=thin";
+	LFLAGS="-fuse-ld=lld -Wl,--mllvm=-enable-fs-discriminator=true -Wl,--mllvm=-improved-fs-discriminator=true -flto=thin -static-libgcc -static-libstdc++";
+	@cmake -S "$(MYSQL_SOURCE_DIR)" -B "$(THINLTO_MYSQL_DIR)" \
+		$(call COMMON_CMAKE_FLAGS,$(THINLTO_MYSQL_DIR)) \
+		-DCMAKE_C_FLAGS="$${CFLAGS}" \
+		-DCMAKE_CXX_FLAGS="$${CXXFLAGS}" \
+		-DCMAKE_EXE_LINKER_FLAGS="$${LFLAGS}" \
+		-DCMAKE_SHARED_LINKER_FLAGS="$${LFLAGS}" \
+		-DCMAKE_MODULE_LINKER_FLAGS="$${LFLAGS}";
+	@ninja -j "$(JOBS)" -C "$(THINLTO_MYSQL_DIR)" install;
+	@touch $@;
+	@$(call log,✅ thinlto_mysql built successfully.)
 
 # --- AutoFDO Build Targets ---
 
@@ -222,10 +265,10 @@ benchmark:
 	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-1}; \
 	METRICS_CSV="$(METRICS_DIR)/benchmark_results/$(TARGET)_metrics.csv"; \
 	\
-	echo "  -> TARGET Name: $(TARGET)"; \
-	echo "  -> TARGET Path: $$TARGET_DIR"; \
-	echo "  -> Benchmark Runs: $$BENCHMARK_RUNS"; \
-	echo "  -> Metrics File: $$METRICS_CSV"; \
+	echo "  -> TARGET Name: $(TARGET)"; \
+	echo "  -> TARGET Path: $$TARGET_DIR"; \
+	echo "  -> Benchmark Runs: $$BENCHMARK_RUNS"; \
+	echo "  -> Metrics File: $$METRICS_CSV"; \
 	\
 	mkdir -p "$(METRICS_DIR)/benchmark_results"; \
 	\

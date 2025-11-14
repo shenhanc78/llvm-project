@@ -69,18 +69,15 @@ class Scoring:
                 report_string += "-" * 10 + "\n"
                 report_string += f"Identified {len(functions_in_cycles)} functions in recursive cycles.\n"
 
-            dangerous_function_count = 0 # For record only
             ctor_dtor_count = 0          # <-- Added counter for ctor/dtor
             clone_count = 0
             clone_pattern = re.compile(r'\.llvm\.\d+$')
 
             for callee in sorted_nodes:
-                # ... [clone logic unchanged] ...
                 if clone_pattern.search(callee):
                     clone_count += 1
                     self.dangerous_functions[callee] = self.dangerous_functions.get(callee, []) + ["CLONE"]
                     continue
-                # ... [good_functions_only logic unchanged] ...
                 if self.good_functions_only and callee not in self.good_functions:
                     self.dangerous_functions[callee] = self.dangerous_functions.get(callee, []) + ["NOTGOOD"]
                     continue
@@ -152,56 +149,65 @@ class Scoring:
                 if self.skip_cold and self.function_hotness.get(callee, False) == False:
                     self.dangerous_functions[callee] = self.dangerous_functions.get(callee, []) + ["COLD"]
                     continue
+            
+            # To account for scenarios when hot function A calls B and C. Maybe PN to C is not eligible in first iteration but B is PN eligible
+            # Then after propagating costs, we re-evaluate C's eligibility. Therefore, we need to run bottom-up multiple times and check convergence.
+            marked_pn_functions = set()
+            dangerous_functions = set()
+            marked_pn_count = float('-inf') # to check convergence
+            while marked_pn_count != 0:
+                marked_pn_count = 0
 
-                if len(function_regs.get(callee, [])) < self.callee_register_threshold:
-                    self.dangerous_functions[callee] = self.dangerous_functions.get(callee, []) + [f"NUMREG"]
-                    continue
-                
-            for callee in sorted_nodes:
-                if callee in self.dangerous_functions:
-                    dangerous_function_count += 1
-                    continue
-
-                callee_regs_set = function_regs.get(callee, {})
-                callee_cost = len(callee_regs_set)
-
-                # TODO: Propagation will double count callee_cost, need to discount to avoid inflating scores
-                # TODO: live register push/pop instruction count might by overestimated if the reigster is live but not used between two consecutive call sites
-                total_dynamic_benefit = 2 * callee_cost * self.function_entrycount.get(callee, 0)
-                total_static_cost = 2 * (-callee_cost)
-                call_sites = self.callee_call_sites.get(callee, defaultdict(list))
-                for caller, sites in call_sites.items():
-                    if self.skip_cold_edge and self.function_hotness[caller] == False: #skip cold edge cost in our cost model
+                for callee in sorted_nodes:
+                    if callee in self.dangerous_functions:
+                        dangerous_functions.add(callee)
                         continue
-                    caller_entry_count = self.function_entrycount[caller]
-                    # If caller and callee are the same, prologue/epilogue costs (both static/dynamic) are not applicable
-                    if caller != callee:
-                        # prologue/epilogue cost/benefit analysis
-                        caller_prologue_cost = 6 - len(function_regs.get(caller, {}))
-                        total_dynamic_benefit -= 2 * caller_prologue_cost * caller_entry_count
-                        total_static_cost += 2 * caller_prologue_cost
-                    # live around callsite cost/benefit analysis
-                    for site in sites:
-                        mbb_count = site["mbb_count"]
-                        caller_live_regs_cost = len(site["live_csrs"].intersection(callee_regs_set))
-                        total_dynamic_benefit -= 2 * caller_live_regs_cost * mbb_count
-                        total_static_cost += 2 * caller_live_regs_cost
+                    if callee in marked_pn_functions:
+                        continue
+                    if len(function_regs.get(callee, {})) < self.callee_register_threshold:
+                        continue
+                    callee_regs_set = function_regs.get(callee, {})
+                    callee_cost = len(callee_regs_set)
 
-                if self.skip_scoring or (total_dynamic_benefit > self.dynamic_threshold and total_static_cost < self.static_threshold):
-                    final_scores[callee] = {"dynamic": total_dynamic_benefit, "static": total_static_cost}
+                    # TODO: Propagation will double count callee_cost, need to discount to avoid inflating scores
+                    # TODO: live register push/pop instruction count might by overestimated if the reigster is live but not used between two consecutive call sites
+                    total_dynamic_benefit = 2 * callee_cost * self.function_entrycount.get(callee, 0)
+                    total_static_cost = 2 * (-callee_cost)
+                    call_sites = self.callee_call_sites.get(callee, defaultdict(list))
+                    for caller, sites in call_sites.items():
+                        if self.skip_cold_edge and self.function_hotness[caller] == False: #skip cold edge cost in our cost model
+                            continue
+                        caller_entry_count = self.function_entrycount[caller]
+                        # If caller and callee are the same, prologue/epilogue costs (both static/dynamic) are not applicable
+                        if caller != callee:
+                            # prologue/epilogue cost/benefit analysis
+                            caller_prologue_cost = 6 - len(function_regs.get(caller, {}))
+                            total_dynamic_benefit -= 2 * caller_prologue_cost * caller_entry_count
+                            total_static_cost += 2 * caller_prologue_cost
+                        # live around callsite cost/benefit analysis
+                        for site in sites:
+                            mbb_count = site["mbb_count"]
+                            caller_live_regs_cost = len(site["live_csrs"].intersection(callee_regs_set))
+                            total_dynamic_benefit -= 2 * caller_live_regs_cost * mbb_count
+                            total_static_cost += 2 * caller_live_regs_cost
 
-                    # Taking effect of PreserveNone
-                    if not self.skip_propagate:
-                        function_regs[callee] = {}
-                        for caller in self.predecessors[callee]:
-                            # TODO: to be more precise, we have to know whether register allocator uses rbp or not
-                            if caller != callee: #Skip propagation when caller and callee are the same
-                                function_regs[caller] = {"$rbx", "$rbp", "$r12", "$r13", "$r14", "$r15"}
+                    if self.skip_scoring or (total_dynamic_benefit > self.dynamic_threshold and total_static_cost < self.static_threshold):
+                        marked_pn_functions.add(callee)
+                        marked_pn_count += 1
+                        final_scores[callee] = {"dynamic": total_dynamic_benefit, "static": total_static_cost}
+
+                        # Taking effect of PreserveNone
+                        if not self.skip_propagate:
+                            function_regs[callee] = {}
+                            for caller in self.predecessors[callee]:
+                                # TODO: to be more precise, we have to know whether register allocator uses rbp or not
+                                if caller != callee: #Skip propagation when caller and callee are the same
+                                    function_regs[caller] = {"$rbx", "$rbp", "$r12", "$r13", "$r14", "$r15"}
 
             report_string += "*" * 10 + "\n"
-            report_string += f"Filtered {dangerous_function_count} dangerous functions.\n"
-            report_string += f"Filtered {ctor_dtor_count} constructors/destructors.\n"
-            report_string += f"Filtered {clone_count} cloned functions.\n"
+            report_string += f"Skipped {len(dangerous_functions)} dangerous functions.\n"
+            report_string += f"Skipped {ctor_dtor_count} constructors/destructors.\n"
+            report_string += f"Skipped {clone_count} cloned functions.\n"
             report_string += f"Found {len(final_scores)} function candidates.\n"
             report_string += "*" * 10 + "\n"
             report_string += "=" * 20 + "\n"

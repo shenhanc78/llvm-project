@@ -6,27 +6,15 @@ from collections import defaultdict
 import numpy as np
 from scipy import stats
 
-def parse_perf_data(file_path):
-    """Parses a single perf output file, correctly handling UTF-16LE encoding."""
-    content = None
-    # Auto-detect encoding
-    for enc in ['utf-8', 'utf-16-le', 'latin-1']:
-        try:
-            with open(file_path, 'r', encoding=enc) as f:
-                content = f.read()
-            break
-        except (UnicodeDecodeError, TypeError):
-            continue
-    
-    if content is None:
-        print(f"  [!] WARNING: Could not decode file {os.path.basename(file_path)} with any standard encoding.")
-        return {}
-
-    metrics = {}
+def parse_perf_data(stderr_content):
+    """
+    Parses stderr, which contains multiple 'perf stat' reports.
+    It finds all reports, sums the metrics, and returns the totals.
+    """
+    metrics = defaultdict(float)
     patterns = {
         'instructions': re.compile(r'([\d,]+)\s+instructions'),
         'cycles': re.compile(r'([\d,]+)\s+cycles'),
-        'ipc': re.compile(r'(\d+\.\d+)\s+insn per cycle'),
         'itlb_load_misses': re.compile(r'([\d,]+)\s+iTLB-load-misses'),
         'l1_icache_load_misses': re.compile(r'([\d,]+)\s+L1-icache-load-misses'),
         'l1_dcache_load_misses': re.compile(r'([\d,]+)\s+L1-dcache-load-misses'),
@@ -37,26 +25,65 @@ def parse_perf_data(file_path):
         'branch_misses': re.compile(r'([\d,]+)\s+branch-misses'),
     }
 
-    for key, pattern in patterns.items():
-        match = pattern.search(content)
-        if match:
-            try:
-                metrics[key] = float(match.group(1).replace(',', ''))
-            except (ValueError, IndexError):
-                metrics[key] = np.nan
-        else:
-            metrics[key] = np.nan
+    # Split the stderr into individual 'perf stat' reports
+    # Each report starts with '--- Perf for ...'
+    perf_reports = re.split(r'--- Perf for', stderr_content)
     
-    # The 'run-benchmark.sh' script prints its own time, which we can parse.
-    # This is a different way to get wall time.
-    time_match = re.search(r'total time:\s+(\d+\.\d+)s', content)
-    if time_match:
-         metrics['sysbench_total_time_s'] = float(time_match.group(1).replace(',', ''))
+    num_reports = 0
+    for report in perf_reports:
+        if not report:
+            continue
+        
+        # Check if the report contains any numbers, otherwise it's just text
+        if not any(char.isdigit() for char in report):
+            continue
+            
+        num_reports += 1
+        for key, pattern in patterns.items():
+            match = pattern.search(report)
+            if match:
+                try:
+                    metrics[key] += float(match.group(1).replace(',', ''))
+                except (ValueError, IndexError):
+                    pass # This metric just won't be incremented
+            
+    if num_reports == 0: # No perf data found
+        return {k: np.nan for k in patterns.keys()}
 
+    # Calculate derived metrics from the totals
+    if 'cycles' in metrics and metrics['cycles'] > 0:
+        metrics['ipc'] = metrics.get('instructions', 0) / metrics['cycles']
+    
+    if 'sys_time_s' in metrics and 'user_time_s' in metrics:
+        metrics['sys_user_total_time_s'] = metrics.get('sys_time_s', 0) + metrics.get('user_time_s', 0)
 
-    metrics['sys_user_total_time_s'] = metrics['sys_time_s'] + metrics['user_time_s']
-
+    # Note: We sum 'wall_time_s' from all 5 perf runs. This is correct.
     return metrics
+
+def parse_sysbench_logs(stdout_content):
+    """
+    Parses the stdout, which contains multiple sysbench logs.
+    It finds all 'transactions per sec' and 'total time' lines, aggregates
+    them, and returns the totals.
+    """
+    metrics = {}
+    try:
+        tps_matches = re.findall(r'transactions:\s+.*\((.*) per sec\.\)', stdout_content)
+        time_matches = re.findall(r'total time:\s+(.*)s', stdout_content)
+
+        total_tps = sum(float(tps) for tps in tps_matches)
+        total_time = sum(float(t) for t in time_matches)
+        
+        metrics['sysbench_total_tps'] = total_tps
+        metrics['sysbench_total_time_s'] = total_time
+        
+    except Exception as e:
+        print(f"  [!] WARNING: Could not parse sysbench logs: {e}")
+        metrics['sysbench_total_tps'] = np.nan
+        metrics['sysbench_total_time_s'] = np.nan
+        
+    return metrics
+
 
 def analyze_directory(results_dir):
     """Analyzes all benchmark subdirectories."""
@@ -69,8 +96,33 @@ def analyze_directory(results_dir):
 
         for run_file in run_files:
             file_path = os.path.join(bench_path, run_file)
-            parsed_metrics = parse_perf_data(file_path)
-            for key, value in parsed_metrics.items():
+            
+            # Read the whole log file
+            try:
+                with open(file_path, 'r', encoding='utf-8') as f:
+                    content = f.read()
+            except Exception as e:
+                print(f"  [!] WARNING: Could not read file {file_path}: {e}")
+                continue
+
+            # Split into stdout (from sysbench) and stderr (from perf stat)
+            stdout_match = re.search(r'--- Script Output \(stdout\) ---\n(.*?)\n\n--- Perf Report \(stderr\)', content, re.DOTALL)
+            stderr_match = re.search(r'--- Perf Report \(stderr\) ---\n(.*)', content, re.DOTALL)
+
+            if not stdout_match or not stderr_match:
+                print(f"  [!] WARNING: Could not parse stdout/stderr split in {file_path}")
+                continue
+                
+            stdout_content = stdout_match.group(1)
+            stderr_content = stderr_match.group(1)
+
+            # Parse both sections and combine the metrics
+            perf_metrics = parse_perf_data(stderr_content)
+            sysbench_metrics = parse_sysbench_logs(stdout_content)
+            
+            all_metrics = {**perf_metrics, **sysbench_metrics}
+            
+            for key, value in all_metrics.items():
                 all_data[bench_type][key].append(value)
     
     return all_data
@@ -94,7 +146,7 @@ def print_analysis(data):
     report_lines.append(f"Performance Analysis: '{label1}' vs '{label2}'")
     report_lines.append("="*80)
     
-    metrics_of_interest = list(data[label1].keys())
+    metrics_of_interest = set(data[label1].keys()) | set(data[label2].keys())
     
     for metric in sorted(metrics_of_interest):
         data1 = np.array(data[label1].get(metric, [])).astype(float)
@@ -108,13 +160,25 @@ def print_analysis(data):
             report_lines.append(f"Not enough valid data points for a meaningful comparison. (Found {len(data1)} for {label1}, {len(data2)} for {label2})")
             continue
         
-        scale = 1e12 if metric in ['cycles', 'instructions'] else 1e9 if "misses" in metric else 1
+        # Scale large numbers for readability
+        if metric in ['cycles', 'instructions']:
+            scale, unit = 1e9, "B" # Billions
+        elif "misses" in metric:
+            scale, unit = 1e6, "M" # Millions
+        else:
+            scale, unit = 1, ""
         
         mean1, std1 = np.mean(data1) / scale, np.std(data1) / scale
         mean2, std2 = np.mean(data2) / scale, np.std(data2) / scale
-        t_stat, p_value = stats.ttest_ind(data1, data2, equal_var=False, nan_policy='omit')
+        
+        # Handle division by zero for std dev if all values are identical
+        with np.errstate(divide='ignore', invalid='ignore'):
+            t_stat, p_value = stats.ttest_ind(data1, data2, equal_var=False, nan_policy='omit')
+        
+        if np.isnan(p_value):
+            p_value = 1.0 if np.isclose(mean1, mean2) else 0.0
 
-        report_lines.append(f"{'':<25} | {'Mean':>15} | {'Std Dev':>15} | {'Valid Runs'}")
+        report_lines.append(f"{'':<25} | {'Mean ('+unit+')':>15} | {'Std Dev ('+unit+')':>15} | {'Valid Runs'}")
         report_lines.append("-"*70)
         report_lines.append(f"{label1:<25} | {mean1:>15.4f} | {std1:>15.4f} | {len(data1)}")
         report_lines.append(f"{label2:<25} | {mean2:>15.4f} | {std2:>15.4f} | {len(data2)}")
@@ -123,10 +187,14 @@ def print_analysis(data):
 
         if p_value < 0.05:
             report_lines.append("Conclusion: The difference is STATISTICALLY SIGNIFICANT.")
-            direction = "FASTER" if "time" in metric else "MORE EFFICIENT"
-            direction = "WORSE" if "misses" in metric else direction
-            better_label, worse_label = (label1, label2) if mean1 < mean2 else (label2, label1)
-            if "misses" in metric: better_label, worse_label = worse_label, better_label
+            # Lower is better for time and misses
+            if "time" in metric or "misses" in metric:
+                better_label, worse_label = (label1, label2) if mean1 < mean2 else (label2, label1)
+                direction = "FASTER" if "time" in metric else "BETTER (fewer misses)"
+            else: # Higher is better for IPC and TPS
+                better_label, worse_label = (label1, label2) if mean1 > mean2 else (label2, label1)
+                direction = "BETTER (higher is better)"
+
             report_lines.append(f"'{better_label}' is significantly {direction.lower()} than '{worse_label}'.")
         else:
             report_lines.append("Conclusion: The difference is NOT statistically significant.")
