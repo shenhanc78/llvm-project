@@ -38,6 +38,7 @@
 #include "llvm/Support/Path.h"
 #include "llvm/Support/WithColor.h"
 #include "llvm/Support/raw_ostream.h"
+#include "llvm/Transforms/Utils/Cloning.h" // <-- Added for CloneFunction
 
 // // For online analysis in bottom up order
 // #include "llvm/Analysis/CallGraph.h"
@@ -124,53 +125,135 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
   // A set to store the names of functions we modify.
   std::set<std::string> PreserveNoneFunctions;
 
-  // Intersect JSON list with module contents + safety filters.
-  // Apply the transformation.
+  // --- MODIFICATION: Collect functions first to avoid iterator invalidation ---
+  // when cloning and adding new functions to the module.
+  SmallVector<Function*, 64> FunctionsToProcess;
   for (Function &F : M) {
-    if (Candidates.find(F.getName().str()) == Candidates.end())
-      continue;
-
-    // 1. Set the calling convention for the function itself.
-    if (F.getCallingConv() != CallingConv::PreserveNone) {
-      F.setCallingConv(CallingConv::PreserveNone);
-      Changed = true;
-      WithColor::note(errs()) << "[PreserveNone] Retagged function: " << F.getName() << "\n";
-      // Add the function's name to our set.
-      PreserveNoneFunctions.insert(F.getName().str());
-    }
-
-    // 2. Disable tail calls on any calls *within* the function itself.
-    if (!F.isDeclaration()) {
-      for (BasicBlock &B : F) {
-        for (Instruction &I : B) {
-          if (auto *CI = dyn_cast<CallInst>(&I)) {
-            CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-            Changed = true;
-          }
-        }
+      if (Candidates.find(F.getName().str()) != Candidates.end()) {
+          FunctionsToProcess.push_back(&F);
       }
-    }
-
-    // 3. Modify the call sites that call this function.
-    for (User *U : F.users()) {
-      auto *CB = cast<CallBase>(U);
-
-      // Disable tail calls at the call site except the caller
-      // is already a preserve none function or when the caller is in the tail call chain
-      if (auto *CI = dyn_cast<CallInst>(CB)) {
-          CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
-          Changed = true;
-      }
-
-      // Set the calling convention for the call site.
-      if (CB->getCallingConv() != CallingConv::PreserveNone) {
-        CB->setCallingConv(CallingConv::PreserveNone);
-        Changed = true;
-        WithColor::note(errs()) << "[PreserveNone] Retagged callsite in: "
-                                << CB->getFunction()->getName() << "\n";
-      }
-    }
   }
+
+  // Now, iterate over the collected list
+  for (Function *FPtr : FunctionsToProcess) {
+    Function &F = *FPtr;
+
+    // --- Fork behavior based on hasAddressTaken ---
+    if (F.hasAddressTaken()) {
+        
+        // === 1. CLONE THE FUNCTION ===
+        ValueToValueMapTy VMap; 
+        Function *F_clone = CloneFunction(&F, VMap);
+
+        // === 2. MODIFY THE CLONE ===
+        F_clone->setName(F.getName() + ".preserve_none");
+        F_clone->setCallingConv(CallingConv::PreserveNone);
+        F_clone->setLinkage(GlobalValue::InternalLinkage); // Make internal
+
+        // Also disable tail calls *within* the clone, copying original logic
+        if (!F_clone->isDeclaration()) {
+            for (BasicBlock &B : *F_clone) {
+                for (Instruction &I : B) {
+                    if (auto *CI = dyn_cast<CallInst>(&I)) {
+                        CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+                    }
+                }
+            }
+        }
+
+        // Add the new clone to the module
+        F.getParent()->getFunctionList().push_back(F_clone);
+
+        PreserveNoneFunctions.insert(F.getName().str());
+        Changed = true;
+        WithColor::note(errs()) << "[PreserveNone] Cloned " << F.getName() 
+                                << " to " << F_clone->getName() << " for AddressTaken\n";
+
+        // === 3. MODIFY THE ORIGINAL (F) - CREATE STUB ===
+        // F keeps its original name and *standard* calling convention
+        
+        F.deleteBody(); // Remove all old basic blocks
+        BasicBlock *StubBB = BasicBlock::Create(F.getContext(), "stub_entry", &F);
+        
+        // Gather arguments to pass to the clone
+        SmallVector<Value*, 16> Args;
+        for (auto &Arg : F.args()) {
+            Args.push_back(&Arg);
+        }
+
+        // Create the call to the clone
+        CallInst *CloneCall = CallInst::Create(F_clone->getFunctionType(), F_clone, Args, "", StubBB);
+        CloneCall->setCallingConv(CallingConv::PreserveNone); // Call clone with new CC
+        CloneCall->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+
+        // Create the return instruction
+        if (F.getReturnType()->isVoidTy()) {
+            ReturnInst::Create(F.getContext(), StubBB);
+        } else {
+            ReturnInst::Create(F.getContext(), CloneCall, StubBB);
+        }
+
+        // === 4. UPDATE USERS OF THE ORIGINAL (F) ===
+        // Must copy user list before modifying it
+        SmallVector<User*, 16> Users(F.users());
+        for (User *U : Users) {
+            if (auto *CB = dyn_cast<CallBase>(U)) {
+                // This is a direct call site. Retarget it to the clone.
+                CB->setCalledFunction(F_clone);
+                CB->setCallingConv(CallingConv::PreserveNone);
+                if (auto *CI = dyn_cast<CallInst>(CB)) {
+                    CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+                }
+                WithColor::note(errs()) << "[PreserveNone] Retagged direct callsite in: "
+                                        << CB->getFunction()->getName() << "\n";
+            } 
+            // else: This is an address-taken use (e.g., store, constant).
+            // We *leave it alone*. It will now correctly point to
+            // the stub (F), which handles the ABI.
+        }
+
+    } else {
+        // === THIS IS THE ORIGINAL "SIMPLE" LOGIC (for !hasAddressTaken) ===
+        
+        // 1. Set the calling convention for the function itself.
+        if (F.getCallingConv() != CallingConv::PreserveNone) {
+            F.setCallingConv(CallingConv::PreserveNone);
+            Changed = true;
+            WithColor::note(errs()) << "[PreserveNone] Retagged function: " << F.getName() << "\n";
+            PreserveNoneFunctions.insert(F.getName().str());
+        }
+
+        // 2. Disable tail calls *within* the function itself.
+        if (!F.isDeclaration()) {
+            for (BasicBlock &B : F) {
+                for (Instruction &I : B) {
+                    if (auto *CI = dyn_cast<CallInst>(&I)) {
+                        CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+                        Changed = true;
+                    }
+                }
+            }
+        }
+
+        // 3. Modify the call sites that call this function.
+        // (Since hasAddressTaken is false, all users are CallBase)
+        for (User *U : F.users()) {
+            auto *CB = cast<CallBase>(U);
+
+            if (auto *CI = dyn_cast<CallInst>(CB)) {
+                CI->setTailCallKind(CallInst::TailCallKind::TCK_NoTail);
+                Changed = true;
+            }
+
+            if (CB->getCallingConv() != CallingConv::PreserveNone) {
+                CB->setCallingConv(CallingConv::PreserveNone);
+                Changed = true;
+                WithColor::note(errs()) << "[PreserveNone] Retagged callsite in: "
+                                        << CB->getFunction()->getName() << "\n";
+            }
+        }
+    }
+  } // --- End of loop over FunctionsToProcess ---
 
   // Write the collected unique function names to the output file.
   if (Changed && !PreserveNoneRecordPath.empty() && !PreserveNoneFunctions.empty()) {
@@ -178,7 +261,7 @@ PreservedAnalyses PreserveNonePass::run(Module &M, ModuleAnalysisManager &MAM) {
     raw_fd_ostream OutputFile(PreserveNoneRecordPath, EC, sys::fs::OF_Text | sys::fs::OF_Append);
     if (EC) {
         WithColor::warning(errs()) << "[PreserveNone] Could not open record output file: "
-                                   << PreserveNoneRecordPath << " - " << EC.message() << "\n";
+                                    << PreserveNoneRecordPath << " - " << EC.message() << "\n";
     } else {
         for (const auto &FuncName : PreserveNoneFunctions) {
             OutputFile << FuncName << "\n";
