@@ -161,19 +161,20 @@ autofdo_metadata_mysql:
 	$(call log,✅ autofdo_metadata_mysql built successfully.)
 
 # Target 2: Collect perf profile data using the metadata build
-autofdo_collect_perf:
-	@$(call log, STEP AFDO-2: Collecting perf profile data)
-	@set -e; \
-	rm -f "$(AUTOFDO_PERF_FILE)"; \
-	perf record -e BR_INST_RETIRED.NEAR_TAKEN:u -b -c 500009 \
-		-o "$(AUTOFDO_PERF_FILE)" -- \
-		./run-benchmark.sh "$(AUTOFDO_METADATA_MYSQL_DIR)" "loadtest";
+# Might need to run these sudo commands first
+# sudo sh -c 'echo 0 > /proc/sys/kernel/kptr_restrict'
+# sudo sh -c 'echo -1 > /proc/sys/kernel/perf_event_paranoid'
+autofdo_collect_perf: perf_autofdo_profile.py
+	$(call log, STEP AFDO-2: Executing Python Profiler)
+	# Pass the absolute build directory and the absolute output file path to the Python script
+	python3 perf_autofdo_profile.py \
+		"$(AUTOFDO_METADATA_MYSQL_DIR)" \
+		"$(AUTOFDO_PERF_FILE)"
 	$(call log,✅ Perf data collected at $(AUTOFDO_PERF_FILE))
 
 # Target 3: Convert perf data to LLVM profile format
 autofdo_convert_profile:
 	$(call log, STEP AFDO-3: Converting perf data to LLVM profile)
-	# --- FIX: Using ./create_llvm_prof, as in your Clang Makefile ---
 	../create_llvm_prof --binary="$(AUTOFDO_METADATA_MYSQL_DIR)/install/bin/mysqld" \
 					 --profile="$(AUTOFDO_PERF_FILE)" \
 					 --format=extbinary \
@@ -220,7 +221,6 @@ pn_thinlto_autofdo_mysql:
 	@$(call log,✅ pn_thinlto_autofdo_mysql built successfully.)
 
 # --- Liveness Analysis Target ---
-
 thinlto_autofdo_mysql_liveness_analysis:
 	@$(call log,Collecting Liveness Data using thinlto_autofdo_mysql build flags)
 	@mkdir -p "$(THINLTO_AUTOFDO_MYSQL_LIVENESS_OUTPUT_DIR)"
@@ -265,10 +265,10 @@ benchmark:
 	BENCHMARK_RUNS=$${BENCHMARK_RUNS:-1}; \
 	METRICS_CSV="$(METRICS_DIR)/benchmark_results/$(TARGET)_metrics.csv"; \
 	\
-	echo "  -> TARGET Name: $(TARGET)"; \
-	echo "  -> TARGET Path: $$TARGET_DIR"; \
-	echo "  -> Benchmark Runs: $$BENCHMARK_RUNS"; \
-	echo "  -> Metrics File: $$METRICS_CSV"; \
+	echo "   -> TARGET Name: $(TARGET)"; \
+	echo "   -> TARGET Path: $$TARGET_DIR"; \
+	echo "   -> Benchmark Runs: $$BENCHMARK_RUNS"; \
+	echo "   -> Metrics File: $$METRICS_CSV"; \
 	\
 	mkdir -p "$(METRICS_DIR)/benchmark_results"; \
 	\

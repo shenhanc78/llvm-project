@@ -22,7 +22,15 @@ COMMANDS = {
         "/usr/local/google/home/tanjihui/ipra-run/thinlto_autofdo_clang/bin/clang++",
         "--iterations",
         "1"
-    ]
+    ],
+    "Preserve None": [
+        "/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh",
+        "run_local",
+        "--cc",
+        "/usr/local/google/home/tanjihui/ipra-run/pn_ipra_thinlto_autofdo_clang/bin/clang++",
+        "--iterations",
+        "1"
+    ],
 }
 # Copy json prof_data for documentations
 JSON_SRC_FILE = '../metrics/pn_functions/ipra_thinlto_autofdo_pn_functions/liveness_profdata.json'

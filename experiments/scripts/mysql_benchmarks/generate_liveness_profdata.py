@@ -48,7 +48,7 @@ scoring = Scoring(costs, sites, successors, predecessors,
                   all_nodes, function_hotness, function_entrycount, dangerous_functions, good_functions=good_functions,
                   skip_scc=False, skip_tail=True, skip_cold=True, skip_cold_edge=False, 
                   allow_cdtor={}, skip_propagate=False, good_functions_only=False,
-                  static_threshold=float('inf'), dynamic_threshold=0, callee_register_threshold=0, skip_scoring=False)
+                  static_threshold=0, dynamic_threshold=10, callee_register_threshold=0, skip_scoring=False)
 function_dict, scoring_message = scoring.calculate_benefits(show_message=True)
 print(scoring_message)
 Util.print_scores(function_dict)

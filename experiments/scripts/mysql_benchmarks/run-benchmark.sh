@@ -46,13 +46,13 @@ fi
 mkdir -p "${BENCH_DIR}"
 cd "${BENCH_DIR}"
 
-# Source the functions *after* changing into the correct directory,
-# so the 'current_run_pwd=$(pwd)' variable inside it is set correctly.
-source "${MYSQL_RUN_FUNCS_PATH}"
-
 # The run functions in mysql-run-funcs.sh expect 'install.dir' to be present
 # in the current directory, pointing to the MySQL installation.
 ln -sfn "${INSTALL_DIR}" install.dir
+
+# Source the functions *after* changing into the correct directory,
+# so the 'current_run_pwd=$(pwd)' variable inside it is set correctly.
+source "${MYSQL_RUN_FUNCS_PATH}"
 
 # --- Run Workload ---
 # Dynamically call the function passed as RUN_MODE,

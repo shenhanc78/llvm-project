@@ -396,7 +396,6 @@ autofdo_metadata_clang:
 	$(call log,✅ autofdo_metadata_clang built successfully.)
 
 # Collect perf profile data using the metadata clang
-# (This target just defines the file, it's run by the next target)
 autofdo_collect_perf:
 	@$(call log, Collecting perf profile data)
 	@set -e; \
