@@ -114,7 +114,7 @@ Each target injects the necessary `-mllvm -preserve-none-enable` and `-mllvm -pr
 ### 5. Inspect results and iterate
 
 * The PreserveNone pass records modified function names to `pn_functions.txt` (or the path set via `-preserve-none-record`).
-* The serialized context and `liveness_profdata.json` allow you to tweak thresholds or cost model parameters in `lib/pylib/scoring.py` and regenerate candidates.
+* The serialized context `*.json` from `generate_pn_analysis_context.py` allow you to tweak thresholds or cost model parameters in `generate_liveness_profdata.py`, which imports `lib/pylib/scoring.py` to regenerate candidates.
 * Rebuild the PreserveNone toolchains (`make pn_*`) and rerun `perf_runner.py`/`perf_analyzer.py` to compare iterations.
 
 ## How PreserveNone affects the build
