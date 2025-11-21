@@ -17,6 +17,7 @@ from lib.pylib.scoring import Scoring
 # remove cold call edges
 # interleaving calls
 
+#Only need to change this, other global constants are automatically generated
 COMPILER = 'ipra_thinlto_autofdo_clang'
 
 # ------- Constants determined by `COMPILER` ---------
@@ -40,8 +41,7 @@ with open(f"{PN_FUNCTIONS_DIR}/good_functions.json", "r") as f:
 scoring = Scoring(costs, sites, successors, predecessors, 
                   all_nodes, function_hotness, function_entrycount, dangerous_functions, good_functions=good_functions,
                   skip_scc=False, skip_tail=True, skip_cold=True, skip_cold_edge=True, 
-                  allow_cdtor={"C2", "D2"},
-                  skip_propagate=False, good_functions_only=True,
+                  allow_cdtor={}, skip_propagate=True, good_functions_only=True, top_k=10,
                   static_threshold=0, dynamic_threshold=0, callee_register_threshold=0, skip_scoring=False)
 function_dict, scoring_message = scoring.calculate_benefits(show_message=True)
 print(scoring_message)

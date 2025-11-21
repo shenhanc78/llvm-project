@@ -8,6 +8,7 @@ from lib.pylib.parsers import Parser, TestParser
 from lib.pylib.utils import Util
 from lib.pylib.scoring import Scoring
 
+#Only need to change this, other global constants are automatically generated
 COMPILER = 'ipra_thinlto_autofdo_clang'
 
 # ------- Constants determined by `COMPILER` ---------

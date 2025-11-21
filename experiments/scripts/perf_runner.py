@@ -11,7 +11,7 @@ COMMANDS = {
         "/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh",
         "run_local",
         "--cc",
-        "/usr/local/google/home/tanjihui/ipra-run/pn_ipra_thinlto_autofdo_clang/bin/clang++",
+        "/usr/local/google/home/tanjihui/ipra-run/pn_thinlto_autofdo_clang/bin/clang++",
         "--iterations",
         "1"
     ],
@@ -20,14 +20,6 @@ COMMANDS = {
         "run_local",
         "--cc",
         "/usr/local/google/home/tanjihui/ipra-run/thinlto_autofdo_clang/bin/clang++",
-        "--iterations",
-        "1"
-    ],
-    "Preserve None": [
-        "/usr/local/google/home/tanjihui/Desktop/clangbench/do-clangbench.sh",
-        "run_local",
-        "--cc",
-        "/usr/local/google/home/tanjihui/ipra-run/pn_ipra_thinlto_autofdo_clang/bin/clang++",
         "--iterations",
         "1"
     ],
