@@ -41,7 +41,7 @@ def run_benchmark():
     print('📂 For record, documenting liveness_profdata.json...')
     shutil.copy(JSON_SRC_FILE, base_results_dir)
 
-    # --- NEW: Create all benchmark-specific directories first ---
+    # --- Create all benchmark-specific directories first ---
     benchmark_dirs = {}
     print("Pre-creating result directories:")
     for name in COMMANDS.keys():
@@ -55,7 +55,7 @@ def run_benchmark():
 
     print("\n" + "="*80)
     
-    # --- MODIFIED: Loop by run number FIRST, then by command ---
+    # --- Loop by run number FIRST, then by command ---
     for i in range(1, NUM_RUNS + 1):
         print(f"🚀 Starting Global Iteration {i} of {NUM_RUNS}")
 

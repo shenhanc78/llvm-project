@@ -1,4 +1,3 @@
-# final_analyzer.py
 import os
 import re
 import sys
@@ -112,7 +111,7 @@ def print_analysis(data):
         report_lines.append("-"*70)
         report_lines.append(f"{label1:<25} | {mean1:>15.4f} | {std1:>15.4f} | {len(data1)}")
         report_lines.append(f"{label2:<25} | {mean2:>15.4f} | {std2:>15.4f} | {len(data2)}")
-        report_lines.append("")  # For the blank line
+        report_lines.append("")
         report_lines.append(f"T-test: p-value = {p_value:.4f}")
 
         if p_value < 0.05:

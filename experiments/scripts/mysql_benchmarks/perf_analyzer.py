@@ -290,7 +290,6 @@ def print_analysis(data, batch_size=1, task_by_task=False):
             
             if np.isnan(p_value): p_value = 1.0
 
-            # --- CORRECTED PERCENTAGE CALCULATION ---
             # Formula: (New - Base) / Base * 100
             # Positive = New is bigger. Negative = New is smaller.
             if mean1 != 0:

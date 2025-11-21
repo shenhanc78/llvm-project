@@ -58,5 +58,3 @@ source "${MYSQL_RUN_FUNCS_PATH}"
 # Dynamically call the function passed as RUN_MODE,
 # passing MYSQL_DATA_DIR as the first arg, and any other args after.
 "${RUN_MODE}" "${MYSQL_DATA_DIR}" "${ARGS[@]}"
-
-# We don't print a "complete" message, as this script is a silent helper

@@ -18,7 +18,7 @@ TARGETS = {
     }
 }
 
-# --- This is the workload definition with CPU Pinning (FIXED NAMES) ---
+# --- This is the workload definition with CPU Pinning ---
 SYSBENCH_WORKLOAD = [
     {
         "name": "oltp_read_write",

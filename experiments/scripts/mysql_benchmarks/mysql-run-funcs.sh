@@ -42,7 +42,7 @@ function setup_db() {
   
   DATA_DIR="${current_run_pwd}/${mysql_dir}/data"
   
-  # --- CRITICAL FIX: Kill zombies BEFORE deleting the directory ---
+  # --- Kill zombies BEFORE deleting the directory ---
   # If we don't kill mysqld here, 'rm -rf' deletes the PID file, 
   # and start_server won't know there's a zombie running.
   if pgrep -f "mysqld" > /dev/null; then
@@ -63,7 +63,7 @@ function setup_db() {
       --defaults-file=install.dir/my.cnf --datadir="${DATA_DIR}" --initialize-insecure --user=${USER}
   if [[ "$?" -ne 0 ]]; then echo "*** setup failed ***" ; return 1; fi
   
-  # Permission fix to ensure current user owns the fresh data
+  # Permission to ensure current user owns the fresh data
   chown -R ${USER}:${USER} "${DATA_DIR}" 2>/dev/null || true
   
   return 0
@@ -92,7 +92,6 @@ function start_server() {
   chmod 755 "${DATA_DIR}"
   rm -f "${PID_FILE}" # Ensure old PID file is gone
 
-  # --- CRITICAL FIX: Reintroduce taskset around mysqld_safe ---
   taskset -c ${MYSQLD_CORE} "install.dir/bin/mysqld_safe" \
       --defaults-file=install.dir/my.cnf --mysqld=mysqld \
       --datadir="${DATA_DIR}" \
@@ -121,7 +120,7 @@ function stop_server() {
 # === SYSBENCH HELPER FUNCTIONS ===
 
 function create_database() {
-  # The permissions fix in start_server ensures MySQL can create the directory itself.
+  # The permissions in start_server ensures MySQL can create the directory itself.
   install.dir/bin/mysql -u root --socket=${current_run_pwd}/mysqltest.sock -e "DROP DATABASE IF EXISTS sysbench; CREATE DATABASE sysbench;"
 }
 
@@ -268,7 +267,7 @@ function setup_and_start() {
   return 0
 }
 
-# --- NEW: Function to handle only the workload runs (the part to profile) ---
+# --- Function to handle only the workload runs (the part to profile) ---
 function run_sysbench_loadtest() {
   local -r mysql_dir="$1"
   echo "Running sysbench load test (Workload Only)..."
