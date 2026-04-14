@@ -477,6 +477,23 @@ bool llvm::isLegalToPromote(const CallBase &CB, Function *Callee,
     }
   }
 
+  // Check target feature compatibility.
+  auto CalleeFeatures =
+      Callee->getFnAttribute("target-features").getValueAsString();
+  auto CallerFeatures =
+      CB.getCaller()->getFnAttribute("target-features").getValueAsString();
+  SmallVector<StringRef, 8> CalleeFeats;
+  CalleeFeatures.split(CalleeFeats, ',');
+  for (auto Feat : CalleeFeats) {
+    if (Feat.starts_with("+")) {
+      if (!CallerFeatures.contains(Feat)) {
+        if (FailureReason)
+          *FailureReason = "Incompatible target features";
+        return false;
+      }
+    }
+  }
+
   return true;
 }
 

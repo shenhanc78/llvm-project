@@ -3273,6 +3273,31 @@ InlineCost llvm::getInlineCost(
     ProfileSummaryInfo *PSI, OptimizationRemarkEmitter *ORE,
     function_ref<EphemeralValuesCache &(Function &)> GetEphValuesCache) {
 
+  if (Call.getMetadata("prof_promoted")) {
+    auto CalleeFeatures =
+        Callee->getFnAttribute("target-features").getValueAsString();
+    auto CallerFeatures =
+        Call.getCaller()->getFnAttribute("target-features").getValueAsString();
+
+    SmallVector<StringRef, 8> CalleeFeats;
+    CalleeFeatures.split(CalleeFeats, ',');
+
+    for (auto Feat : CalleeFeats) {
+      if (Feat.starts_with("+")) {
+        if (!CallerFeatures.contains(Feat)) {
+          return llvm::InlineCost::getNever(
+              "missing target feature in caller for profile promoted call");
+        }
+      }
+    }
+
+    if (!functionsHaveCompatibleAttributes(Call.getCaller(), Callee, CalleeTTI,
+                                           GetTLI)) {
+      return llvm::InlineCost::getNever(
+          "conflicting attributes for profile promoted call");
+    }
+  }
+
   auto UserDecision =
       llvm::getAttributeBasedInliningDecision(Call, Callee, CalleeTTI, GetTLI);
 

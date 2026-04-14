@@ -666,9 +666,15 @@ CallBase &llvm::pgo::promoteIndirectCall(CallBase &CB, Function *DirectCallee,
                                          uint64_t Count, uint64_t TotalCount,
                                          bool AttachProfToDirectCall,
                                          OptimizationRemarkEmitter *ORE) {
+  bool WasProfilePromoted = CB.getMetadata(LLVMContext::MD_prof) != nullptr;
+
   CallBase &NewInst = promoteCallWithIfThenElse(
       CB, DirectCallee,
       createBranchWeights(CB.getContext(), Count, TotalCount - Count));
+
+  if (WasProfilePromoted) {
+    NewInst.setMetadata("prof_promoted", MDNode::get(CB.getContext(), {}));
+  }
 
   if (AttachProfToDirectCall)
     setFittedBranchWeights(NewInst, {Count},
